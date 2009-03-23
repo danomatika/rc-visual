@@ -1,0 +1,333 @@
+#
+# control commands preceded by '!'
+# commands: group, endgroup, sprite, endsprite
+
+!group
+phatnphunky1  # phatnphunky1
+
+    !sprite
+	back 1 1 1
+	*
+	
+	color 255 255 255 255
+	size 640 480
+	visible 0
+    !endsprite
+
+    !sprite
+        bar1 6 4 1  # sprite name, width, height, num of frames
+
+        # the sprite itself, '*' = filled pixel, '-' = empty pixel
+	
+	------
+	------
+	------
+	*-----
+
+        color 255 0 0 255     # R G B A, values 0 - 255
+        size 640 480    # width height, how big the sprite is
+        pos 0 0 # x y, where the sprites upper left corner is
+        animate 0   # should the sprite automatically animate?, '1' = yes, '0' = no
+    	visible 0	# hide
+    !endsprite
+
+    !sprite
+        bar2 6 4 1  # sprite name, width, height, num of frames
+
+        # the sprite itself, '*' = filled pixel, '-' = empty pixel
+	
+	------
+	------
+	-*----
+	-*----
+
+        color 255 153 0 255     # orange
+        size 640 480    # width height, how big the sprite is
+        pos 0 0 # x y, where the sprites upper left corner is
+        animate 0   # should the sprite automatically animate?, '1' = yes, '0' = no
+    	visible 0	# hide
+    !endsprite
+
+    !sprite
+        bar3 6 4 1  # sprite name, width, height, num of frames
+
+        # the sprite itself, '*' = filled pixel, '-' = empty pixel
+	
+	------
+	--*---
+	--*---
+	--*---
+
+        color 255 255 0 255     # yellow
+        size 640 480    # width height, how big the sprite is
+        pos 0 0 # x y, where the sprites upper left corner is
+        animate 0   # should the sprite automatically animate?, '1' = yes, '0' = no
+    	visible 0	# hide
+    !endsprite
+
+    !sprite
+        bar4 6 4 1  # sprite name, width, height, num of frames
+
+        # the sprite itself, '*' = filled pixel, '-' = empty pixel
+	
+	---*--
+	---*--
+	---*--
+	---*--
+
+        color 50 255 0 255     # green
+        size 640 480    # width height, how big the sprite is
+        pos 0 0 # x y, where the sprites upper left corner is
+        animate 0   # should the sprite automatically animate?, '1' = yes, '0' = no
+    	visible 0	# hide
+    !endsprite
+
+	
+    !sprite
+        bar5 6 4 1  # sprite name, width, height, num of frames
+
+        # the sprite itself, '*' = filled pixel, '-' = empty pixel
+	
+	----*-
+	----*-
+	------
+	------
+
+        color 0 0 255 255     # blue
+        size 640 480    # width height, how big the sprite is
+        pos 0 0 # x y, where the sprites upper left corner is
+        animate 0   # should the sprite automatically animate?, '1' = yes, '0' = no
+    	visible 0	# hide
+    !endsprite
+
+    !sprite
+        bar6 6 4 1  # sprite name, width, height, num of frames
+
+        # the sprite itself, '*' = filled pixel, '-' = empty pixel
+	
+	-----*
+	-----*
+	------
+	------
+
+        color 255 0 255 255     # purple
+        size 640 480    # width height, how big the sprite is
+        pos 0 0 # x y, where the sprites upper left corner is
+        animate 0   # should the sprite automatically animate?, '1' = yes, '0' = no
+    	visible 0	# hide
+    !endsprite
+
+    !sprite
+	missle 4 4 4
+	
+	*--*
+	-**-
+	****
+	----
+
+	*--*
+	-**-
+	-**-
+	*--*
+
+	----
+	****
+	-**-
+	*--*
+
+	-**-
+	*--*
+	*--*
+	-**-
+
+	color 0 255 255 255
+	size 160 120
+	pos 280 180
+	animate 1
+	visible 0
+    !endsprite
+
+!endgroup
+
+
+
+!group
+phatnphunky2  # phatnphunky1
+
+    !sprite
+	back 1 1 1
+	*
+	
+	color 255 0 0 255
+	size 640 480
+	visible 0
+    !endsprite
+
+    !sprite
+        bar1 6 4 1  # sprite name, width, height, num of frames
+
+        # the sprite itself, '*' = filled pixel, '-' = empty pixel
+	
+	*-----
+	*-----
+	*-----
+	*-----
+
+        color 255 0 0 255     # R G B A, values 0 - 255
+        size 640 480    # width height, how big the sprite is
+        pos 0 0 # x y, where the sprites upper left corner is
+        animate 0   # should the sprite automatically animate?, '1' = yes, '0' = no
+    	visible 0	# hide
+    !endsprite
+
+    !sprite
+        bar2 6 4 1  # sprite name, width, height, num of frames
+
+        # the sprite itself, '*' = filled pixel, '-' = empty pixel
+	
+	------
+	-*----
+	-*----
+	-*----
+
+        color 255 153 0 255     # orange
+        size 640 480    # width height, how big the sprite is
+        pos 0 0 # x y, where the sprites upper left corner is
+        animate 0   # should the sprite automatically animate?, '1' = yes, '0' = no
+    	visible 0	# hide
+    !endsprite
+
+    !sprite
+        bar3 6 4 1  # sprite name, width, height, num of frames
+
+        # the sprite itself, '*' = filled pixel, '-' = empty pixel
+	
+	------
+	------
+	--*---
+	--*---
+
+        color 255 255 0 255     # yellow
+        size 640 480    # width height, how big the sprite is
+        pos 0 0 # x y, where the sprites upper left corner is
+        animate 0   # should the sprite automatically animate?, '1' = yes, '0' = no
+    	visible 0	# hide
+    !endsprite
+
+    !sprite
+        bar4 6 4 1  # sprite name, width, height, num of frames
+
+        # the sprite itself, '*' = filled pixel, '-' = empty pixel
+	
+	------
+	------
+	------
+	---*--
+
+        color 50 255 0 255     # green
+        size 640 480    # width height, how big the sprite is
+        pos 0 0 # x y, where the sprites upper left corner is
+        animate 0   # should the sprite automatically animate?, '1' = yes, '0' = no
+    	visible 0	# hide
+    !endsprite
+
+	
+    !sprite
+        bar5 6 4 1  # sprite name, width, height, num of frames
+
+        # the sprite itself, '*' = filled pixel, '-' = empty pixel
+	
+	----*-
+	----*-
+	------
+	------
+
+        color 0 0 255 255     # blue
+        size 640 480    # width height, how big the sprite is
+        pos 0 0 # x y, where the sprites upper left corner is
+        animate 0   # should the sprite automatically animate?, '1' = yes, '0' = no
+    	visible 0	# hide
+    !endsprite
+
+    !sprite
+        bar6 6 4 1  # sprite name, width, height, num of frames
+
+        # the sprite itself, '*' = filled pixel, '-' = empty pixel
+	
+	-----*
+	-----*
+	------
+	------
+
+        color 255 0 255 255     # purple
+        size 640 480    # width height, how big the sprite is
+        pos 0 0 # x y, where the sprites upper left corner is
+        animate 0   # should the sprite automatically animate?, '1' = yes, '0' = no
+    	visible 0	# hide
+    !endsprite
+
+    !sprite
+	missle 4 4 4
+	
+	*--*
+	-**-
+	****
+	----
+
+	*--*
+	-**-
+	-**-
+	*--*
+
+	----
+	****
+	-**-
+	*--*
+
+	-**-
+	*--*
+	*--*
+	-**-
+
+	color 0 255 255 255
+	size 160 120
+	pos 280 180
+	animate 1
+	visible 0
+    !endsprite
+
+    !sprite
+        beep1 6 4 1  # sprite name, width, height, num of frames
+
+        # the sprite itself, '*' = filled pixel, '-' = empty pixel
+	
+	------
+	------
+	----**
+	------
+
+        color 0 255 200 255     # lt blue
+        size 640 480    # width height, how big the sprite is
+        pos 0 0 # x y, where the sprites upper left corner is
+        animate 0   # should the sprite automatically animate?, '1' = yes, '0' = no
+    	visible 0	# hide
+    !endsprite
+
+    !sprite
+        beep2 6 4 1  # sprite name, width, height, num of frames
+
+        # the sprite itself, '*' = filled pixel, '-' = empty pixel
+	
+	------
+	------
+	------
+	----**
+
+        color 255 0 150 255     # magenta
+        size 640 480    # width height, how big the sprite is
+        pos 0 0 # x y, where the sprites upper left corner is
+        animate 0   # should the sprite automatically animate?, '1' = yes, '0' = no
+    	visible 0	# hide
+    !endsprite
+
+!endgroup
