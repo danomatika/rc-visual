@@ -25,7 +25,7 @@ class Sprite_Collection
 
         void clear();
 
-        void render(SDL_Surface *screen);
+        void render();
 
         void nextGroup();
 

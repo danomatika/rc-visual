@@ -1,6 +1,6 @@
 #include "Sprite.h"
 
-Sprite::Sprite(string name, int virt_width, int virt_height, int num_frames)
+Sprite::Sprite(std::string name, int virt_width, int virt_height, int num_frames)
 {
     sprite_name = name;
 
@@ -50,7 +50,7 @@ Sprite::~Sprite()
     //    delete sprite;
 }
 
-void Sprite::render(SDL_Surface *screen)
+void Sprite::render()
 {
     if(!is_visible) return;    // do nothing if hidden
 
@@ -64,7 +64,7 @@ void Sprite::render(SDL_Surface *screen)
         {
             // render virtual pixel
             if(sprite[(x + y*s_num_pix_x) + offset] == true)
-                boxRGBA(screen, px, py, px+pix_w-1, py+pix_h-1, r, g, b, a);
+                boxRGBA(Graphics::getSDLScreen(), px, py, px+pix_w-1, py+pix_h-1, r, g, b, a);
             px += pix_w;
         }
         px = pos_x;
@@ -101,7 +101,7 @@ void Sprite::gotoFrame(int frame_index)
         return;
     }
 
-    cout << "Sprite \"" << sprite_name << "\": invalid frame index: \"" << frame_index << "\"" << endl;
+    LOG_ERROR << "Sprite \"" << sprite_name << "\": invalid frame index: \"" << frame_index << "\"" << std::endl;
 }
 
 void Sprite::clear()
@@ -150,12 +150,12 @@ void Sprite::setColor(uint8_t R, uint8_t G, uint8_t B, uint8_t A)
 
 void Sprite::print()
 {
-    cout << sprite_name << endl
-         << "w: " << width << " h: " << height << endl
-         << "x: " << pos_x << " y: " << pos_y << endl
-         << "r: " << (int) r << " g: " << (int) g << " b: " << (int) b << " a: " << (int) a << endl
-         << "frames: " << s_num_frames << " animate: " << advance_frames << " visible: " << is_visible << endl
-         << endl;
+    LOG << sprite_name << std::endl
+         << "w: " << width << " h: " << height << std::endl
+         << "x: " << pos_x << " y: " << pos_y << std::endl
+         << "r: " << (int) r << " g: " << (int) g << " b: " << (int) b << " a: " << (int) a << std::endl
+         << "frames: " << s_num_frames << " animate: " << advance_frames << " visible: " << is_visible << std::endl
+         << std::endl;
 
     int px = pos_x, py = pos_y; // upper right corner phys pos  of virtual pixel
 
@@ -169,16 +169,16 @@ void Sprite::print()
             {
                 // render virtual pixel
                 if(sprite[(x + y*s_num_pix_x) + f*s_num_pix_f] == true)
-                    cout << '*';
+                    LOG << '*';
                 else
-                    cout << '-';
-                cout << ' ';
+                    LOG << '-';
+                LOG << ' ';
                 px += pix_w;
             }
             px = pos_x;
             py += pix_h;
-            cout << endl;
+            LOG << std::endl;
         }
-        cout << endl;
+        LOG << std::endl;
     }
 }

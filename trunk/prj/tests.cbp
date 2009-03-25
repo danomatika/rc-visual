@@ -37,13 +37,18 @@
 			<Add option="-fexceptions" />
 			<Add directory="../src/lib" />
 			<Add directory="../src/tinyxml" />
+			<Add directory="../src/oscpack" />
+			<Add directory="../src/oscpack/osc" />
 		</Compiler>
 		<Linker>
 			<Add library="visual" />
 			<Add library="SDL_gfx" />
+			<Add library="oscpack" />
 			<Add directory="lib" />
 		</Linker>
-		<Unit filename="tests/main.cpp" />
+		<Unit filename="tests/ClassTest.cpp" />
+		<Unit filename="tests/ClassTests.h" />
+		<Unit filename="tests/testMain.cpp" />
 		<Extensions>
 			<envvars />
 			<code_completion />

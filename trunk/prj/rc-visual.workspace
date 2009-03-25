@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_workspace_file>
 	<Workspace title="Workspace">
-		<Project filename="libvisual.cbp" />
-		<Project filename="rc-visual.cbp" active="1">
-			<Depends filename="libvisual.cbp" />
+		<Project filename="oscpack.cbp" />
+		<Project filename="tinyxml.cbp" />
+		<Project filename="libvisual.cbp" active="1">
+			<Depends filename="oscpack.cbp" />
+			<Depends filename="tinyxml.cbp" />
+		</Project>
+		<Project filename="rc-visual.cbp">
+			<Depends filename="oscpack.cbp" />
 		</Project>
 		<Project filename="rc-visual-send.cbp" />
 		<Project filename="tests.cbp">
+			<Depends filename="oscpack.cbp" />
 			<Depends filename="libvisual.cbp" />
+			<Depends filename="tinyxml.cbp" />
 		</Project>
 	</Workspace>
 </CodeBlocks_workspace_file>

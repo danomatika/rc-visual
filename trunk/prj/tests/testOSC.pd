@@ -1,0 +1,13 @@
+#N canvas 2267 142 345 199 10;
+#X obj 41 138 sendOSC;
+#X msg 41 17 send /ka 199;
+#X msg 93 96 disconnect;
+#X msg 65 55 connect 127.0.0.1 7000;
+#X obj 214 163 print;
+#X obj 214 101 udpreceive 8000;
+#X obj 214 134 unpackOSC;
+#X connect 1 0 0 0;
+#X connect 2 0 0 0;
+#X connect 3 0 0 0;
+#X connect 5 0 6 0;
+#X connect 6 0 4 0;

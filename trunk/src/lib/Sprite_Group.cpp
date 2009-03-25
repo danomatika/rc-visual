@@ -35,7 +35,7 @@ int Sprite_Group::remove(string sprite_name)
     return -1;  // didnt find it
 }
 
-void Sprite_Group::render(SDL_Surface *screen)
+void Sprite_Group::render()
 {
     // loop through vector rendering stuff
     vector<Sprite*>::iterator c;
@@ -43,7 +43,7 @@ void Sprite_Group::render(SDL_Surface *screen)
     for(c = sprite_group.begin(); c != sprite_group.end(); c++)
     {
         Sprite *s = sprite_group.at(i);
-        s->render(screen);
+        s->render();
         i++;
     }
 }

@@ -1,4 +1,5 @@
 
+/*
 #include <iostream>
 #include <cstdlib>
 
@@ -14,8 +15,6 @@
 #include "Sprite_Collection.h"
 #include "Sprite_File.h"
 #include "Osc_Server.h"
-
-using namespace std;
 
 Osc_Server server;
 lo_address osc_send;
@@ -36,7 +35,7 @@ bool bDone = false;
 gboolean debug = false;
 gboolean bNotify = false;
 
-/* Osc Server callbacks */
+// Osc Server callbacks
 ////////////////////////////////////
 void setup_server(string port);
 
@@ -76,9 +75,41 @@ int hide_handler(const char *path, const char *types, lo_arg **argv,
 
 int animate_handler(const char *path, const char *types, lo_arg **argv,
     int argc, void *data, void *user_data);
+*/
+#include "Common.h"
+#include "SdlContext.h"
+#include "Visual.h"
+
+using namespace std;
 
 int main(int argc, char** argv)
 {
+
+    // initialize SDL context
+    SdlContext sdl(640, 480, 16, SdlContext::HARDWARE);
+    //sdl.setFullscreen();
+    sdl.init();
+
+    // open sdl window
+    sdl.createWindow("rc-visual test");
+
+     // init app
+    Visual visualApp;
+    visualApp.setFrameRate(30);
+    visualApp.setup();
+
+    // main app loop
+    visualApp.mainLoop();
+
+    // cleanup after exit from loop
+    visualApp.cleanup();
+
+    // all is well ;)
+    LOG << "Exited cleanly" << endl;
+
+    return 0;
+}
+/*
     // args to grab
     gchar *mode         = NULL;
     gchar *filename     = NULL;
@@ -335,7 +366,7 @@ int generic_handler(const char *path, const char *types, lo_arg **argv,
     return 1;
 }
 
-/*  load file  */
+//  load file
 int file_handler(const char *path, const char *types, lo_arg **argv,
     int argc, void *data, void *user_data)
 {
@@ -344,7 +375,7 @@ int file_handler(const char *path, const char *types, lo_arg **argv,
     return 1;
 }
 
-/*  quit  */
+//  quit
 int quit_handler(const char *path, const char *types, lo_arg **argv,
     int argc, void *data, void *user_data)
 {
@@ -353,7 +384,7 @@ int quit_handler(const char *path, const char *types, lo_arg **argv,
     return 1;
 }
 
-/*  group  */
+//  group
 int group_handler(const char *path, const char *types, lo_arg **argv,
     int argc, void *data, void *user_data)
 {
@@ -449,3 +480,5 @@ int animate_handler(const char *path, const char *types, lo_arg **argv,
 
     return 1;
 }
+
+*/

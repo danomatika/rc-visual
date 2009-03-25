@@ -5,21 +5,20 @@
 #include <string>
 #include <iostream>
 
-#include <SDL/SDL.h>
+#include "Common.h"
 #include <SDL/SDL_gfxPrimitives.h>
 
-using namespace std;
 
 // a sprite
 class Sprite
 {
     public:
 
-        Sprite(string name, int virt_width, int virt_height, int num_frames);
+        Sprite(std::string name, int virt_width, int virt_height, int num_frames);
 
         virtual ~Sprite();
 
-        void render(SDL_Surface *screen);
+        void render();
 
         void clear();
 
@@ -41,7 +40,7 @@ class Sprite
 
         void inline visible(bool show) {is_visible = show;};
 
-        string inline getName() {return sprite_name;};
+        std::string inline getName() {return sprite_name;};
 
         int getWidth() {return width;};
 
@@ -54,8 +53,8 @@ class Sprite
     protected:
 
     private:
-        bool *sprite;       // sprite as 2d array of bools, should only be 1 char per bool
-        string sprite_name; // name of sprite
+        vector<bool>    sprite;     // sprite as 2d array of bools, should only be 1 char per bool
+        std::string sprite_name; // name of sprite
 
         Sint16 pos_x, pos_y;    // physical sprite position, upper right corner
         Sint16 width, height;   // physical sprite dimensions

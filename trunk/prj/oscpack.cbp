@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="oscpack" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="lib/liboscpack" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="obj/Debug/" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="lib/liboscpack" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="obj/Release/" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-DOSC_HOST_BIG_ENDIAN" />
+			<Add directory="../src/oscpack" />
+			<Add directory="../src/oscpack/osc" />
+			<Add directory="../src/oscpack/ip" />
+		</Compiler>
+		<Unit filename="../src/oscpack/ip/IpEndpointName.cpp" />
+		<Unit filename="../src/oscpack/ip/IpEndpointName.h" />
+		<Unit filename="../src/oscpack/ip/NetworkingUtils.h" />
+		<Unit filename="../src/oscpack/ip/PacketListener.h" />
+		<Unit filename="../src/oscpack/ip/TimerListener.h" />
+		<Unit filename="../src/oscpack/ip/UdpSocket.h" />
+		<Unit filename="../src/oscpack/ip/posix/NetworkingUtils.cpp" />
+		<Unit filename="../src/oscpack/ip/posix/UdpSocket.cpp" />
+		<Unit filename="../src/oscpack/osc/MessageMappingOscPacketListener.h" />
+		<Unit filename="../src/oscpack/osc/OscException.h" />
+		<Unit filename="../src/oscpack/osc/OscHostEndianness.h" />
+		<Unit filename="../src/oscpack/osc/OscOutboundPacketStream.cpp" />
+		<Unit filename="../src/oscpack/osc/OscOutboundPacketStream.h" />
+		<Unit filename="../src/oscpack/osc/OscPacketListener.h" />
+		<Unit filename="../src/oscpack/osc/OscPrintReceivedElements.cpp" />
+		<Unit filename="../src/oscpack/osc/OscPrintReceivedElements.h" />
+		<Unit filename="../src/oscpack/osc/OscReceivedElements.cpp" />
+		<Unit filename="../src/oscpack/osc/OscReceivedElements.h" />
+		<Unit filename="../src/oscpack/osc/OscTypes.cpp" />
+		<Unit filename="../src/oscpack/osc/OscTypes.h" />
+		<Extensions>
+			<envvars />
+			<code_completion />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

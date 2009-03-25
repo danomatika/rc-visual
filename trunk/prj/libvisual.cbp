@@ -35,12 +35,21 @@
 		<Compiler>
 			<Add option="-Wall" />
 			<Add directory="../src/tinyxml" />
+			<Add directory="../src/oscpack" />
 		</Compiler>
 		<Linker>
 			<Add option="`sdl-config --libs`" />
 			<Add library="SDL" />
 			<Add library="libSDL_gfx" />
+			<Add library="oscpack" />
+			<Add library="tinyxml" />
 		</Linker>
+		<Unit filename="../src/lib/Common.h" />
+		<Unit filename="../src/lib/Log.h" />
+		<Unit filename="../src/lib/OscListener.cpp" />
+		<Unit filename="../src/lib/OscListener.h" />
+		<Unit filename="../src/lib/OscSender.cpp" />
+		<Unit filename="../src/lib/OscSender.h" />
 		<Unit filename="../src/lib/Osc_Server.cpp" />
 		<Unit filename="../src/lib/Osc_Server.h" />
 		<Unit filename="../src/lib/Sprite.cpp" />
@@ -51,12 +60,10 @@
 		<Unit filename="../src/lib/Sprite_File.h" />
 		<Unit filename="../src/lib/Sprite_Group.cpp" />
 		<Unit filename="../src/lib/Sprite_Group.h" />
-		<Unit filename="../src/tinyxml/tinystr.cpp" />
-		<Unit filename="../src/tinyxml/tinystr.h" />
-		<Unit filename="../src/tinyxml/tinyxml.cpp" />
-		<Unit filename="../src/tinyxml/tinyxml.h" />
-		<Unit filename="../src/tinyxml/tinyxmlerror.cpp" />
-		<Unit filename="../src/tinyxml/tinyxmlparser.cpp" />
+		<Unit filename="../src/lib/XmlFile.cpp" />
+		<Unit filename="../src/lib/XmlFile.h" />
+		<Unit filename="../src/lib/sdlContext.cpp" />
+		<Unit filename="../src/lib/sdlContext.h" />
 		<Extensions>
 			<envvars />
 			<code_completion />

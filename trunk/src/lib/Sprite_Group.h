@@ -24,7 +24,7 @@ class Sprite_Group
 
         int remove(string sprite_name);
 
-        void render(SDL_Surface *screen);
+        void render();
 
         Sprite *getSprite(string name);
 
@@ -36,7 +36,7 @@ class Sprite_Group
 
     private:
         vector<Sprite*> sprite_group;    // sprite vector
-        string group_name;  // name of this group
+        string group_name;              // name of this group
 };
 
 #endif // SPRITE_CONTROL_H

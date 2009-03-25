@@ -1,12 +1,14 @@
 # depslib dependency file v1.0
-1226574955 source:/home/dano/src/rc-visual/prj/tests/main.cpp
+1237855174 source:/home/dano/src/rc-visual/prj/tests/main.cpp
 	<iostream>
 	<unistd.h>
 	<string>
+	"Common.h"
 	"Sprite_File.h"
 	"Sprite_Collection.h"
+	"XmlFile.h"
 
-1226885142 /home/dano/src/rc-visual/src/lib/Sprite_File.h
+1237848715 /home/dano/src/rc-visual/src/lib/Sprite_File.h
 	<iostream>
 	<fstream>
 	<sstream>
@@ -132,24 +134,24 @@
 	<libxml/parser.h>
 	<libxml/xlink.h>
 
-1224542424 /home/dano/src/rc-visual/src/lib/Sprite_Collection.h
+1237960048 /home/dano/src/rc-visual/src/lib/Sprite_Collection.h
 	<iostream>
 	<vector>
 	<SDL/SDL.h>
 	"Sprite_Group.h"
 
-1209170063 /home/dano/src/rc-visual/src/lib/Sprite_Group.h
+1237960022 /home/dano/src/rc-visual/src/lib/Sprite_Group.h
 	<iostream>
 	<string>
 	<vector>
 	<SDL/SDL.h>
 	"Sprite.h"
 
-1224542416 /home/dano/src/rc-visual/src/lib/Sprite.h
+1237959891 /home/dano/src/rc-visual/src/lib/Sprite.h
 	<cmath>
 	<string>
 	<iostream>
-	<SDL/SDL.h>
+	"Common.h"
 	<SDL/SDL_gfxPrimitives.h>
 
 1222085666 source:/home/dano/src/rc-visual/src/lib/Sprite_File.cpp
@@ -209,7 +211,7 @@
 	<assert.h>
 	<string.h>
 
-1178491283 /home/dano/src/rc-visual/src/tinyxml/tinyxml.h
+1237848715 /home/dano/src/rc-visual/src/tinyxml/tinyxml.h
 	<ctype.h>
 	<stdio.h>
 	<stdlib.h>
@@ -220,7 +222,220 @@
 	<sstream>
 	"tinystr.h"
 
-1178491283 /home/dano/src/rc-visual/src/tinyxml/tinystr.h
+1237848715 /home/dano/src/rc-visual/src/tinyxml/tinystr.h
 	<assert.h>
 	<string.h>
+
+1237942356 /home/dano/src/rc-visual/src/lib/Common.h
+	<SDL/SDL.h>
+	<SDL/SDL_opengl.h>
+	"Log.h"
+	"Graphics.h"
+
+1237849485 /home/dano/src/rc-visual/src/lib/Log.h
+	<iostream>
+
+1237853045 /home/dano/src/rc-visual/src/lib/XmlFile.h
+	<string>
+	"Common.h"
+	"tinyxml.h"
+
+1237951989 source:/home/dano/src/rc-visual/prj/tests/ClassTest.cpp
+	"ClassTests.h"
+
+1237949221 /home/dano/src/rc-visual/prj/tests/ClassTests.h
+	"XmlFile.h"
+	"OscListener.h"
+	"OscSender.h"
+
+1237963447 source:/home/dano/src/rc-visual/prj/tests/testMain.cpp
+	<iostream>
+	<unistd.h>
+	<string>
+	"Common.h"
+	"SdlContext.h"
+	"TestApp.h"
+	"Sprite_File.h"
+	"Sprite_Collection.h"
+	"ClassTests.h"
+
+1237953067 /home/dano/src/rc-visual/src/lib/Graphics.h
+	<string>
+	<SDL/SDL.h>
+
+1237963844 source:/home/dano/src/rc-visual/prj/tests/TestApp.cpp
+	"TestApp.h"
+
+1237961506 /home/dano/src/rc-visual/prj/tests/TestApp.h
+	"Application.h"
+	"Rectangle.h"
+
+1237961397 /home/dano/src/rc-visual/src/lib/Application.h
+	"Common.h"
+	"Color.h"
+
+1237939187 /home/dano/src/rc-visual/src/lib/SdlContext.h
+	<iostream>
+	<string>
+	<SDL/SDL.h>
+	"Common.h"
+
+1237963049 /home/dano/src/rc-visual/src/lib/Rectangle.h
+	"Common.h"
+	<SDL/SDL_gfxPrimitives.h>
+	"Object.h"
+	"Color.h"
+
+1237963559 /home/dano/src/rc-visual/src/lib/Object.h
+	"vmmlib/vmmlib.h"
+
+1237963764 /home/dano/src/rc-visual/src/lib/Color.h
+	"Common.h"
+
+1237552346 /home/dano/src/rc-visual/src/lib/vmmlib/vmmlib.h
+	<vmmlib/vector2.h>
+	<vmmlib/vector3.h>
+	<vmmlib/vector4.h>
+	<vmmlib/matrix3.h>
+	<vmmlib/matrix4.h>
+	<vmmlib/quaternion.h>
+	<vmmlib/frustum.h>
+	<vmmlib/frustumCuller.h>
+
+1237552346 /home/dano/src/rc-visual/src/lib/vmmlib/vector2.h
+	<cmath>
+	<cstdlib>
+	<iomanip>
+	<iostream>
+	<algorithm>
+	<cassert>
+	<string>
+	<vector>
+	<sstream>
+	<vmmlib/stringUtils.h>
+
+1237552346 /home/dano/src/rc-visual/src/lib/vmmlib/stringUtils.h
+	<string>
+	<vector>
+	<iostream>
+	<sstream>
+
+1237552346 /home/dano/src/rc-visual/src/lib/vmmlib/vector3.h
+	<algorithm>
+	<cassert>
+	<cmath>
+	<cstdlib>
+	<iomanip>
+	<iostream>
+	<limits>
+	<string>
+	<vector>
+	<vmmlib/stringUtils.h>
+	<vmmlib/vector2.h>
+	<vmmlib/vector4.h>
+
+1237552346 /home/dano/src/rc-visual/src/lib/vmmlib/vector4.h
+	<cmath>
+	<cstdlib>
+	<iomanip>
+	<iostream>
+	<algorithm>
+	<cassert>
+	<string>
+	<vector>
+	<vmmlib/matrix4.h>
+	<vmmlib/stringUtils.h>
+	<vmmlib/vector3.h>
+
+1237552346 /home/dano/src/rc-visual/src/lib/vmmlib/matrix4.h
+	<cmath>
+	<cstdlib>
+	<iomanip>
+	<iostream>
+	<algorithm>
+	<cassert>
+	<string>
+	<vector>
+	<vmmlib/matrix3.h>
+	<vmmlib/vector3.h>
+	<vmmlib/vector4.h>
+	<vmmlib/stringUtils.h>
+
+1237552346 /home/dano/src/rc-visual/src/lib/vmmlib/matrix3.h
+	<vmmlib/vector3.h>
+	<vmmlib/vector4.h>
+	<vmmlib/stringUtils.h>
+	<cmath>
+	<cstdlib>
+	<iomanip>
+	<iostream>
+	<algorithm>
+	<cassert>
+
+1237552346 /home/dano/src/rc-visual/src/lib/vmmlib/quaternion.h
+	<algorithm>
+	<cassert>
+	<cmath>
+	<cstdlib>
+	<iomanip>
+	<iostream>
+	<limits>
+	<vmmlib/vector3.h>
+	<vmmlib/vector4.h>
+	<vmmlib/matrix3.h>
+
+1237552346 /home/dano/src/rc-visual/src/lib/vmmlib/frustum.h
+	<cmath>
+	<vmmlib/matrix4.h>
+
+1237552346 /home/dano/src/rc-visual/src/lib/vmmlib/frustumCuller.h
+	<vmmlib/vector4.h>
+	<vmmlib/visibility.h>
+	<vmmlib/matrix4.h>
+
+1237552346 /home/dano/src/rc-visual/src/lib/vmmlib/visibility.h
+
+1237950981 /home/dano/src/rc-visual/src/lib/OscListener.h
+	<osc/OscReceivedElements.h>
+	<osc/OscPacketListener.h>
+	<ip/UdpSocket.h>
+	<SDL/SDL_thread.h>
+	"Common.h"
+	"Thread.h"
+
+1164112218 /home/dano/src/rc-visual/src/oscpack/osc/OscReceivedElements.h
+	"OscTypes.h"
+	"OscException.h"
+
+1164030578 /home/dano/src/rc-visual/src/oscpack/osc/OscTypes.h
+
+1164030578 /home/dano/src/rc-visual/src/oscpack/osc/OscException.h
+	<exception>
+
+1164030578 /home/dano/src/rc-visual/src/oscpack/osc/OscPacketListener.h
+	"OscReceivedElements.h"
+	"../ip/PacketListener.h"
+
+1164030580 /home/dano/src/rc-visual/src/oscpack/ip/PacketListener.h
+
+1164030580 /home/dano/src/rc-visual/src/oscpack/ip/UdpSocket.h
+	"NetworkingUtils.h"
+	"IpEndpointName.h"
+
+1164030580 /home/dano/src/rc-visual/src/oscpack/ip/NetworkingUtils.h
+
+1164030580 /home/dano/src/rc-visual/src/oscpack/ip/IpEndpointName.h
+
+1237951774 /home/dano/src/rc-visual/src/lib/OscSender.h
+	"Common.h"
+	"osc/OscOutboundPacketStream.h"
+	"ip/UdpSocket.h"
+
+1164030578 /home/dano/src/rc-visual/src/oscpack/osc/OscOutboundPacketStream.h
+	"OscTypes.h"
+	"OscException.h"
+
+1237950847 /home/dano/src/rc-visual/src/lib/Thread.h
+	"Common.h"
+	"SDL/SDL_thread.h"
 
