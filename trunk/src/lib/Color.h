@@ -7,56 +7,69 @@
 
 #include "Common.h"
 
+// usage: glColor4fv(color.rgba);
+
 template<typename T>
 class Color
 {
     public:
+        // struct and array for glColor calls
+        union
+        {
+            struct
+            {
+                T  R, G, B, A;  // individual access
+            };
+            T rgba[4];  // 4 value vector for glColor4fv
+            T rgb[3];   // 3 value vector for glColor3fv
+        };
 
-        Color() : _R(0), _G(0), _B(0), _A(0) {}
+        Color() : R(0), G(0), B(0), A(0) {}
 
-        Color(T r, T g, T b, T a=0) :
-            _R(r), _G(g), _B(b), _A(a) {}
+        Color(T r, T g, T b, T a) :
+            R(r), G(g), B(b), A(a) {}
 
         virtual ~Color() {}
 
+        /// copy constructor
+		Color(const Color& from)
+		{
+            R = from.R;
+            G = from.G;
+            B = from.B;
+            A = from.A;
+		}
+
         /// copy operator
-        void operator =(Color* from)
+        void operator =(Color& from)
         {
-            _R = from->R();
-            _G = from->G();
-            _B = from->B();
-            _A = from->A();
+            R = from.R;
+            G = from.G;
+            B = from.B;
+            A = from.A;
         }
 
         /// attribute sets
-        void set(T r, T g, T b, T a=0)
+        void set(T r, T g, T b, T a)
         {
-            _R = r;
-            _G = g;
-            _B = b;
-            _A = a;
+            R = r;
+            G = g;
+            B = b;
+            A = a;
         }
-        void setR(T r)  {_R = r;}
-        void setG(T g)  {_G = g;}
-        void setB(T b)  {_B = b;}
-        void setA(T a)  {_A = a;}
+        void set(T r, T g, T b)
+        {
+            R = r;
+            G = g;
+            B = b;
+        }
 
-        /// attribute gets
-        T R()    {return _R;}
-        T G()    {return _G;}
-        T B()    {return _B;}
-        T A()    {return _A;}
-
-        /// set the glColor
-        void glColor()      {glColor3ub(_R, _G, _B);}
-        void glColorAlpha() {glColor4ub(_R, _G, _B, _A);}
-
-    private:
-
-        T _R;
-        T _G;
-        T _B;
-        T _A;
+        friend std::ostream& operator<<(std::ostream& os, Color<T>& from)
+        {
+            os << "r: " << from.R << " g: " << from.G << " b: " << from.B
+               << " a: " << from.A;
+            return os;
+        }
 };
 
 typedef Color<uint8_t>          Color4ub;
