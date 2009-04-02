@@ -19,14 +19,14 @@ int main(int argc, char *argv[])
 {
     LOG << "starting testMain" << endl;
 
-    //Sprite_File sfile;
-    //sfile.loadXml("sprite_test.xml", NULL);
+    Sprite_File sfile;
+    sfile.loadXml("sprite_test.xml", NULL);
 
     test.testLog();
 
     //test.testOscListener();
 
-    //test.testOscSender();
+    test.testOscSender();
 
     //test.testXmlFile();
 

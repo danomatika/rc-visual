@@ -44,7 +44,20 @@ void ClassTests::testXmlFile()
 
 void ClassTests::processOSC(const osc::ReceivedMessage& m, const IpEndpointName& remoteEndpoint)
 {
-    LOG << " Recieved OSC message to osc addr \"" << m.AddressPattern() << "\"" << std::endl;
+    LOG << " Recieved OSC message to osc addr \"" << m.AddressPattern()
+        << "\" with type tag \"" << m.TypeTags() << "\"" << std::endl;
+/*
+    osc::ReceivedMessageArgumentIterator argItr = m.ArgumentsBegin();
+    osc::ReceivedMessageArgument arg = argItr;
+
+    if((std::string) m.AddressPattern() == "/test" && (std::string) m.TypeTags() == "if")
+    {
+        int i = &arg;
+        arg++;
+        float f = *arg;
+        LOG << "/test i:" << i << " f: " << f << std::endl;
+    }
+*/
 }
 
 void ClassTests::testOscListener()
@@ -60,7 +73,7 @@ void ClassTests::testOscSender()
 {
     OscSender sender("127.0.0.1", 8000);
     sender << osc::BeginMessage( "/test1" )
-           << 0 << 10 << "hello" << osc::EndMessage;
+           << (float) 10 << (float) 1 << "hello" << osc::EndMessage;
     sender.send();
     sleep(10);
     sender << osc::BeginMessage( "/test2" )

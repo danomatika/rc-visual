@@ -1,40 +1,85 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
-	<File name="../src/lib/Common.h" open="1" top="0" tabpos="11">
-		<Cursor position="317" topLine="0" />
+	<File name="../src/lib/Application.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="341" topLine="1" />
+	</File>
+	<File name="../src/lib/Application.h" open="0" top="0" tabpos="0">
+		<Cursor position="1159" topLine="30" />
+	</File>
+	<File name="../src/lib/Color.h" open="0" top="0" tabpos="0">
+		<Cursor position="772" topLine="0" />
+	</File>
+	<File name="../src/lib/Common.h" open="0" top="0" tabpos="11">
+		<Cursor position="362" topLine="0" />
+	</File>
+	<File name="../src/lib/Graphics.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="573" topLine="12" />
+	</File>
+	<File name="../src/lib/Graphics.h" open="0" top="0" tabpos="0">
+		<Cursor position="298" topLine="7" />
 	</File>
 	<File name="../src/lib/Log.h" open="0" top="0" tabpos="0">
 		<Cursor position="300" topLine="0" />
 	</File>
-	<File name="../src/lib/OscListener.cpp" open="1" top="0" tabpos="7">
-		<Cursor position="1100" topLine="0" />
+	<File name="../src/lib/Object.h" open="0" top="0" tabpos="0">
+		<Cursor position="832" topLine="27" />
 	</File>
-	<File name="../src/lib/OscListener.h" open="1" top="0" tabpos="6">
-		<Cursor position="1668" topLine="34" />
+	<File name="../src/lib/OscListener.cpp" open="0" top="0" tabpos="7">
+		<Cursor position="520" topLine="0" />
 	</File>
-	<File name="../src/lib/OscSender.cpp" open="1" top="0" tabpos="9">
-		<Cursor position="641" topLine="0" />
+	<File name="../src/lib/OscListener.h" open="0" top="0" tabpos="6">
+		<Cursor position="1612" topLine="32" />
 	</File>
-	<File name="../src/lib/OscSender.h" open="1" top="0" tabpos="8">
-		<Cursor position="625" topLine="0" />
+	<File name="../src/lib/OscSender.cpp" open="0" top="0" tabpos="9">
+		<Cursor position="280" topLine="0" />
 	</File>
-	<File name="../src/lib/Sprite.h" open="0" top="0" tabpos="0">
-		<Cursor position="112" topLine="0" />
+	<File name="../src/lib/OscSender.h" open="1" top="0" tabpos="1">
+		<Cursor position="81" topLine="0" />
+	</File>
+	<File name="../src/lib/Rectangle.h" open="0" top="0" tabpos="0">
+		<Cursor position="2116" topLine="36" />
+	</File>
+	<File name="../src/lib/SdlContext.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="474" topLine="66" />
+	</File>
+	<File name="../src/lib/SdlContext.h" open="0" top="0" tabpos="0">
+		<Cursor position="810" topLine="19" />
+	</File>
+	<File name="../src/lib/Sprite.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="4163" topLine="152" />
+	</File>
+	<File name="../src/lib/Sprite.h" open="0" top="0" tabpos="1">
+		<Cursor position="1058" topLine="0" />
+	</File>
+	<File name="../src/lib/Sprite_Collection.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="275" topLine="10" />
+	</File>
+	<File name="../src/lib/Sprite_Collection.h" open="0" top="0" tabpos="0">
+		<Cursor position="431" topLine="15" />
+	</File>
+	<File name="../src/lib/Sprite_File.cpp" open="0" top="0" tabpos="2">
+		<Cursor position="8341" topLine="685" />
 	</File>
 	<File name="../src/lib/Sprite_File.h" open="0" top="0" tabpos="1">
-		<Cursor position="1070" topLine="0" />
+		<Cursor position="1070" topLine="15" />
 	</File>
-	<File name="../src/lib/XmlFile.cpp" open="1" top="0" tabpos="2">
-		<Cursor position="730" topLine="0" />
+	<File name="../src/lib/Sprite_Group.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="726" topLine="29" />
 	</File>
-	<File name="../src/lib/XmlFile.h" open="1" top="1" tabpos="1">
+	<File name="../src/lib/Sprite_Group.h" open="0" top="0" tabpos="0">
+		<Cursor position="391" topLine="10" />
+	</File>
+	<File name="../src/lib/Thread.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="113" topLine="0" />
+	</File>
+	<File name="../src/lib/Thread.h" open="0" top="0" tabpos="0">
+		<Cursor position="694" topLine="15" />
+	</File>
+	<File name="../src/lib/XmlFile.cpp" open="0" top="0" tabpos="2">
+		<Cursor position="3696" topLine="130" />
+	</File>
+	<File name="../src/lib/XmlFile.h" open="0" top="0" tabpos="1">
 		<Cursor position="305" topLine="21" />
-	</File>
-	<File name="../src/lib/sdlContext.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="2172" topLine="76" />
-	</File>
-	<File name="../src/lib/sdlContext.h" open="0" top="0" tabpos="0">
-		<Cursor position="817" topLine="0" />
 	</File>
 </CodeBlocks_layout_file>

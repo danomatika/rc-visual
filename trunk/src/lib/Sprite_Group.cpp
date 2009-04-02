@@ -1,9 +1,9 @@
 #include "Sprite_Group.h"
 
 
-Sprite_Group::Sprite_Group(string name)
+Sprite_Group::Sprite_Group()
 {
-    group_name = name;
+//    group_name = name;
 }
 
 Sprite_Group::~Sprite_Group()
@@ -17,7 +17,7 @@ void Sprite_Group::add(Sprite *sprite)
         sprite_group.push_back(sprite);
 }
 
-int Sprite_Group::remove(string sprite_name)
+int Sprite_Group::remove(std::string sprite_name)
 {
     // look through vector for sprite by name and remove it
     vector<Sprite*>::iterator c;
@@ -35,7 +35,7 @@ int Sprite_Group::remove(string sprite_name)
     return -1;  // didnt find it
 }
 
-void Sprite_Group::render()
+void Sprite_Group::render(SDL_Surface* screen)
 {
     // loop through vector rendering stuff
     vector<Sprite*>::iterator c;
@@ -43,12 +43,12 @@ void Sprite_Group::render()
     for(c = sprite_group.begin(); c != sprite_group.end(); c++)
     {
         Sprite *s = sprite_group.at(i);
-        s->render();
+        s->render(screen);
         i++;
     }
 }
 
-Sprite *Sprite_Group::getSprite(string name)
+Sprite *Sprite_Group::getSprite(std::string name)
 {
     // loop through vector looking for sprite by name
     vector<Sprite*>::iterator c;

@@ -35,7 +35,7 @@
 			</Target>
 		</Build>
 		<Compiler>
-			<Add option="-DOSC_HOST_BIG_ENDIAN" />
+			<Add option="-DOSC_HOST_LITTLE_ENDIAN" />
 			<Add directory="../src/oscpack" />
 			<Add directory="../src/oscpack/osc" />
 			<Add directory="../src/oscpack/ip" />

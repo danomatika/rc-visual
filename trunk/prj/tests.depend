@@ -8,7 +8,7 @@
 	"Sprite_Collection.h"
 	"XmlFile.h"
 
-1237848715 /home/dano/src/rc-visual/src/lib/Sprite_File.h
+1238016343 /home/dano/src/rc-visual/src/lib/Sprite_File.h
 	<iostream>
 	<fstream>
 	<sstream>
@@ -134,23 +134,24 @@
 	<libxml/parser.h>
 	<libxml/xlink.h>
 
-1237960048 /home/dano/src/rc-visual/src/lib/Sprite_Collection.h
+1238018697 /home/dano/src/rc-visual/src/lib/Sprite_Collection.h
 	<iostream>
 	<vector>
 	<SDL/SDL.h>
 	"Sprite_Group.h"
 
-1237960022 /home/dano/src/rc-visual/src/lib/Sprite_Group.h
+1238018697 /home/dano/src/rc-visual/src/lib/Sprite_Group.h
 	<iostream>
 	<string>
 	<vector>
 	<SDL/SDL.h>
 	"Sprite.h"
 
-1237959891 /home/dano/src/rc-visual/src/lib/Sprite.h
+1238020549 /home/dano/src/rc-visual/src/lib/Sprite.h
 	<cmath>
 	<string>
 	<iostream>
+	<vector>
 	"Common.h"
 	<SDL/SDL_gfxPrimitives.h>
 
@@ -240,7 +241,7 @@
 	"Common.h"
 	"tinyxml.h"
 
-1237951989 source:/home/dano/src/rc-visual/prj/tests/ClassTest.cpp
+1238299407 source:/home/dano/src/rc-visual/prj/tests/ClassTest.cpp
 	"ClassTests.h"
 
 1237949221 /home/dano/src/rc-visual/prj/tests/ClassTests.h
@@ -248,7 +249,7 @@
 	"OscListener.h"
 	"OscSender.h"
 
-1237963447 source:/home/dano/src/rc-visual/prj/tests/testMain.cpp
+1238297457 source:/home/dano/src/rc-visual/prj/tests/testMain.cpp
 	<iostream>
 	<unistd.h>
 	<string>
@@ -280,16 +281,16 @@
 	<SDL/SDL.h>
 	"Common.h"
 
-1237963049 /home/dano/src/rc-visual/src/lib/Rectangle.h
+1238011076 /home/dano/src/rc-visual/src/lib/Rectangle.h
 	"Common.h"
 	<SDL/SDL_gfxPrimitives.h>
 	"Object.h"
 	"Color.h"
 
-1237963559 /home/dano/src/rc-visual/src/lib/Object.h
+1238007936 /home/dano/src/rc-visual/src/lib/Object.h
 	"vmmlib/vmmlib.h"
 
-1237963764 /home/dano/src/rc-visual/src/lib/Color.h
+1238007936 /home/dano/src/rc-visual/src/lib/Color.h
 	"Common.h"
 
 1237552346 /home/dano/src/rc-visual/src/lib/vmmlib/vmmlib.h

@@ -43,11 +43,16 @@
 		<Linker>
 			<Add library="visual" />
 			<Add library="SDL_gfx" />
+			<Add library="GLU" />
+			<Add library="GL" />
 			<Add library="oscpack" />
+			<Add library="tinyxml" />
 			<Add directory="lib" />
 		</Linker>
 		<Unit filename="tests/ClassTest.cpp" />
 		<Unit filename="tests/ClassTests.h" />
+		<Unit filename="tests/TestApp.cpp" />
+		<Unit filename="tests/TestApp.h" />
 		<Unit filename="tests/testMain.cpp" />
 		<Extensions>
 			<envvars />

@@ -1,5 +1,5 @@
 
-/*
+
 #include <iostream>
 #include <cstdlib>
 
@@ -33,7 +33,7 @@ Sprite_File file;
 Uint32 frame_rate = 200;   // 5 fps = 1000 ms / 5
 bool bDone = false;
 gboolean debug = false;
-gboolean bNotify = false;
+gboolean iNotify = -1;
 
 // Osc Server callbacks
 ////////////////////////////////////
@@ -75,16 +75,16 @@ int hide_handler(const char *path, const char *types, lo_arg **argv,
 
 int animate_handler(const char *path, const char *types, lo_arg **argv,
     int argc, void *data, void *user_data);
-*/
+/*
 #include "Common.h"
 #include "SdlContext.h"
 #include "Visual.h"
-
+*/
 using namespace std;
 
 int main(int argc, char** argv)
 {
-
+/*
     // initialize SDL context
     SdlContext sdl(640, 480, 16, SdlContext::HARDWARE);
     //sdl.setFullscreen();
@@ -109,7 +109,7 @@ int main(int argc, char** argv)
 
     return 0;
 }
-/*
+*/
     // args to grab
     gchar *mode         = NULL;
     gchar *filename     = NULL;
@@ -128,7 +128,7 @@ int main(int argc, char** argv)
         { "address", 'a', 0, G_OPTION_ARG_STRING, &s_addr, "ip addr to send osc to", "'127.0.0.1', '192.0.0.101', etc" },
         { "port", 'p', 0, G_OPTION_ARG_STRING, &s_port, "port to send osc to", "'4440', '2388', etc" },
         { "listen", 'l', 0, G_OPTION_ARG_STRING, &r_port, "port to recieve osc on", "'4440', '2388', etc" },
-        { "notify", 'n', 0, G_OPTION_ARG_NONE, &bNotify, "tell pd to open a connection", "'true' or 'false'" },
+        { "notify", 'n', 0, G_OPTION_ARG_INT, &iNotify, "tell pd to open a connection", "connection #" },
         { "receive", 'r', 0, G_OPTION_ARG_STRING, &r_addr, "ip addr to recv osc from (def: 127.0.0.1)", "'127.0.0.1', '192.0.0.101', etc" },
         { "debug", 'd', 0, G_OPTION_ARG_NONE, &debug, "print debug messages", "'true' or 'false'" },
         { NULL }
@@ -155,11 +155,22 @@ int main(int argc, char** argv)
     {
         debug = true;
         file.printDebug(true);
-        cout << "go" << endl;
         // read file
         if(filename != NULL)
-            file.load((string) filename, &sprite_collection);
+            file.loadXml((string) filename, &sprite_collection);
         return 0;
+    }
+
+    // read file
+    if(filename != NULL)
+    {
+        if(!file.loadXml((string) filename, &sprite_collection))
+        {
+            cout << "Could not load file due to errors" << endl;
+            return 0;
+        }
+        Sprite_Group *g = sprite_collection.getGroupCurrent();
+        cout << "Current group = " << g->getName() << endl;
     }
 
     // print file contents as if loads
@@ -205,19 +216,11 @@ int main(int argc, char** argv)
         return 1;
     }
 
-    // read file
-    if(filename != NULL)
-    {
-        file.load((string) filename, &sprite_collection);
-        Sprite_Group *g = sprite_collection.getGroupCurrent();
-        cout << "Current group = " << g->getName() << endl;
-    }
-
     // tell pd to open a connection
-    if(bNotify)
+    if(iNotify >= 0)
     {
         cout << "Notifying pd to open a connection" << endl;
-        lo_send(osc_send, osc_pd_addr.c_str(), "ssf", "connect", recv_addr.c_str(), 1.f);
+        lo_send(osc_send, osc_pd_addr.c_str(), "sfs", "connect", (float) iNotify, recv_addr.c_str());
     }
 
     Uint32 ticks = 0;
@@ -309,10 +312,10 @@ int main(int argc, char** argv)
     server.stopListening();
 
     // tell pd to close the connection
-    if(bNotify)
+    if(iNotify >= 0)
     {
         cout << "Notifying pd to close the connection" << endl;
-        lo_send(osc_send, osc_pd_addr.c_str(), "ssf", "connect", recv_addr.c_str(), 0.f);
+        lo_send(osc_send, osc_pd_addr.c_str(), "sf", "disconnect", (float) iNotify);
     }
 
     // all is well ;)
@@ -370,7 +373,7 @@ int generic_handler(const char *path, const char *types, lo_arg **argv,
 int file_handler(const char *path, const char *types, lo_arg **argv,
     int argc, void *data, void *user_data)
 {
-    file.load(&argv[0]->s, &sprite_collection);
+    //file.loadXML(&argv[0]->s, &sprite_collection);
 
     return 1;
 }
@@ -398,6 +401,7 @@ int group_handler(const char *path, const char *types, lo_arg **argv,
 
     Sprite_Group *g = sprite_collection.getGroupCurrent();
     cout << "Change Group: " << &argv[0]->s << ", current group = " << g->getName() << endl;
+    g->print();
 
     return 1;
 }
@@ -481,4 +485,4 @@ int animate_handler(const char *path, const char *types, lo_arg **argv,
     return 1;
 }
 
-*/
+

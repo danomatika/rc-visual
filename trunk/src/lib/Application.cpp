@@ -46,14 +46,14 @@ void Application::_draw()
     // clear background
     if(Graphics::isTypeOGL())
     {
-        glClearColor(_background.R()/255, _background.G()/255, _background.B()/255, _background.A()/255);
+        glClearColor(_background.R/255, _background.G/255, _background.B/255, _background.A/255);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     }
     else
     {
         // clear screen
         SDL_FillRect(Graphics::getSDLScreen(), 0,
-            SDL_MapRGB(Graphics::getSDLScreen()->format, _background.R(), _background.G(), _background.B()));
+            SDL_MapRGB(Graphics::getSDLScreen()->format, _background.R, _background.G, _background.B));
     }
 
     // user render function

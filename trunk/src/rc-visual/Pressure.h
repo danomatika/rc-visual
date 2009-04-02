@@ -24,11 +24,11 @@ class Pressure
 
     private:
 
-        Color background;
+//        Color background;
         std::vector<Rectangle> molecules;
 };
 
-class Mollecule : public Rectangle
+class Molecule : public Rectangle
 {
     public:
 
@@ -38,6 +38,7 @@ class Mollecule : public Rectangle
 
         void checkCollision(int x, int y, Molecule& mol)
         {
+            /*
             const int dx = _iPosX - mol.getPosX();
             const int dy = _iPosY - mol.getPosY();
             const int dist = _iWidth + mol.getWidth();
@@ -47,8 +48,9 @@ class Mollecule : public Rectangle
                 // collision
 
             }
+*/
         }
-}
+};
 
 
 

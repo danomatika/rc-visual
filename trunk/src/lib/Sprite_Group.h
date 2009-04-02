@@ -16,7 +16,7 @@ class Sprite_Group
 {
     public:
 
-        Sprite_Group(string name);
+        Sprite_Group();
 
         virtual ~Sprite_Group();
 
@@ -24,11 +24,12 @@ class Sprite_Group
 
         int remove(string sprite_name);
 
-        void render();
+        void render(SDL_Surface* screen);
 
         Sprite *getSprite(string name);
 
-        string inline getName() {return group_name;};
+        std::string getName() {return group_name;}
+        void setName(std::string name) {group_name = name;}
 
         void print();
 
@@ -36,7 +37,7 @@ class Sprite_Group
 
     private:
         vector<Sprite*> sprite_group;    // sprite vector
-        string group_name;              // name of this group
+        std::string group_name;              // name of this group
 };
 
 #endif // SPRITE_CONTROL_H

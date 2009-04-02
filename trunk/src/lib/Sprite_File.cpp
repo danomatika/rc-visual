@@ -1,5 +1,7 @@
 #include "Sprite_File.h"
 
+#include <vector>
+
 Sprite_File::Sprite_File()
 {
     file = NULL;
@@ -12,8 +14,8 @@ Sprite_File::~Sprite_File()
 {
     //dtor
 }
-/*
-bool Sprite_File::loadXml(string filename, Sprite_Collection *dest)
+
+bool Sprite_File::loadXml(string filename, Sprite_Collection *coll)
 {
     TiXmlDocument xml_doc(filename.c_str());
 
@@ -32,7 +34,7 @@ bool Sprite_File::loadXml(string filename, Sprite_Collection *dest)
     TiXmlElement* xml_root = xml_doc.FirstChildElement();
     if((string) xml_root->Value() != (string) "visual")
     {
-        cout << "Sprite_File: \"" << filename << "\" is not a valid visual xml file, "
+        LOG_ERROR << "Sprite_File: \"" << filename << "\" is not a valid visual xml file, "
              << "root element is not \"visual\"" << endl;
         return false;
     }
@@ -41,41 +43,66 @@ bool Sprite_File::loadXml(string filename, Sprite_Collection *dest)
     TiXmlElement* xml_ptr = xml_root->FirstChildElement();
     while(xml_ptr != NULL)
     {
-        getGroup(xml_ptr);
+        Sprite_Group* group = new Sprite_Group;
+        if(!getGroup(xml_ptr, group))
+        {
+            LOG_ERROR << "Sprite_File: Unable to getGroup" << std::endl;
+            return false;
+        }
+        if(coll != NULL)
+        {
+            coll->add(group);
+        }
+        else
+        {
+            LOG_WARN << "Sprite_File: no sprite collection, not adding group" << std::endl;
+        }
         xml_ptr = xml_ptr->NextSiblingElement();
     }
 
     return true;
 }
 
-bool Sprite_File::getGroup(TiXmlElement *xml_ptr)
+bool Sprite_File::getGroup(TiXmlElement *xml_ptr, Sprite_Group *group)
 {
-    if(!xml_ptr || ((string) xml_ptr->Value() != (string) "group"))
+    if(!xml_ptr || ((string) xml_ptr->Value() != (string) "group") || !group)
         return false;
 
     // check name
     if(!xml_ptr->Attribute("name"))
     {
-        cout << "Sprite_File: ignoring this group, name is either missing "
-             << "or not the first attribute" << endl;
+        LOG_WARN << "Sprite_File: ignoring this group, name is either missing "
+                 << "or not the first attribute" << endl;
         return false;
     }
-    cout << "group: " << xml_ptr->Attribute("name") << endl;
+
+    const char* name = xml_ptr->Attribute("name");
+    if(name != NULL)
+    {
+        group->setName(name);
+    }
+    cout << "group: " << name << endl;
 
     // loop through elements
     TiXmlElement* p = xml_ptr->FirstChildElement();
     while(p != NULL)
     {
-        getSprite(p);
+        Sprite* sprite = new Sprite;
+        if(!getSprite(p, sprite))
+        {
+            LOG_ERROR << "Sprite_File: Unable to getSprite" << std::endl;
+            return false;
+        }
+        group->add(sprite);
         p = p->NextSiblingElement();
     }
 
     return true;
 }
 
-bool Sprite_File::getSprite(TiXmlElement *xml_ptr)
+bool Sprite_File::getSprite(TiXmlElement *xml_ptr, Sprite* sprite)
 {
-    if(!xml_ptr || ((string) xml_ptr->Value() != (string) "sprite"))
+    if(!xml_ptr || ((string) xml_ptr->Value() != (string) "sprite") || !sprite)
         return false;
 
     // check name
@@ -85,7 +112,12 @@ bool Sprite_File::getSprite(TiXmlElement *xml_ptr)
              << "or not the first attribute" << endl;
         return false;
     }
-    string name = xml_ptr->Attribute("name");
+
+    const char* name = xml_ptr->Attribute("name");
+    if(name != NULL)
+    {
+        sprite->setName(name);
+    }
 
     // loop through attributes
     int width = 0, height = 0, frames = 0;
@@ -123,6 +155,13 @@ bool Sprite_File::getSprite(TiXmlElement *xml_ptr)
          << " f: " << frames
          << endl;
 
+    if(!sprite->allocate(width, height, frames))
+    {
+        return false;
+    }
+    sprite->setVirtualSize(width, height);
+//    sprite->setNumFrames(frames);
+
     // loop through elements
     int index = 0;
     xml_ptr = xml_ptr->FirstChildElement();
@@ -133,7 +172,11 @@ bool Sprite_File::getSprite(TiXmlElement *xml_ptr)
         if((string) xml_ptr->Value() == (string) "frame")
         {
             cout << "       frame "<< index << endl;
-            getFrame(xml_ptr);
+            if(!getFrame(xml_ptr, sprite))
+            {
+                LOG_ERROR << "Sprite_File: Failed to getFrame"<< std::endl;
+                return false;
+            }
             index++;
         }
 
@@ -176,6 +219,8 @@ bool Sprite_File::getSprite(TiXmlElement *xml_ptr)
                  << " B: " << B
                  << " A: " << A
                  << endl;
+
+            sprite->setColor(R, G, B, A);
         }
 
         else if((string) xml_ptr->Value() == (string) "size")
@@ -205,23 +250,25 @@ bool Sprite_File::getSprite(TiXmlElement *xml_ptr)
                  << " width: "  << width
                  << " height: " << height
                  << endl;
+
+            sprite->setSize(width, height);
         }
 
         else if((string) xml_ptr->Value() == (string) "position")
         {
             int x = 0, y = 0;
-            a = xml_ptr->FirstAttribute();
-            a = a->Next();
+            //a = xml_ptr->FirstAttribute();
+            //a = a->Next();
             while(a != NULL)
             {
                 if((string) a->Name() == "x")
                 {
-                    width = a->IntValue();
+                    x = a->IntValue();
                 }
 
                 else if((string) a->Name() == "y")
                 {
-                    height = a->IntValue();
+                    y = a->IntValue();
                 }
 
                 else
@@ -236,6 +283,7 @@ bool Sprite_File::getSprite(TiXmlElement *xml_ptr)
                  << " x: " << x
                  << " y: " << y
                  << endl;
+            sprite->setPos(x, y);
         }
 
         else if((string) xml_ptr->Value() == (string) "animate")
@@ -247,6 +295,7 @@ bool Sprite_File::getSprite(TiXmlElement *xml_ptr)
             }
 
             cout << "       animate: " << yesno << endl;
+            sprite->animate((bool) yesno);
         }
 
         else if((string) xml_ptr->Value() == (string) "visible")
@@ -258,6 +307,7 @@ bool Sprite_File::getSprite(TiXmlElement *xml_ptr)
             }
 
             cout << "       visible: " << yesno << endl;
+            sprite->visible((bool) yesno);
         }
 
         xml_ptr = xml_ptr->NextSiblingElement();
@@ -266,23 +316,56 @@ bool Sprite_File::getSprite(TiXmlElement *xml_ptr)
     return true;
 }
 
-bool Sprite_File::getFrame(TiXmlElement *xml_ptr)
+bool Sprite_File::getFrame(TiXmlElement *xml_ptr, Sprite *sprite)
 {
-    if(!xml_ptr || ((string) xml_ptr->Value() != (string) "frame"))
+    if(!xml_ptr || ((string) xml_ptr->Value() != (string) "frame") || !sprite)
         return false;
 
     stringstream frame(xml_ptr->GetText());
     string line;
+    std::vector<bool> bitmap;
+    int numPixels = 0;
 
     while(!frame.eof())
     {
         frame >> line;
         cout << "       " << line << endl;
+
+        stringstream chars(line);
+
+        char c;
+        chars >> c;
+        while(!chars.eof())
+        {
+            switch(c)
+            {
+                case '*':
+                    bitmap.push_back(true);
+                    ++numPixels;
+                    break;
+                case '-':
+                    bitmap.push_back(false);
+                    ++numPixels;
+                    break;
+            }
+            chars >> c;
+        }
     }
+
+
+    if(numPixels != sprite->getVirtualWidth() * sprite->getVirtualHeight())
+    {
+        LOG_WARN << "Sprite:: Add frame failed, sprite of size " << numPixels
+                 << " does not equal the virtual size of " << (int) sprite->getVirtualWidth() * sprite->getVirtualHeight()
+                 << std::endl;
+        return false;
+    }
+
+    sprite->addFrame(bitmap);
 
     return true;
 }
-*/
+/*
 void Sprite_File::load(string filename, Sprite_Collection *dest)
 {
     file = new ifstream(filename.c_str(), ios::in);
@@ -635,4 +718,4 @@ void Sprite_File::ignore()
         //cout << c;
     }
 }
-
+*/

@@ -20,10 +20,10 @@ class Rectangle : public Objecti
 {
     public:
 
-        Rectangle() : Objecti() {}
+        Rectangle() : Objecti(), _color(255, 255, 255, 255) {}
 
-        Rectangle(int x, int y, int width, int height, int velX=0, int velY=0) :
-            Objecti(x, y, width, height, velX, velY) {}
+        Rectangle(int x, int y, int w, int h, int vx=0, int vy=0) :
+            Objecti(x, y, w, h, vx, vy), _color(255, 255, 255, 255) {}
 
         virtual ~Rectangle() {}
 
@@ -39,30 +39,30 @@ class Rectangle : public Objecti
         {
             if(Graphics::isTypeOGL())
             {
-                _color.glColor();
+                glColor4ubv(_color.rgba);
 
                 glBegin(GL_TRIANGLE_STRIP);
-                    glVertex2i((GLint) _x-_w/2, (GLint) _y-_h/2);
-                    glVertex2i((GLint) _x+_w/2, (GLint) _y-_h/2);
-                    glVertex2i((GLint) _x+_w/2, (GLint) _y+_h/2);
-                    glVertex2i((GLint) _x-_w/2, (GLint) _y+_h/2);
-                    glVertex2i((GLint) _x-_w/2, (GLint) _y-_h/2);
+                    glVertex2i((GLint) _pos.x-_w/2, (GLint) _pos.y-_h/2);
+                    glVertex2i((GLint) _pos.x+_w/2, (GLint) _pos.y-_h/2);
+                    glVertex2i((GLint) _pos.x+_w/2, (GLint) _pos.y+_h/2);
+                    glVertex2i((GLint) _pos.x-_w/2, (GLint) _pos.y+_h/2);
+                    glVertex2i((GLint) _pos.x-_w/2, (GLint) _pos.y-_h/2);
                 glEnd();
             }
             else if(Graphics::isTypeSDL())
             {
                 boxRGBA(Graphics::getSDLScreen(), // surface
-                        _x-(_w/2), _y-(_h/2),                 // upper left
-                        _x+(_w/2), _y+(_h/2),              // upper right
-                    _color.R(), _color.G(), _color.B(), _color.A());
+                        _pos.x-(_w/2), _pos.y-(_h/2),              // upper left
+                        _pos.x+(_w/2), _pos.y+(_h/2),              // lower right
+                    _color.R, _color.G, _color.B, _color.A);
             }
         }
 
         friend std::ostream& operator<<(std::ostream& os, Rectangle& from)
         {
-            os << "x: " << from._x << " y: " << from._y
+            os << "x: " << from._pos.x << " y: " << from._pos.y
                << " w: " << from._w << " h: " << from._h
-               << " vx: " << from._vx << " vy: " << from._vy;
+               << " vx: " << from._vel.x << " vy: " << from._vel.y;
             return os;
         }
 

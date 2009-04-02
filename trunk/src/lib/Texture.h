@@ -1,75 +1,40 @@
-/*==============================================================================
-    Copyright (c) Ars Electronica Futurelab, 2009.
-    Dan Wilcox <Daniel.Wilcox@aec.at>
+#ifndef GLTEXTURE_H
+#define GLTEXTURE_H
 
-    Adapted from a class in the verybasicrenderclient, probably by Carl-Johan
-==============================================================================*/
-#ifndef TEXTURE_H
-#define TEXTURE_H
+#include<iostream>
+#include<string>
 
-#include "Common.h"
-#include "Object.h"
+#include <SDL.h>
+#include <SDL_image.h>
+#include <GL/gl.h>
 
-/**
-    \class Texture
-    \brief a class to load and display an openGL texture with optional white border
-**/
-class Texture
+using namespace std;
+
+class glTexture
 {
-	public:
+    public:
+        glTexture();
 
-        enum GLTextureType
-        {
-            EMPTY = 0,
-            RGB = 3,
-            RGBA = 4,
-            LUMINANCE = 1
-        };
+        glTexture(string filename);
 
-		Texture();
+        virtual ~glTexture();
 
-		virtual ~Texture();
+        bool load(string filename);
 
-        /// copy constructor
-		Texture(const Texture& from);
-
-        /// copy assignment
-		Texture& operator=(const Texture& from);
-
-        /// deallocates memory
         void clear();
 
-        /// load an image, handles allocation automatically
-        bool loadImage(std::string filename);
+        void print();
 
-        /// allocate space for an image
-        bool allocate(int width, int height, GLTextureType glTexType);
+        bool inline loaded() {return loaded_;};
 
-        /// set the image data, assumes allocate was called
-        bool setImageData(void* data);
+        GLuint texture;  // texture handle
+        int h, w;  // texture dimensions
 
-		/// draws from the center on a quad, set the size
-		void draw(float x, float y, float width, float height);
+    protected:
 
-		/// glBind, unbind texture
-		void bind();
-		void unbind();
-
-        /// glEnable, glDisable texture
-		static void enable();
-		static void disable();
-
-		/// data get
-		float getAspect() {return _fAspectRatio;}
-
-	protected:
-
-		GLuint  _texID;         /// texture id
-		GLuint  _iBytesPerPixel;/// GL_TEXTURE_RECTANGLE_2D or GL_TEXTURE_RECTANGLE_ARB
-        GLuint  _glDataType;    /// texture data type: GL_RGB, GL_LUMINANCE, or GL_RGBA
-
-		int _iTexWidth, _iTexHeight;    /// image dimensions (ie 320x240)
-		float _fAspectRatio;            /// image aspect ratio, W/H
+    private:
+        bool loaded_;
+        string filename;
 };
 
-#endif // TEXTURE_H
+#endif // GLTEXTURE_H

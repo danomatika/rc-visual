@@ -668,7 +668,7 @@
 	<libxml/parser.h>
 	<libxml/xlink.h>
 
-1237946641 source:/home/dano/src/rc-visual/src/rc-visual/main.cpp
+1238021961 source:/home/dano/src/rc-visual/src/rc-visual/main.cpp
 	<iostream>
 	<cstdlib>
 	<SDL/SDL.h>
@@ -684,27 +684,28 @@
 	"SdlContext.h"
 	"Visual.h"
 
-1237848715 /home/dano/src/rc-visual/src/lib/Sprite.h
+1238020549 /home/dano/src/rc-visual/src/lib/Sprite.h
 	<cmath>
 	<string>
 	<iostream>
-	<SDL/SDL.h>
+	<vector>
+	"Common.h"
 	<SDL/SDL_gfxPrimitives.h>
 
-1237848715 /home/dano/src/rc-visual/src/lib/Sprite_Group.h
+1238018697 /home/dano/src/rc-visual/src/lib/Sprite_Group.h
 	<iostream>
 	<string>
 	<vector>
 	<SDL/SDL.h>
 	"Sprite.h"
 
-1237848715 /home/dano/src/rc-visual/src/lib/Sprite_Collection.h
+1238018697 /home/dano/src/rc-visual/src/lib/Sprite_Collection.h
 	<iostream>
 	<vector>
 	<SDL/SDL.h>
 	"Sprite_Group.h"
 
-1237848715 /home/dano/src/rc-visual/src/lib/Sprite_File.h
+1238016343 /home/dano/src/rc-visual/src/lib/Sprite_File.h
 	<iostream>
 	<fstream>
 	<sstream>
@@ -738,7 +739,7 @@
 	"Rectangle.h"
 	"Pressure.h"
 
-1237954559 /home/dano/src/rc-visual/src/lib/Application.h
+1237961397 /home/dano/src/rc-visual/src/lib/Application.h
 	"Common.h"
 	"Color.h"
 
@@ -755,16 +756,17 @@
 	<string>
 	<SDL/SDL.h>
 
-1237945822 /home/dano/src/rc-visual/src/lib/Color.h
+1238007936 /home/dano/src/rc-visual/src/lib/Color.h
 	"Common.h"
 
-1237955268 /home/dano/src/rc-visual/src/lib/Rectangle.h
+1238011076 /home/dano/src/rc-visual/src/lib/Rectangle.h
 	"Common.h"
 	<SDL/SDL_gfxPrimitives.h>
 	"Object.h"
 	"Color.h"
 
-1237934045 /home/dano/src/rc-visual/src/lib/Object.h
+1238007936 /home/dano/src/rc-visual/src/lib/Object.h
+	"vmmlib/vmmlib.h"
 
 1237939187 /home/dano/src/rc-visual/src/lib/SdlContext.h
 	<iostream>
@@ -776,8 +778,111 @@
 	"Pressure.h"
 	<cmath>
 
-1237954605 /home/dano/src/rc-visual/src/rc-visual/Pressure.h
+1238016418 /home/dano/src/rc-visual/src/rc-visual/Pressure.h
 	<vector>
 	"Common.h"
 	"Rectangle.h"
+
+1237552346 /home/dano/src/rc-visual/src/lib/vmmlib/vmmlib.h
+	<vmmlib/vector2.h>
+	<vmmlib/vector3.h>
+	<vmmlib/vector4.h>
+	<vmmlib/matrix3.h>
+	<vmmlib/matrix4.h>
+	<vmmlib/quaternion.h>
+	<vmmlib/frustum.h>
+	<vmmlib/frustumCuller.h>
+
+1237552346 /home/dano/src/rc-visual/src/lib/vmmlib/vector2.h
+	<cmath>
+	<cstdlib>
+	<iomanip>
+	<iostream>
+	<algorithm>
+	<cassert>
+	<string>
+	<vector>
+	<sstream>
+	<vmmlib/stringUtils.h>
+
+1237552346 /home/dano/src/rc-visual/src/lib/vmmlib/stringUtils.h
+	<string>
+	<vector>
+	<iostream>
+	<sstream>
+
+1237552346 /home/dano/src/rc-visual/src/lib/vmmlib/vector3.h
+	<algorithm>
+	<cassert>
+	<cmath>
+	<cstdlib>
+	<iomanip>
+	<iostream>
+	<limits>
+	<string>
+	<vector>
+	<vmmlib/stringUtils.h>
+	<vmmlib/vector2.h>
+	<vmmlib/vector4.h>
+
+1237552346 /home/dano/src/rc-visual/src/lib/vmmlib/vector4.h
+	<cmath>
+	<cstdlib>
+	<iomanip>
+	<iostream>
+	<algorithm>
+	<cassert>
+	<string>
+	<vector>
+	<vmmlib/matrix4.h>
+	<vmmlib/stringUtils.h>
+	<vmmlib/vector3.h>
+
+1237552346 /home/dano/src/rc-visual/src/lib/vmmlib/matrix4.h
+	<cmath>
+	<cstdlib>
+	<iomanip>
+	<iostream>
+	<algorithm>
+	<cassert>
+	<string>
+	<vector>
+	<vmmlib/matrix3.h>
+	<vmmlib/vector3.h>
+	<vmmlib/vector4.h>
+	<vmmlib/stringUtils.h>
+
+1237552346 /home/dano/src/rc-visual/src/lib/vmmlib/matrix3.h
+	<vmmlib/vector3.h>
+	<vmmlib/vector4.h>
+	<vmmlib/stringUtils.h>
+	<cmath>
+	<cstdlib>
+	<iomanip>
+	<iostream>
+	<algorithm>
+	<cassert>
+
+1237552346 /home/dano/src/rc-visual/src/lib/vmmlib/quaternion.h
+	<algorithm>
+	<cassert>
+	<cmath>
+	<cstdlib>
+	<iomanip>
+	<iostream>
+	<limits>
+	<vmmlib/vector3.h>
+	<vmmlib/vector4.h>
+	<vmmlib/matrix3.h>
+
+1237552346 /home/dano/src/rc-visual/src/lib/vmmlib/frustum.h
+	<cmath>
+	<vmmlib/matrix4.h>
+
+1237552346 /home/dano/src/rc-visual/src/lib/vmmlib/frustumCuller.h
+	<vmmlib/vector4.h>
+	<vmmlib/visibility.h>
+	<vmmlib/matrix4.h>
+
+1237552346 /home/dano/src/rc-visual/src/lib/vmmlib/visibility.h
 

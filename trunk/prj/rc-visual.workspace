@@ -3,12 +3,14 @@
 	<Workspace title="Workspace">
 		<Project filename="oscpack.cbp" />
 		<Project filename="tinyxml.cbp" />
-		<Project filename="libvisual.cbp" active="1">
+		<Project filename="libvisual.cbp">
 			<Depends filename="oscpack.cbp" />
 			<Depends filename="tinyxml.cbp" />
 		</Project>
-		<Project filename="rc-visual.cbp">
+		<Project filename="rc-visual.cbp" active="1">
 			<Depends filename="oscpack.cbp" />
+			<Depends filename="tinyxml.cbp" />
+			<Depends filename="libvisual.cbp" />
 		</Project>
 		<Project filename="rc-visual-send.cbp" />
 		<Project filename="tests.cbp">

@@ -41,12 +41,12 @@ void Sprite_Collection::clear()
     current_group = 0;
 }
 
-void Sprite_Collection::render()
+void Sprite_Collection::render(SDL_Surface* screen)
 {
     if(!sprite_collection.empty())
     {
         Sprite_Group *g = sprite_collection.at(current_group);
-        g->render();
+        g->render(screen);
     }
 }
 
