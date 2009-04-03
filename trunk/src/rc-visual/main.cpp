@@ -16,6 +16,7 @@
 #include "Sprite_File.h"
 #include "Osc_Server.h"
 
+/*
 Osc_Server server;
 lo_address osc_send;
 string send_addr = "127.0.0.1";
@@ -75,28 +76,25 @@ int hide_handler(const char *path, const char *types, lo_arg **argv,
 
 int animate_handler(const char *path, const char *types, lo_arg **argv,
     int argc, void *data, void *user_data);
-/*
+    */
+
 #include "Common.h"
-#include "SdlContext.h"
 #include "Visual.h"
-*/
-using namespace std;
 
 int main(int argc, char** argv)
 {
-/*
+    // init app
+    Visual visualApp;
+    visualApp.setFrameRate(30);
+    visualApp.setup(argc, argv);
+
     // initialize SDL context
-    SdlContext sdl(640, 480, 16, SdlContext::HARDWARE);
+    dwf::Graphics sdl(640, 480, 16, dwf::Graphics::HARDWARE);
     //sdl.setFullscreen();
     sdl.init();
 
     // open sdl window
-    sdl.createWindow("rc-visual test");
-
-     // init app
-    Visual visualApp;
-    visualApp.setFrameRate(30);
-    visualApp.setup();
+    sdl.createWindow("rc-visual");
 
     // main app loop
     visualApp.mainLoop();
@@ -105,11 +103,11 @@ int main(int argc, char** argv)
     visualApp.cleanup();
 
     // all is well ;)
-    LOG << "Exited cleanly" << endl;
+    LOG << "Exited cleanly" << std::endl;
 
     return 0;
 }
-*/
+/*
     // args to grab
     gchar *mode         = NULL;
     gchar *filename     = NULL;
@@ -321,6 +319,7 @@ int main(int argc, char** argv)
     // all is well ;)
     cout << "Exited cleanly" << endl;
     return 0;
+
 }
 
 void setup_server(string port)
@@ -484,5 +483,5 @@ int animate_handler(const char *path, const char *types, lo_arg **argv,
 
     return 1;
 }
-
+*/
 

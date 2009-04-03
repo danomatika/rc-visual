@@ -1,74 +1,56 @@
-/*==============================================================================
-    Copyright (c) Ars Electronica Futurelab, 2009.
-    Dan Wilcox <Daniel.Wilcox@aec.at>
-==============================================================================*/
+
 #ifndef RECTANGLE_H
 #define RECTANGLE_H
 
 #include "Common.h"
-
-#include <SDL/SDL_gfxPrimitives.h>
-
 #include "Object.h"
-#include "Color.h"
 
 /**
     \class Rectangle
     \brief a colored gl rectangle
 **/
-class Rectangle : public Objecti
+class Rectangle : public dwf::Objecti
 {
     public:
 
-        Rectangle() : Objecti(), _color(255, 255, 255, 255) {}
+        dwf::Color4ub color;
 
-        Rectangle(int x, int y, int w, int h, int vx=0, int vy=0) :
-            Objecti(x, y, w, h, vx, vy), _color(255, 255, 255, 255) {}
+        Rectangle();
+
+        Rectangle(int x, int y, int W, int H, int vx=0, int vy=0);
+
+        Rectangle(const Rectangle& from);
+
+        void operator=(Rectangle& from);
 
         virtual ~Rectangle() {}
 
-        void setColor(Color4ub& color) {_color = color;}
-
+        // variable set or gets
+        void setColor(dwf::Color4ub& color_) {color = color_;}
         void setColor(Uint8 r, Uint8 g, Uint8 b, Uint8 a=255)
-            {_color.set(r, g, b, a);}
+            {color.set(r, g, b, a);}
+        inline std::string getName() {return _name;}
+        inline void setName(std::string name) {_name = name;}
+
+        // osc templates
+        virtual void setVisible(bool b) {}
+        virtual void setAnimate(bool b) {}
+        void nextFrame() {}
+        void prevFrame() {}
+        void gotoFrame(uint frameIndex) {}
+
+        bool loadXml(const TiXmlElement* xmlPtr);
 
         virtual void update() {}
 
         /// draws from the center
-        virtual void draw()
-        {
-            if(Graphics::isTypeOGL())
-            {
-                glColor4ubv(_color.rgba);
+        virtual void draw();
 
-                glBegin(GL_TRIANGLE_STRIP);
-                    glVertex2i((GLint) _pos.x-_w/2, (GLint) _pos.y-_h/2);
-                    glVertex2i((GLint) _pos.x+_w/2, (GLint) _pos.y-_h/2);
-                    glVertex2i((GLint) _pos.x+_w/2, (GLint) _pos.y+_h/2);
-                    glVertex2i((GLint) _pos.x-_w/2, (GLint) _pos.y+_h/2);
-                    glVertex2i((GLint) _pos.x-_w/2, (GLint) _pos.y-_h/2);
-                glEnd();
-            }
-            else if(Graphics::isTypeSDL())
-            {
-                boxRGBA(Graphics::getSDLScreen(), // surface
-                        _pos.x-(_w/2), _pos.y-(_h/2),              // upper left
-                        _pos.x+(_w/2), _pos.y+(_h/2),              // lower right
-                    _color.R, _color.G, _color.B, _color.A);
-            }
-        }
-
-        friend std::ostream& operator<<(std::ostream& os, Rectangle& from)
-        {
-            os << "x: " << from._pos.x << " y: " << from._pos.y
-               << " w: " << from._w << " h: " << from._h
-               << " vx: " << from._vel.x << " vy: " << from._vel.y;
-            return os;
-        }
+        virtual void print(std::string indent="");
 
     protected:
 
-        Color4ub _color;
+        std::string _name;
 };
 
 #endif // RECTANGLE_H
