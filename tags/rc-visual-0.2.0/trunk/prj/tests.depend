@@ -1,0 +1,442 @@
+# depslib dependency file v1.0
+1237855174 source:/home/dano/src/rc-visual/prj/tests/main.cpp
+	<iostream>
+	<unistd.h>
+	<string>
+	"Common.h"
+	"Sprite_File.h"
+	"Sprite_Collection.h"
+	"XmlFile.h"
+
+1238016343 /home/dano/src/rc-visual/src/lib/Sprite_File.h
+	<iostream>
+	<fstream>
+	<sstream>
+	<string>
+	"tinyxml.h"
+	"Sprite_Collection.h"
+
+1222346065 /usr/include/libxml2/libxml/xmlmemory.h
+	<stdio.h>
+	<libxml/xmlversion.h>
+	<libxml/threads.h>
+	<libxml/globals.h>
+
+1222346065 /usr/include/libxml2/libxml/xmlversion.h
+	<libxml/xmlexports.h>
+	<ansidecl.h>
+
+1222346065 /usr/include/libxml2/libxml/xmlexports.h
+
+1222346065 /usr/include/libxml2/libxml/threads.h
+	<libxml/xmlversion.h>
+	<libxml/globals.h>
+
+1222346065 /usr/include/libxml2/libxml/globals.h
+	<libxml/xmlversion.h>
+	<libxml/parser.h>
+	<libxml/xmlerror.h>
+	<libxml/SAX.h>
+	<libxml/SAX2.h>
+	<libxml/xmlmemory.h>
+	<libxml/threads.h>
+
+1222346065 /usr/include/libxml2/libxml/parser.h
+	<stdarg.h>
+	<libxml/xmlversion.h>
+	<libxml/tree.h>
+	<libxml/dict.h>
+	<libxml/hash.h>
+	<libxml/valid.h>
+	<libxml/entities.h>
+	<libxml/xmlerror.h>
+	<libxml/xmlstring.h>
+	<libxml/encoding.h>
+	<libxml/xmlIO.h>
+	<libxml/globals.h>
+
+1222346065 /usr/include/libxml2/libxml/tree.h
+	<stdio.h>
+	<libxml/xmlversion.h>
+	<libxml/xmlstring.h>
+	<libxml/xmlregexp.h>
+	<libxml/xmlmemory.h>
+
+1222346065 /usr/include/libxml2/libxml/xmlstring.h
+	<stdarg.h>
+	<libxml/xmlversion.h>
+
+1222346065 /usr/include/libxml2/libxml/xmlregexp.h
+	<libxml/xmlversion.h>
+	<libxml/tree.h>
+	<libxml/dict.h>
+
+1222346065 /usr/include/libxml2/libxml/dict.h
+	<libxml/xmlversion.h>
+	<libxml/tree.h>
+
+1222346065 /usr/include/libxml2/libxml/hash.h
+	<libxml/xmlversion.h>
+	<libxml/parser.h>
+	<libxml/dict.h>
+
+1222346065 /usr/include/libxml2/libxml/valid.h
+	<libxml/xmlversion.h>
+	<libxml/xmlerror.h>
+	<libxml/tree.h>
+	<libxml/list.h>
+	<libxml/xmlautomata.h>
+	<libxml/xmlregexp.h>
+
+1222346065 /usr/include/libxml2/libxml/xmlerror.h
+	<libxml/parser.h>
+
+1222346065 /usr/include/libxml2/libxml/list.h
+	<libxml/xmlversion.h>
+
+1222346065 /usr/include/libxml2/libxml/xmlautomata.h
+	<libxml/xmlversion.h>
+	<libxml/tree.h>
+	<libxml/xmlregexp.h>
+
+1222346065 /usr/include/libxml2/libxml/entities.h
+	<libxml/xmlversion.h>
+	<libxml/tree.h>
+
+1222346065 /usr/include/libxml2/libxml/encoding.h
+	<libxml/xmlversion.h>
+	<iconv.h>
+	<libxml/tree.h>
+
+1222346065 /usr/include/libxml2/libxml/xmlIO.h
+	<stdio.h>
+	<libxml/xmlversion.h>
+	<libxml/globals.h>
+	<libxml/tree.h>
+	<libxml/parser.h>
+	<libxml/encoding.h>
+
+1222346065 /usr/include/libxml2/libxml/SAX.h
+	<stdio.h>
+	<stdlib.h>
+	<libxml/xmlversion.h>
+	<libxml/parser.h>
+	<libxml/xlink.h>
+
+1222346065 /usr/include/libxml2/libxml/xlink.h
+	<libxml/xmlversion.h>
+	<libxml/tree.h>
+
+1222346065 /usr/include/libxml2/libxml/SAX2.h
+	<stdio.h>
+	<stdlib.h>
+	<libxml/xmlversion.h>
+	<libxml/parser.h>
+	<libxml/xlink.h>
+
+1238018697 /home/dano/src/rc-visual/src/lib/Sprite_Collection.h
+	<iostream>
+	<vector>
+	<SDL/SDL.h>
+	"Sprite_Group.h"
+
+1238018697 /home/dano/src/rc-visual/src/lib/Sprite_Group.h
+	<iostream>
+	<string>
+	<vector>
+	<SDL/SDL.h>
+	"Sprite.h"
+
+1238020549 /home/dano/src/rc-visual/src/lib/Sprite.h
+	<cmath>
+	<string>
+	<iostream>
+	<vector>
+	"Common.h"
+	<SDL/SDL_gfxPrimitives.h>
+
+1222085666 source:/home/dano/src/rc-visual/src/lib/Sprite_File.cpp
+	"Sprite_File.h"
+
+1226557926 /home/dano/src/rc-visual/src/lib/ticpp/tinyxml.cpp
+	"tinyxml.h"
+	<ctype.h>
+	<sstream>
+	<iostream>
+
+1226557926 /home/dano/src/rc-visual/src/lib/ticpp/tinyxml.h
+	<ctype.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<assert.h>
+	<string>
+	<iostream>
+	<sstream>
+	"tinystr.h"
+	"ticpprc.h"
+
+1226557926 /home/dano/src/rc-visual/src/lib/ticpp/tinystr.h
+	<assert.h>
+	<string.h>
+
+1226557926 /home/dano/src/rc-visual/src/lib/ticpp/ticpprc.h
+	<vector>
+
+1226557926 /home/dano/src/rc-visual/src/lib/ticpp/ticpp.cpp
+	"ticpp.h"
+	"ticpprc.h"
+	"tinyxml.h"
+	<sstream>
+
+1226557927 /home/dano/src/rc-visual/src/lib/ticpp/ticpp.h
+	"tinyxml.h"
+	<sstream>
+	<vector>
+	<memory>
+	<exception>
+	<typeinfo>
+
+1178491283 /home/dano/src/rc-visual/src/lib/tinyxml/tinyxml.h
+	<ctype.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<assert.h>
+	<string>
+	<iostream>
+	<sstream>
+	"tinystr.h"
+
+1178491283 /home/dano/src/rc-visual/src/lib/tinyxml/tinystr.h
+	<assert.h>
+	<string.h>
+
+1237848715 /home/dano/src/rc-visual/src/tinyxml/tinyxml.h
+	<ctype.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<assert.h>
+	<string>
+	<iostream>
+	<sstream>
+	"tinystr.h"
+
+1237848715 /home/dano/src/rc-visual/src/tinyxml/tinystr.h
+	<assert.h>
+	<string.h>
+
+1237942356 /home/dano/src/rc-visual/src/lib/Common.h
+	<SDL/SDL.h>
+	<SDL/SDL_opengl.h>
+	"Log.h"
+	"Graphics.h"
+
+1237849485 /home/dano/src/rc-visual/src/lib/Log.h
+	<iostream>
+
+1237853045 /home/dano/src/rc-visual/src/lib/XmlFile.h
+	<string>
+	"Common.h"
+	"tinyxml.h"
+
+1238299407 source:/home/dano/src/rc-visual/prj/tests/ClassTest.cpp
+	"ClassTests.h"
+
+1237949221 /home/dano/src/rc-visual/prj/tests/ClassTests.h
+	"XmlFile.h"
+	"OscListener.h"
+	"OscSender.h"
+
+1238297457 source:/home/dano/src/rc-visual/prj/tests/testMain.cpp
+	<iostream>
+	<unistd.h>
+	<string>
+	"Common.h"
+	"SdlContext.h"
+	"TestApp.h"
+	"Sprite_File.h"
+	"Sprite_Collection.h"
+	"ClassTests.h"
+
+1237953067 /home/dano/src/rc-visual/src/lib/Graphics.h
+	<string>
+	<SDL/SDL.h>
+
+1237963844 source:/home/dano/src/rc-visual/prj/tests/TestApp.cpp
+	"TestApp.h"
+
+1237961506 /home/dano/src/rc-visual/prj/tests/TestApp.h
+	"Application.h"
+	"Rectangle.h"
+
+1237961397 /home/dano/src/rc-visual/src/lib/Application.h
+	"Common.h"
+	"Color.h"
+
+1237939187 /home/dano/src/rc-visual/src/lib/SdlContext.h
+	<iostream>
+	<string>
+	<SDL/SDL.h>
+	"Common.h"
+
+1238011076 /home/dano/src/rc-visual/src/lib/Rectangle.h
+	"Common.h"
+	<SDL/SDL_gfxPrimitives.h>
+	"Object.h"
+	"Color.h"
+
+1238007936 /home/dano/src/rc-visual/src/lib/Object.h
+	"vmmlib/vmmlib.h"
+
+1238007936 /home/dano/src/rc-visual/src/lib/Color.h
+	"Common.h"
+
+1237552346 /home/dano/src/rc-visual/src/lib/vmmlib/vmmlib.h
+	<vmmlib/vector2.h>
+	<vmmlib/vector3.h>
+	<vmmlib/vector4.h>
+	<vmmlib/matrix3.h>
+	<vmmlib/matrix4.h>
+	<vmmlib/quaternion.h>
+	<vmmlib/frustum.h>
+	<vmmlib/frustumCuller.h>
+
+1237552346 /home/dano/src/rc-visual/src/lib/vmmlib/vector2.h
+	<cmath>
+	<cstdlib>
+	<iomanip>
+	<iostream>
+	<algorithm>
+	<cassert>
+	<string>
+	<vector>
+	<sstream>
+	<vmmlib/stringUtils.h>
+
+1237552346 /home/dano/src/rc-visual/src/lib/vmmlib/stringUtils.h
+	<string>
+	<vector>
+	<iostream>
+	<sstream>
+
+1237552346 /home/dano/src/rc-visual/src/lib/vmmlib/vector3.h
+	<algorithm>
+	<cassert>
+	<cmath>
+	<cstdlib>
+	<iomanip>
+	<iostream>
+	<limits>
+	<string>
+	<vector>
+	<vmmlib/stringUtils.h>
+	<vmmlib/vector2.h>
+	<vmmlib/vector4.h>
+
+1237552346 /home/dano/src/rc-visual/src/lib/vmmlib/vector4.h
+	<cmath>
+	<cstdlib>
+	<iomanip>
+	<iostream>
+	<algorithm>
+	<cassert>
+	<string>
+	<vector>
+	<vmmlib/matrix4.h>
+	<vmmlib/stringUtils.h>
+	<vmmlib/vector3.h>
+
+1237552346 /home/dano/src/rc-visual/src/lib/vmmlib/matrix4.h
+	<cmath>
+	<cstdlib>
+	<iomanip>
+	<iostream>
+	<algorithm>
+	<cassert>
+	<string>
+	<vector>
+	<vmmlib/matrix3.h>
+	<vmmlib/vector3.h>
+	<vmmlib/vector4.h>
+	<vmmlib/stringUtils.h>
+
+1237552346 /home/dano/src/rc-visual/src/lib/vmmlib/matrix3.h
+	<vmmlib/vector3.h>
+	<vmmlib/vector4.h>
+	<vmmlib/stringUtils.h>
+	<cmath>
+	<cstdlib>
+	<iomanip>
+	<iostream>
+	<algorithm>
+	<cassert>
+
+1237552346 /home/dano/src/rc-visual/src/lib/vmmlib/quaternion.h
+	<algorithm>
+	<cassert>
+	<cmath>
+	<cstdlib>
+	<iomanip>
+	<iostream>
+	<limits>
+	<vmmlib/vector3.h>
+	<vmmlib/vector4.h>
+	<vmmlib/matrix3.h>
+
+1237552346 /home/dano/src/rc-visual/src/lib/vmmlib/frustum.h
+	<cmath>
+	<vmmlib/matrix4.h>
+
+1237552346 /home/dano/src/rc-visual/src/lib/vmmlib/frustumCuller.h
+	<vmmlib/vector4.h>
+	<vmmlib/visibility.h>
+	<vmmlib/matrix4.h>
+
+1237552346 /home/dano/src/rc-visual/src/lib/vmmlib/visibility.h
+
+1237950981 /home/dano/src/rc-visual/src/lib/OscListener.h
+	<osc/OscReceivedElements.h>
+	<osc/OscPacketListener.h>
+	<ip/UdpSocket.h>
+	<SDL/SDL_thread.h>
+	"Common.h"
+	"Thread.h"
+
+1164112218 /home/dano/src/rc-visual/src/oscpack/osc/OscReceivedElements.h
+	"OscTypes.h"
+	"OscException.h"
+
+1164030578 /home/dano/src/rc-visual/src/oscpack/osc/OscTypes.h
+
+1164030578 /home/dano/src/rc-visual/src/oscpack/osc/OscException.h
+	<exception>
+
+1164030578 /home/dano/src/rc-visual/src/oscpack/osc/OscPacketListener.h
+	"OscReceivedElements.h"
+	"../ip/PacketListener.h"
+
+1164030580 /home/dano/src/rc-visual/src/oscpack/ip/PacketListener.h
+
+1164030580 /home/dano/src/rc-visual/src/oscpack/ip/UdpSocket.h
+	"NetworkingUtils.h"
+	"IpEndpointName.h"
+
+1164030580 /home/dano/src/rc-visual/src/oscpack/ip/NetworkingUtils.h
+
+1164030580 /home/dano/src/rc-visual/src/oscpack/ip/IpEndpointName.h
+
+1237951774 /home/dano/src/rc-visual/src/lib/OscSender.h
+	"Common.h"
+	"osc/OscOutboundPacketStream.h"
+	"ip/UdpSocket.h"
+
+1164030578 /home/dano/src/rc-visual/src/oscpack/osc/OscOutboundPacketStream.h
+	"OscTypes.h"
+	"OscException.h"
+
+1237950847 /home/dano/src/rc-visual/src/lib/Thread.h
+	"Common.h"
+	"SDL/SDL_thread.h"
+
