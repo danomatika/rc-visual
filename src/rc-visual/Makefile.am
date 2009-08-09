@@ -6,7 +6,7 @@ bin_PROGRAMS = rc-visual
 rc_visual_SOURCES = main.cpp
 
 # local libraries needed to build
-rc_visual_LDADD = ../tinyxml/libtinyxml.a ../lib/libvisual.a
+rc_visual_LDADD =  ../lib/libvisual.a ../tinyxml/libtinyxml.a
 
 # include paths
 rc_visual_CPPFLAGS = $(CXXFLAGS) -I ../tinyxml -I../lib $(GLIB2_CFLAGS) $(SDL_CFLAGS) $(SDL_GFX_CFLAGS) $(LIBLO_CFLAGS)
