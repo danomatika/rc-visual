@@ -3,10 +3,11 @@ tinyxmlparser.o: tinyxmlparser.cpp /usr/include/ctype.h \
   /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h \
   /usr/include/gnu/stubs-32.h /usr/include/bits/types.h \
   /usr/include/bits/typesizes.h /usr/include/endian.h \
-  /usr/include/bits/endian.h /usr/include/xlocale.h \
-  /usr/lib/gcc/i486-linux-gnu/4.3.2/include/stddef.h tinyxml.h \
+  /usr/include/bits/endian.h /usr/include/bits/byteswap.h \
+  /usr/include/xlocale.h \
+  /usr/lib/gcc/i486-linux-gnu/4.3.3/include/stddef.h tinyxml.h \
   /usr/include/stdio.h /usr/include/libio.h /usr/include/_G_config.h \
-  /usr/include/wchar.h /usr/lib/gcc/i486-linux-gnu/4.3.2/include/stdarg.h \
+  /usr/include/wchar.h /usr/lib/gcc/i486-linux-gnu/4.3.3/include/stdarg.h \
   /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h \
   /usr/include/bits/stdio.h /usr/include/bits/stdio2.h \
   /usr/include/stdlib.h /usr/include/bits/waitflags.h \
@@ -38,9 +39,11 @@ tinyxmlparser.o: tinyxmlparser.cpp /usr/include/ctype.h \
 
 /usr/include/bits/endian.h:
 
+/usr/include/bits/byteswap.h:
+
 /usr/include/xlocale.h:
 
-/usr/lib/gcc/i486-linux-gnu/4.3.2/include/stddef.h:
+/usr/lib/gcc/i486-linux-gnu/4.3.3/include/stddef.h:
 
 tinyxml.h:
 
@@ -52,7 +55,7 @@ tinyxml.h:
 
 /usr/include/wchar.h:
 
-/usr/lib/gcc/i486-linux-gnu/4.3.2/include/stdarg.h:
+/usr/lib/gcc/i486-linux-gnu/4.3.3/include/stdarg.h:
 
 /usr/include/bits/stdio_lim.h:
 
