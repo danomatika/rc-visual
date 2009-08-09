@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_workspace_file>
+	<Workspace title="rc-visual">
+		<Project filename="externals.cbp" active="1">
+		</Project>
+		<Project filename="visualClasses.cbp">
+		</Project>
+		<Project filename="rc-visual-send.cbp">
+		</Project>
+		<Project filename="rc-visual.cbp">
+		</Project>
+	</Workspace>
+</CodeBlocks_workspace_file>
