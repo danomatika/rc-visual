@@ -1,0 +1,58 @@
+#
+# control commands preceded by '!'
+# commands: group, endgroup, sprite, endsprite
+
+!group
+scene1  # group name
+
+    !sprite
+        jaja 4 4 2  # sprite name, width, height, num of frames
+
+        # the sprite itself, '*' = filled pixel, '-' = empty pixel
+        * * * *
+        * * * *
+        - * * -
+        * * * *
+
+        * * * *
+        * * * *
+        * * * *
+        - * * -
+
+        color 0 255 255 255     # R G B A, values 0 - 255
+        size 640 480    # width height, how big the sprite is
+        pos 0 0 # x y, where the sprites upper left corner is
+        animate 1   # should the sprite automatically animate?, '1' = yes, '0' = no
+    !endsprite
+
+    !sprite
+        lala 4 4 4  # sprite name, width, height, num of frames
+
+        # the sprite itself, '*' = filled pixel, '-' = empty pixel
+        * * * *
+        * * * *
+        - * * -
+        * * * *
+
+        *      *     *      *
+        * * * *
+        * * *      *
+        - * * -
+
+        * * * *
+        * - - *
+        * * * *
+        - * * -
+
+        *--*
+        ****
+        ****
+        -**-
+
+        color 255 0 255 255     # R G B A, values 0 - 255
+        size 200 40    # width height, how big the sprite is
+        pos 200 200 # x y, where the sprites upper left corner is
+        animate 1   # should the sprite automatically animate?, '1' = yes, '0' = no
+    !endsprite
+
+!endgroup
