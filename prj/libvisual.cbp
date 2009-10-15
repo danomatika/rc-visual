@@ -46,23 +46,9 @@
 			<Add library="GL" />
 			<Add library="GLU" />
 		</Linker>
-		<Unit filename="../src/lib/Application.cpp" />
-		<Unit filename="../src/lib/Application.h" />
-		<Unit filename="../src/lib/Color.h" />
-		<Unit filename="../src/lib/Common.h" />
-		<Unit filename="../src/lib/Graphics.cpp" />
-		<Unit filename="../src/lib/Graphics.h" />
 		<Unit filename="../src/lib/Log.h" />
-		<Unit filename="../src/lib/Object.h" />
-		<Unit filename="../src/lib/OscListener.cpp" />
-		<Unit filename="../src/lib/OscListener.h" />
-		<Unit filename="../src/lib/OscSender.cpp" />
-		<Unit filename="../src/lib/OscSender.h" />
 		<Unit filename="../src/lib/Osc_Server.cpp" />
 		<Unit filename="../src/lib/Osc_Server.h" />
-		<Unit filename="../src/lib/Rectangle.h" />
-		<Unit filename="../src/lib/SdlContext.cpp" />
-		<Unit filename="../src/lib/SdlContext.h" />
 		<Unit filename="../src/lib/Sprite.cpp" />
 		<Unit filename="../src/lib/Sprite.h" />
 		<Unit filename="../src/lib/Sprite_Collection.cpp" />
@@ -71,10 +57,6 @@
 		<Unit filename="../src/lib/Sprite_File.h" />
 		<Unit filename="../src/lib/Sprite_Group.cpp" />
 		<Unit filename="../src/lib/Sprite_Group.h" />
-		<Unit filename="../src/lib/Thread.cpp" />
-		<Unit filename="../src/lib/Thread.h" />
-		<Unit filename="../src/lib/XmlFile.cpp" />
-		<Unit filename="../src/lib/XmlFile.h" />
 		<Extensions>
 			<envvars />
 			<code_completion />

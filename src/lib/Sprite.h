@@ -6,7 +6,7 @@
 #include <iostream>
 #include <vector>
 
-#include "Common.h"
+#include "Log.h"
 #include <SDL/SDL_gfxPrimitives.h>
 
 

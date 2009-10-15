@@ -84,32 +84,6 @@ using namespace std;
 
 int main(int argc, char** argv)
 {
-/*
-    // initialize SDL context
-    SdlContext sdl(640, 480, 16, SdlContext::HARDWARE);
-    //sdl.setFullscreen();
-    sdl.init();
-
-    // open sdl window
-    sdl.createWindow("rc-visual test");
-
-     // init app
-    Visual visualApp;
-    visualApp.setFrameRate(30);
-    visualApp.setup();
-
-    // main app loop
-    visualApp.mainLoop();
-
-    // cleanup after exit from loop
-    visualApp.cleanup();
-
-    // all is well ;)
-    LOG << "Exited cleanly" << endl;
-
-    return 0;
-}
-*/
     // args to grab
     gchar *mode         = NULL;
     gchar *filename     = NULL;

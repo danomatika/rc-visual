@@ -12,6 +12,7 @@
 #define TIXML_USE_STL
 
 #include "Sprite_Collection.h"
+#include "Log.h"
 
 class Sprite_File
 {
