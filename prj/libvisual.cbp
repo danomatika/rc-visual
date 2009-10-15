@@ -51,12 +51,6 @@
 		<Unit filename="../src/lib/Sprite_File.h" />
 		<Unit filename="../src/lib/Sprite_Group.cpp" />
 		<Unit filename="../src/lib/Sprite_Group.h" />
-		<Unit filename="../src/tinyxml/tinystr.cpp" />
-		<Unit filename="../src/tinyxml/tinystr.h" />
-		<Unit filename="../src/tinyxml/tinyxml.cpp" />
-		<Unit filename="../src/tinyxml/tinyxml.h" />
-		<Unit filename="../src/tinyxml/tinyxmlerror.cpp" />
-		<Unit filename="../src/tinyxml/tinyxmlparser.cpp" />
 		<Extensions>
 			<envvars />
 			<code_completion />

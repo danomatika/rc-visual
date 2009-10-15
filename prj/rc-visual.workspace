@@ -2,12 +2,9 @@
 <CodeBlocks_workspace_file>
 	<Workspace title="Workspace">
 		<Project filename="libvisual.cbp" />
-		<Project filename="rc-visual.cbp" active="1">
+		<Project filename="rc-visual.cbp">
 			<Depends filename="libvisual.cbp" />
 		</Project>
-		<Project filename="rc-visual-send.cbp" />
-		<Project filename="tests.cbp">
-			<Depends filename="libvisual.cbp" />
-		</Project>
+		<Project filename="rc-visual-send.cbp" active="1" />
 	</Workspace>
 </CodeBlocks_workspace_file>
