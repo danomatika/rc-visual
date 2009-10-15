@@ -1,0 +1,716 @@
+# depslib dependency file v1.0
+1224538595 source:/home/dano/src/visual/main.cpp
+	<iostream>
+	<cstdlib>
+	<SDL/SDL.h>
+	<SDL_gfxPrimitives.h>
+	<lo/lo.h>
+	<glib.h>
+	"Sprite.h"
+	"Sprite_Group.h"
+	"Sprite_Collection.h"
+	"Sprite_File.h"
+	"Osc_Server.h"
+
+1235099159 /usr/include/SDL/SDL.h
+	"SDL_main.h"
+	"SDL_stdinc.h"
+	"SDL_audio.h"
+	"SDL_cdrom.h"
+	"SDL_cpuinfo.h"
+	"SDL_endian.h"
+	"SDL_error.h"
+	"SDL_events.h"
+	"SDL_loadso.h"
+	"SDL_mutex.h"
+	"SDL_rwops.h"
+	"SDL_thread.h"
+	"SDL_timer.h"
+	"SDL_video.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1235099159 /usr/include/SDL/SDL_main.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+	"begin_code.h"
+	"close_code.h"
+
+1235099159 /usr/include/SDL/SDL_stdinc.h
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<iconv.h>
+	"begin_code.h"
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	"close_code.h"
+
+1235099159 /usr/include/SDL/SDL_config.h
+	"SDL_platform.h"
+	<stdarg.h>
+
+1235099159 /usr/include/SDL/SDL_platform.h
+
+1235099159 /usr/include/SDL/begin_code.h
+
+1235099159 /usr/include/SDL/close_code.h
+
+1235099159 /usr/include/SDL/SDL_audio.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1235099159 /usr/include/SDL/SDL_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1235099159 /usr/include/SDL/SDL_endian.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1235099159 /usr/include/SDL/SDL_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1235099159 /usr/include/SDL/SDL_thread.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	<process.h>
+	"close_code.h"
+
+1235099159 /usr/include/SDL/SDL_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1235099159 /usr/include/SDL/SDL_cdrom.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1235099159 /usr/include/SDL/SDL_cpuinfo.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1235099159 /usr/include/SDL/SDL_events.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_active.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_quit.h"
+	"begin_code.h"
+	"close_code.h"
+
+1235099159 /usr/include/SDL/SDL_active.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1235099159 /usr/include/SDL/SDL_keyboard.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_keysym.h"
+	"begin_code.h"
+	"close_code.h"
+
+1235099159 /usr/include/SDL/SDL_keysym.h
+
+1235099159 /usr/include/SDL/SDL_mouse.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1235099159 /usr/include/SDL/SDL_video.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1235099159 /usr/include/SDL/SDL_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1235099159 /usr/include/SDL/SDL_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1235099159 /usr/include/SDL/SDL_loadso.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1235099159 /usr/include/SDL/SDL_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1235099159 /usr/include/SDL/SDL_version.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1210159906 /usr/include/SDL/SDL_gfxPrimitives.h
+	<math.h>
+	"SDL.h"
+
+1200565125 source:/home/dano/src/visual/Sprite.cpp
+	"Sprite.h"
+
+1200562684 /home/dano/src/visual/Sprite.h
+	<cmath>
+	<string>
+	<iostream>
+	<SDL/SDL.h>
+	<SDL_gfxPrimitives.h>
+
+1197396854 /home/dano/src/visual/Osc_Server.h
+	"lo/lo.h"
+
+1197396841 source:/home/dano/src/visual/Osc_Server.cpp
+	"Osc_Server.h"
+
+1200470047 source:/home/dano/src/visual/Sprite_Control.cpp
+	"Sprite_Control.h"
+
+1200470058 /home/dano/src/visual/Sprite_Control.h
+	<iostream>
+	<string>
+	<vector>
+	<SDL/SDL.h>
+	"Sprite.h"
+
+1200564988 source:/home/dano/src/visual/Sprite_Group.cpp
+	"Sprite_Group.h"
+
+1200564756 /home/dano/src/visual/Sprite_Group.h
+	<iostream>
+	<string>
+	<vector>
+	<SDL/SDL.h>
+	"Sprite.h"
+
+1218202611 /usr/include/glib-2.0/glib.h
+	<glib/galloca.h>
+	<glib/garray.h>
+	<glib/gasyncqueue.h>
+	<glib/gatomic.h>
+	<glib/gbacktrace.h>
+	<glib/gbase64.h>
+	<glib/gbookmarkfile.h>
+	<glib/gcache.h>
+	<glib/gchecksum.h>
+	<glib/gcompletion.h>
+	<glib/gconvert.h>
+	<glib/gdataset.h>
+	<glib/gdate.h>
+	<glib/gdir.h>
+	<glib/gerror.h>
+	<glib/gfileutils.h>
+	<glib/ghash.h>
+	<glib/ghook.h>
+	<glib/giochannel.h>
+	<glib/gkeyfile.h>
+	<glib/glist.h>
+	<glib/gmacros.h>
+	<glib/gmain.h>
+	<glib/gmappedfile.h>
+	<glib/gmarkup.h>
+	<glib/gmem.h>
+	<glib/gmessages.h>
+	<glib/gnode.h>
+	<glib/goption.h>
+	<glib/gpattern.h>
+	<glib/gprimes.h>
+	<glib/gqsort.h>
+	<glib/gquark.h>
+	<glib/gqueue.h>
+	<glib/grand.h>
+	<glib/grel.h>
+	<glib/gregex.h>
+	<glib/gscanner.h>
+	<glib/gsequence.h>
+	<glib/gshell.h>
+	<glib/gslist.h>
+	<glib/gspawn.h>
+	<glib/gstrfuncs.h>
+	<glib/gstring.h>
+	<glib/gtestutils.h>
+	<glib/gthread.h>
+	<glib/gthreadpool.h>
+	<glib/gtimer.h>
+	<glib/gtree.h>
+	<glib/gtypes.h>
+	<glib/gunicode.h>
+	<glib/gurifuncs.h>
+	<glib/gutils.h>
+	<glib/gwin32.h>
+
+1218202611 /usr/include/glib-2.0/glib/galloca.h
+	<glib/gtypes.h>
+	<alloca.h>
+	<malloc.h>
+
+1218202611 /usr/include/glib-2.0/glib/gtypes.h
+	<glibconfig.h>
+
+1218202609 /usr/lib/glib-2.0/include//glibconfig.h
+	<glib/gmacros.h>
+	<limits.h>
+	<float.h>
+
+1218202611 /usr/include/glib-2.0/glib/gmacros.h
+	<stddef.h>
+
+1218202611 /usr/include/glib-2.0/glib/garray.h
+	<glib/gtypes.h>
+
+1218202611 /usr/include/glib-2.0/glib/gasyncqueue.h
+	<glib/gthread.h>
+
+1218202611 /usr/include/glib-2.0/glib/gthread.h
+	<glib/gerror.h>
+	<glib/gtypes.h>
+	<glib/gutils.h>
+	<glib/gatomic.h>
+
+1218202611 /usr/include/glib-2.0/glib/gerror.h
+	<glib/gquark.h>
+
+1218202611 /usr/include/glib-2.0/glib/gquark.h
+	<glib/gtypes.h>
+
+1218202611 /usr/include/glib-2.0/glib/gutils.h
+	<glib/gtypes.h>
+	<stdarg.h>
+
+1218202611 /usr/include/glib-2.0/glib/gatomic.h
+	<glib/gtypes.h>
+
+1218202611 /usr/include/glib-2.0/glib/gbacktrace.h
+	<glib/gtypes.h>
+
+1218202611 /usr/include/glib-2.0/glib/gbase64.h
+	<glib/gtypes.h>
+
+1218202611 /usr/include/glib-2.0/glib/gbookmarkfile.h
+	<glib/gerror.h>
+	<time.h>
+
+1218202611 /usr/include/glib-2.0/glib/gcache.h
+	<glib/glist.h>
+
+1218202611 /usr/include/glib-2.0/glib/glist.h
+	<glib/gmem.h>
+
+1218202611 /usr/include/glib-2.0/glib/gmem.h
+	<glib/gslice.h>
+	<glib/gtypes.h>
+
+1218202611 /usr/include/glib-2.0/glib/gslice.h
+	<glib/gtypes.h>
+
+1218202611 /usr/include/glib-2.0/glib/gcompletion.h
+	<glib/glist.h>
+
+1218202611 /usr/include/glib-2.0/glib/gconvert.h
+	<glib/gerror.h>
+
+1218202611 /usr/include/glib-2.0/glib/gdataset.h
+	<glib/gquark.h>
+
+1218202611 /usr/include/glib-2.0/glib/gdate.h
+	<time.h>
+	<glib/gtypes.h>
+	<glib/gquark.h>
+
+1218202611 /usr/include/glib-2.0/glib/gdir.h
+	<glib/gerror.h>
+
+1218202611 /usr/include/glib-2.0/glib/gfileutils.h
+	<glib/gerror.h>
+
+1218202611 /usr/include/glib-2.0/glib/ghash.h
+	<glib/gtypes.h>
+	<glib/glist.h>
+
+1218202611 /usr/include/glib-2.0/glib/ghook.h
+	<glib/gmem.h>
+
+1218202611 /usr/include/glib-2.0/glib/giochannel.h
+	<glib/gconvert.h>
+	<glib/gmain.h>
+	<glib/gstring.h>
+
+1218202611 /usr/include/glib-2.0/glib/gmain.h
+	<glib/gslist.h>
+	<glib/gthread.h>
+
+1218202611 /usr/include/glib-2.0/glib/gslist.h
+	<glib/gmem.h>
+
+1218202611 /usr/include/glib-2.0/glib/gstring.h
+	<glib/gtypes.h>
+	<glib/gunicode.h>
+	<glib/gutils.h>
+
+1218202611 /usr/include/glib-2.0/glib/gunicode.h
+	<glib/gerror.h>
+	<glib/gtypes.h>
+
+1218202611 /usr/include/glib-2.0/glib/gkeyfile.h
+	<glib/gerror.h>
+
+1218202611 /usr/include/glib-2.0/glib/gmappedfile.h
+	<glib/gerror.h>
+
+1218202611 /usr/include/glib-2.0/glib/gmarkup.h
+	<stdarg.h>
+	<glib/gerror.h>
+	<glib/gslist.h>
+
+1218202611 /usr/include/glib-2.0/glib/gmessages.h
+	<stdarg.h>
+	<glib/gtypes.h>
+	<glib/gmacros.h>
+
+1218202611 /usr/include/glib-2.0/glib/gnode.h
+	<glib/gmem.h>
+
+1218202611 /usr/include/glib-2.0/glib/goption.h
+	<glib/gerror.h>
+	<glib/gquark.h>
+
+1218202611 /usr/include/glib-2.0/glib/gpattern.h
+	<glib/gtypes.h>
+
+1218202611 /usr/include/glib-2.0/glib/gprimes.h
+	<glib/gtypes.h>
+
+1218202611 /usr/include/glib-2.0/glib/gqsort.h
+	<glib/gtypes.h>
+
+1218202611 /usr/include/glib-2.0/glib/gqueue.h
+	<glib/glist.h>
+
+1218202611 /usr/include/glib-2.0/glib/grand.h
+	<glib/gtypes.h>
+
+1218202611 /usr/include/glib-2.0/glib/grel.h
+	<glib/gtypes.h>
+
+1218202611 /usr/include/glib-2.0/glib/gregex.h
+	<glib/gerror.h>
+	<glib/gstring.h>
+
+1218202611 /usr/include/glib-2.0/glib/gscanner.h
+	<glib/gdataset.h>
+	<glib/ghash.h>
+
+1218202611 /usr/include/glib-2.0/glib/gsequence.h
+	<glib/gtypes.h>
+
+1218202611 /usr/include/glib-2.0/glib/gshell.h
+	<glib/gerror.h>
+
+1218202611 /usr/include/glib-2.0/glib/gspawn.h
+	<glib/gerror.h>
+
+1218202611 /usr/include/glib-2.0/glib/gstrfuncs.h
+	<stdarg.h>
+	<glib/gtypes.h>
+
+1218202611 /usr/include/glib-2.0/glib/gthreadpool.h
+	<glib/gthread.h>
+
+1218202611 /usr/include/glib-2.0/glib/gtimer.h
+	<glib/gtypes.h>
+
+1218202611 /usr/include/glib-2.0/glib/gtree.h
+	<glib/gnode.h>
+
+1218202611 /usr/include/glib-2.0/glib/gwin32.h
+	<glib/gtypes.h>
+
+1200607953 source:/home/dano/src/visual/Sprite_Collection.cpp
+	"Sprite_Collection.h"
+
+1200607887 /home/dano/src/visual/Sprite_Collection.h
+	<iostream>
+	<vector>
+	<SDL.h>
+	"Sprite_Group.h"
+
+1200607770 source:/home/dano/src/visual/Sprite_File.cpp
+	"Sprite_File.h"
+
+1200593545 /home/dano/src/visual/Sprite_File.h
+	<iostream>
+	<fstream>
+	<sstream>
+	<string>
+	"Sprite_Collection.h"
+
+1209170063 source:/home/dano/src/visual/classes/Osc_Server.cpp
+	"Osc_Server.h"
+
+1209170063 /home/dano/src/visual/classes/Osc_Server.h
+	"lo/lo.h"
+
+1222029216 source:/home/dano/src/visual/classes/Sprite.cpp
+	"Sprite.h"
+
+1222026653 /home/dano/src/visual/classes/Sprite.h
+	<cmath>
+	<string>
+	<iostream>
+	<SDL/SDL.h>
+	<SDL_gfxPrimitives.h>
+
+1209170063 source:/home/dano/src/visual/classes/Sprite_Collection.cpp
+	"Sprite_Collection.h"
+
+1209170063 /home/dano/src/visual/classes/Sprite_Collection.h
+	<iostream>
+	<vector>
+	<SDL.h>
+	"Sprite_Group.h"
+
+1209170063 /home/dano/src/visual/classes/Sprite_Group.h
+	<iostream>
+	<string>
+	<vector>
+	<SDL/SDL.h>
+	"Sprite.h"
+
+1222085666 source:/home/dano/src/visual/classes/Sprite_File.cpp
+	"Sprite_File.h"
+
+1222085396 /home/dano/src/visual/classes/Sprite_File.h
+	<iostream>
+	<fstream>
+	<sstream>
+	<string>
+	<libxml/xmlmemory.h>
+	<libxml/parser.h>
+	"Sprite_Collection.h"
+
+1209170063 source:/home/dano/src/visual/classes/Sprite_Group.cpp
+	"Sprite_Group.h"
+
+1218202611 /usr/include/glib-2.0/glib/gchecksum.h
+	<glib/gtypes.h>
+
+1218202611 /usr/include/glib-2.0/glib/gtestutils.h
+	<glib.h>
+
+1218202611 /usr/include/glib-2.0/glib/gurifuncs.h
+	<glib.h>
+
+1250006504 /usr/include/libxml2//libxml/xmlmemory.h
+	<stdio.h>
+	<libxml/xmlversion.h>
+	<libxml/threads.h>
+	<libxml/globals.h>
+
+1250006504 /usr/include/libxml2//libxml/xmlversion.h
+	<libxml/xmlexports.h>
+	<ansidecl.h>
+
+1250006504 /usr/include/libxml2//libxml/xmlexports.h
+
+1250006504 /usr/include/libxml2//libxml/threads.h
+	<libxml/xmlversion.h>
+	<libxml/globals.h>
+
+1250006504 /usr/include/libxml2//libxml/globals.h
+	<libxml/xmlversion.h>
+	<libxml/parser.h>
+	<libxml/xmlerror.h>
+	<libxml/SAX.h>
+	<libxml/SAX2.h>
+	<libxml/xmlmemory.h>
+	<libxml/threads.h>
+
+1250006504 /usr/include/libxml2//libxml/parser.h
+	<stdarg.h>
+	<libxml/xmlversion.h>
+	<libxml/tree.h>
+	<libxml/dict.h>
+	<libxml/hash.h>
+	<libxml/valid.h>
+	<libxml/entities.h>
+	<libxml/xmlerror.h>
+	<libxml/xmlstring.h>
+	<libxml/encoding.h>
+	<libxml/xmlIO.h>
+	<libxml/globals.h>
+
+1250006504 /usr/include/libxml2//libxml/tree.h
+	<stdio.h>
+	<libxml/xmlversion.h>
+	<libxml/xmlstring.h>
+	<libxml/xmlregexp.h>
+	<libxml/xmlmemory.h>
+
+1250006504 /usr/include/libxml2//libxml/xmlstring.h
+	<stdarg.h>
+	<libxml/xmlversion.h>
+
+1250006504 /usr/include/libxml2//libxml/xmlregexp.h
+	<libxml/xmlversion.h>
+	<libxml/tree.h>
+	<libxml/dict.h>
+
+1250006504 /usr/include/libxml2//libxml/dict.h
+	<libxml/xmlversion.h>
+	<libxml/tree.h>
+
+1250006504 /usr/include/libxml2//libxml/hash.h
+	<libxml/xmlversion.h>
+	<libxml/parser.h>
+	<libxml/dict.h>
+
+1250006504 /usr/include/libxml2//libxml/valid.h
+	<libxml/xmlversion.h>
+	<libxml/xmlerror.h>
+	<libxml/tree.h>
+	<libxml/list.h>
+	<libxml/xmlautomata.h>
+	<libxml/xmlregexp.h>
+
+1250006504 /usr/include/libxml2//libxml/xmlerror.h
+	<libxml/parser.h>
+
+1250006504 /usr/include/libxml2//libxml/list.h
+	<libxml/xmlversion.h>
+
+1250006504 /usr/include/libxml2//libxml/xmlautomata.h
+	<libxml/xmlversion.h>
+	<libxml/tree.h>
+	<libxml/xmlregexp.h>
+
+1250006504 /usr/include/libxml2//libxml/entities.h
+	<libxml/xmlversion.h>
+	<libxml/tree.h>
+
+1250006504 /usr/include/libxml2//libxml/encoding.h
+	<libxml/xmlversion.h>
+	<iconv.h>
+	<libxml/tree.h>
+
+1250006504 /usr/include/libxml2//libxml/xmlIO.h
+	<stdio.h>
+	<libxml/xmlversion.h>
+	<libxml/globals.h>
+	<libxml/tree.h>
+	<libxml/parser.h>
+	<libxml/encoding.h>
+
+1250006504 /usr/include/libxml2//libxml/SAX.h
+	<stdio.h>
+	<stdlib.h>
+	<libxml/xmlversion.h>
+	<libxml/parser.h>
+	<libxml/xlink.h>
+
+1250006504 /usr/include/libxml2//libxml/xlink.h
+	<libxml/xmlversion.h>
+	<libxml/tree.h>
+
+1250006504 /usr/include/libxml2//libxml/SAX2.h
+	<stdio.h>
+	<stdlib.h>
+	<libxml/xmlversion.h>
+	<libxml/parser.h>
+	<libxml/xlink.h>
+
+1209170063 source:/home/dano/src/rc-visual/tags/visual/classes/Osc_Server.cpp
+	"Osc_Server.h"
+
+1209170063 /home/dano/src/rc-visual/tags/visual/classes/Osc_Server.h
+	"lo/lo.h"
+
+1222029216 source:/home/dano/src/rc-visual/tags/visual/classes/Sprite.cpp
+	"Sprite.h"
+
+1222026653 /home/dano/src/rc-visual/tags/visual/classes/Sprite.h
+	<cmath>
+	<string>
+	<iostream>
+	<SDL/SDL.h>
+	<SDL_gfxPrimitives.h>
+
+1209170063 source:/home/dano/src/rc-visual/tags/visual/classes/Sprite_Collection.cpp
+	"Sprite_Collection.h"
+
+1209170063 /home/dano/src/rc-visual/tags/visual/classes/Sprite_Collection.h
+	<iostream>
+	<vector>
+	<SDL.h>
+	"Sprite_Group.h"
+
+1209170063 /home/dano/src/rc-visual/tags/visual/classes/Sprite_Group.h
+	<iostream>
+	<string>
+	<vector>
+	<SDL/SDL.h>
+	"Sprite.h"
+
+1222085666 source:/home/dano/src/rc-visual/tags/visual/classes/Sprite_File.cpp
+	"Sprite_File.h"
+
+1222085396 /home/dano/src/rc-visual/tags/visual/classes/Sprite_File.h
+	<iostream>
+	<fstream>
+	<sstream>
+	<string>
+	<libxml/xmlmemory.h>
+	<libxml/parser.h>
+	"Sprite_Collection.h"
+
+1209170063 source:/home/dano/src/rc-visual/tags/visual/classes/Sprite_Group.cpp
+	"Sprite_Group.h"
+

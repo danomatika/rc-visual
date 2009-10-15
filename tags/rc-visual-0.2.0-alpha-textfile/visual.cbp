@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="visual" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/visual" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option parameters="-n" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/visual" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin" />
+				<Option object_output="obj/Release/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="`sdl-config --cflags`" />
+			<Add directory="/usr/include/glib-2.0" />
+			<Add directory="/usr/lib/glib-2.0/include/" />
+			<Add directory="/home/dano/src/visual/classes" />
+			<Add directory="/usr/include/libxml2/" />
+		</Compiler>
+		<Linker>
+			<Add option="`sdl-config --libs`" />
+			<Add library="liblo" />
+			<Add library="SDL" />
+			<Add library="libSDL_gfx" />
+			<Add library="glib-2.0" />
+			<Add library="libxml2" />
+			<Add directory="/usr/include/SDL" />
+		</Linker>
+		<Unit filename="classes/Osc_Server.cpp" />
+		<Unit filename="classes/Osc_Server.h" />
+		<Unit filename="classes/Sprite.cpp" />
+		<Unit filename="classes/Sprite.h" />
+		<Unit filename="classes/Sprite_Collection.cpp" />
+		<Unit filename="classes/Sprite_Collection.h" />
+		<Unit filename="classes/Sprite_File.cpp" />
+		<Unit filename="classes/Sprite_File.h" />
+		<Unit filename="classes/Sprite_Group.cpp" />
+		<Unit filename="classes/Sprite_Group.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="test.txt" />
+		<Unit filename="test2.txt" />
+		<Extensions>
+			<envvars />
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
