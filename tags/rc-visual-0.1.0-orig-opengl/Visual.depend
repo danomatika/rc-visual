@@ -1,0 +1,228 @@
+# depslib dependency file v1.0
+1185506411 source:/home/dano/Creative/visual/main.cpp
+	<iostream>
+	<unistd.h>
+	<stdlib.h>
+	<string>
+	<GL/freeglut.h>
+	<GL/glu.h>
+	<GL/gl.h>
+	"Osc_Server.h"
+	"ArpNow.h"
+	"Vel.h"
+	"RunMan.h"
+
+1185509656 source:/home/dano/Creative/visual/ArpNow.cpp
+	"ArpNow.h"
+
+1184116708 /home/dano/Creative/visual/ArpNow.h
+	<iostream>
+	<string>
+	<vector>
+	<GL/glu.h>
+	<GL/gl.h>
+	"Visual.h"
+
+1184137893 /home/dano/Creative/visual/Visual.h
+	<iostream>
+	<GL/glu.h>
+	<GL/gl.h>
+
+1184121167 source:/home/dano/Creative/visual/Visual.cpp
+	"Visual.h"
+
+1183759455 source:/home/dano/Creative/visual/Osc_Server.cpp
+	"Osc_Server.h"
+
+1183759551 /home/dano/Creative/visual/Osc_Server.h
+	"lo/lo.h"
+
+1185509649 source:/home/dano/Creative/visual/Vel.cpp
+	"Vel.h"
+
+1184125420 /home/dano/Creative/visual/Vel.h
+	<iostream>
+	<string>
+	<vector>
+	<GL/glu.h>
+	<GL/gl.h>
+	"Visual.h"
+
+1185506348 source:/home/dano/Creative/visual/RunMan.cpp
+	"RunMan.h"
+
+1184136709 /home/dano/Creative/visual/RunMan.h
+	<iostream>
+	<string>
+	<vector>
+	<GL/glu.h>
+	<GL/gl.h>
+	"Visual.h"
+
+1185509656 source:/home/dano/src/visual/ArpNow.cpp
+	"ArpNow.h"
+
+1184116708 /home/dano/src/visual/ArpNow.h
+	<iostream>
+	<string>
+	<vector>
+	<GL/glu.h>
+	<GL/gl.h>
+	"Visual.h"
+
+1184137893 /home/dano/src/visual/Visual.h
+	<iostream>
+	<GL/glu.h>
+	<GL/gl.h>
+
+1183759455 source:/home/dano/src/visual/Osc_Server.cpp
+	"Osc_Server.h"
+
+1183759551 /home/dano/src/visual/Osc_Server.h
+	"lo/lo.h"
+
+1185506348 source:/home/dano/src/visual/RunMan.cpp
+	"RunMan.h"
+
+1184136709 /home/dano/src/visual/RunMan.h
+	<iostream>
+	<string>
+	<vector>
+	<GL/glu.h>
+	<GL/gl.h>
+	"Visual.h"
+
+1185509649 source:/home/dano/src/visual/Vel.cpp
+	"Vel.h"
+
+1184125420 /home/dano/src/visual/Vel.h
+	<iostream>
+	<string>
+	<vector>
+	<GL/glu.h>
+	<GL/gl.h>
+	"Visual.h"
+
+1184121167 source:/home/dano/src/visual/Visual.cpp
+	"Visual.h"
+
+1185509656 source:/home/dano/src/Visual/ArpNow.cpp
+	"ArpNow.h"
+
+1184116708 /home/dano/src/Visual/ArpNow.h
+	<iostream>
+	<string>
+	<vector>
+	<GL/glu.h>
+	<GL/gl.h>
+	"Visual.h"
+
+1184137893 /home/dano/src/Visual/Visual.h
+	<iostream>
+	<GL/glu.h>
+	<GL/gl.h>
+
+1183759455 source:/home/dano/src/Visual/Osc_Server.cpp
+	"Osc_Server.h"
+
+1183759551 /home/dano/src/Visual/Osc_Server.h
+	"lo/lo.h"
+
+1185506348 source:/home/dano/src/Visual/RunMan.cpp
+	"RunMan.h"
+
+1184136709 /home/dano/src/Visual/RunMan.h
+	<iostream>
+	<string>
+	<vector>
+	<GL/glu.h>
+	<GL/gl.h>
+	"Visual.h"
+
+1185509649 source:/home/dano/src/Visual/Vel.cpp
+	"Vel.h"
+
+1184125420 /home/dano/src/Visual/Vel.h
+	<iostream>
+	<string>
+	<vector>
+	<GL/glu.h>
+	<GL/gl.h>
+	"Visual.h"
+
+1184121167 source:/home/dano/src/Visual/Visual.cpp
+	"Visual.h"
+
+1197578011 source:/home/dano/src/Visual/main.cpp
+	<iostream>
+	<unistd.h>
+	<stdlib.h>
+	<string>
+	<GL/freeglut.h>
+	<GL/glu.h>
+	<GL/gl.h>
+	"Osc_Server.h"
+	"ArpNow.h"
+	"Vel.h"
+	"RunMan.h"
+
+1209170059 source:/home/dano/src/rc-visual/tags/rc-visual-0.1.0-orig-opengl/ArpNow.cpp
+	"ArpNow.h"
+
+1209170059 /home/dano/src/rc-visual/tags/rc-visual-0.1.0-orig-opengl/ArpNow.h
+	<iostream>
+	<string>
+	<vector>
+	<GL/glu.h>
+	<GL/gl.h>
+	"Visual.h"
+
+1209170059 /home/dano/src/rc-visual/tags/rc-visual-0.1.0-orig-opengl/Visual.h
+	<iostream>
+	<GL/glu.h>
+	<GL/gl.h>
+
+1209170059 source:/home/dano/src/rc-visual/tags/rc-visual-0.1.0-orig-opengl/Osc_Server.cpp
+	"Osc_Server.h"
+
+1209170059 /home/dano/src/rc-visual/tags/rc-visual-0.1.0-orig-opengl/Osc_Server.h
+	"lo/lo.h"
+
+1209170059 source:/home/dano/src/rc-visual/tags/rc-visual-0.1.0-orig-opengl/RunMan.cpp
+	"RunMan.h"
+
+1209170059 /home/dano/src/rc-visual/tags/rc-visual-0.1.0-orig-opengl/RunMan.h
+	<iostream>
+	<string>
+	<vector>
+	<GL/glu.h>
+	<GL/gl.h>
+	"Visual.h"
+
+1209170059 source:/home/dano/src/rc-visual/tags/rc-visual-0.1.0-orig-opengl/Vel.cpp
+	"Vel.h"
+
+1209170059 /home/dano/src/rc-visual/tags/rc-visual-0.1.0-orig-opengl/Vel.h
+	<iostream>
+	<string>
+	<vector>
+	<GL/glu.h>
+	<GL/gl.h>
+	"Visual.h"
+
+1209170059 source:/home/dano/src/rc-visual/tags/rc-visual-0.1.0-orig-opengl/Visual.cpp
+	"Visual.h"
+
+1209170059 source:/home/dano/src/rc-visual/tags/rc-visual-0.1.0-orig-opengl/main.cpp
+	<iostream>
+	<unistd.h>
+	<stdlib.h>
+	<string>
+	<GL/freeglut.h>
+	<GL/glu.h>
+	<GL/gl.h>
+	"Osc_Server.h"
+	"ArpNow.h"
+	"Vel.h"
+	"RunMan.h"
+
