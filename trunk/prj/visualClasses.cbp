@@ -23,12 +23,15 @@
 					<Add directory="../src/classes" />
 					<Add directory="/usr/include" />
 					<Add directory="../externals" />
-					<Add directory="../externals/include" />
+					<Add directory="../externals/visualframework/src" />
+					<Add directory="../externals/visualframework/externals" />
+					<Add directory="../externals/visualframework/externals/include" />
 				</Compiler>
 				<Linker>
 					<Add directory="../bin" />
 					<Add directory="../lib" />
 					<Add directory="../externals/lib" />
+					<Add directory="../externals/visualframework/externals/lib" />
 					<Add directory="/usr/lib" />
 					<Add library="SDL" />
 					<Add library="SDL_gfx" />
@@ -52,13 +55,16 @@
 					<Add directory="../src/classes" />
 					<Add directory="/usr/include" />
 					<Add directory="../externals" />
-					<Add directory="../externals/include" />
+					<Add directory="../externals/visualframework/src" />
+					<Add directory="../externals/visualframework/externals" />
+					<Add directory="../externals/visualframework/externals/include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
 					<Add directory="../bin" />
 					<Add directory="../lib" />
 					<Add directory="../externals/lib" />
+					<Add directory="../externals/visualframework/externals/lib" />
 					<Add directory="/usr/lib" />
 					<Add library="SDL" />
 					<Add library="SDL_gfx" />
@@ -68,37 +74,7 @@
 				</Linker>
 			</Target>
 		</Build>
-		<Unit filename="../src/classes/Sprite-Image.h">
-			<Option compilerVar="CPP" />
-			<Option target="Debug" />
-			<Option target="Release" />
-		</Unit>
-		<Unit filename="../src/classes/Sprite.h">
-			<Option compilerVar="CPP" />
-			<Option target="Debug" />
-			<Option target="Release" />
-		</Unit>
-		<Unit filename="../src/classes/Sprite_File.h">
-			<Option compilerVar="CPP" />
-			<Option target="Debug" />
-			<Option target="Release" />
-		</Unit>
-		<Unit filename="../src/classes/Common.h">
-			<Option compilerVar="CPP" />
-			<Option target="Debug" />
-			<Option target="Release" />
-		</Unit>
-		<Unit filename="../src/classes/Texture.h">
-			<Option compilerVar="CPP" />
-			<Option target="Debug" />
-			<Option target="Release" />
-		</Unit>
-		<Unit filename="../src/classes/Object.h">
-			<Option compilerVar="CPP" />
-			<Option target="Debug" />
-			<Option target="Release" />
-		</Unit>
-		<Unit filename="../src/classes/BitmapSprite.h">
+		<Unit filename="../src/classes/Rectangle.h">
 			<Option compilerVar="CPP" />
 			<Option target="Debug" />
 			<Option target="Release" />
@@ -108,7 +84,12 @@
 			<Option target="Debug" />
 			<Option target="Release" />
 		</Unit>
-		<Unit filename="../src/classes/Rectangle.h">
+		<Unit filename="../src/classes/Object.h">
+			<Option compilerVar="CPP" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="../src/classes/Sprite_File.h">
 			<Option compilerVar="CPP" />
 			<Option target="Debug" />
 			<Option target="Release" />
@@ -118,7 +99,27 @@
 			<Option target="Debug" />
 			<Option target="Release" />
 		</Unit>
-		<Unit filename="../src/classes/Sprite.cpp">
+		<Unit filename="../src/classes/BitmapSprite.h">
+			<Option compilerVar="CPP" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="../src/classes/Common.h">
+			<Option compilerVar="CPP" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="../src/classes/Sprite.h">
+			<Option compilerVar="CPP" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="../src/classes/Osc_Server.h">
+			<Option compilerVar="CPP" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="../src/classes/Osc_Server.cpp">
 			<Option compilerVar="CPP" />
 			<Option target="Debug" />
 			<Option target="Release" />
@@ -128,7 +129,7 @@
 			<Option target="Debug" />
 			<Option target="Release" />
 		</Unit>
-		<Unit filename="../src/classes/Texture.cpp">
+		<Unit filename="../src/classes/Sprite_Group.cpp">
 			<Option compilerVar="CPP" />
 			<Option target="Debug" />
 			<Option target="Release" />
@@ -138,17 +139,12 @@
 			<Option target="Debug" />
 			<Option target="Release" />
 		</Unit>
+		<Unit filename="../src/classes/Sprite.cpp">
+			<Option compilerVar="CPP" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
 		<Unit filename="../src/classes/Sprite_File.cpp">
-			<Option compilerVar="CPP" />
-			<Option target="Debug" />
-			<Option target="Release" />
-		</Unit>
-		<Unit filename="../src/classes/Sprite_Group.cpp">
-			<Option compilerVar="CPP" />
-			<Option target="Debug" />
-			<Option target="Release" />
-		</Unit>
-		<Unit filename="../src/classes/Sprite-Image.cpp">
 			<Option compilerVar="CPP" />
 			<Option target="Debug" />
 			<Option target="Release" />

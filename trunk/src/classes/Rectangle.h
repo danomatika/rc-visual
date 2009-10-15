@@ -10,7 +10,6 @@
 #include <SDL/SDL_gfxPrimitives.h>
 
 #include "Object.h"
-#include "Color.h"
 
 /**
     \class Rectangle
@@ -27,7 +26,7 @@ class Rectangle : public Objecti
 
         virtual ~Rectangle() {}
 
-        void setColor(Color4ub& color) {_color = color;}
+        void setColor(Color& color) {_color = color;}
 
         void setColor(Uint8 r, Uint8 g, Uint8 b, Uint8 a=255)
             {_color.set(r, g, b, a);}
@@ -37,6 +36,7 @@ class Rectangle : public Objecti
         /// draws from the center
         virtual void draw()
         {
+            /*
             if(Graphics::isTypeOGL())
             {
                 glColor4ubv(_color.rgba);
@@ -51,11 +51,13 @@ class Rectangle : public Objecti
             }
             else if(Graphics::isTypeSDL())
             {
+
                 boxRGBA(Graphics::getSDLScreen(), // surface
                         _pos.x-(_w/2), _pos.y-(_h/2),              // upper left
                         _pos.x+(_w/2), _pos.y+(_h/2),              // lower right
                     _color.R, _color.G, _color.B, _color.A);
-            }
+          //  }
+          */
         }
 
         friend std::ostream& operator<<(std::ostream& os, Rectangle& from)
@@ -68,7 +70,7 @@ class Rectangle : public Objecti
 
     protected:
 
-        Color4ub _color;
+        Color _color;
 };
 
 #endif // RECTANGLE_H

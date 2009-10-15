@@ -2,13 +2,13 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="rc-visual" />
+		<Option title="rc-visual-tests" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Debug">
-				<Option output="../bin/rc-visualD" prefix_auto="0" extension_auto="0" />
-				<Option object_output="../obj/rc-visual/Debug" />
+				<Option output="../bin/rc-visual-testsD" prefix_auto="0" extension_auto="0" />
+				<Option object_output="../obj/rc-visual-tests/Debug" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
@@ -25,28 +25,23 @@
 					<Add directory="../externals/visualframework/src" />
 					<Add directory="../externals/visualframework/externals" />
 					<Add directory="../externals/visualframework/externals/include" />
-					<Add directory="/usr/include/glib-2.0" />
-					<Add directory="/usr/lib/glib-2.0/include" />
 				</Compiler>
 				<Linker>
-					<Add library="SDL" />
-					<Add library="SDL_gfx" />
-					<Add library="glib-2.0" />
-					<Add library="lo" />
-					<Add library="visualframeworkD" />
-					<Add library="visualClassesD" />
-					<Add library="tinyxmlD" />
-					<Add library="oscpackD" />
 					<Add directory="../bin" />
 					<Add directory="../lib" />
 					<Add directory="../externals/visualframework/lib" />
 					<Add directory="../externals/visualframework/externals/lib" />
 					<Add directory="/usr/lib" />
+					<Add library="SDL" />
+					<Add library="SDL_gfx" />
+					<Add library="visualframeworkD" />
+					<Add library="oscpackD" />
+					<Add library="visualClassesD" />
 				</Linker>
 			</Target>
 			<Target title="Release">
-				<Option output="../bin/rc-visual" prefix_auto="0" extension_auto="0" />
-				<Option object_output="../obj/rc-visual/Release" />
+				<Option output="../bin/rc-visual-tests" prefix_auto="0" extension_auto="0" />
+				<Option object_output="../obj/rc-visual-tests/Release" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
@@ -61,32 +56,27 @@
 					<Add directory="../externals/visualframework/src" />
 					<Add directory="../externals/visualframework/externals" />
 					<Add directory="../externals/visualframework/externals/include" />
-					<Add directory="/usr/include/glib-2.0" />
-					<Add directory="/usr/lib/glib-2.0/include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
-					<Add library="SDL" />
-					<Add library="SDL_gfx" />
-					<Add library="glib-2.0" />
-					<Add library="lo" />
-					<Add library="visualframework" />
-					<Add library="visualClassesD" />
-					<Add library="tinyxml" />
-					<Add library="oscpack" />
 					<Add directory="../bin" />
 					<Add directory="../lib" />
 					<Add directory="../externals/visualframework/lib" />
 					<Add directory="../externals/visualframework/externals/lib" />
 					<Add directory="/usr/lib" />
+					<Add library="SDL" />
+					<Add library="SDL_gfx" />
+					<Add library="visualframework" />
+					<Add library="oscpack" />
+					<Add library="visualClasses" />
 				</Linker>
 			</Target>
 		</Build>
-		<Unit filename="../src/rc-visual/main.cpp" />
-		<Extensions>
-			<envvars />
-			<code_completion />
-			<debugger />
-		</Extensions>
+		<Unit filename="../src/rc-visual-tests/main.cpp">
+			<Option compilerVar="CPP" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

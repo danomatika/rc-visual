@@ -19,7 +19,7 @@ package.kind 		= "lib"
 package.language 	= "c++"
 
 package.postbuildcommands = {
-	"cd ../externals/visualframework && make"
+	"cd ../externals/visualframework/prj && make"
 }
 
 ---------------------------------------------------------
@@ -38,13 +38,16 @@ package.includepaths = {
 	"../src",
 	"../src/classes",
     "/usr/include",
-	"../externals",	
-	"../externals/include"
+	"../externals",
+	"../externals/visualframework/src",
+	"../externals/visualframework/externals",
+	"../externals/visualframework/externals/include"
 }
 
 package.libpaths = {
 	"../lib",
 	"../externals/lib",
+	"../externals/visualframework/externals/lib",
     "/usr/lib"
 }
 
@@ -83,13 +86,15 @@ package.includepaths = {
 	"../src",
 	"../src/classes",
     "/usr/include",
-	"../externals",	
-	"../externals/include"
+	"../externals/visualframework/src",
+	"../externals/visualframework/externals",
+	"../externals/visualframework/externals/include"
 }
 
 package.libpaths = {
 	"../lib",
-	"../externals/lib",
+	"../externals/visualframework/lib",
+	"../externals/visualframework/externals/lib",
     "/usr/lib"
 }
 
@@ -109,8 +114,55 @@ package.config["Debug"].buildoptions = { "-ggdb" }
 
 
 package.links = { "SDL", "SDL_gfx" }
-package.config["Debug"].links = { "tinyxmlD", "oscpackD", "visualframeworkD", "visualClassesD" }
-package.config["Release"].links = { "tinyxml", "oscpack", "visualframework", "visualClasses" }
+package.config["Debug"].links = { "visualframeworkD", "oscpackD", "visualClassesD" }
+package.config["Release"].links = { "visualframework", "oscpack", "visualClasses" }
+
+---------------------------------------------------------
+--- build rc-visual-tests
+---------------------------------------------------------
+package = newpackage()
+package.name 		= "rc-visual-tests"
+package.kind 		= "exe"
+package.language 	= "c++"
+
+package.files = { 
+    matchfiles( "../src/rc-visual-tests/*.h", "../src/rc-visual-tests/*.cpp" ),
+}
+
+package.includepaths = {
+	"../src",
+	"../src/classes",
+    "/usr/include",
+	"../externals/visualframework/src",
+	"../externals/visualframework/externals",
+	"../externals/visualframework/externals/include"
+}
+
+package.libpaths = {
+	"../lib",
+	"../externals/visualframework/lib",
+	"../externals/visualframework/externals/lib",
+    "/usr/lib"
+}
+
+package.config["Debug"].objdir   = "../obj/rc-visual-tests/Debug"
+package.config["Release"].objdir = "../obj/rc-visual-tests/Release"
+
+package.config["Debug"].target   = "rc-visual-testsD"
+package.config["Release"].target = "rc-visual-tests"
+
+package.defines                   = { "LINUX" };
+package.config["Debug"].defines   = { "DEBUG", "_DEBUG" };
+package.config["Release"].defines = { "NDEBUG" };
+
+package.buildflags                   = { "extra-warnings" }
+package.buildoptions                 = { "-Wno-unknown-pragmas" }
+package.config["Debug"].buildoptions = { "-ggdb" }
+
+
+package.links = { "SDL", "SDL_gfx" }
+package.config["Debug"].links = { "visualframeworkD", "oscpackD", "visualClassesD" }
+package.config["Release"].links = { "visualframework", "oscpack", "visualClasses" }
 
 ---------------------------------------------------------
 --- build rc-visual
@@ -128,13 +180,17 @@ package.includepaths = {
 	"../src",
 	"../src/classes",
     "/usr/include",
-	"../externals",	
-	"../externals/include"
+	"../externals/visualframework/src",
+	"../externals/visualframework/externals",
+	"../externals/visualframework/externals/include",
+	"/usr/include/glib-2.0",
+	"/usr/lib/glib-2.0/include"
 }
 
 package.libpaths = {
 	"../lib",
-	"../externals/lib",
+	"../externals/visualframework/lib",
+	"../externals/visualframework/externals/lib",
     "/usr/lib"
 }
 
@@ -153,7 +209,7 @@ package.buildoptions                 = { "-Wno-unknown-pragmas" }
 package.config["Debug"].buildoptions = { "-ggdb" }
 
 
-package.links = { "SDL", "SDL_gfx" }
-package.config["Debug"].links = { "tinyxmlD", "oscpackD", "visualframeworkD", "visualClassesD" }
-package.config["Release"].links = { "tinyxml", "oscpack", "visualframework", "visualClasses" }
+package.links = { "SDL", "SDL_gfx", "glib-2.0", "lo" }
+package.config["Debug"].links = { "visualframeworkD", "visualClassesD", "tinyxmlD", "oscpackD" }
+package.config["Release"].links = { "visualframework", "visualClassesD", "tinyxml", "oscpack" }
 

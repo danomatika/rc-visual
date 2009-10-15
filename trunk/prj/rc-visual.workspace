@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_workspace_file>
 	<Workspace title="rc-visual">
-		<Project filename="externals.cbp" active="1">
-		</Project>
-		<Project filename="visualClasses.cbp">
-		</Project>
-		<Project filename="rc-visual-send.cbp">
-		</Project>
-		<Project filename="rc-visual.cbp">
-		</Project>
+		<Project filename="externals.cbp" />
+		<Project filename="visualClasses.cbp" />
+		<Project filename="rc-visual-send.cbp" active="1" />
+		<Project filename="rc-visual-tests.cbp" />
+		<Project filename="rc-visual.cbp" />
 	</Workspace>
 </CodeBlocks_workspace_file>

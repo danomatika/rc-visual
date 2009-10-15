@@ -6,12 +6,10 @@
 #include <sstream>
 #include <string>
 
-// TinyXml++: http://code.google.com/p/ticpp/
-// examples: http://www.uwplatt.edu/csse/tools/visual-studio/ticpp/
-#include "tinyxml.h"
-#define TIXML_USE_STL
+#include "tinyxml/tinyxml.h"
 
 #include "Sprite_Collection.h"
+#include "Log.h"
 
 class Sprite_File
 {

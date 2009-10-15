@@ -4,8 +4,10 @@
 #include <cstdlib>
 
 #include <SDL/SDL.h>
-#include <SDL_gfxPrimitives.h>
+#include <SDL/SDL_gfxPrimitives.h>
 #include <lo/lo.h>
+
+#include <visualframework.h>
 
 #include <glib.h> // for GOptions commandline parsing
 // http://www.eikke.com/articles/goption-parsing.html

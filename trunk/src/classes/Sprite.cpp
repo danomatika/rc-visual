@@ -73,7 +73,6 @@ void Sprite::render(SDL_Surface *screen)
     //int offset = frame * s_num_pix_f;
     int px = pos_x, py = pos_y; // upper right corner phys pos  of virtual pixel
 
-    int c = 0;
     // loop through pixels in the frame
     for(int y = 0; y < s_num_pix_y; y++)
     {
@@ -91,7 +90,7 @@ void Sprite::render(SDL_Surface *screen)
     if(advance_frames)  // go to next frame?
     {
         frame ++;
-        if(frame >= sprite.size())
+        if(frame >= (int) sprite.size())
         frame = 0;
     }
 }
@@ -99,7 +98,7 @@ void Sprite::render(SDL_Surface *screen)
 void Sprite::nextFrame()
 {
     frame ++;
-    if(frame >= sprite.size())
+    if(frame >= (int) sprite.size())
         frame = 0;
 }
 
@@ -112,7 +111,7 @@ void Sprite::prevFrame()
 
 void Sprite::gotoFrame(int frame_index)
 {
-    if(frame_index >= 0 && frame_index > sprite.size())
+    if(frame_index >= 0 && frame_index > (int) sprite.size())
     {
         frame = frame_index;
         return;
@@ -186,7 +185,7 @@ void Sprite::print()
     //int px = pos_x, py = pos_y; // upper right corner phys pos  of virtual pixel
 
     // loop through frames
-    for(int f = 0; f < sprite.size(); f++)
+    for(int f = 0; f < (int) sprite.size(); f++)
     {
         // loop through pixels in the frame
         for(int y = 0; y < s_num_pix_y; y++)

@@ -18,7 +18,7 @@
 					<Add directory="../bin" />
 				</Linker>
 				<ExtraCommands>
-					<Add after="cd ../externals/visualframework && make" />
+					<Add after="cd ../externals/visualframework/prj && make" />
 				</ExtraCommands>
 			</Target>
 			<Target title="Release">
@@ -34,7 +34,7 @@
 					<Add directory="../bin" />
 				</Linker>
 				<ExtraCommands>
-					<Add after="cd ../externals/visualframework && make" />
+					<Add after="cd ../externals/visualframework/prj && make" />
 				</ExtraCommands>
 			</Target>
 		</Build>

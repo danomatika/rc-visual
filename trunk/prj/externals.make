@@ -24,7 +24,7 @@ ifeq ($(CONFIG),Debug)
 
   define postbuildcmd
 	@echo Running post-build commands...
-	cd ../externals/visualframework && make
+	cd ../externals/visualframework/prj && make
   endef
 endif
 
@@ -44,7 +44,7 @@ ifeq ($(CONFIG),Release)
 
   define postbuildcmd
 	@echo Running post-build commands...
-	cd ../externals/visualframework && make
+	cd ../externals/visualframework/prj && make
   endef
 endif
 

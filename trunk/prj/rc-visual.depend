@@ -1,0 +1,1224 @@
+# depslib dependency file v1.0
+1254782065 source:/home/dano/src/rc-visual/trunk/src/rc-visual/Pressure.cpp
+	"Pressure.h"
+	<cmath>
+
+1254782065 /home/dano/src/rc-visual/trunk/src/rc-visual/Pressure.h
+	<vector>
+	"Common.h"
+	"Rectangle.h"
+
+1254782066 /home/dano/src/rc-visual/trunk/src/classes/Common.h
+	<visualframework.h>
+
+1255474083 /home/dano/src/rc-visual/trunk/externals/visualframework/src/visualframework.h
+	"./visualframework/Common.h"
+	"./visualframework/Application.h"
+	"./visualframework/Thread.h"
+	"./visualframework/net/Net.h"
+	"./visualframework/xml/Xml.h"
+	<vmmlib/vmmlib.h>
+
+1254782198 /home/dano/src/rc-visual/trunk/externals/visualframework/src/visualframework/Common.h
+	<SDL/SDL.h>
+	"Log.h"
+	"graphics/Graphics.h"
+
+1235099159 /usr/include/SDL/SDL.h
+	"SDL_main.h"
+	"SDL_stdinc.h"
+	"SDL_audio.h"
+	"SDL_cdrom.h"
+	"SDL_cpuinfo.h"
+	"SDL_endian.h"
+	"SDL_error.h"
+	"SDL_events.h"
+	"SDL_loadso.h"
+	"SDL_mutex.h"
+	"SDL_rwops.h"
+	"SDL_thread.h"
+	"SDL_timer.h"
+	"SDL_video.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1235099159 /usr/include/SDL/SDL_main.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+	"begin_code.h"
+	"close_code.h"
+
+1235099159 /usr/include/SDL/SDL_stdinc.h
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<iconv.h>
+	"begin_code.h"
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	"close_code.h"
+
+1235099159 /usr/include/SDL/SDL_config.h
+	"SDL_platform.h"
+	<stdarg.h>
+
+1235099159 /usr/include/SDL/SDL_platform.h
+
+1251744331 /usr/include/sys/types.h
+	<features.h>
+	<bits/types.h>
+	<time.h>
+	<stddef.h>
+	<endian.h>
+	<sys/select.h>
+	<sys/sysmacros.h>
+	<bits/pthreadtypes.h>
+
+1251744293 /usr/include/features.h
+	<sys/cdefs.h>
+	<gnu/stubs.h>
+
+1251744334 /usr/include/sys/cdefs.h
+	<features.h>
+	<bits/wordsize.h>
+
+1251744323 /usr/include/bits/wordsize.h
+
+1251744293 /usr/include/gnu/stubs.h
+	<bits/wordsize.h>
+	<gnu/stubs-32.h>
+	<gnu/stubs-64.h>
+
+1251743842 /usr/include/gnu/stubs-32.h
+
+1251744331 /usr/include/bits/types.h
+	<features.h>
+	<bits/wordsize.h>
+	<bits/typesizes.h>
+
+1251744331 /usr/include/bits/typesizes.h
+
+1251744329 /usr/include/time.h
+	<features.h>
+	<stddef.h>
+	<bits/time.h>
+	<bits/types.h>
+	<bits/types.h>
+	<bits/types.h>
+	<bits/types.h>
+	<bits/types.h>
+	<xlocale.h>
+
+1251744329 /usr/include/bits/time.h
+	<bits/types.h>
+	<bits/types.h>
+
+1251744295 /usr/include/xlocale.h
+
+1251744327 /usr/include/endian.h
+	<features.h>
+	<bits/endian.h>
+	<bits/byteswap.h>
+
+1251744327 /usr/include/bits/endian.h
+
+1251744327 /usr/include/bits/byteswap.h
+	<bits/wordsize.h>
+
+1251744334 /usr/include/sys/select.h
+	<features.h>
+	<bits/types.h>
+	<bits/select.h>
+	<bits/sigset.h>
+	<time.h>
+	<bits/time.h>
+
+1251744334 /usr/include/bits/select.h
+
+1251744322 /usr/include/bits/sigset.h
+
+1251744332 /usr/include/sys/sysmacros.h
+	<features.h>
+
+1251744331 /usr/include/bits/pthreadtypes.h
+	<bits/wordsize.h>
+
+1251744325 /usr/include/stdio.h
+	<features.h>
+	<stddef.h>
+	<bits/types.h>
+	<libio.h>
+	<stdarg.h>
+	<bits/stdio_lim.h>
+	<bits/sys_errlist.h>
+	<getopt.h>
+	<bits/stdio.h>
+	<bits/stdio2.h>
+	<bits/stdio-ldbl.h>
+
+1251744325 /usr/include/libio.h
+	<_G_config.h>
+	<stdarg.h>
+	<sys/cdefs.h>
+	<bits/stdio-lock.h>
+	<shlib-compat.h>
+	<bits/libio-ldbl.h>
+
+1251744325 /usr/include/_G_config.h
+	<bits/types.h>
+	<stddef.h>
+	<wchar.h>
+	<gconv.h>
+
+1251744328 /usr/include/wchar.h
+	<features.h>
+	<stdio.h>
+	<stdarg.h>
+	<bits/wchar.h>
+	<stddef.h>
+	<wctype.h>
+	<xlocale.h>
+	<xlocale.h>
+	<xlocale.h>
+	<wctype.h>
+	<bits/wchar2.h>
+	<bits/wchar-ldbl.h>
+
+1251744328 /usr/include/bits/wchar.h
+
+1251744337 /usr/include/wctype.h
+	<features.h>
+	<bits/types.h>
+	<wchar.h>
+	<endian.h>
+	<xlocale.h>
+
+1251744328 /usr/include/bits/wchar2.h
+
+1251744328 /usr/include/bits/wchar-ldbl.h
+
+1251744294 /usr/include/gconv.h
+	<features.h>
+	<wchar.h>
+	<stddef.h>
+
+1251744325 /usr/include/bits/stdio-lock.h
+	<bits/libc-lock.h>
+	<lowlevellock.h>
+
+1251744293 /usr/include/bits/libc-lock.h
+	<pthread.h>
+	<stddef.h>
+	<lowlevellock.h>
+	<tls.h>
+	<pthread-functions.h>
+	<bp-sym.h>
+
+1251744341 /usr/include/pthread.h
+	<features.h>
+	<endian.h>
+	<sched.h>
+	<time.h>
+	<signal.h>
+	<bits/pthreadtypes.h>
+	<bits/setjmp.h>
+	<bits/wordsize.h>
+
+1251744332 /usr/include/sched.h
+	<features.h>
+	<bits/types.h>
+	<stddef.h>
+	<time.h>
+	<bits/sched.h>
+
+1251744332 /usr/include/bits/sched.h
+
+1251744322 /usr/include/signal.h
+	<features.h>
+	<bits/sigset.h>
+	<bits/types.h>
+	<bits/signum.h>
+	<time.h>
+	<bits/siginfo.h>
+	<bits/sigaction.h>
+	<bits/sigcontext.h>
+	<stddef.h>
+	<bits/sigstack.h>
+	<sys/ucontext.h>
+	<bits/pthreadtypes.h>
+	<bits/sigthread.h>
+
+1251744322 /usr/include/bits/signum.h
+
+1251744322 /usr/include/bits/siginfo.h
+	<bits/wordsize.h>
+
+1251744322 /usr/include/bits/sigaction.h
+
+1251744322 /usr/include/bits/sigcontext.h
+	<bits/wordsize.h>
+
+1251744322 /usr/include/bits/sigstack.h
+
+1251744323 /usr/include/sys/ucontext.h
+	<features.h>
+	<signal.h>
+	<bits/wordsize.h>
+	<bits/sigcontext.h>
+
+1251744322 /usr/include/bits/sigthread.h
+
+1251744321 /usr/include/bits/setjmp.h
+	<bits/wordsize.h>
+
+1251744325 /usr/include/bits/libio-ldbl.h
+
+1251744324 /usr/include/bits/stdio_lim.h
+
+1251744325 /usr/include/bits/sys_errlist.h
+
+1251744331 /usr/include/getopt.h
+	<ctype.h>
+
+1251744317 /usr/include/ctype.h
+	<features.h>
+	<bits/types.h>
+	<endian.h>
+	<xlocale.h>
+
+1251744325 /usr/include/bits/stdio.h
+
+1251744325 /usr/include/bits/stdio2.h
+
+1251744325 /usr/include/bits/stdio-ldbl.h
+
+1251744323 /usr/include/stdlib.h
+	<features.h>
+	<stddef.h>
+	<bits/waitflags.h>
+	<bits/waitstatus.h>
+	<xlocale.h>
+	<sys/types.h>
+	<alloca.h>
+	<bits/stdlib.h>
+	<bits/stdlib-ldbl.h>
+
+1251744331 /usr/include/bits/waitflags.h
+
+1251744331 /usr/include/bits/waitstatus.h
+	<endian.h>
+
+1251744323 /usr/include/alloca.h
+	<features.h>
+	<stddef.h>
+
+1251744323 /usr/include/bits/stdlib.h
+
+1251744323 /usr/include/bits/stdlib-ldbl.h
+
+1251744326 /usr/include/malloc.h
+	<features.h>
+	<stddef.h>
+
+1251744327 /usr/include/memory.h
+	<features.h>
+	<string.h>
+
+1251744327 /usr/include/string.h
+	<features.h>
+	<stddef.h>
+	<xlocale.h>
+	<bits/string.h>
+	<bits/string2.h>
+	<bits/string3.h>
+
+1251744327 /usr/include/bits/string.h
+
+1251744327 /usr/include/bits/string2.h
+	<endian.h>
+	<bits/types.h>
+	<stdlib.h>
+
+1251744327 /usr/include/bits/string3.h
+
+1251744327 /usr/include/strings.h
+	<features.h>
+	<stddef.h>
+
+1251744323 /usr/include/inttypes.h
+	<features.h>
+	<stdint.h>
+	<stddef.h>
+
+1251744323 /usr/include/stdint.h
+	<features.h>
+	<bits/wchar.h>
+	<bits/wordsize.h>
+
+1251744294 /usr/include/iconv.h
+	<features.h>
+	<stddef.h>
+
+1235099159 /usr/include/SDL/begin_code.h
+
+1235099159 /usr/include/SDL/close_code.h
+
+1235099159 /usr/include/SDL/SDL_audio.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1235099159 /usr/include/SDL/SDL_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1235099159 /usr/include/SDL/SDL_endian.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1235099159 /usr/include/SDL/SDL_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1235099159 /usr/include/SDL/SDL_thread.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	<process.h>
+	"close_code.h"
+
+1235099159 /usr/include/SDL/SDL_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1235099159 /usr/include/SDL/SDL_cdrom.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1235099159 /usr/include/SDL/SDL_cpuinfo.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1235099159 /usr/include/SDL/SDL_events.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_active.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_quit.h"
+	"begin_code.h"
+	"close_code.h"
+
+1235099159 /usr/include/SDL/SDL_active.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1235099159 /usr/include/SDL/SDL_keyboard.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_keysym.h"
+	"begin_code.h"
+	"close_code.h"
+
+1235099159 /usr/include/SDL/SDL_keysym.h
+
+1235099159 /usr/include/SDL/SDL_mouse.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1235099159 /usr/include/SDL/SDL_video.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1235099159 /usr/include/SDL/SDL_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1235099159 /usr/include/SDL/SDL_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1235099159 /usr/include/SDL/SDL_loadso.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1235099159 /usr/include/SDL/SDL_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1235099159 /usr/include/SDL/SDL_version.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1254782198 /home/dano/src/rc-visual/trunk/externals/visualframework/src/visualframework/Log.h
+	<iostream>
+
+1249785245 /home/dano/src/rc-visual/trunk/externals/visualframework/src/visualframework/Graphics.h
+	<string>
+	<SDL/SDL.h>
+	"Color.h"
+
+1249785245 /home/dano/src/rc-visual/trunk/externals/visualframework/src/visualframework/Color.h
+	<iostream>
+
+1255474083 /home/dano/src/rc-visual/trunk/externals/visualframework/src/visualframework/Application.h
+	"Common.h"
+
+1249785245 /home/dano/src/rc-visual/trunk/externals/visualframework/src/visualframework/OscListener.h
+	<osc/OscReceivedElements.h>
+	<osc/OscPacketListener.h>
+	<ip/UdpSocket.h>
+	<SDL/SDL_thread.h>
+	"Common.h"
+	"Thread.h"
+
+1254782205 /home/dano/src/rc-visual/trunk/externals/visualframework/externals/include/osc/OscReceivedElements.h
+	"OscTypes.h"
+	"OscException.h"
+
+1254782205 /home/dano/src/rc-visual/trunk/externals/visualframework/externals/include/osc/OscTypes.h
+
+1254782205 /home/dano/src/rc-visual/trunk/externals/visualframework/externals/include/osc/OscException.h
+	<exception>
+
+1254782205 /home/dano/src/rc-visual/trunk/externals/visualframework/externals/include/osc/OscPacketListener.h
+	"OscReceivedElements.h"
+	"../ip/PacketListener.h"
+
+1254782205 /home/dano/src/rc-visual/trunk/externals/visualframework/externals/include/ip/PacketListener.h
+
+1254782206 /home/dano/src/rc-visual/trunk/externals/visualframework/externals/include/ip/UdpSocket.h
+	"NetworkingUtils.h"
+	"IpEndpointName.h"
+
+1254782205 /home/dano/src/rc-visual/trunk/externals/visualframework/externals/include/ip/NetworkingUtils.h
+
+1254782205 /home/dano/src/rc-visual/trunk/externals/visualframework/externals/include/ip/IpEndpointName.h
+
+1254782199 /home/dano/src/rc-visual/trunk/externals/visualframework/src/visualframework/Thread.h
+	"Common.h"
+	"SDL/SDL_thread.h"
+
+1249785245 /home/dano/src/rc-visual/trunk/externals/visualframework/src/visualframework/OscSender.h
+	"Common.h"
+	"osc/OscOutboundPacketStream.h"
+	"ip/UdpSocket.h"
+
+1254782205 /home/dano/src/rc-visual/trunk/externals/visualframework/externals/include/osc/OscOutboundPacketStream.h
+	"OscTypes.h"
+	"OscException.h"
+
+1249785245 /home/dano/src/rc-visual/trunk/externals/visualframework/src/visualframework/XmlFile.h
+	<string>
+	"Common.h"
+	"tinyxml/tinyxml.h"
+
+1254782205 /home/dano/src/rc-visual/trunk/externals/visualframework/externals/include/tinyxml/tinyxml.h
+	<ctype.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<assert.h>
+	<string>
+	<iostream>
+	<sstream>
+	"tinystr.h"
+
+1251744317 /usr/include/assert.h
+	<features.h>
+
+1254782205 /home/dano/src/rc-visual/trunk/externals/visualframework/externals/include/tinyxml/tinystr.h
+	<assert.h>
+	<string.h>
+
+1254782066 /home/dano/src/rc-visual/trunk/src/classes/Rectangle.h
+	"Common.h"
+	<SDL/SDL_gfxPrimitives.h>
+	"Object.h"
+
+1210159906 /usr/include/SDL/SDL_gfxPrimitives.h
+	<math.h>
+	"SDL.h"
+
+1251744320 /usr/include/math.h
+	<features.h>
+	<bits/huge_val.h>
+	<bits/huge_valf.h>
+	<bits/huge_vall.h>
+	<bits/inf.h>
+	<bits/nan.h>
+	<bits/mathdef.h>
+	<bits/mathcalls.h>
+	<bits/mathcalls.h>
+	<bits/mathcalls.h>
+	<bits/mathinline.h>
+
+1251744320 /usr/include/bits/huge_val.h
+	<endian.h>
+
+1251744320 /usr/include/bits/huge_valf.h
+
+1251744320 /usr/include/bits/huge_vall.h
+
+1251744320 /usr/include/bits/inf.h
+
+1251744320 /usr/include/bits/nan.h
+	<endian.h>
+
+1251744320 /usr/include/bits/mathdef.h
+	<bits/wordsize.h>
+
+1251744320 /usr/include/bits/mathcalls.h
+
+1251744320 /usr/include/bits/mathinline.h
+
+1254782154 /home/dano/src/rc-visual/trunk/src/classes/Object.h
+	<vmmlib/vmmlib.h>
+
+1254782199 /home/dano/src/rc-visual/trunk/externals/visualframework/externals/vmmlib/vmmlib.h
+	<vmmlib/vector2.h>
+	<vmmlib/vector3.h>
+	<vmmlib/vector4.h>
+	<vmmlib/matrix3.h>
+	<vmmlib/matrix4.h>
+	<vmmlib/quaternion.h>
+	<vmmlib/frustum.h>
+	<vmmlib/frustumCuller.h>
+
+1254782199 /home/dano/src/rc-visual/trunk/externals/visualframework/externals/vmmlib/vector2.h
+	<cmath>
+	<cstdlib>
+	<iomanip>
+	<iostream>
+	<algorithm>
+	<cassert>
+	<string>
+	<vector>
+	<sstream>
+	<vmmlib/stringUtils.h>
+
+1254782198 /home/dano/src/rc-visual/trunk/externals/visualframework/externals/vmmlib/stringUtils.h
+	<string>
+	<vector>
+	<iostream>
+	<sstream>
+
+1254782199 /home/dano/src/rc-visual/trunk/externals/visualframework/externals/vmmlib/vector3.h
+	<algorithm>
+	<cassert>
+	<cmath>
+	<cstdlib>
+	<iomanip>
+	<iostream>
+	<limits>
+	<string>
+	<vector>
+	<vmmlib/stringUtils.h>
+	<vmmlib/vector2.h>
+	<vmmlib/vector4.h>
+
+1254782199 /home/dano/src/rc-visual/trunk/externals/visualframework/externals/vmmlib/vector4.h
+	<cmath>
+	<cstdlib>
+	<iomanip>
+	<iostream>
+	<algorithm>
+	<cassert>
+	<string>
+	<vector>
+	<vmmlib/matrix4.h>
+	<vmmlib/stringUtils.h>
+	<vmmlib/vector3.h>
+
+1254782198 /home/dano/src/rc-visual/trunk/externals/visualframework/externals/vmmlib/matrix4.h
+	<cmath>
+	<cstdlib>
+	<iomanip>
+	<iostream>
+	<algorithm>
+	<cassert>
+	<string>
+	<vector>
+	<vmmlib/matrix3.h>
+	<vmmlib/vector3.h>
+	<vmmlib/vector4.h>
+	<vmmlib/stringUtils.h>
+
+1254782198 /home/dano/src/rc-visual/trunk/externals/visualframework/externals/vmmlib/matrix3.h
+	<vmmlib/vector3.h>
+	<vmmlib/vector4.h>
+	<vmmlib/stringUtils.h>
+	<cmath>
+	<cstdlib>
+	<iomanip>
+	<iostream>
+	<algorithm>
+	<cassert>
+
+1254782198 /home/dano/src/rc-visual/trunk/externals/visualframework/externals/vmmlib/quaternion.h
+	<algorithm>
+	<cassert>
+	<cmath>
+	<cstdlib>
+	<iomanip>
+	<iostream>
+	<limits>
+	<vmmlib/vector3.h>
+	<vmmlib/vector4.h>
+	<vmmlib/matrix3.h>
+
+1254782199 /home/dano/src/rc-visual/trunk/externals/visualframework/externals/vmmlib/frustum.h
+	<cmath>
+	<vmmlib/matrix4.h>
+
+1254782198 /home/dano/src/rc-visual/trunk/externals/visualframework/externals/vmmlib/frustumCuller.h
+	<vmmlib/vector4.h>
+	<vmmlib/visibility.h>
+	<vmmlib/matrix4.h>
+
+1254782199 /home/dano/src/rc-visual/trunk/externals/visualframework/externals/vmmlib/visibility.h
+
+1254782065 source:/home/dano/src/rc-visual/trunk/src/rc-visual/Visual.cpp
+	"Visual.h"
+
+1254782066 /home/dano/src/rc-visual/trunk/src/rc-visual/Visual.h
+	<visualframework.h>
+	"Rectangle.h"
+	"Pressure.h"
+
+1255474082 /home/dano/src/rc-visual/trunk/externals/visualframework/src/visualframework/graphics/Graphics.h
+	<string>
+	<vector>
+	<SDL/SDL.h>
+	"Color.h"
+
+1254782203 /home/dano/src/rc-visual/trunk/externals/visualframework/src/visualframework/graphics/Color.h
+	<iostream>
+
+1255474083 /home/dano/src/rc-visual/trunk/externals/visualframework/src/visualframework/net/Net.h
+	"../Common.h"
+	"UdpSender.h"
+	"UdpListener.h"
+	"OscSender.h"
+	"OscListener.h"
+
+1254782203 /home/dano/src/rc-visual/trunk/externals/visualframework/src/visualframework/net/UdpSender.h
+	"Net.h"
+	"../Thread.h"
+	<SDL/SDL_net.h>
+
+1193837800 /usr/include/SDL/SDL_net.h
+	"SDL.h"
+	"SDL_endian.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1255474083 /home/dano/src/rc-visual/trunk/externals/visualframework/src/visualframework/net/UdpListener.h
+	"Net.h"
+	"../Thread.h"
+	<SDL/SDL_net.h>
+
+1254782203 /home/dano/src/rc-visual/trunk/externals/visualframework/src/visualframework/net/OscSender.h
+	"Net.h"
+	"osc/OscOutboundPacketStream.h"
+	"ip/UdpSocket.h"
+
+1255474083 /home/dano/src/rc-visual/trunk/externals/visualframework/src/visualframework/net/OscListener.h
+	<osc/OscReceivedElements.h>
+	<osc/OscPacketListener.h>
+	<ip/UdpSocket.h>
+	"Net.h"
+	"../Thread.h"
+	"OscObject.h"
+
+1250051313 /home/dano/src/rc-visual/trunk/externals/visualframework/src/visualframework/Xml.h
+	<string>
+	"Common.h"
+	<tinyxml/tinyxml.h>
+
+1254782066 source:/home/dano/src/rc-visual/trunk/src/rc-visual/main.cpp
+	<iostream>
+	<cstdlib>
+	<SDL/SDL.h>
+	<SDL/SDL_gfxPrimitives.h>
+	<lo/lo.h>
+	<visualframework.h>
+	<glib.h>
+	"Sprite.h"
+	"Sprite_Group.h"
+	"Sprite_Collection.h"
+	"Sprite_File.h"
+	"Osc_Server.h"
+	"Common.h"
+	"SdlContext.h"
+	"Visual.h"
+
+1210276713 /usr/include/lo/lo.h
+	"lo/lo_endian.h"
+	"lo/lo_types.h"
+	"lo/lo_osc_types.h"
+	"lo/lo_errors.h"
+	"lo/lo_lowlevel.h"
+	"lo/lo_macros.h"
+
+1210276713 /usr/include/lo/lo_endian.h
+	<sys/types.h>
+	<stdint.h>
+	<winsock2.h>
+	<ws2tcpip.h>
+	<netinet/in.h>
+
+1251744349 /usr/include/netinet/in.h
+	<features.h>
+	<stdint.h>
+	<sys/socket.h>
+	<bits/types.h>
+	<bits/in.h>
+	<endian.h>
+	<bits/byteswap.h>
+
+1251744335 /usr/include/sys/socket.h
+	<features.h>
+	<sys/uio.h>
+	<stddef.h>
+	<bits/sigset.h>
+	<bits/socket.h>
+	<bits/socket2.h>
+
+1251744334 /usr/include/sys/uio.h
+	<features.h>
+	<sys/types.h>
+	<bits/uio.h>
+
+1251744334 /usr/include/bits/uio.h
+	<sys/types.h>
+
+1251744335 /usr/include/bits/socket.h
+	<stddef.h>
+	<sys/types.h>
+	<bits/sockaddr.h>
+	<asm/socket.h>
+
+1251744335 /usr/include/bits/sockaddr.h
+
+1252503061 /usr/include/asm/socket.h
+	<asm/sockios.h>
+
+1252503061 /usr/include/asm/sockios.h
+
+1251744335 /usr/include/bits/socket2.h
+
+1251744349 /usr/include/bits/in.h
+
+1210276713 /usr/include/lo/lo_types.h
+	<winsock2.h>
+	<ws2tcpip.h>
+	<netdb.h>
+	<pthread.h>
+	"lo/lo_osc_types.h"
+
+1251744343 /usr/include/netdb.h
+	<features.h>
+	<netinet/in.h>
+	<stdint.h>
+	<rpc/netdb.h>
+	<bits/siginfo.h>
+	<time.h>
+	<bits/netdb.h>
+
+1251744350 /usr/include/rpc/netdb.h
+	<features.h>
+	<stddef.h>
+
+1251744343 /usr/include/bits/netdb.h
+
+1210276713 /usr/include/lo/lo_osc_types.h
+	<stdint.h>
+
+1210276713 /usr/include/lo/lo_errors.h
+
+1210276713 /usr/include/lo/lo_lowlevel.h
+	"lo/lo_osc_types.h"
+	<stdint.h>
+	"lo/lo_types.h"
+	"lo/lo_errors.h"
+
+1210276713 /usr/include/lo/lo_macros.h
+
+1254592884 /usr/include/glib-2.0/glib.h
+	<glib/galloca.h>
+	<glib/garray.h>
+	<glib/gasyncqueue.h>
+	<glib/gatomic.h>
+	<glib/gbacktrace.h>
+	<glib/gbase64.h>
+	<glib/gbookmarkfile.h>
+	<glib/gcache.h>
+	<glib/gchecksum.h>
+	<glib/gcompletion.h>
+	<glib/gconvert.h>
+	<glib/gdataset.h>
+	<glib/gdate.h>
+	<glib/gdir.h>
+	<glib/gerror.h>
+	<glib/gfileutils.h>
+	<glib/ghash.h>
+	<glib/ghook.h>
+	<glib/giochannel.h>
+	<glib/gkeyfile.h>
+	<glib/glist.h>
+	<glib/gmacros.h>
+	<glib/gmain.h>
+	<glib/gmappedfile.h>
+	<glib/gmarkup.h>
+	<glib/gmem.h>
+	<glib/gmessages.h>
+	<glib/gnode.h>
+	<glib/goption.h>
+	<glib/gpattern.h>
+	<glib/gpoll.h>
+	<glib/gprimes.h>
+	<glib/gqsort.h>
+	<glib/gquark.h>
+	<glib/gqueue.h>
+	<glib/grand.h>
+	<glib/grel.h>
+	<glib/gregex.h>
+	<glib/gscanner.h>
+	<glib/gsequence.h>
+	<glib/gshell.h>
+	<glib/gslice.h>
+	<glib/gslist.h>
+	<glib/gspawn.h>
+	<glib/gstrfuncs.h>
+	<glib/gstring.h>
+	<glib/gtestutils.h>
+	<glib/gthread.h>
+	<glib/gthreadpool.h>
+	<glib/gtimer.h>
+	<glib/gtree.h>
+	<glib/gtypes.h>
+	<glib/gunicode.h>
+	<glib/gurifuncs.h>
+	<glib/gutils.h>
+	<glib/gwin32.h>
+
+1254592884 /usr/include/glib-2.0/glib/galloca.h
+	<glib/gtypes.h>
+	<alloca.h>
+	<malloc.h>
+
+1254592884 /usr/include/glib-2.0/glib/gtypes.h
+	<glibconfig.h>
+	<glib/gmacros.h>
+
+1254592883 /usr/lib/glib-2.0/include/glibconfig.h
+	<glib/gmacros.h>
+	<limits.h>
+	<float.h>
+
+1254592884 /usr/include/glib-2.0/glib/gmacros.h
+	<stddef.h>
+
+1251744293 /usr/include/limits.h
+	<features.h>
+	<bits/wordsize.h>
+	<bits/posix1_lim.h>
+	<bits/posix2_lim.h>
+	<bits/xopen_lim.h>
+
+1251744331 /usr/include/bits/posix1_lim.h
+	<bits/local_lim.h>
+
+1251744331 /usr/include/bits/local_lim.h
+	<linux/limits.h>
+
+1252503059 /usr/include/linux/limits.h
+
+1251744331 /usr/include/bits/posix2_lim.h
+
+1251744293 /usr/include/bits/xopen_lim.h
+	<bits/stdio_lim.h>
+	<bits/wordsize.h>
+
+1254592884 /usr/include/glib-2.0/glib/garray.h
+	<glib/gtypes.h>
+
+1254592884 /usr/include/glib-2.0/glib/gasyncqueue.h
+	<glib/gthread.h>
+
+1254592884 /usr/include/glib-2.0/glib/gthread.h
+	<glib/gerror.h>
+	<glib/gtypes.h>
+	<glib/gutils.h>
+	<glib/gatomic.h>
+
+1254592884 /usr/include/glib-2.0/glib/gerror.h
+	<glib/gquark.h>
+
+1254592884 /usr/include/glib-2.0/glib/gquark.h
+	<glib/gtypes.h>
+
+1254592884 /usr/include/glib-2.0/glib/gutils.h
+	<glib/gtypes.h>
+	<stdarg.h>
+
+1254592884 /usr/include/glib-2.0/glib/gatomic.h
+	<glib/gtypes.h>
+
+1254592884 /usr/include/glib-2.0/glib/gbacktrace.h
+	<glib/gtypes.h>
+	<signal.h>
+
+1254592884 /usr/include/glib-2.0/glib/gbase64.h
+	<glib/gtypes.h>
+
+1254592884 /usr/include/glib-2.0/glib/gbookmarkfile.h
+	<glib/gerror.h>
+	<time.h>
+
+1254592884 /usr/include/glib-2.0/glib/gcache.h
+	<glib/glist.h>
+
+1254592884 /usr/include/glib-2.0/glib/glist.h
+	<glib/gmem.h>
+
+1254592884 /usr/include/glib-2.0/glib/gmem.h
+	<glib/gslice.h>
+	<glib/gtypes.h>
+
+1254592884 /usr/include/glib-2.0/glib/gslice.h
+	<glib/gtypes.h>
+
+1254592884 /usr/include/glib-2.0/glib/gchecksum.h
+	<glib/gtypes.h>
+
+1254592884 /usr/include/glib-2.0/glib/gcompletion.h
+	<glib/glist.h>
+
+1254592884 /usr/include/glib-2.0/glib/gconvert.h
+	<glib/gerror.h>
+
+1254592884 /usr/include/glib-2.0/glib/gdataset.h
+	<glib/gquark.h>
+
+1254592884 /usr/include/glib-2.0/glib/gdate.h
+	<time.h>
+	<glib/gtypes.h>
+	<glib/gquark.h>
+
+1254592884 /usr/include/glib-2.0/glib/gdir.h
+	<glib/gerror.h>
+
+1254592884 /usr/include/glib-2.0/glib/gfileutils.h
+	<glib/gerror.h>
+
+1254592884 /usr/include/glib-2.0/glib/ghash.h
+	<glib/gtypes.h>
+	<glib/glist.h>
+
+1254592884 /usr/include/glib-2.0/glib/ghook.h
+	<glib/gmem.h>
+
+1254592884 /usr/include/glib-2.0/glib/giochannel.h
+	<glib/gconvert.h>
+	<glib/gmain.h>
+	<glib/gstring.h>
+
+1254592884 /usr/include/glib-2.0/glib/gmain.h
+	<glib/gpoll.h>
+	<glib/gslist.h>
+	<glib/gthread.h>
+
+1254592884 /usr/include/glib-2.0/glib/gpoll.h
+	<glib/gtypes.h>
+
+1254592884 /usr/include/glib-2.0/glib/gslist.h
+	<glib/gmem.h>
+
+1254592884 /usr/include/glib-2.0/glib/gstring.h
+	<glib/gtypes.h>
+	<glib/gunicode.h>
+	<glib/gutils.h>
+
+1254592884 /usr/include/glib-2.0/glib/gunicode.h
+	<glib/gerror.h>
+	<glib/gtypes.h>
+
+1254592884 /usr/include/glib-2.0/glib/gkeyfile.h
+	<glib/gerror.h>
+
+1254592884 /usr/include/glib-2.0/glib/gmappedfile.h
+	<glib/gerror.h>
+
+1254592884 /usr/include/glib-2.0/glib/gmarkup.h
+	<stdarg.h>
+	<glib/gerror.h>
+	<glib/gslist.h>
+
+1254592884 /usr/include/glib-2.0/glib/gmessages.h
+	<stdarg.h>
+	<glib/gtypes.h>
+	<glib/gmacros.h>
+
+1254592884 /usr/include/glib-2.0/glib/gnode.h
+	<glib/gmem.h>
+
+1254592884 /usr/include/glib-2.0/glib/goption.h
+	<glib/gerror.h>
+	<glib/gquark.h>
+
+1254592884 /usr/include/glib-2.0/glib/gpattern.h
+	<glib/gtypes.h>
+
+1254592884 /usr/include/glib-2.0/glib/gprimes.h
+	<glib/gtypes.h>
+
+1254592884 /usr/include/glib-2.0/glib/gqsort.h
+	<glib/gtypes.h>
+
+1254592884 /usr/include/glib-2.0/glib/gqueue.h
+	<glib/glist.h>
+
+1254592884 /usr/include/glib-2.0/glib/grand.h
+	<glib/gtypes.h>
+
+1254592884 /usr/include/glib-2.0/glib/grel.h
+	<glib/gtypes.h>
+
+1254592884 /usr/include/glib-2.0/glib/gregex.h
+	<glib/gerror.h>
+	<glib/gstring.h>
+
+1254592884 /usr/include/glib-2.0/glib/gscanner.h
+	<glib/gdataset.h>
+	<glib/ghash.h>
+
+1254592884 /usr/include/glib-2.0/glib/gsequence.h
+	<glib/gtypes.h>
+
+1254592884 /usr/include/glib-2.0/glib/gshell.h
+	<glib/gerror.h>
+
+1254592884 /usr/include/glib-2.0/glib/gspawn.h
+	<glib/gerror.h>
+
+1254592884 /usr/include/glib-2.0/glib/gstrfuncs.h
+	<stdarg.h>
+	<glib/gtypes.h>
+
+1254592884 /usr/include/glib-2.0/glib/gtestutils.h
+	<glib.h>
+
+1254592884 /usr/include/glib-2.0/glib/gthreadpool.h
+	<glib/gthread.h>
+
+1254592884 /usr/include/glib-2.0/glib/gtimer.h
+	<glib/gtypes.h>
+
+1254592884 /usr/include/glib-2.0/glib/gtree.h
+	<glib/gnode.h>
+
+1254592884 /usr/include/glib-2.0/glib/gurifuncs.h
+	<glib.h>
+
+1254592884 /usr/include/glib-2.0/glib/gwin32.h
+	<glib/gtypes.h>
+
+1254782154 /home/dano/src/rc-visual/trunk/src/classes/Sprite.h
+	<cmath>
+	<string>
+	<iostream>
+	<vector>
+	"Common.h"
+	<SDL/SDL_gfxPrimitives.h>
+
+1254782154 /home/dano/src/rc-visual/trunk/src/classes/Sprite_Group.h
+	<iostream>
+	<string>
+	<vector>
+	<SDL/SDL.h>
+	"Sprite.h"
+
+1254782154 /home/dano/src/rc-visual/trunk/src/classes/Sprite_Collection.h
+	<iostream>
+	<vector>
+	<SDL/SDL.h>
+	"Sprite_Group.h"
+
+1254782154 /home/dano/src/rc-visual/trunk/src/classes/Sprite_File.h
+	<iostream>
+	<fstream>
+	<sstream>
+	<string>
+	"Sprite_Collection.h"
+
+1254782066 /home/dano/src/rc-visual/trunk/src/classes/Osc_Server.h
+	"lo/lo.h"
+
+1255474083 /home/dano/src/rc-visual/trunk/externals/visualframework/src/visualframework/net/OscObject.h
+	"../Log.h"
+	<vector>
+	<osc/OscReceivedElements.h>
+	<osc/OscPacketListener.h>
+
+1255474083 /home/dano/src/rc-visual/trunk/externals/visualframework/src/visualframework/xml/Xml.h
+	"../Common.h"
+	<tinyxml/tinyxml.h>
+	"XmlObject.h"
+
+1255474083 /home/dano/src/rc-visual/trunk/externals/visualframework/src/visualframework/xml/XmlObject.h
+	"../Log.h"
+	<vector>
+	<tinyxml/tinyxml.h>
+

@@ -13,12 +13,12 @@ ifeq ($(CONFIG),Debug)
   LIBDIR := ../lib
   OBJDIR := ../obj/rc-visual/Debug
   OUTDIR := ../bin
-  CPPFLAGS := $(DEPFLAGS) -D "LINUX" -D "DEBUG" -D "_DEBUG" -I "../src" -I "../src/classes" -I "/usr/include" -I "../externals" -I "../externals/include"
+  CPPFLAGS := $(DEPFLAGS) -D "LINUX" -D "DEBUG" -D "_DEBUG" -I "../src" -I "../src/classes" -I "/usr/include" -I "../externals/visualframework/src" -I "../externals/visualframework/externals" -I "../externals/visualframework/externals/include" -I "/usr/include/glib-2.0" -I "/usr/lib/glib-2.0/include"
   CFLAGS += $(CPPFLAGS) $(TARGET_ARCH) -g -Wall -Wno-unknown-pragmas -ggdb
   CXXFLAGS += $(CFLAGS)
-  LDFLAGS += -L$(BINDIR) -L$(LIBDIR) -L"../lib" -L"../externals/lib" -L"/usr/lib" -lSDL -lSDL_gfx -ltinyxmlD -loscpackD -lvisualframeworkD -lvisualClassesD
+  LDFLAGS += -L$(BINDIR) -L$(LIBDIR) -L"../lib" -L"../externals/visualframework/lib" -L"../externals/visualframework/externals/lib" -L"/usr/lib" -lSDL -lSDL_gfx -lglib-2.0 -llo -lvisualframeworkD -lvisualClassesD -ltinyxmlD -loscpackD
   LDDEPS :=
-  RESFLAGS := -D "LINUX" -D "DEBUG" -D "_DEBUG" -I "../src" -I "../src/classes" -I "/usr/include" -I "../externals" -I "../externals/include"
+  RESFLAGS := -D "LINUX" -D "DEBUG" -D "_DEBUG" -I "../src" -I "../src/classes" -I "/usr/include" -I "../externals/visualframework/src" -I "../externals/visualframework/externals" -I "../externals/visualframework/externals/include" -I "/usr/include/glib-2.0" -I "/usr/lib/glib-2.0/include"
   TARGET := rc-visualD
  BLDCMD = $(CXX) -o $(OUTDIR)/$(TARGET) $(OBJECTS) $(LDFLAGS) $(RESOURCES) $(TARGET_ARCH)
 endif
@@ -28,20 +28,20 @@ ifeq ($(CONFIG),Release)
   LIBDIR := ../lib
   OBJDIR := ../obj/rc-visual/Release
   OUTDIR := ../bin
-  CPPFLAGS := $(DEPFLAGS) -D "LINUX" -D "NDEBUG" -I "../src" -I "../src/classes" -I "/usr/include" -I "../externals" -I "../externals/include"
+  CPPFLAGS := $(DEPFLAGS) -D "LINUX" -D "NDEBUG" -I "../src" -I "../src/classes" -I "/usr/include" -I "../externals/visualframework/src" -I "../externals/visualframework/externals" -I "../externals/visualframework/externals/include" -I "/usr/include/glib-2.0" -I "/usr/lib/glib-2.0/include"
   CFLAGS += $(CPPFLAGS) $(TARGET_ARCH) -O2 -Wall -Wno-unknown-pragmas
   CXXFLAGS += $(CFLAGS)
-  LDFLAGS += -L$(BINDIR) -L$(LIBDIR) -s -L"../lib" -L"../externals/lib" -L"/usr/lib" -lSDL -lSDL_gfx -ltinyxml -loscpack -lvisualframework -lvisualClasses
-  LDDEPS := ../lib/libvisualClasses.a
-  RESFLAGS := -D "LINUX" -D "NDEBUG" -I "../src" -I "../src/classes" -I "/usr/include" -I "../externals" -I "../externals/include"
+  LDFLAGS += -L$(BINDIR) -L$(LIBDIR) -s -L"../lib" -L"../externals/visualframework/lib" -L"../externals/visualframework/externals/lib" -L"/usr/lib" -lSDL -lSDL_gfx -lglib-2.0 -llo -lvisualframework -lvisualClassesD -ltinyxml -loscpack
+  LDDEPS :=
+  RESFLAGS := -D "LINUX" -D "NDEBUG" -I "../src" -I "../src/classes" -I "/usr/include" -I "../externals/visualframework/src" -I "../externals/visualframework/externals" -I "../externals/visualframework/externals/include" -I "/usr/include/glib-2.0" -I "/usr/lib/glib-2.0/include"
   TARGET := rc-visual
  BLDCMD = $(CXX) -o $(OUTDIR)/$(TARGET) $(OBJECTS) $(LDFLAGS) $(RESOURCES) $(TARGET_ARCH)
 endif
 
 OBJECTS := \
 	$(OBJDIR)/Pressure.o \
-	$(OBJDIR)/main.o \
 	$(OBJDIR)/Visual.o \
+	$(OBJDIR)/main.o \
 
 MKDIR_TYPE := msdos
 CMD := $(subst \,\\,$(ComSpec)$(COMSPEC))
@@ -88,12 +88,12 @@ $(OBJDIR)/Pressure.o: ../src/rc-visual/Pressure.cpp
 	@echo $(notdir $<)
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/main.o: ../src/rc-visual/main.cpp
+$(OBJDIR)/Visual.o: ../src/rc-visual/Visual.cpp
 	-@$(CMD_MKOBJDIR)
 	@echo $(notdir $<)
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/Visual.o: ../src/rc-visual/Visual.cpp
+$(OBJDIR)/main.o: ../src/rc-visual/main.cpp
 	-@$(CMD_MKOBJDIR)
 	@echo $(notdir $<)
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"

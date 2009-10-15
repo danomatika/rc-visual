@@ -5,7 +5,7 @@
 #ifndef OBJECT_H
 #define OBJECT_H
 
-#include "vmmlib/vmmlib.h"
+#include <vmmlib/vmmlib.h>
 
 /**
     \class Object

@@ -9,11 +9,11 @@ endif
 
 export CONFIG
 
-.PHONY: all clean externals visualClasses rc-visual-send rc-visual
+.PHONY: all clean externals visualClasses rc-visual-send rc-visual-tests rc-visual
 
-all: externals visualClasses rc-visual-send rc-visual
+all: externals visualClasses rc-visual-send rc-visual-tests rc-visual
 
-externals.make rc-visual.make rc-visual-send.make visualClasses.make: premake.lua
+externals.make rc-visual.make rc-visual-send.make rc-visual-tests.make visualClasses.make: premake.lua
 	@echo ==== Regenerating Makefiles ====
 	@premake --file $^ --cc gcc --target gnu
 
@@ -29,6 +29,10 @@ rc-visual-send:
 	@echo ==== Building rc-visual-send ====
 	@$(MAKE) --no-print-directory -C . -f rc-visual-send.make
 
+rc-visual-tests:
+	@echo ==== Building rc-visual-tests ====
+	@$(MAKE) --no-print-directory -C . -f rc-visual-tests.make
+
 rc-visual:
 	@echo ==== Building rc-visual ====
 	@$(MAKE) --no-print-directory -C . -f rc-visual.make
@@ -37,4 +41,5 @@ clean:
 	@$(MAKE) --no-print-directory -C . -f externals.make clean
 	@$(MAKE) --no-print-directory -C . -f visualClasses.make clean
 	@$(MAKE) --no-print-directory -C . -f rc-visual-send.make clean
+	@$(MAKE) --no-print-directory -C . -f rc-visual-tests.make clean
 	@$(MAKE) --no-print-directory -C . -f rc-visual.make clean

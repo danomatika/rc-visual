@@ -22,19 +22,20 @@
 					<Add directory="../src" />
 					<Add directory="../src/classes" />
 					<Add directory="/usr/include" />
-					<Add directory="../externals" />
-					<Add directory="../externals/include" />
+					<Add directory="../externals/visualframework/src" />
+					<Add directory="../externals/visualframework/externals" />
+					<Add directory="../externals/visualframework/externals/include" />
 				</Compiler>
 				<Linker>
 					<Add directory="../bin" />
 					<Add directory="../lib" />
-					<Add directory="../externals/lib" />
+					<Add directory="../externals/visualframework/lib" />
+					<Add directory="../externals/visualframework/externals/lib" />
 					<Add directory="/usr/lib" />
 					<Add library="SDL" />
 					<Add library="SDL_gfx" />
-					<Add library="tinyxmlD" />
-					<Add library="oscpackD" />
 					<Add library="visualframeworkD" />
+					<Add library="oscpackD" />
 					<Add library="visualClassesD" />
 				</Linker>
 			</Target>
@@ -52,20 +53,21 @@
 					<Add directory="../src" />
 					<Add directory="../src/classes" />
 					<Add directory="/usr/include" />
-					<Add directory="../externals" />
-					<Add directory="../externals/include" />
+					<Add directory="../externals/visualframework/src" />
+					<Add directory="../externals/visualframework/externals" />
+					<Add directory="../externals/visualframework/externals/include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
 					<Add directory="../bin" />
 					<Add directory="../lib" />
-					<Add directory="../externals/lib" />
+					<Add directory="../externals/visualframework/lib" />
+					<Add directory="../externals/visualframework/externals/lib" />
 					<Add directory="/usr/lib" />
 					<Add library="SDL" />
 					<Add library="SDL_gfx" />
-					<Add library="tinyxml" />
-					<Add library="oscpack" />
 					<Add library="visualframework" />
+					<Add library="oscpack" />
 					<Add library="visualClasses" />
 				</Linker>
 			</Target>

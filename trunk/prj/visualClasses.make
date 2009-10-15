@@ -13,12 +13,12 @@ ifeq ($(CONFIG),Debug)
   LIBDIR := ../lib
   OBJDIR := ../obj/visualClasses/Debug
   OUTDIR := ../lib
-  CPPFLAGS := $(DEPFLAGS) -D "LINUX" -D "DEBUG" -D "_DEBUG" -I "../src" -I "../src/classes" -I "/usr/include" -I "../externals" -I "../externals/include"
+  CPPFLAGS := $(DEPFLAGS) -D "LINUX" -D "DEBUG" -D "_DEBUG" -I "../src" -I "../src/classes" -I "/usr/include" -I "../externals" -I "../externals/visualframework/src" -I "../externals/visualframework/externals" -I "../externals/visualframework/externals/include"
   CFLAGS += $(CPPFLAGS) $(TARGET_ARCH) -g -Wall -Wno-unknown-pragmas -ggdb
   CXXFLAGS += $(CFLAGS)
-  LDFLAGS += -L$(BINDIR) -L$(LIBDIR) -L"../lib" -L"../externals/lib" -L"/usr/lib" -lSDL -lSDL_gfx -ltinyxmlD -loscpackD -lvisualframeworkD
+  LDFLAGS += -L$(BINDIR) -L$(LIBDIR) -L"../lib" -L"../externals/lib" -L"../externals/visualframework/externals/lib" -L"/usr/lib" -lSDL -lSDL_gfx -ltinyxmlD -loscpackD -lvisualframeworkD
   LDDEPS :=
-  RESFLAGS := -D "LINUX" -D "DEBUG" -D "_DEBUG" -I "../src" -I "../src/classes" -I "/usr/include" -I "../externals" -I "../externals/include"
+  RESFLAGS := -D "LINUX" -D "DEBUG" -D "_DEBUG" -I "../src" -I "../src/classes" -I "/usr/include" -I "../externals" -I "../externals/visualframework/src" -I "../externals/visualframework/externals" -I "../externals/visualframework/externals/include"
   TARGET := libvisualClassesD.a
  BLDCMD = ar -rcs $(OUTDIR)/$(TARGET) $(OBJECTS) $(TARGET_ARCH)
 endif
@@ -28,24 +28,23 @@ ifeq ($(CONFIG),Release)
   LIBDIR := ../lib
   OBJDIR := ../obj/visualClasses/Release
   OUTDIR := ../lib
-  CPPFLAGS := $(DEPFLAGS) -D "LINUX" -D "NDEBUG" -I "../src" -I "../src/classes" -I "/usr/include" -I "../externals" -I "../externals/include"
+  CPPFLAGS := $(DEPFLAGS) -D "LINUX" -D "NDEBUG" -I "../src" -I "../src/classes" -I "/usr/include" -I "../externals" -I "../externals/visualframework/src" -I "../externals/visualframework/externals" -I "../externals/visualframework/externals/include"
   CFLAGS += $(CPPFLAGS) $(TARGET_ARCH) -O2 -Wall -Wno-unknown-pragmas
   CXXFLAGS += $(CFLAGS)
-  LDFLAGS += -L$(BINDIR) -L$(LIBDIR) -s -L"../lib" -L"../externals/lib" -L"/usr/lib" -lSDL -lSDL_gfx -ltinyxml -loscpack -lvisualframework
+  LDFLAGS += -L$(BINDIR) -L$(LIBDIR) -s -L"../lib" -L"../externals/lib" -L"../externals/visualframework/externals/lib" -L"/usr/lib" -lSDL -lSDL_gfx -ltinyxml -loscpack -lvisualframework
   LDDEPS :=
-  RESFLAGS := -D "LINUX" -D "NDEBUG" -I "../src" -I "../src/classes" -I "/usr/include" -I "../externals" -I "../externals/include"
+  RESFLAGS := -D "LINUX" -D "NDEBUG" -I "../src" -I "../src/classes" -I "/usr/include" -I "../externals" -I "../externals/visualframework/src" -I "../externals/visualframework/externals" -I "../externals/visualframework/externals/include"
   TARGET := libvisualClasses.a
  BLDCMD = ar -rcs $(OUTDIR)/$(TARGET) $(OBJECTS) $(TARGET_ARCH)
 endif
 
 OBJECTS := \
-	$(OBJDIR)/Sprite.o \
+	$(OBJDIR)/Osc_Server.o \
 	$(OBJDIR)/BitmapSprite.o \
-	$(OBJDIR)/Texture.o \
-	$(OBJDIR)/Sprite_Collection.o \
-	$(OBJDIR)/Sprite_File.o \
 	$(OBJDIR)/Sprite_Group.o \
-	$(OBJDIR)/Sprite-Image.o \
+	$(OBJDIR)/Sprite_Collection.o \
+	$(OBJDIR)/Sprite.o \
+	$(OBJDIR)/Sprite_File.o \
 
 MKDIR_TYPE := msdos
 CMD := $(subst \,\\,$(ComSpec)$(COMSPEC))
@@ -87,7 +86,7 @@ else
 	-@if exist $(subst /,\,$(OBJDIR)) rmdir /s /q $(subst /,\,$(OBJDIR))
 endif
 
-$(OBJDIR)/Sprite.o: ../src/classes/Sprite.cpp
+$(OBJDIR)/Osc_Server.o: ../src/classes/Osc_Server.cpp
 	-@$(CMD_MKOBJDIR)
 	@echo $(notdir $<)
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
@@ -97,7 +96,7 @@ $(OBJDIR)/BitmapSprite.o: ../src/classes/BitmapSprite.cpp
 	@echo $(notdir $<)
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/Texture.o: ../src/classes/Texture.cpp
+$(OBJDIR)/Sprite_Group.o: ../src/classes/Sprite_Group.cpp
 	-@$(CMD_MKOBJDIR)
 	@echo $(notdir $<)
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
@@ -107,17 +106,12 @@ $(OBJDIR)/Sprite_Collection.o: ../src/classes/Sprite_Collection.cpp
 	@echo $(notdir $<)
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
+$(OBJDIR)/Sprite.o: ../src/classes/Sprite.cpp
+	-@$(CMD_MKOBJDIR)
+	@echo $(notdir $<)
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
 $(OBJDIR)/Sprite_File.o: ../src/classes/Sprite_File.cpp
-	-@$(CMD_MKOBJDIR)
-	@echo $(notdir $<)
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/Sprite_Group.o: ../src/classes/Sprite_Group.cpp
-	-@$(CMD_MKOBJDIR)
-	@echo $(notdir $<)
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/Sprite-Image.o: ../src/classes/Sprite-Image.cpp
 	-@$(CMD_MKOBJDIR)
 	@echo $(notdir $<)
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
