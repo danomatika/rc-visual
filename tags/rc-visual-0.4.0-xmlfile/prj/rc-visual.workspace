@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_workspace_file>
+	<Workspace title="Workspace">
+		<Project filename="tinyxml.cbp" />
+		<Project filename="libvisual.cbp">
+			<Depends filename="tinyxml.cbp" />
+		</Project>
+		<Project filename="rc-visual.cbp">
+			<Depends filename="tinyxml.cbp" />
+			<Depends filename="libvisual.cbp" />
+		</Project>
+		<Project filename="rc-visual-send.cbp" />
+		<Project filename="tests.cbp" active="1">
+			<Depends filename="libvisual.cbp" />
+			<Depends filename="tinyxml.cbp" />
+		</Project>
+	</Workspace>
+</CodeBlocks_workspace_file>
