@@ -10,11 +10,8 @@ libvisual_a_SOURCES =	Sprite.h Sprite.cpp \
 						Sprite_File.h Sprite_File.cpp \
 						Osc_Server.h Osc_Server.cpp
 
-# local libraries to link
-libvisual_a_LIBADD = ../tinyxml/libtinyxml.a
-
 # include paths
-AM_CPPFLAGS = $(CXXFLAGS) -I../tinyxml $(GLIB2_CFLAGS) $(SDL_CFLAGS) $(SDL_GFX_CFLAGS) $(LIBLO_CFLAGS)
+AM_CPPFLAGS = $(CXXFLAGS) $(GLIB2_CFLAGS) $(SDL_CFLAGS) $(SDL_GFX_CFLAGS) $(LIBLO_CFLAGS)
 
 # libs to link
 AM_LDFLAGS = $(GLIB2_LIBS) $(SDL_LIBS) $(SDL_GFX_LIBS) $(LIBLO_LIBS)

@@ -44,7 +44,6 @@ AC_CONFIG_HEADERS([src/config.h])
 AC_CONFIG_FILES([
 	Makefile
 	src/Makefile
-	src/tinyxml/Makefile
 	src/lib/Makefile
 	src/rc-visual/Makefile
 	src/rc-visual-send/Makefile
