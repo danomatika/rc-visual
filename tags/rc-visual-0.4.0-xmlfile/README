@@ -1,0 +1,43 @@
+
+rc-visual
+
+a simple interpreter and renderer controlled over osc
+
+Dan Wilcox <info@robotcowboy.com>
+
+##### BUILD REQUIREMENTS #####
+
+The following libraries are required:
+    - SDL
+    - SDL_gfx
+    - liblo (lightweight osc)
+    - glib-2.0
+
+On Max OS X, they can be installed using macports: http://macports.org
+    - install the macport binary and setup the macports enviornment
+    - goto the Terminal and install the libs:
+        sudo port install libsdl libsdl_gfx liblo glib2
+
+##### BUILD #####
+
+As this is an GNU autotools project, simply run:
+
+./configure
+make
+
+If using macports on Mac OS X, you need to set the macports include and lib dirs before running ./configure:
+
+export CPPFLAGS=-I/opt/local/include
+export LDFLAGS=-L/opt/local/lib
+
+##### INSTALLATION #####
+
+After a successful build, running the following command will install the project:
+
+make install
+
+By default, the configure script installs to /usr/local.  To change this behavior, specify a new dir before building the project:
+
+./configure --prefix=/path/to/install/dir
+
+If using macports on Mac OS X, it is recommended to use the macports default prefix of /opt/local.

@@ -27,11 +27,9 @@ PKG_CHECK_MODULES(GLIB2, glib-2.0 >= 2.14,[],
 	AC_MSG_ERROR([glib-2.0 library > 2.14 not found]))
 PKG_CHECK_MODULES(SDL, sdl >= 1.2,[],
 	AC_MSG_ERROR([SDL library >= 1.2 not found]))
-#PKG_CHECK_MODULES(LIBLO, liblo >= 0.22,[],
-#	AC_MSG_ERROR([liblo0 library >= 0.22 not found]))
-AC_CHECK_LIB([lo], [lo_arg_pp],
-	AC_SUBST([LIBLO_LIBS], ["-llo"]),
-	AC_MSG_ERROR([liblo library not found]))
+PKG_CHECK_MODULES(LIBLO, liblo >= 0.22,[],
+	AC_MSG_ERROR([liblo0 library >= 0.22 not found]))
+
 
 # arg to disable installation of config files, need to disable this for distcheck
 #AC_ARG_ENABLE([config],
