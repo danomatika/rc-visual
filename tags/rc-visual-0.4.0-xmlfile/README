@@ -5,6 +5,8 @@ a simple interpreter and renderer controlled over osc
 
 Dan Wilcox <info@robotcowboy.com>
 
+##### DESCRIPTION #####
+
 ##### BUILD REQUIREMENTS #####
 
 The following libraries are required:
@@ -27,8 +29,7 @@ make
 
 If using macports on Mac OS X, you need to set the macports include and lib dirs before running ./configure:
 
-export CPPFLAGS=-I/opt/local/include
-export LDFLAGS=-L/opt/local/lib
+export CPPFLAGS=-I/opt/local/include && export LDFLAGS=-L/opt/local/lib
 
 ##### INSTALLATION #####
 
@@ -41,3 +42,8 @@ By default, the configure script installs to /usr/local.  To change this behavio
 ./configure --prefix=/path/to/install/dir
 
 If using macports on Mac OS X, it is recommended to use the macports default prefix of /opt/local.
+
+##### USAGE #####
+
+##### FUTURE IDEAS/IMPROVEMENTS #####
+
