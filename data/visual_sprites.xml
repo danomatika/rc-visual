@@ -2,19 +2,10 @@
 
 <visual>
 
-<group name="null">
+<scene name="null">
+	<background R="255" G="0" B="0" A="255"/>
 
-	<sprite name="back" width="1" height="1" frames="1">
-		<frame>
-		*
-		</frame>
-
-		<color R="255" G="0" B="0" A="255"/>
-		<size width="640" height="480"/>
-		<visible yesno="1"/>
-	</sprite>
-
-	<sprite name="x" width="5" height="5" frames="1">
+	<bitmap name="x" width="5" height="5">
 		<frame>
 		*---*
 		-*-*-
@@ -26,12 +17,12 @@
 		<color R="200" G="200" B="200" A="255"/>
 		<size width="640" height="480" />
 		<visible yesno="1"/>
-	</sprite>
+	</bitmap>
 
-</group>
+</scene>
 
 
-<group name="ArpeggiateNow">
+<scene name="ArpeggiateNow">
 
 	<sprite name="back" width="1" height="1" frames="1">
 		<frame>
@@ -43,7 +34,8 @@
 		<visible yesno="0"/>
 	</sprite>
 
-    <sprite name="midi" width="1" height="1" frames="1">		<frame>
+    <sprite name="midi" width="1" height="1" frames="1">
+		<frame>
 		*
 		</frame>
 
@@ -54,7 +46,8 @@
 		<visible yesno="1"/>
 	</sprite>
 
-    <sprite name="small" width="1" height="1" frames="1"> 		<frame>
+    <sprite name="small" width="1" height="1" frames="1"> 
+		<frame>
 		*
 		</frame>
 
@@ -65,7 +58,8 @@
 		<visible yesno="1"/>
 	</sprite>
 
-	<sprite name="bigl" width="1" height="1" frames="1"> 		<frame>
+	<sprite name="bigl" width="1" height="1" frames="1"> 
+		<frame>
 		*
 		</frame>
 
@@ -76,7 +70,8 @@
 		<visible yesno="1"/>
 	</sprite>
 
-	<sprite name="bigr" width="1" height="1" frames="1">		<frame>
+	<sprite name="bigr" width="1" height="1" frames="1">
+		<frame>
 		*
 		</frame>
 
@@ -87,7 +82,8 @@
 		<visible yesno="1"/>
 	</sprite>
 
-	<sprite name="rumble" width="1" height="1" frames="1"> 		<frame>
+	<sprite name="rumble" width="1" height="1" frames="1"> 
+		<frame>
 		*
 		</frame>
 
@@ -98,9 +94,9 @@
 		<visible yesno="1"/>
 	</sprite>
 
-</group>
+</scene>
 
-<group name="RunningMan">
+<scene name="RunningMan">
 
 	<sprite name="back" width="1" height="1" frames="1">
 		<frame>
@@ -178,9 +174,9 @@
 		<visible yesno="1"/>
 	</sprite>
 
-</group>
+</scene>
 
-<group name="Velocipede">
+<scene name="Velocipede">
 
     <sprite name="beat" width="1" height="1" frames="1">
 		<frame>
@@ -281,9 +277,9 @@
 		<visible yesno="0"/>
     </sprite>
 
-</group>
+</scene>
 
-<group name="LionTamer">
+<scene name="LionTamer">
 
 	<sprite name="whip" width="1" height="1" frames="1">
 		<frame>
@@ -436,9 +432,9 @@
 		<visible yesno="0"/>
     </sprite>
 
-</group>
+</scene>
 
-<group name="FloatingFarther">
+<scene name="FloatingFarther">
 
 	<sprite name="stars" width="16" height="16" frames="1">
 		<frame>
@@ -484,9 +480,9 @@
 		<visible yesno="1"/>
     </sprite>
 
-</group>
+</scene>
 
-<group name="MartianPlain">
+<scene name="MartianPlain">
 
 	<sprite name="stars" width="16" height="16" frames="1">
 		<frame>
@@ -560,9 +556,9 @@
 		<visible yesno="1"/>
     </sprite>
 
-</group>
+</scene>
 
-<group name="SpaceLight">
+<scene name="SpaceLight">
 
 	<sprite name="stars" width="16" height="16" frames="1">
 		<frame>
@@ -649,9 +645,9 @@
 		animate yesno="1"/>
     </sprite>
 
-</group>
+</scene>
 
-<group name="MyLungs">
+<scene name="MyLungs">
 
 	<sprite name="stars" width="16" height="16" frames="1">
 		<frame>
@@ -723,9 +719,9 @@
 		<visible yesno="1"/>
     </sprite>
 
-</group>
+</scene>
 
-<group name="Boomerang">
+<scene name="Boomerang">
 
     <sprite name="eyes" width="12" height="9" frames="2">
 		<frame>
@@ -850,9 +846,9 @@
 		<visible yesno="0"/>
     </sprite>
 
-</group>
+</scene>
 
-<group name="EtherWalk">
+<scene name="EtherWalk">
 
 	<sprite name="back" width="1" height="1" frames="1">
 		<frame>
@@ -935,9 +931,9 @@
 		<visible yesno="1"/>
     </sprite>
 
-</group>
+</scene>
 
-<group name="StarBurst">
+<scene name="StarBurst">
 
 	<sprite name="stars" width="16" height="16" frames="1">
 		<frame>
@@ -998,6 +994,6 @@
 		<visible yesno="1"/>
     </sprite>
 
-</group>
+</scene>
 
 </visual>

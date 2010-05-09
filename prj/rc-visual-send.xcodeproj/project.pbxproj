@@ -1,0 +1,267 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1A8F5B676CE1001273421472 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C42EB62E4001273421472 /* main.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2B5C42EB62E4001273421472 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "main.cpp"; path = "main.cpp"; sourceTree = "<group>"; };
+		36FA058B05BA001273421472 /* rc-visual-send */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = "rc-visual-send"; path = "rc-visual-send"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		22AC5DC417E8001273421472 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6B6C18E72451001273421472 /* rc-visual-send */ = {
+			isa = PBXGroup;
+			children = (
+				44C2573F7C46001273421472 /* src */,
+				38A043BC6D06001273421472 /* Products */,
+			);
+			name = rc-visual-send;
+			sourceTree = "<group>";
+		};
+		44C2573F7C46001273421472 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				083031C91F4F001273421472 /* rc-visual-send */,
+			);
+			name = src;
+			path = ../src;
+			sourceTree = "<group>";
+		};
+		083031C91F4F001273421472 /* rc-visual-send */ = {
+			isa = PBXGroup;
+			children = (
+				2B5C42EB62E4001273421472 /* main.cpp */,
+			);
+			name = rc-visual-send;
+			path = rc-visual-send;
+			sourceTree = "<group>";
+		};
+		38A043BC6D06001273421472 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				36FA058B05BA001273421472 /* rc-visual-send */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		355D041E0CC2001273421472 /* rc-visual-send */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5A3D6DD033FD001273421472 /* Build configuration list for PBXNativeTarget "rc-visual-send" */;
+			buildPhases = (
+				56247ABC79D6001273421472 /* Resources */,
+				6DDC27FB65EE001273421472 /* Sources */,
+				22AC5DC417E8001273421472 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = rc-visual-send;
+			productInstallPath = "$(HOME)/bin";
+			productName = rc-visual-send;
+			productReference = 36FA058B05BA001273421472 /* rc-visual-send */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		08FB7793FE84155DC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1DEB928908733DD80010E9CD /* Build configuration list for PBXProject "rc-visual-send" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			mainGroup = 6B6C18E72451001273421472 /* rc-visual-send */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				355D041E0CC2001273421472 /* rc-visual-send */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		56247ABC79D6001273421472 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6DDC27FB65EE001273421472 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A8F5B676CE1001273421472 /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		13B759D20E67001273421472 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CONFIGURATION_BUILD_DIR = ../bin;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_MODEL_TUNING = G5;
+				INSTALL_PATH = /usr/local/bin;
+				PRODUCT_NAME = "rc-visual-send";
+			};
+			name = "Debug";
+		};
+		6D8170FA468F001273421472 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				CONFIGURATION_BUILD_DIR = ../bin;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_MODEL_TUNING = G5;
+				INSTALL_PATH = /usr/local/bin;
+				PRODUCT_NAME = "rc-visual-send";
+			};
+			name = "Release";
+		};
+		3FDB5DE23F91001273421472 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				CONFIGURATION_BUILD_DIR = "$(SYMROOT)";
+				CONFIGURATION_TEMP_DIR = "$(OBJROOT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"../src",
+					"../externals",
+					"../../../../../../../opt/local/include",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"../externals/oscframework",
+					"../../../../../../../opt/local/lib",
+				);
+				OBJROOT = "../obj/Debug/rc-visual-send";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"-loscframework",
+					"-llo",
+					"-lpthread",
+					"-lSDLmain",
+					"-lSDL",
+					"-lSDL_gfx",
+					"-Wl,-framework,Cocoa",
+					"-Wl,-framework,OpenGL",
+					"-Wl,-framework,ApplicationServices",
+					"-Wl,-framework,Carbon",
+					"-Wl,-framework,AudioToolbox",
+					"-Wl,-framework,AudioUnit",
+					"-Wl,-framework,IOKit",
+				);
+				PREBINDING = NO;
+				SYMROOT = "../bin";
+			};
+			name = "Debug";
+		};
+		6D4C55643BF1001273421472 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				CONFIGURATION_BUILD_DIR = "$(SYMROOT)";
+				CONFIGURATION_TEMP_DIR = "$(OBJROOT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"NDEBUG",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"../src",
+					"../externals",
+					"../../../../../../../opt/local/include",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"../externals/oscframework",
+					"../../../../../../../opt/local/lib",
+				);
+				OBJROOT = "../obj/Release/rc-visual-send";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"-loscframework",
+					"-llo",
+					"-lpthread",
+					"-lSDLmain",
+					"-lSDL",
+					"-lSDL_gfx",
+					"-Wl,-framework,Cocoa",
+					"-Wl,-framework,OpenGL",
+					"-Wl,-framework,ApplicationServices",
+					"-Wl,-framework,Carbon",
+					"-Wl,-framework,AudioToolbox",
+					"-Wl,-framework,AudioUnit",
+					"-Wl,-framework,IOKit",
+				);
+				PREBINDING = NO;
+				SYMROOT = "../bin";
+			};
+			name = "Release";
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5A3D6DD033FD001273421472 /* Build configuration list for PBXNativeTarget "rc-visual-send" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13B759D20E67001273421472 /* Debug */,
+				6D8170FA468F001273421472 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = "Debug";
+		};
+		1DEB928908733DD80010E9CD /* Build configuration list for PBXProject "rc-visual-send" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3FDB5DE23F91001273421472 /* Debug */,
+				6D4C55643BF1001273421472 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = "Debug";
+		};
+/* End XCConfigurationList section */
+
+	};
+	rootObject = 08FB7793FE84155DC02AAC07 /* Project object */;
+}

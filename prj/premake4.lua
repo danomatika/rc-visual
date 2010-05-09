@@ -7,65 +7,25 @@ example: http://opende.svn.sourceforge.net/viewvc/opende/trunk/build/premake4.lu
 http://bitbucket.org/anders/lightweight/src/tip/premake4.lua
 
 ]]
-solution "rc-facade"
+solution "rc-visual"
 	configurations { "Debug", "Release" }
 	objdir "../obj"
- 
--- convenience library
-project "facade"
-	kind "StaticLib"
-	language "C++"
-	targetdir "../lib"
-	files { "../src/facade/**.h", "../src/facade/**.cpp" }
-	
-	includedirs { "../src",
-				  "../externals/",
-				  "../externals/visualframework",
-			 	  "../externals/xmlframework",
-			  	  "../externals/oscframework" }
-	libdirs { "../externals/visualframework" }
-    links { "visualframework", "SDL_net" }
-	
-	configuration "linux"
-		buildoptions { "`pkg-config --cflags sdl`",
-					   "`pkg-config --cflags SDL_gfx`",
-					   "`pkg-config --cflags SDL_image`" }
-		linkoptions { "`pkg-config --libs sdl`",
-					  "`pkg-config --libs SDL_gfx`",
-					  "`pkg-config --libs SDL_image`" }
-	
-	configuration "macosx"
-		-- get rid of visibilty warnings
-		buildoptions { "-fvisibility-inlines-hidden" }
-		-- MacPorts
-		includedirs { "/opt/local/include" }
-		libdirs { "/opt/local/lib" }
 
-	configuration "Debug"
-		defines { "DEBUG" }
-		flags { "Symbols" }
-
-	configuration "Release"
-		defines { "NDEBUG" }
-		flags { "Optimize" } 
-
--- rc-unit executable
-project "rc-facade"
+-- rc-visual executable
+project "rc-visual"
 	kind "ConsoleApp"
 	language "C++"
 	targetdir "../bin"
-	files { "../src/rc-facade/**.h", "../src/rc-facade/**.cpp" }
+	files { "../src/rc-visual/**.h", "../src/rc-visual/**.cpp" }
 	
 	includedirs { "../src",
 				  "../externals/",
-				  "../externals/visualframework",
-			 	  "../externals/xmlframework",
-			  	  "../externals/oscframework" }
+				  "../externals/visualframework" }
 	libdirs { "../externals/visualframework",
 			  "../externals/xmlframework",
       		  "../externals/oscframework" }
-	links { "facade", "oscframework", "xmlframework", "visualframework",
-		    "SDL_net", "SDL_ttf" }
+	links { "oscframework", "xmlframework", "visualframework",
+		    "SDL_net", "SDL_ttf", "SDL_image" }
 
 	configuration "linux"
 		buildoptions { "`pkg-config --cflags sdl`",
@@ -94,4 +54,39 @@ project "rc-facade"
 	configuration "Release"
 		defines { "NDEBUG" }
 		flags { "Optimize" }
+
+-- rc-visual-send executable
+project "rc-visual-send"
+	kind "ConsoleApp"
+	language "C++"
+	targetdir "../bin"
+	files { "../src/rc-visual-send/**.h", "../src/rc-visual-send/**.cpp" }
+	
+	includedirs { "../src",
+				  "../externals/" }
+	libdirs { "../externals/oscframework" }
+	links { "oscframework" }
+
+	configuration "linux"
+		buildoptions { "`pkg-config --cflags liblo`" }
+		linkoptions { "`pkg-config --libs liblo`" }
+
+	configuration 'macosx'
+		-- MacPorts
+		includedirs { "/opt/local/include"}
+		libdirs { "/opt/local/lib" }
+		links { "lo", "pthread", "SDLmain", "SDL", "SDL_gfx" }
+		linkoptions { "-Wl,-framework,Cocoa", "-Wl,-framework,OpenGL",
+					  "-Wl,-framework,ApplicationServices",
+					  "-Wl,-framework,Carbon", "-Wl,-framework,AudioToolbox",
+					  "-Wl,-framework,AudioUnit", "-Wl,-framework,IOKit" }
+
+	configuration "Debug"
+		defines { "DEBUG" }
+		flags { "Symbols" }
+
+	configuration "Release"
+		defines { "NDEBUG" }
+		flags { "Optimize" }
+		
 		

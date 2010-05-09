@@ -1,5 +1,24 @@
 /*==============================================================================
-    Dan Wilcox <danomatika@gmail.com>, 2009
+
+	Graphics.cpp
+
+	visualframework: a simple 2d graphics framework
+  
+	Copyright (C) 2009, 2010  Dan Wilcox <danomatika@gmail.com>
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 ==============================================================================*/
 #include "Graphics.h"
 
@@ -169,6 +188,31 @@ bool Graphics::toggleFullscreen()
     _ui32VideoFlags = _type|SDL_DOUBLEBUF|_mode;
 
     return createWindow(_sTitle);
+}
+
+bool Graphics::getShowMouseCursor()
+{
+	int state = SDL_ShowCursor(SDL_QUERY);
+    if(state == SDL_ENABLE)
+    	return true;
+    return false;
+}
+
+void Graphics::showMouseCursor(bool show)
+{
+	if(show)
+    	SDL_ShowCursor(SDL_ENABLE);
+    else
+    	SDL_ShowCursor(SDL_DISABLE);
+}
+
+void Graphics::toggleShowMouseCursor()
+{
+	int state = SDL_ShowCursor(SDL_QUERY);
+    if(state == SDL_ENABLE)
+    	SDL_ShowCursor(SDL_DISABLE);
+    else
+    	SDL_ShowCursor(SDL_ENABLE);
 }
 
 bool Graphics::changeResolution(const unsigned int w, const unsigned int h)

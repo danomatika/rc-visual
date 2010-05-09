@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<rc-visual>
+
+	<listening port="9990"/>
+	<sending ip="127.0.0.1" port="8880"/>
+	<osc notificationAddress="/pd/visual" deviceAddress="/pd/devices"/>
+
+	<scene name="scene1">
+		<background R="0" G="0" B="0" A="255"/>
+		
+		<pixel name="pixel">
+			<position x="10" y="10"/>
+			<color R="255" G="255" B="255" A="255"/>
+			<visible yesno="1"/>
+		</pixel>
+		
+		<line name="line">
+			<position1 x="200" y="400"/>
+			<position2 x="580" y="400"/>
+			<color R="255" G="0" B="0" A="255"/>
+			<visible yesno="1"/>
+		</line>
+		
+		<rect name="rect">
+			<position x="100" y="100"/>
+			<size width="200" height="260"/>
+			<color R="0" G="0" B="255" A="255"/>
+			<visible yesno="1"/>
+		</rect>
+		
+	</scene>
+	
+	<scene name="scene2" width="5" height="5">
+		<background R="64" G="64" B="64" A="255"/>
+		
+		<bitmap name="bitmap" width="5" height="5">
+			<position x="250" y="500"/>
+			<size width="500" height="500"/>
+			<center yesno="1"/>
+			<color R="200" G="200" B="200" A="255"/>
+			<visible yesno="1"/>
+			<frame>
+			--*--
+			--*--
+			*****
+			--*--
+			--*--
+			</frame>
+		</bitmap>
+	
+		<sprite name="sprite">
+			<position x="320" y="240"/>
+			<animation animate="1" loop="1" pingpong="1"/>
+			<center yesno="1"/>
+			<overlay yesno="0"/>
+			<bitmap frametime="1000" width="5" height="5">
+				<size width="50" height="50" />
+				<color R="0" G="200" B="0" A="255"/>
+				<frame>
+				***--
+				***--
+				*****
+				--***
+				--***
+				</frame>
+			</bitmap>
+			<bitmap frametime="1000" width="5" height="5">
+				<size width="50" height="50" />
+				<color R="255" G="255" B="255" A="255"/>
+				<frame>
+				--*--
+				--*--
+				*****
+				--*--
+				--*--
+				</frame>
+			</bitmap>
+			<bitmap frametime="1000" width="5" height="5">
+				<size width="50" height="50" />
+				<color R="0" G="0" B="200" A="255"/>
+				<frame>
+				-----
+				--*--
+				--*--
+				--*--
+				-----
+				</frame>
+			</bitmap>
+		</sprite>
+		<image name="image" file="../data/icon.png">
+			<position x="10" y="10"/>
+			<size width="50" height="50"/>
+			<center yesno="1"/>
+			<visible yesno="1"/>
+		</image>
+	</scene>
+	
+
+</rc-visual>
