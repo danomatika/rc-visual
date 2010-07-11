@@ -35,7 +35,7 @@ class App : public visual::Application, public OscObject
         App();
         virtual ~App();
 
-        void init();
+        bool init();
 
         void setup();
 

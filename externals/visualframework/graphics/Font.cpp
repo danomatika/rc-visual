@@ -68,74 +68,84 @@ bool Font::isLoaded()
 
 void Font::draw(const char c, const int x, const int y)
 {
-	if(!_font)
-    	return;
-
-	SDL_Surface* surface = NULL;
-	switch(Graphics::getFontMode())
-    {
-    	case SOLID:
-        	surface = TTF_RenderGlyph_Solid(_font, c, Graphics::getStroke().color);
-            break;
-            
-        case BLENDED:
-        	surface = TTF_RenderGlyph_Blended(_font, c, Graphics::getStroke().color);
-            break;
-            
-        case SHADED:
-        	surface = TTF_RenderGlyph_Shaded(_font, c,
-    			Graphics::getStroke().color,	// foreground
-            	Graphics::getFill().color);		// background
-            break;
-    }
-
+	SDL_Surface* surface = render(c);
 	if(!surface)
     	return;
-        
-    SDL_Rect dest;
-    dest.x = x;
-    dest.y = y;
-    dest.w = surface->w;
-    dest.h = surface->h;
 
-	SDL_BlitSurface(surface, NULL, Graphics::getScreen(), &dest);
+    Graphics::surface(x, y, surface);
     SDL_FreeSurface(surface);
 }
 
 void Font::draw(const std::string& text, const int x, const int y)
 {
-	if(!_font)
+    SDL_Surface* surface = render(text);
+    if(!surface)
     	return;
+
+    Graphics::surface(x, y, surface);
+    SDL_FreeSurface(surface);
+}
+
+SDL_Surface* Font::render(const char c)
+{
+	assert(_font);	// font not loaded!
 
 	SDL_Surface* surface = NULL;
 	switch(Graphics::getFontMode())
     {
     	case SOLID:
-        	surface = TTF_RenderUTF8_Solid(_font, text.c_str(), Graphics::getStroke().color);
+        	surface = TTF_RenderGlyph_Solid(_font, c, Graphics::getStroke());
             break;
             
         case BLENDED:
-        	surface = TTF_RenderUTF8_Blended(_font, text.c_str(), Graphics::getStroke().color);
+        	surface = TTF_RenderGlyph_Blended(_font, c, Graphics::getStroke());
+            break;
+            
+        case SHADED:
+        {
+        	surface = TTF_RenderGlyph_Shaded(_font, c,
+    			Graphics::getStroke(),	// foreground
+            	Graphics::getFill());	// background
+            break;
+        }
+    }
+    
+    if(!surface)
+    {
+    	LOG_ERROR << "Font::render: couldn't create surface: " << TTF_GetError() << std::endl;
+    }
+    
+    return surface;
+}
+
+SDL_Surface* Font::render(const std::string& text)
+{
+	assert(_font);	// font not loaded!
+
+	SDL_Surface* surface = NULL;
+	switch(Graphics::getFontMode())
+    {
+    	case SOLID:
+        	surface = TTF_RenderUTF8_Solid(_font, text.c_str(), Graphics::getStroke());
+            break;
+            
+        case BLENDED:
+        	surface = TTF_RenderUTF8_Blended(_font, text.c_str(), Graphics::getStroke());
             break;
             
         case SHADED:
         	surface = TTF_RenderUTF8_Shaded(_font, text.c_str(),
-    			Graphics::getStroke().color,	// foreground
-            	Graphics::getFill().color);		// background
+    			Graphics::getStroke(),	// foreground
+            	Graphics::getFill());		// background
             break;
     }
     
-	if(!surface)
-    	return;
-        
-    SDL_Rect dest;
-    dest.x = x;
-    dest.y = y;
-    dest.w = surface->w;
-    dest.h = surface->h;
-
-	SDL_BlitSurface(surface, NULL, Graphics::getScreen(), &dest);
-    SDL_FreeSurface(surface);
+    if(!surface)
+    {
+    	LOG_ERROR << "Font::render: couldn't create surface: " << TTF_GetError() << std::endl;
+    }
+    
+    return surface;
 }
 
 /*

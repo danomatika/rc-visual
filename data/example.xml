@@ -90,7 +90,7 @@
 		<image name="image" file="../data/icon.png">
 			<position x="10" y="10"/>
 			<size width="50" height="50"/>
-			<center yesno="1"/>
+			<center yesno="0"/>
 			<visible yesno="1"/>
 		</image>
 	</scene>

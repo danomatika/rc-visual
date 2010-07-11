@@ -46,14 +46,14 @@ class SceneManager : public XmlObject, public OscObject
         /// clears (deletes) all the objects in the list
         void clear(bool keepCurScene=false);
 
-		/// loads graphics resources
-		void setup();
-
 		// scene transport
         void nextScene();
         void prevScene();
         void gotoScene(unsigned int num);
         void gotoScene(string name);
+
+		/// loads graphics resources
+		void setup();
 
         /// draw all the objects in the list
         void draw();

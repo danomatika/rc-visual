@@ -89,19 +89,6 @@ void SceneManager::clear(bool keepCurScene)
 	}
 }
 
-void SceneManager::setup()
-{
-	// setup all scenes
-    for(unsigned int i = 0; i < _objectList.size(); ++i)
-    {
-    	_objectList.at(i)->setup();
-    }
-
-	// try to load the first scene
-    if(_currentScene < 0)
-    	gotoScene(0);
-}
-
 void SceneManager::nextScene()
 {
     if(_objectList.empty())
@@ -174,6 +161,19 @@ void SceneManager::gotoScene(string name)
     }
 }
 
+void SceneManager::setup()
+{
+	// setup all scenes
+    for(unsigned int i = 0; i < _objectList.size(); ++i)
+    {
+    	_objectList.at(i)->setup();
+    }
+
+	// try to load the first scene
+    if(_currentScene < 0)
+    	gotoScene(0);
+}
+
 void SceneManager::draw()
 {
     if(_currentScene >= 0 && _currentScene < (int) _objectList.size())
@@ -194,6 +194,7 @@ void SceneManager::reload()
 	closeXmlFile();
     clear(true);
     loadXmlFile();
+    setup();
 }
 
 /* ***** PROTECTED ***** */

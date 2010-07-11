@@ -57,7 +57,7 @@ App::App() : OscObject(""), bRunning(true),
 App::~App()
 {}
 
-void App::init()
+bool App::init()
 {
 	// don't show the cursor if not debugging
     Graphics::showMouseCursor(bDebug);
@@ -72,8 +72,10 @@ void App::init()
     // set the xml filename (for reloading)
     if(config.getXmlFilename() != "")
     {
-    	sceneManager.setXmlFilename(config.getXmlFilename());
+    		sceneManager.setXmlFilename(config.getXmlFilename());
     }
+
+    return true;
 }
 
 void App::setup()

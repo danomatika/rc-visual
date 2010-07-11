@@ -36,20 +36,19 @@ class Color
         {
             struct
             {
-                uint8_t	R, G, B, A;  // individual access
+                uint8_t	B, G, R, A;  // individual access, reversed for proper byte order
             };
-            uint32_t rgba;     // single variable, 0xRRGGBBAA
-            SDL_Color color;
+            uint32_t argb;     // single variable, 0xAARRGGBB
         };
 
-        Color() : R(255), G(255), B(255), A(255) {}
+        Color() : B(255), G(255), R(255), A(255) {}
 
         Color(const uint8_t r, const uint8_t g, const uint8_t b) :
-            R(r), G(g), B(b), A(255) {}
+        	B(b), G(g), R(r), A(255) {}           
 
         Color(const uint8_t r, const uint8_t g, const uint8_t b, const uint8_t a) :
-            R(r), G(g), B(b), A(a) {}
-
+            B(b), G(g), R(r), A(a) {}
+        
         /// html style hex aka 0xFF00FF
         Color(const uint32_t color) : A(255)
         {
@@ -89,28 +88,51 @@ class Color
             R = r;
             G = g;
             B = b;
+            A = 255;
         }
 
+		/// ARGB, no alpha
         void set(const uint32_t color)
         {
             R = color >> 16;
             G = color >> 8;
             B = color;
+            A = 255;
         }
         
-        /// get this color mapped to a surface's pxiel format
-        uint32_t get(const SDL_Surface* surface)
+        /// ARGB with alpha
+        void setWithAlpha(const uint32_t color)
         {
-        	// surface should never be NULL
-        	assert(surface);
-            
+        	A = color >> 24;
+        	R = color >> 16;
+            G = color >> 8;
+            B = color;
+        }
+        
+        /// uint operator
+        operator uint32_t() const
+        {
+        	return argb;
+        }
+        
+        /// set mapped to a surface's pixel format
+        void set(const uint32_t color, SDL_Surface* surface)
+        {
+        	assert(surface);	// surface should never be NULL
+    		SDL_GetRGBA(color, surface->format, &R, &G, &B, &A);
+        }
+        
+        /// get this color mapped to a surface's pixel format
+        uint32_t get(const SDL_Surface* surface) const
+        {
+        	assert(surface);	// surface should never be NULL
             return SDL_MapRGBA(surface->format, R, G, B, A);
         }
         
         /// get this color as an SDL_color
-        SDL_Color get()
+        operator SDL_Color() const
         {
-        	SDL_Color c = {R, G, B};
+        	SDL_Color c = {R, G, B, A};
         	return c;
         }
 

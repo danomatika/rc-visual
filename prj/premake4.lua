@@ -15,7 +15,7 @@ solution "rc-visual"
 project "rc-visual"
 	kind "ConsoleApp"
 	language "C++"
-	targetdir "../bin"
+	targetdir "../src/rc-visual"
 	files { "../src/rc-visual/**.h", "../src/rc-visual/**.cpp" }
 	
 	includedirs { "../src",
@@ -59,7 +59,7 @@ project "rc-visual"
 project "rc-visual-send"
 	kind "ConsoleApp"
 	language "C++"
-	targetdir "../bin"
+	targetdir "../src/rc-visual-send"
 	files { "../src/rc-visual-send/**.h", "../src/rc-visual-send/**.cpp" }
 	
 	includedirs { "../src",

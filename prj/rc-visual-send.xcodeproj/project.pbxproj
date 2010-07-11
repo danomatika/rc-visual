@@ -7,16 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1A8F5B676CE1001273421472 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C42EB62E4001273421472 /* main.cpp */; };
+		76A0323E0DF7001278887864 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B2C71777BDF001278887864 /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2B5C42EB62E4001273421472 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "main.cpp"; path = "main.cpp"; sourceTree = "<group>"; };
-		36FA058B05BA001273421472 /* rc-visual-send */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = "rc-visual-send"; path = "rc-visual-send"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B2C71777BDF001278887864 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "main.cpp"; path = "main.cpp"; sourceTree = "<group>"; };
+		5F2259B03DDB001278887864 /* rc-visual-send */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = "rc-visual-send"; path = "rc-visual-send"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		22AC5DC417E8001273421472 /* Frameworks */ = {
+		38B51671060D001278887864 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -26,37 +26,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6B6C18E72451001273421472 /* rc-visual-send */ = {
+		500455EE2BAB001278887864 /* rc-visual-send */ = {
 			isa = PBXGroup;
 			children = (
-				44C2573F7C46001273421472 /* src */,
-				38A043BC6D06001273421472 /* Products */,
+				015643E72CE9001278887864 /* src */,
+				11F248E53404001278887864 /* Products */,
 			);
 			name = rc-visual-send;
 			sourceTree = "<group>";
 		};
-		44C2573F7C46001273421472 /* src */ = {
+		015643E72CE9001278887864 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				083031C91F4F001273421472 /* rc-visual-send */,
+				15D837F9465D001278887864 /* rc-visual-send */,
 			);
 			name = src;
 			path = ../src;
 			sourceTree = "<group>";
 		};
-		083031C91F4F001273421472 /* rc-visual-send */ = {
+		15D837F9465D001278887864 /* rc-visual-send */ = {
 			isa = PBXGroup;
 			children = (
-				2B5C42EB62E4001273421472 /* main.cpp */,
+				2B2C71777BDF001278887864 /* main.cpp */,
 			);
 			name = rc-visual-send;
 			path = rc-visual-send;
 			sourceTree = "<group>";
 		};
-		38A043BC6D06001273421472 /* Products */ = {
+		11F248E53404001278887864 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				36FA058B05BA001273421472 /* rc-visual-send */,
+				5F2259B03DDB001278887864 /* rc-visual-send */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -64,13 +64,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		355D041E0CC2001273421472 /* rc-visual-send */ = {
+		17C65C3B4CE0001278887864 /* rc-visual-send */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5A3D6DD033FD001273421472 /* Build configuration list for PBXNativeTarget "rc-visual-send" */;
+			buildConfigurationList = 2E604DF8650F001278887864 /* Build configuration list for PBXNativeTarget "rc-visual-send" */;
 			buildPhases = (
-				56247ABC79D6001273421472 /* Resources */,
-				6DDC27FB65EE001273421472 /* Sources */,
-				22AC5DC417E8001273421472 /* Frameworks */,
+				4E7C5C7C5C03001278887864 /* Resources */,
+				012219E713B2001278887864 /* Sources */,
+				38B51671060D001278887864 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -79,7 +79,7 @@
 			name = rc-visual-send;
 			productInstallPath = "$(HOME)/bin";
 			productName = rc-visual-send;
-			productReference = 36FA058B05BA001273421472 /* rc-visual-send */;
+			productReference = 5F2259B03DDB001278887864 /* rc-visual-send */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -90,17 +90,17 @@
 			buildConfigurationList = 1DEB928908733DD80010E9CD /* Build configuration list for PBXProject "rc-visual-send" */;
 			compatibilityVersion = "Xcode 3.1";
 			hasScannedForEncodings = 1;
-			mainGroup = 6B6C18E72451001273421472 /* rc-visual-send */;
+			mainGroup = 500455EE2BAB001278887864 /* rc-visual-send */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				355D041E0CC2001273421472 /* rc-visual-send */,
+				17C65C3B4CE0001278887864 /* rc-visual-send */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		56247ABC79D6001273421472 /* Resources */ = {
+		4E7C5C7C5C03001278887864 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -110,11 +110,11 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		6DDC27FB65EE001273421472 /* Sources */ = {
+		012219E713B2001278887864 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A8F5B676CE1001273421472 /* main.cpp in Sources */,
+				76A0323E0DF7001278887864 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,11 +124,11 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		13B759D20E67001273421472 /* Debug */ = {
+		23A27DB86818001278887864 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CONFIGURATION_BUILD_DIR = ../bin;
+				CONFIGURATION_BUILD_DIR = ../src/rc-visual-send;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_MODEL_TUNING = G5;
 				INSTALL_PATH = /usr/local/bin;
@@ -136,12 +136,12 @@
 			};
 			name = "Debug";
 		};
-		6D8170FA468F001273421472 /* Release */ = {
+		229857C349CE001278887864 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				CONFIGURATION_BUILD_DIR = ../bin;
+				CONFIGURATION_BUILD_DIR = ../src/rc-visual-send;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_MODEL_TUNING = G5;
 				INSTALL_PATH = /usr/local/bin;
@@ -149,7 +149,7 @@
 			};
 			name = "Release";
 		};
-		3FDB5DE23F91001273421472 /* Debug */ = {
+		270623236F4A001278887864 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
@@ -191,11 +191,11 @@
 					"-Wl,-framework,IOKit",
 				);
 				PREBINDING = NO;
-				SYMROOT = "../bin";
+				SYMROOT = "../src/rc-visual-send";
 			};
 			name = "Debug";
 		};
-		6D4C55643BF1001273421472 /* Release */ = {
+		105C40A742AE001278887864 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
@@ -235,18 +235,18 @@
 					"-Wl,-framework,IOKit",
 				);
 				PREBINDING = NO;
-				SYMROOT = "../bin";
+				SYMROOT = "../src/rc-visual-send";
 			};
 			name = "Release";
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5A3D6DD033FD001273421472 /* Build configuration list for PBXNativeTarget "rc-visual-send" */ = {
+		2E604DF8650F001278887864 /* Build configuration list for PBXNativeTarget "rc-visual-send" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				13B759D20E67001273421472 /* Debug */,
-				6D8170FA468F001273421472 /* Release */,
+				23A27DB86818001278887864 /* Debug */,
+				229857C349CE001278887864 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = "Debug";
@@ -254,8 +254,8 @@
 		1DEB928908733DD80010E9CD /* Build configuration list for PBXProject "rc-visual-send" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3FDB5DE23F91001273421472 /* Debug */,
-				6D4C55643BF1001273421472 /* Release */,
+				270623236F4A001278887864 /* Debug */,
+				105C40A742AE001278887864 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = "Debug";
