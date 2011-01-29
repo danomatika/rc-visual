@@ -16,7 +16,9 @@ project "rc-visual"
 	kind "ConsoleApp"
 	language "C++"
 	targetdir "../src/rc-visual"
-	files { "../src/rc-visual/**.h", "../src/rc-visual/**.cpp" }
+	files { "../src/rc-visual/**.h", "../src/rc-visual/**.cpp",
+			"../src/rc-visual/luaframework/**.h",
+			"../src/rc-visual/luaframework/**.cpp" }
 	
 	includedirs { "../src",
 				  "../externals/",
@@ -25,17 +27,19 @@ project "rc-visual"
 			  "../externals/xmlframework",
       		  "../externals/oscframework" }
 	links { "oscframework", "xmlframework", "visualframework",
-		    "SDL_net", "SDL_ttf", "SDL_image" }
+		    "SDL_net", "SDL_ttf", "SDL_image", "lua" }
 
 	configuration "linux"
 		buildoptions { "`pkg-config --cflags sdl`",
 					   "`pkg-config --cflags SDL_gfx`",
 					   "`pkg-config --cflags liblo`",
-					   "`pkg-config --cflags SDL_image`" }
+					   "`pkg-config --cflags SDL_image`",
+					   "`pkg-config --cflags lua`" }
 		linkoptions { "`pkg-config --libs sdl`",
 					  "`pkg-config --libs SDL_gfx`",
 					  "`pkg-config --libs liblo`",
-					  "`pkg-config --libs SDL_image`" }
+					  "`pkg-config --libs SDL_image`",
+					  "`pkg-config --libs lua`" }
 
 	configuration 'macosx'
 		links { "lo", "pthread", "SDLmain", "SDL", "SDL_gfx" }

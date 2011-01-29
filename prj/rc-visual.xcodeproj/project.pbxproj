@@ -7,43 +7,48 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		030E3F727EB6001296293206 /* Bitmap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54222D8048EC001296293206 /* Bitmap.cpp */; };
-		0FFC154D7F68001296293206 /* Config.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E855FCC0939001296293206 /* Config.cpp */; };
-		180459692274001296293206 /* Image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047600CE62D1001296293206 /* Image.cpp */; };
-		20EF332E3917001296293206 /* Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1243713F02DB001296293206 /* Sprite.cpp */; };
-		33FE71676140001296293206 /* App.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 529A061A278F001296293206 /* App.cpp */; };
-		383810886880001296293206 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1C1F486A2BD7001296293206 /* main.cpp */; };
-		437C18CE0E6A001296293206 /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F3047F95535001296293206 /* SceneManager.cpp */; };
-		4A87002129B7001296293206 /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A0A5307198E001296293206 /* Scene.cpp */; };
+		050C7D852A1C001296329662 /* Config.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 09994FD67A42001296329662 /* Config.cpp */; };
+		0BB279E2672F001296329662 /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 644C4B270A34001296329662 /* SceneManager.cpp */; };
+		0DA961E804AD001296329662 /* LuaWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 235B3F4756CC001296329662 /* LuaWrapper.cpp */; };
+		45190BB92127001296329662 /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18A46AE656B4001296329662 /* Scene.cpp */; };
+		50010A8A1CAD001296329662 /* Bitmap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 77FE60EB1BC7001296329662 /* Bitmap.cpp */; };
+		690E3FC8777D001296329662 /* Image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 64DD180A453D001296329662 /* Image.cpp */; };
+		705C4B170265001296329662 /* App.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 017D530D353F001296329662 /* App.cpp */; };
+		76CA65BE4370001296329662 /* Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F6773517944001296329662 /* Sprite.cpp */; };
+		7DB069A2489B001296329662 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 108809ED5049001296329662 /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		03075227352B001296293206 /* Pixel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pixel.h; sourceTree = "<group>"; };
-		047600CE62D1001296293206 /* Image.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Image.cpp; sourceTree = "<group>"; };
-		0F3047F95535001296293206 /* SceneManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SceneManager.cpp; sourceTree = "<group>"; };
-		116F1C2C4CC3001296293206 /* Bitmap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bitmap.h; sourceTree = "<group>"; };
-		1243713F02DB001296293206 /* Sprite.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Sprite.cpp; sourceTree = "<group>"; };
-		12C4162C4F32001296293206 /* SceneManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneManager.h; sourceTree = "<group>"; };
-		1BB733CE2B79001296293206 /* Sprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Sprite.h; sourceTree = "<group>"; };
-		1C1F486A2BD7001296293206 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		1E855FCC0939001296293206 /* Config.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Config.cpp; sourceTree = "<group>"; };
-		220A781C2F22001296293206 /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
-		22780D164A18001296293206 /* rc-visual */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "rc-visual"; sourceTree = BUILT_PRODUCTS_DIR; };
-		30F05D356422001296293206 /* Scene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Scene.h; sourceTree = "<group>"; };
-		3B712F701DEC001296293206 /* Objects.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Objects.h; sourceTree = "<group>"; };
-		3CC151D9360B001296293206 /* Rect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Rect.h; sourceTree = "<group>"; };
-		4B2C40121D3E001296293206 /* DrawableObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawableObject.h; sourceTree = "<group>"; };
-		529A061A278F001296293206 /* App.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = App.cpp; sourceTree = "<group>"; };
-		54222D8048EC001296293206 /* Bitmap.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Bitmap.cpp; sourceTree = "<group>"; };
-		601602C4494F001296293206 /* App.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = App.h; sourceTree = "<group>"; };
-		62A34B880496001296293206 /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
-		6A0A5307198E001296293206 /* Scene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Scene.cpp; sourceTree = "<group>"; };
-		6C6F0625756C001296293206 /* Line.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Line.h; sourceTree = "<group>"; };
-		7D5B0AED60AE001296293206 /* Image.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
+		017D530D353F001296329662 /* App.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = App.cpp; sourceTree = "<group>"; };
+		09994FD67A42001296329662 /* Config.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Config.cpp; sourceTree = "<group>"; };
+		0A0177186603001296329662 /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		0F6773517944001296329662 /* Sprite.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Sprite.cpp; sourceTree = "<group>"; };
+		108809ED5049001296329662 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		148427236BB8001296329662 /* lunar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = lunar.h; sourceTree = "<group>"; };
+		18A46AE656B4001296329662 /* Scene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Scene.cpp; sourceTree = "<group>"; };
+		235B3F4756CC001296329662 /* LuaWrapper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LuaWrapper.cpp; sourceTree = "<group>"; };
+		33255D6267AF001296329662 /* Line.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Line.h; sourceTree = "<group>"; };
+		352D4EB35C6E001296329662 /* Scene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Scene.h; sourceTree = "<group>"; };
+		37C7211E6541001296329662 /* Objects.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Objects.h; sourceTree = "<group>"; };
+		39C6302008B4001296329662 /* luaframework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = luaframework.h; sourceTree = "<group>"; };
+		3A431F1F2F9D001296329662 /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
+		3B1E65A94F30001296329662 /* Bitmap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bitmap.h; sourceTree = "<group>"; };
+		3E61782366EF001296329662 /* Pixel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pixel.h; sourceTree = "<group>"; };
+		44C5091E3685001296329662 /* App.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = App.h; sourceTree = "<group>"; };
+		46FD38D07697001296329662 /* rc-visual */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "rc-visual"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F1779BD73D3001296329662 /* SceneManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneManager.h; sourceTree = "<group>"; };
+		644C4B270A34001296329662 /* SceneManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SceneManager.cpp; sourceTree = "<group>"; };
+		64DD180A453D001296329662 /* Image.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Image.cpp; sourceTree = "<group>"; };
+		67D701145953001296329662 /* Rect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Rect.h; sourceTree = "<group>"; };
+		698745057935001296329662 /* Image.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
+		718B7C0352B8001296329662 /* DrawableObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawableObject.h; sourceTree = "<group>"; };
+		77FE60EB1BC7001296329662 /* Bitmap.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Bitmap.cpp; sourceTree = "<group>"; };
+		7BDE636E5DF0001296329662 /* Sprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Sprite.h; sourceTree = "<group>"; };
+		7D1C6A0872B5001296329662 /* LuaWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LuaWrapper.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		274E16006CEA001296293206 /* Frameworks */ = {
+		5593662C7848001296329662 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -53,78 +58,90 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0D217E3E5846001296293206 /* src */ = {
+		159312BB6034001296329662 /* rc-visual */ = {
 			isa = PBXGroup;
 			children = (
-				6C083C424A65001296293206 /* rc-visual */,
+				2FA6545525A0001296329662 /* src */,
+				38E0038C1351001296329662 /* Products */,
+			);
+			name = "rc-visual";
+			sourceTree = "<group>";
+		};
+		2FA6545525A0001296329662 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				400714CD48A5001296329662 /* rc-visual */,
 			);
 			name = src;
 			path = ../src;
 			sourceTree = "<group>";
 		};
-		277937250A2E001296293206 /* rc-visual */ = {
+		38E0038C1351001296329662 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0D217E3E5846001296293206 /* src */,
-				410416785BE4001296293206 /* Products */,
-			);
-			name = "rc-visual";
-			sourceTree = "<group>";
-		};
-		2BE0180F1084001296293206 /* objects */ = {
-			isa = PBXGroup;
-			children = (
-				54222D8048EC001296293206 /* Bitmap.cpp */,
-				116F1C2C4CC3001296293206 /* Bitmap.h */,
-				4B2C40121D3E001296293206 /* DrawableObject.h */,
-				047600CE62D1001296293206 /* Image.cpp */,
-				7D5B0AED60AE001296293206 /* Image.h */,
-				6C6F0625756C001296293206 /* Line.h */,
-				3B712F701DEC001296293206 /* Objects.h */,
-				03075227352B001296293206 /* Pixel.h */,
-				3CC151D9360B001296293206 /* Rect.h */,
-				1243713F02DB001296293206 /* Sprite.cpp */,
-				1BB733CE2B79001296293206 /* Sprite.h */,
-			);
-			path = objects;
-			sourceTree = "<group>";
-		};
-		410416785BE4001296293206 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				22780D164A18001296293206 /* rc-visual */,
+				46FD38D07697001296329662 /* rc-visual */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6C083C424A65001296293206 /* rc-visual */ = {
+		400714CD48A5001296329662 /* rc-visual */ = {
 			isa = PBXGroup;
 			children = (
-				529A061A278F001296293206 /* App.cpp */,
-				601602C4494F001296293206 /* App.h */,
-				62A34B880496001296293206 /* Common.h */,
-				1E855FCC0939001296293206 /* Config.cpp */,
-				220A781C2F22001296293206 /* Config.h */,
-				6A0A5307198E001296293206 /* Scene.cpp */,
-				30F05D356422001296293206 /* Scene.h */,
-				0F3047F95535001296293206 /* SceneManager.cpp */,
-				12C4162C4F32001296293206 /* SceneManager.h */,
-				1C1F486A2BD7001296293206 /* main.cpp */,
-				2BE0180F1084001296293206 /* objects */,
+				017D530D353F001296329662 /* App.cpp */,
+				44C5091E3685001296329662 /* App.h */,
+				0A0177186603001296329662 /* Common.h */,
+				09994FD67A42001296329662 /* Config.cpp */,
+				3A431F1F2F9D001296329662 /* Config.h */,
+				18A46AE656B4001296329662 /* Scene.cpp */,
+				352D4EB35C6E001296329662 /* Scene.h */,
+				644C4B270A34001296329662 /* SceneManager.cpp */,
+				5F1779BD73D3001296329662 /* SceneManager.h */,
+				41C458E26820001296329662 /* luaframework */,
+				108809ED5049001296329662 /* main.cpp */,
+				66FC336407C2001296329662 /* objects */,
 			);
 			path = "rc-visual";
+			sourceTree = "<group>";
+		};
+		41C458E26820001296329662 /* luaframework */ = {
+			isa = PBXGroup;
+			children = (
+				235B3F4756CC001296329662 /* LuaWrapper.cpp */,
+				7D1C6A0872B5001296329662 /* LuaWrapper.h */,
+				39C6302008B4001296329662 /* luaframework.h */,
+				148427236BB8001296329662 /* lunar.h */,
+			);
+			path = luaframework;
+			sourceTree = "<group>";
+		};
+		66FC336407C2001296329662 /* objects */ = {
+			isa = PBXGroup;
+			children = (
+				77FE60EB1BC7001296329662 /* Bitmap.cpp */,
+				3B1E65A94F30001296329662 /* Bitmap.h */,
+				718B7C0352B8001296329662 /* DrawableObject.h */,
+				64DD180A453D001296329662 /* Image.cpp */,
+				698745057935001296329662 /* Image.h */,
+				33255D6267AF001296329662 /* Line.h */,
+				37C7211E6541001296329662 /* Objects.h */,
+				3E61782366EF001296329662 /* Pixel.h */,
+				67D701145953001296329662 /* Rect.h */,
+				0F6773517944001296329662 /* Sprite.cpp */,
+				7BDE636E5DF0001296329662 /* Sprite.h */,
+			);
+			path = objects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		78C01E4E506F001296293206 /* rc-visual */ = {
+		3F0C664B0093001296329662 /* rc-visual */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0F9323DA4C59001296293206 /* Build configuration list for PBXNativeTarget "rc-visual" */;
+			buildConfigurationList = 3EE96C554325001296329662 /* Build configuration list for PBXNativeTarget "rc-visual" */;
 			buildPhases = (
-				6D8C10054441001296293206 /* Resources */,
-				2C436ABE19AC001296293206 /* Sources */,
-				274E16006CEA001296293206 /* Frameworks */,
+				375C0BEE560B001296329662 /* Resources */,
+				124B1C275937001296329662 /* Sources */,
+				5593662C7848001296329662 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,7 +150,7 @@
 			name = "rc-visual";
 			productInstallPath = "$(HOME)/bin";
 			productName = "rc-visual";
-			productReference = 22780D164A18001296293206 /* rc-visual */;
+			productReference = 46FD38D07697001296329662 /* rc-visual */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -151,17 +168,17 @@
 				French,
 				German,
 			);
-			mainGroup = 277937250A2E001296293206 /* rc-visual */;
+			mainGroup = 159312BB6034001296329662 /* rc-visual */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				78C01E4E506F001296293206 /* rc-visual */,
+				3F0C664B0093001296329662 /* rc-visual */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		6D8C10054441001296293206 /* Resources */ = {
+		375C0BEE560B001296329662 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -171,25 +188,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		2C436ABE19AC001296293206 /* Sources */ = {
+		124B1C275937001296329662 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				33FE71676140001296293206 /* App.cpp in Sources */,
-				0FFC154D7F68001296293206 /* Config.cpp in Sources */,
-				4A87002129B7001296293206 /* Scene.cpp in Sources */,
-				437C18CE0E6A001296293206 /* SceneManager.cpp in Sources */,
-				383810886880001296293206 /* main.cpp in Sources */,
-				030E3F727EB6001296293206 /* Bitmap.cpp in Sources */,
-				180459692274001296293206 /* Image.cpp in Sources */,
-				20EF332E3917001296293206 /* Sprite.cpp in Sources */,
+				705C4B170265001296329662 /* App.cpp in Sources */,
+				050C7D852A1C001296329662 /* Config.cpp in Sources */,
+				45190BB92127001296329662 /* Scene.cpp in Sources */,
+				0BB279E2672F001296329662 /* SceneManager.cpp in Sources */,
+				0DA961E804AD001296329662 /* LuaWrapper.cpp in Sources */,
+				7DB069A2489B001296329662 /* main.cpp in Sources */,
+				50010A8A1CAD001296329662 /* Bitmap.cpp in Sources */,
+				690E3FC8777D001296329662 /* Image.cpp in Sources */,
+				76CA65BE4370001296329662 /* Sprite.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		0CAF50625D74001296293206 /* Release */ = {
+		0AE42E245C8A001296329662 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
@@ -219,6 +237,7 @@
 					"-lSDL_net",
 					"-lSDL_ttf",
 					"-lSDL_image",
+					"-llua",
 					"-llo",
 					"-lpthread",
 					"-lSDLmain",
@@ -237,20 +256,7 @@
 			};
 			name = Release;
 		};
-		12E52F40251C001296293206 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CONFIGURATION_BUILD_DIR = "../src/rc-visual";
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_MODEL_TUNING = G5;
-				INSTALL_PATH = /usr/local/bin;
-				PRODUCT_NAME = "rc-visual";
-			};
-			name = Release;
-		};
-		4B1F7F35251A001296293206 /* Debug */ = {
+		21392D6624C4001296329662 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -262,7 +268,7 @@
 			};
 			name = Debug;
 		};
-		6B2B652C3DF4001296293206 /* Debug */ = {
+		4B331B2E1086001296329662 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
@@ -294,6 +300,7 @@
 					"-lSDL_net",
 					"-lSDL_ttf",
 					"-lSDL_image",
+					"-llua",
 					"-llo",
 					"-lpthread",
 					"-lSDLmain",
@@ -312,23 +319,36 @@
 			};
 			name = Debug;
 		};
+		796B15BA144D001296329662 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CONFIGURATION_BUILD_DIR = "../src/rc-visual";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_MODEL_TUNING = G5;
+				INSTALL_PATH = /usr/local/bin;
+				PRODUCT_NAME = "rc-visual";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0F9323DA4C59001296293206 /* Build configuration list for PBXNativeTarget "rc-visual" */ = {
+		1DEB928908733DD80010E9CD /* Build configuration list for PBXProject "rc-visual" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4B1F7F35251A001296293206 /* Debug */,
-				12E52F40251C001296293206 /* Release */,
+				4B331B2E1086001296329662 /* Debug */,
+				0AE42E245C8A001296329662 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		1DEB928908733DD80010E9CD /* Build configuration list for PBXProject "rc-visual" */ = {
+		3EE96C554325001296329662 /* Build configuration list for PBXNativeTarget "rc-visual" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6B2B652C3DF4001296293206 /* Debug */,
-				0CAF50625D74001296293206 /* Release */,
+				21392D6624C4001296329662 /* Debug */,
+				796B15BA144D001296329662 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
