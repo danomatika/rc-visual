@@ -38,9 +38,6 @@ project "rc-visual"
 					  "`pkg-config --libs SDL_image`" }
 
 	configuration 'macosx'
-		-- MacPorts
-		includedirs { "/opt/local/include"}
-		libdirs { "/opt/local/lib" }
 		links { "lo", "pthread", "SDLmain", "SDL", "SDL_gfx" }
 		linkoptions { "-Wl,-framework,Cocoa", "-Wl,-framework,OpenGL",
 					  "-Wl,-framework,ApplicationServices",
@@ -72,9 +69,6 @@ project "rc-visual-send"
 		linkoptions { "`pkg-config --libs liblo`" }
 
 	configuration 'macosx'
-		-- MacPorts
-		includedirs { "/opt/local/include"}
-		libdirs { "/opt/local/lib" }
 		links { "lo", "pthread", "SDLmain", "SDL", "SDL_gfx" }
 		linkoptions { "-Wl,-framework,Cocoa", "-Wl,-framework,OpenGL",
 					  "-Wl,-framework,ApplicationServices",
