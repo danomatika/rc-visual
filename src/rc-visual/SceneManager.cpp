@@ -163,6 +163,10 @@ void SceneManager::gotoScene(string name)
 
 void SceneManager::setup()
 {
+	// set the data path based on the file
+	if(getXmlFilename() != "")
+		visual::Util::setDataPath(visual::Util::getDirPath(getXmlFilename()));
+
 	// setup all scenes
     for(unsigned int i = 0; i < _objectList.size(); ++i)
     {
@@ -187,6 +191,14 @@ void SceneManager::draw()
        		_sceneNameFont.draw(s->getName(), 0, Graphics::getHeight()-SCENE_NAME_FONT_SIZE);
     	}
     }
+}
+
+void SceneManager::load(const string& file)
+{
+	closeXmlFile();
+	clear();
+	loadXmlFile(file);
+	setup();
 }
 
 void SceneManager::reload()

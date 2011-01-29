@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
     application.init();
 
     // set icon and open window
-    Graphics::setWindowIcon("../data/icon.bmp");
+    Graphics::setWindowIcon(Util::toDataPath("icon.bmp"));
     Graphics::createWindow(PACKAGE);
 
     // setup sdl resources

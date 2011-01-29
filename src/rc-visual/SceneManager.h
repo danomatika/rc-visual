@@ -62,6 +62,9 @@ class SceneManager : public XmlObject, public OscObject
         void showSceneName(bool yesno) {_bShowSceneName = yesno;}
 		void toggleSceneName() {_bShowSceneName = !_bShowSceneName;}
         
+		/// load a scene file
+		void load(const string& file);
+		
         /// reload the scene file
         void reload();
 

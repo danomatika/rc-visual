@@ -28,6 +28,7 @@
 #include "Application.h"
 #include "Thread.h"
 #include "Timer.h"
+#include "Util.h"
 
 #include "graphics/Image.h"
 #include "graphics/Font.h"
