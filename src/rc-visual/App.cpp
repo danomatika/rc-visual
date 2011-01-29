@@ -72,7 +72,7 @@ bool App::init()
     // set the xml filename (for reloading)
     if(config.getXmlFilename() != "")
     {
-    		sceneManager.setXmlFilename(config.getXmlFilename());
+		sceneManager.setXmlFilename(config.getXmlFilename());
     }
 
     return true;
@@ -90,7 +90,7 @@ void App::setup()
     signal(SIGTERM, signalExit);    // terminate
     signal(SIGQUIT, signalExit);    // quit
     signal(SIGINT,  signalExit);	// interrupt
-    
+	
     // try to load first scene
     sceneManager.setup();
 }

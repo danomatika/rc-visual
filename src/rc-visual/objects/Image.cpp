@@ -52,7 +52,7 @@ bool Image::loadFile(string filename)
 	if(filename == "")
     	filename = this->filename;
        
-	image.load(filename);
+	image.load(visual::Util::toDataPath(filename));
     if(!image.isLoaded())
     	return false;
         

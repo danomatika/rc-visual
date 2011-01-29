@@ -7,39 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01FB1BDB79BF001278887864 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CA23B32640C001278887864 /* main.cpp */; };
+		2DC5105A1A75001278887864 /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 559015E44303001278887864 /* SceneManager.cpp */; };
+		30B27D942C69001278887864 /* Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 43A139C7536F001278887864 /* Sprite.cpp */; };
+		38E81C720506001278887864 /* Image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A9778843240001278887864 /* Image.cpp */; };
+		60A9007043CA001278887864 /* Bitmap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35C34B454CE5001278887864 /* Bitmap.cpp */; };
 		628657C2109C001278887864 /* App.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46930DA02C6F001278887864 /* App.cpp */; };
 		717A32FD1F63001278887864 /* Config.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B283AFC76F5001278887864 /* Config.cpp */; };
 		754A05783EF7001278887864 /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F5B70A36133001278887864 /* Scene.cpp */; };
-		2DC5105A1A75001278887864 /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 559015E44303001278887864 /* SceneManager.cpp */; };
-		01FB1BDB79BF001278887864 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CA23B32640C001278887864 /* main.cpp */; };
-		60A9007043CA001278887864 /* Bitmap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35C34B454CE5001278887864 /* Bitmap.cpp */; };
-		38E81C720506001278887864 /* Image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A9778843240001278887864 /* Image.cpp */; };
-		30B27D942C69001278887864 /* Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 43A139C7536F001278887864 /* Sprite.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		46930DA02C6F001278887864 /* App.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "App.cpp"; path = "App.cpp"; sourceTree = "<group>"; };
-		1ED55D7F678C001278887864 /* App.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "App.h"; path = "App.h"; sourceTree = "<group>"; };
-		2C3151383621001278887864 /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Common.h"; path = "Common.h"; sourceTree = "<group>"; };
-		4B283AFC76F5001278887864 /* Config.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "Config.cpp"; path = "Config.cpp"; sourceTree = "<group>"; };
-		41824CF865B5001278887864 /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Config.h"; path = "Config.h"; sourceTree = "<group>"; };
-		7F5B70A36133001278887864 /* Scene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "Scene.cpp"; path = "Scene.cpp"; sourceTree = "<group>"; };
-		759D19634AA7001278887864 /* Scene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Scene.h"; path = "Scene.h"; sourceTree = "<group>"; };
-		559015E44303001278887864 /* SceneManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "SceneManager.cpp"; path = "SceneManager.cpp"; sourceTree = "<group>"; };
-		229B792913F1001278887864 /* SceneManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SceneManager.h"; path = "SceneManager.h"; sourceTree = "<group>"; };
-		5CA23B32640C001278887864 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "main.cpp"; path = "main.cpp"; sourceTree = "<group>"; };
-		35C34B454CE5001278887864 /* Bitmap.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "Bitmap.cpp"; path = "Bitmap.cpp"; sourceTree = "<group>"; };
-		1B2E02C62A29001278887864 /* Bitmap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Bitmap.h"; path = "Bitmap.h"; sourceTree = "<group>"; };
-		7CDD22566505001278887864 /* DrawableObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "DrawableObject.h"; path = "DrawableObject.h"; sourceTree = "<group>"; };
-		5A9778843240001278887864 /* Image.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "Image.cpp"; path = "Image.cpp"; sourceTree = "<group>"; };
-		50AE50FA76E4001278887864 /* Image.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Image.h"; path = "Image.h"; sourceTree = "<group>"; };
-		25B72FBE1270001278887864 /* Line.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Line.h"; path = "Line.h"; sourceTree = "<group>"; };
-		7CE8227A2ACE001278887864 /* Objects.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Objects.h"; path = "Objects.h"; sourceTree = "<group>"; };
-		60DB584753D3001278887864 /* Pixel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Pixel.h"; path = "Pixel.h"; sourceTree = "<group>"; };
-		7C180BE976A2001278887864 /* Rect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Rect.h"; path = "Rect.h"; sourceTree = "<group>"; };
-		43A139C7536F001278887864 /* Sprite.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "Sprite.cpp"; path = "Sprite.cpp"; sourceTree = "<group>"; };
-		24E9644D212B001278887864 /* Sprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Sprite.h"; path = "Sprite.h"; sourceTree = "<group>"; };
-		063A74F443B7001278887864 /* rc-visual */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = "rc-visual"; path = "rc-visual"; sourceTree = BUILT_PRODUCTS_DIR; };
+		063A74F443B7001278887864 /* rc-visual */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "rc-visual"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B2E02C62A29001278887864 /* Bitmap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bitmap.h; sourceTree = "<group>"; };
+		1ED55D7F678C001278887864 /* App.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = App.h; sourceTree = "<group>"; };
+		229B792913F1001278887864 /* SceneManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneManager.h; sourceTree = "<group>"; };
+		24E9644D212B001278887864 /* Sprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Sprite.h; sourceTree = "<group>"; };
+		25B72FBE1270001278887864 /* Line.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Line.h; sourceTree = "<group>"; };
+		2C3151383621001278887864 /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		35C34B454CE5001278887864 /* Bitmap.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Bitmap.cpp; sourceTree = "<group>"; };
+		41824CF865B5001278887864 /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
+		43A139C7536F001278887864 /* Sprite.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Sprite.cpp; sourceTree = "<group>"; };
+		46930DA02C6F001278887864 /* App.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = App.cpp; sourceTree = "<group>"; };
+		4B283AFC76F5001278887864 /* Config.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Config.cpp; sourceTree = "<group>"; };
+		50AE50FA76E4001278887864 /* Image.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
+		559015E44303001278887864 /* SceneManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SceneManager.cpp; sourceTree = "<group>"; };
+		5A9778843240001278887864 /* Image.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Image.cpp; sourceTree = "<group>"; };
+		5CA23B32640C001278887864 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		60DB584753D3001278887864 /* Pixel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pixel.h; sourceTree = "<group>"; };
+		759D19634AA7001278887864 /* Scene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Scene.h; sourceTree = "<group>"; };
+		7C180BE976A2001278887864 /* Rect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Rect.h; sourceTree = "<group>"; };
+		7CDD22566505001278887864 /* DrawableObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawableObject.h; sourceTree = "<group>"; };
+		7CE8227A2ACE001278887864 /* Objects.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Objects.h; sourceTree = "<group>"; };
+		7F5B70A36133001278887864 /* Scene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Scene.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,22 +53,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15F6522473C9001278887864 /* objects */ = {
+			isa = PBXGroup;
+			children = (
+				35C34B454CE5001278887864 /* Bitmap.cpp */,
+				1B2E02C62A29001278887864 /* Bitmap.h */,
+				7CDD22566505001278887864 /* DrawableObject.h */,
+				5A9778843240001278887864 /* Image.cpp */,
+				50AE50FA76E4001278887864 /* Image.h */,
+				25B72FBE1270001278887864 /* Line.h */,
+				7CE8227A2ACE001278887864 /* Objects.h */,
+				60DB584753D3001278887864 /* Pixel.h */,
+				7C180BE976A2001278887864 /* Rect.h */,
+				43A139C7536F001278887864 /* Sprite.cpp */,
+				24E9644D212B001278887864 /* Sprite.h */,
+			);
+			path = objects;
+			sourceTree = "<group>";
+		};
 		18526C745A1A001278887864 /* rc-visual */ = {
 			isa = PBXGroup;
 			children = (
 				7634744A4B07001278887864 /* src */,
 				49341239790F001278887864 /* Products */,
 			);
-			name = rc-visual;
-			sourceTree = "<group>";
-		};
-		7634744A4B07001278887864 /* src */ = {
-			isa = PBXGroup;
-			children = (
-				3AD4758C3BD9001278887864 /* rc-visual */,
-			);
-			name = src;
-			path = ../src;
+			name = "rc-visual";
 			sourceTree = "<group>";
 		};
 		3AD4758C3BD9001278887864 /* rc-visual */ = {
@@ -86,27 +95,7 @@
 				5CA23B32640C001278887864 /* main.cpp */,
 				15F6522473C9001278887864 /* objects */,
 			);
-			name = rc-visual;
-			path = rc-visual;
-			sourceTree = "<group>";
-		};
-		15F6522473C9001278887864 /* objects */ = {
-			isa = PBXGroup;
-			children = (
-				35C34B454CE5001278887864 /* Bitmap.cpp */,
-				1B2E02C62A29001278887864 /* Bitmap.h */,
-				7CDD22566505001278887864 /* DrawableObject.h */,
-				5A9778843240001278887864 /* Image.cpp */,
-				50AE50FA76E4001278887864 /* Image.h */,
-				25B72FBE1270001278887864 /* Line.h */,
-				7CE8227A2ACE001278887864 /* Objects.h */,
-				60DB584753D3001278887864 /* Pixel.h */,
-				7C180BE976A2001278887864 /* Rect.h */,
-				43A139C7536F001278887864 /* Sprite.cpp */,
-				24E9644D212B001278887864 /* Sprite.h */,
-			);
-			name = objects;
-			path = objects;
+			path = "rc-visual";
 			sourceTree = "<group>";
 		};
 		49341239790F001278887864 /* Products */ = {
@@ -115,6 +104,15 @@
 				063A74F443B7001278887864 /* rc-visual */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		7634744A4B07001278887864 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				3AD4758C3BD9001278887864 /* rc-visual */,
+			);
+			name = src;
+			path = ../src;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -132,9 +130,9 @@
 			);
 			dependencies = (
 			);
-			name = rc-visual;
+			name = "rc-visual";
 			productInstallPath = "$(HOME)/bin";
-			productName = rc-visual;
+			productName = "rc-visual";
 			productReference = 063A74F443B7001278887864 /* rc-visual */;
 			productType = "com.apple.product-type.tool";
 		};
@@ -145,7 +143,14 @@
 			isa = PBXProject;
 			buildConfigurationList = 1DEB928908733DD80010E9CD /* Build configuration list for PBXProject "rc-visual" */;
 			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
 			mainGroup = 18526C745A1A001278887864 /* rc-visual */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -183,89 +188,7 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXVariantGroup section */
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
-		46194B101FBF001278887864 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CONFIGURATION_BUILD_DIR = ../src/rc-visual;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_MODEL_TUNING = G5;
-				INSTALL_PATH = /usr/local/bin;
-				PRODUCT_NAME = "rc-visual";
-			};
-			name = "Debug";
-		};
-		4F1D2EBB0FE9001278887864 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				CONFIGURATION_BUILD_DIR = ../src/rc-visual;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_MODEL_TUNING = G5;
-				INSTALL_PATH = /usr/local/bin;
-				PRODUCT_NAME = "rc-visual";
-			};
-			name = "Release";
-		};
-		684B1D1D75CA001278887864 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
-				CONFIGURATION_BUILD_DIR = "$(SYMROOT)";
-				CONFIGURATION_TEMP_DIR = "$(OBJROOT)";
-				COPY_PHASE_STRIP = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG",
-				);
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = (
-					"../src",
-					"../externals",
-					"../externals/visualframework",
-					"../../../../../../../opt/local/include",
-				);
-				LIBRARY_SEARCH_PATHS = (
-					"../externals/visualframework",
-					"../externals/xmlframework",
-					"../externals/oscframework",
-					"../../../../../../../opt/local/lib",
-				);
-				OBJROOT = "../obj/Debug/rc-visual";
-				ONLY_ACTIVE_ARCH = NO;
-				OTHER_LDFLAGS = (
-					"-loscframework",
-					"-lxmlframework",
-					"-lvisualframework",
-					"-lSDL_net",
-					"-lSDL_ttf",
-					"-lSDL_image",
-					"-llo",
-					"-lpthread",
-					"-lSDLmain",
-					"-lSDL",
-					"-lSDL_gfx",
-					"-Wl,-framework,Cocoa",
-					"-Wl,-framework,OpenGL",
-					"-Wl,-framework,ApplicationServices",
-					"-Wl,-framework,Carbon",
-					"-Wl,-framework,AudioToolbox",
-					"-Wl,-framework,AudioUnit",
-					"-Wl,-framework,IOKit",
-				);
-				PREBINDING = NO;
-				SYMROOT = "../src/rc-visual";
-			};
-			name = "Debug";
-		};
 		15045D512A41001278887864 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -274,22 +197,20 @@
 				CONFIGURATION_TEMP_DIR = "$(OBJROOT)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = s;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"NDEBUG",
-				);
+				GCC_PREPROCESSOR_DEFINITIONS = NDEBUG;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
-					"../src",
-					"../externals",
-					"../externals/visualframework",
-					"../../../../../../../opt/local/include",
+					../src,
+					../externals,
+					../externals/visualframework,
+					../../../../../../../opt/local/include,
 				);
 				LIBRARY_SEARCH_PATHS = (
-					"../externals/visualframework",
-					"../externals/xmlframework",
-					"../externals/oscframework",
-					"../../../../../../../opt/local/lib",
+					../externals/visualframework,
+					../externals/xmlframework,
+					../externals/oscframework,
+					../../../../../../../opt/local/lib,
 				);
 				OBJROOT = "../obj/Release/rc-visual";
 				ONLY_ACTIVE_ARCH = NO;
@@ -316,20 +237,88 @@
 				PREBINDING = NO;
 				SYMROOT = "../src/rc-visual";
 			};
-			name = "Release";
+			name = Release;
+		};
+		46194B101FBF001278887864 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CONFIGURATION_BUILD_DIR = "../src/rc-visual";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_MODEL_TUNING = G5;
+				INSTALL_PATH = /usr/local/bin;
+				PRODUCT_NAME = "rc-visual";
+			};
+			name = Debug;
+		};
+		4F1D2EBB0FE9001278887864 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CONFIGURATION_BUILD_DIR = "../src/rc-visual";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_MODEL_TUNING = G5;
+				INSTALL_PATH = /usr/local/bin;
+				PRODUCT_NAME = "rc-visual";
+			};
+			name = Release;
+		};
+		684B1D1D75CA001278887864 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				CONFIGURATION_BUILD_DIR = "$(SYMROOT)";
+				CONFIGURATION_TEMP_DIR = "$(OBJROOT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					../src,
+					../externals,
+					../externals/visualframework,
+					../../../../../../../opt/local/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					../externals/visualframework,
+					../externals/xmlframework,
+					../externals/oscframework,
+					../../../../../../../opt/local/lib,
+				);
+				OBJROOT = "../obj/Debug/rc-visual";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"-loscframework",
+					"-lxmlframework",
+					"-lvisualframework",
+					"-lSDL_net",
+					"-lSDL_ttf",
+					"-lSDL_image",
+					"-llo",
+					"-lpthread",
+					"-lSDLmain",
+					"-lSDL",
+					"-lSDL_gfx",
+					"-Wl,-framework,Cocoa",
+					"-Wl,-framework,OpenGL",
+					"-Wl,-framework,ApplicationServices",
+					"-Wl,-framework,Carbon",
+					"-Wl,-framework,AudioToolbox",
+					"-Wl,-framework,AudioUnit",
+					"-Wl,-framework,IOKit",
+				);
+				PREBINDING = NO;
+				SYMROOT = "../src/rc-visual";
+			};
+			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6EB7563337F1001278887864 /* Build configuration list for PBXNativeTarget "rc-visual" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				46194B101FBF001278887864 /* Debug */,
-				4F1D2EBB0FE9001278887864 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "Debug";
-		};
 		1DEB928908733DD80010E9CD /* Build configuration list for PBXProject "rc-visual" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -337,10 +326,18 @@
 				15045D512A41001278887864 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "Debug";
+			defaultConfigurationName = Debug;
+		};
+		6EB7563337F1001278887864 /* Build configuration list for PBXNativeTarget "rc-visual" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				46194B101FBF001278887864 /* Debug */,
+				4F1D2EBB0FE9001278887864 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
-
 	};
 	rootObject = 08FB7793FE84155DC02AAC07 /* Project object */;
 }

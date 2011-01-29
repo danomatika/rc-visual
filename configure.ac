@@ -55,6 +55,9 @@ AC_CHECK_LIB(SDL_ttf, TTF_OpenFont,
 PKG_CHECK_MODULES(SDL, sdl >= 1.2,[],
 	AC_MSG_ERROR([SDL library >= 1.2 not found]))
 
+PKG_CHECK_MODULES(SDL_gfx, SDL_gfx >= 2.0.0 ,[],
+	AC_MSG_ERROR([SDL_gfx library not found]))
+
 PKG_CHECK_MODULES(SDL_image, SDL_image >= 1.2,[],
 	AC_MSG_ERROR([SDL_image library >= 1.2 not found]))
 	

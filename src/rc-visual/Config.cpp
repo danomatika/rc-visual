@@ -112,7 +112,7 @@ Config::Config() :
     sendingIp("127.0.0.1"), sendingPort(8880),
     notificationAddress((string) "/"+PACKAGE+"/notifications"),
     deviceAddress((string) "/"+PACKAGE+"/devices"),
-    fontFilename("../data/ATARCC__.TTF")
+    fontFilename(visual::Util::toDataPath("ATARCC__.TTF"))
 {
 	// attach config values to xml attributes
 	addXmlAttribute("port", "listening", XML_TYPE_UINT, &listeningPort);

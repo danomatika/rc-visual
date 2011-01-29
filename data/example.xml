@@ -87,7 +87,7 @@
 				</frame>
 			</bitmap>
 		</sprite>
-		<image name="image" file="../data/icon.png">
+		<image name="image" file="icon.png">
 			<position x="10" y="10"/>
 			<size width="50" height="50"/>
 			<center yesno="0"/>
