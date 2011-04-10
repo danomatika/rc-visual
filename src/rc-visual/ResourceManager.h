@@ -1,10 +1,10 @@
 /*==============================================================================
 
-	Objects.h
+	ResourceManager.h
 
 	rc-visual: a simple, osc-controlled 2d graphics engine
   
-	Copyright (C) 2007, 2010  Dan Wilcox <danomatika@gmail.com>
+	Copyright (C) 2007, 2010, 2011  Dan Wilcox <danomatika@gmail.com>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -20,15 +20,30 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ==============================================================================*/
-#ifndef OBJECTS_H
-#define OBJECTS_H
+#ifndef RESOURCE_MANAGER_H
+#define RESOURCE_MANAGER_H
 
-#include "Pixel.h"
-#include "Line.h"
-#include "Rect.h"
-#include "Bitmap.h"
-#include "Sprite.h"
-#include "Image.h"
-#include "Text.h"
+#include "Common.h"
+#include <map>
 
-#endif // OBJECTS_H
+class ResourceManager
+{
+    public:
+
+        ResourceManager();
+        ~ResourceManager();
+
+		void clear();
+
+		/// fonts
+        bool addFont(const string& name, const string& file, unsigned int size);
+        void removeFont(const string& name);
+		visual::Font* getFont(const string& name);
+		void clearFonts();
+
+    protected:
+
+        std::map<string,visual::Font*> fonts;
+};
+
+#endif // RESOURCE_MANAGER_H

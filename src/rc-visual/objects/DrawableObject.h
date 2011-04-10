@@ -31,8 +31,9 @@ class DrawableObject : public XmlObject, public OscObject
 {
     public:
 
-        DrawableObject(string objectName) :
-            XmlObject(objectName), OscObject(objectName), bVisible(true)
+        DrawableObject(string objectType, string objectName, string parentOscAddress) :
+            XmlObject(objectType), OscObject(parentOscAddress+"/"+objectName),
+			name(objectName), bVisible(true)
         {
             // attach variables to Xml
             addXmlAttribute("R", "color", XML_TYPE_BYTE, &color.R);
@@ -43,22 +44,12 @@ class DrawableObject : public XmlObject, public OscObject
             addXmlAttribute("yesno", "visible", XML_TYPE_BOOL, &bVisible);
 
             addXmlAttribute("name", objectName, XML_TYPE_STRING, &name);
+			
+			LOG << "OBJECT " << parentOscAddress+"/"+objectName << endl;
         }
 
 		virtual void setup() {};
         virtual void draw() = 0;
-
-        /// sets the name and osc address, call this after the Config::_listener
-        /// root address has been set
-        void setName(string name)
-        {
-            // set osc address relative to root in listener
-            setOscRootAddress(Config::instance().getOscReceiver().getOscRootAddress() + "/" + name);
-
-            LOG << name << " " << getOscRootAddress() << endl;
-
-            this->name = name;
-        }
 
         string getName() {return name;}
 

@@ -24,7 +24,8 @@
 
 using namespace visual;
 
-Sprite::Sprite(string name) : DrawableObject("sprite"),
+Sprite::Sprite(string name, string parentOscAddress) :
+	DrawableObject("sprite", name, parentOscAddress),
     pos(0, 0), bAnimate(true), bLoop(true), bPingPong(true),
     bDrawFromCenter(false), bDrawAllLayers(false),
     currentFrame(0), timestamp(0), bForward(true)
@@ -45,8 +46,6 @@ Sprite::Sprite(string name) : DrawableObject("sprite"),
     removeXmlAttribute("A", "color");
     removeXmlAttribute("width", "size");
     removeXmlAttribute("height", "size");
-
-    setName(name);
 
     timestamp = Graphics::getMillis();
 }
@@ -221,10 +220,10 @@ bool Sprite::readXml(TiXmlElement* e)
         {
             //if((name = Xml::getAttrString(child, "name")) != "")
             //{
-            name = Xml::getAttrString(child, "name");
+            	name = Xml::getAttrString(child, "bitmap", Util::toString(bitmapList.size()));
                 LOG_DEBUG << "Sprite: Loading bitmap \"" << name << "\"" << std::endl;
 
-                Bitmap* b = new Bitmap(name);
+                Bitmap* b = new Bitmap(name, getOscRootAddress());
                 b->loadXml(child);
                 addBitmap(b);
             //}

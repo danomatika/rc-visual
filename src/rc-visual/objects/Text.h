@@ -1,10 +1,10 @@
 /*==============================================================================
 
-	Pixel.h
+	Text.h
 
 	rc-visual: a simple, osc-controlled 2d graphics engine
   
-	Copyright (C) 2007, 2010  Dan Wilcox <danomatika@gmail.com>
+	Copyright (C) 2007, 2010, 2011  Dan Wilcox <danomatika@gmail.com>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -20,23 +20,24 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ==============================================================================*/
-#ifndef PIXEL_H
-#define PIXEL_H
+#ifndef TEXT_H
+#define TEXT_H
 
 #include "Config.h"
 
 #include "DrawableObject.h"
 
-class Pixel : public DrawableObject
+class Text : public DrawableObject
 {
     public:
 
-        Pixel(string name, string parentOscAddress) :
-			DrawableObject("pixel", name, parentOscAddress), pos(0, 0)
+        Text(string name, string parentOscAddress) :
+			DrawableObject("text", name, parentOscAddress), pos(0, 0), bDrawFromCenter(0)
         {
             // add variables to Xml
             addXmlAttribute("x", "position", XML_TYPE_FLOAT, &pos.x);
             addXmlAttribute("y", "position", XML_TYPE_FLOAT, &pos.y);
+            addXmlAttribute("yesno", "center", XML_TYPE_BOOL, &bDrawFromCenter);
         }
 
         void draw()
@@ -44,14 +45,23 @@ class Pixel : public DrawableObject
             if(bVisible)
             {
                 visual::Graphics::stroke(color);
-                visual::Graphics::point(pos.x, pos.y);
+                    
+                if(bDrawFromCenter)
+				{
+					int w = text.size() * CONFIG_FONT_SIZE;
+					Config::instance().getFont().draw(pos.x-w/2, pos.y, text);
+				}
+                else
+				{
+                    Config::instance().getFont().draw(pos.x, pos.y, text);
+				}
             }
         }
 
     protected:
 
         bool processOscMessage(const osc::ReceivedMessage& message,
-                               const osc::MessageSource& source)
+        					   const osc::MessageSource& source)
         {
             // call the base class
             if(DrawableObject::processOscMessage(message, source))
@@ -60,23 +70,38 @@ class Pixel : public DrawableObject
             }
 
 
-            else if(message.path() == getOscRootAddress() + "/position" &&
-            		message.types() == "ii")
+            if(message.path() == getOscRootAddress() + "/position" &&
+                message.types() == "ii")
             {
                 pos.x = message.asInt32(0);
                 pos.y = message.asInt32(1);
                 return true;
             }
             else if(message.path() == getOscRootAddress() + "/position/x" &&
-            		message.types() == "i")
+                	message.types() == "i")
             {
                 pos.x = message.asInt32(0);
                 return true;
             }
             else if(message.path() == getOscRootAddress() + "/position/y" &&
-            		message.types() == "i")
+                	message.types() == "i")
             {
                 pos.y = message.asInt32(0);
+                return true;
+            }
+
+
+            else if(message.path() == getOscRootAddress() + "/string" &&
+            		message.types() == "s")
+            {
+                text = message.asString(0);
+                return true;
+            }
+            
+            else if(message.path() == getOscRootAddress() + "/center" &&
+    				message.types() == "i")
+            {
+                bDrawFromCenter = (bool) message.asInt32(0);
                 return true;
             }
 
@@ -84,7 +109,20 @@ class Pixel : public DrawableObject
             return false;
         }
 
+		bool readXml(TiXmlElement* e)
+		{
+			TiXmlElement* child = Xml::getElement(e, "string");
+			if(child != NULL)
+			{    
+				text = Xml::getText(child);
+				return true;
+			}
+			return false;
+		}
+
         visual::Point pos;
+        string text;
+        bool bDrawFromCenter;       /// draw from the center using pos
 };
 
-#endif // PIXEL_H
+#endif // RECT_H

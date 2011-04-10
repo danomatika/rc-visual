@@ -26,7 +26,8 @@
 
 using namespace visual;
 
-Bitmap::Bitmap(string name) : DrawableObject("bitmap"), 
+Bitmap::Bitmap(string name, string parentOscAddress) :
+	DrawableObject("bitmap", name, parentOscAddress), 
 	bitmapWidth(1), bitmapHeight(1), frameTime(0),
     pos(0, 0), width(1), height(1), pixelWidth(1), pixelHeight(1),
     bFilled(true), bDrawFromCenter(false)
@@ -41,8 +42,6 @@ Bitmap::Bitmap(string name) : DrawableObject("bitmap"),
     addXmlAttribute("height", "size", XML_TYPE_UINT, &height);
     addXmlAttribute("yesno", "filled", XML_TYPE_BOOL, &bFilled);
     addXmlAttribute("yesno", "center", XML_TYPE_BOOL, &bDrawFromCenter);
-
-    setName(name);
 }
 
 void Bitmap::draw()

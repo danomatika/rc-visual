@@ -31,7 +31,7 @@ class Bitmap : public DrawableObject
 {
     public:
 
-        Bitmap(string name);
+        Bitmap(string name, string parentOscAddress);
 
         void draw();
         void draw(int x, int y);

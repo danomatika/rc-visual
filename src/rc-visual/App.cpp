@@ -24,8 +24,6 @@
 
 #include <sstream>
 
-#define OSC_BASE_ADDR   (string) "/"+PACKAGE
-
 using namespace visual;
 
 App* appPtr;
@@ -40,9 +38,10 @@ App::App() : OscObject(""), bRunning(true),
 	appPtr = this;
 
     // set osc addresses
-    setOscRootAddress(OSC_BASE_ADDR);
-    receiver.setOscRootAddress(OSC_BASE_ADDR);
-    sceneManager.setOscRootAddress(OSC_BASE_ADDR);
+    setOscRootAddress(Config::instance().baseAddress);
+    receiver.setOscRootAddress(Config::instance().baseAddress);
+	
+	LOG << "SCENE MANAGER " << sceneManager.getOscRootAddress() << endl;
 
 	// add osc objects
     receiver.addOscObject(this);
@@ -110,7 +109,7 @@ void App::draw()
     	stringstream stream;
         stream << getFrameRate();
         Graphics::stroke(0xFFFFFF);
-    	config.getFont().draw(stream.str(), 0, 0);
+    	config.getFont().draw(0, 0, stream.str());
     }
 }
 

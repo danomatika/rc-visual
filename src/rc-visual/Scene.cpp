@@ -24,7 +24,8 @@
 
 #include "objects/Objects.h"
 
-Scene::Scene(string name) : XmlObject("scene"), OscObject(""),
+Scene::Scene(string name, string parentOscAddress) : XmlObject("scene"),
+	OscObject(parentOscAddress+"/"+name),
 	_name(name), _background(0, 0, 0, 255), _fps(-1)
 {
     // attach variables to Xml
@@ -35,6 +36,8 @@ Scene::Scene(string name) : XmlObject("scene"), OscObject(""),
 
     addXmlAttribute("name", "scene", XML_TYPE_STRING, &_name);
     addXmlAttribute("fps", "scene", XML_TYPE_UINT, &_fps);
+	
+	LOG << "SCENE " << parentOscAddress+"/"+name << endl;
 }
 
 Scene::~Scene()
@@ -127,11 +130,12 @@ bool Scene::readXml(TiXmlElement* e)
         {
             if((objName = Xml::getAttrString(child, "name")) != "")
             {
-                LOG_DEBUG << "Scene \"" << _name << "\": Loading pixel \"" << objName << "\"" << std::endl;
-
-                Pixel* p = new Pixel(objName);
+                Pixel* p = new Pixel(objName, getOscRootAddress());
                 p->loadXml(child);
                 addObject(p);
+				
+				LOG_DEBUG << "Scene \"" << _name << "\": Loaded pixel \"" << objName << "\" \""
+						  << p->getOscRootAddress() << "\"" << std::endl;
             }
             else
             {
@@ -143,12 +147,13 @@ bool Scene::readXml(TiXmlElement* e)
         else if(child->ValueStr() == "line")
         {
             if((objName = Xml::getAttrString(child, "name")) != "")
-            {
-                LOG_DEBUG << "Scene \"" << _name << "\": Loading line \"" << objName << "\"" << std::endl;
-
-                Line* l = new Line(objName);
+            {						  
+				Line* l = new Line(objName, getOscRootAddress());
                 l->loadXml(child);
                 addObject(l);
+				
+				LOG_DEBUG << "Scene \"" << _name << "\": Loaded line \"" << objName << "\" \""
+						  << l->getOscRootAddress() << "\"" << std::endl;
             }
             else
             {
@@ -161,12 +166,13 @@ bool Scene::readXml(TiXmlElement* e)
         {
             if((objName = Xml::getAttrString(child, "name")) != "")
             {
-                LOG_DEBUG << "Scene \"" << _name << "\": Loading rect \"" << objName << "\"" << std::endl;
-
-                Rect* r = new Rect(objName);
+                Rect* r = new Rect(objName, getOscRootAddress());
                 r->loadXml(child);
                 addObject(r);
-            }
+				
+				LOG_DEBUG << "Scene \"" << _name << "\": Loaded rect \"" << objName << "\" \""
+						  << r->getOscRootAddress() << "\"" << std::endl;
+			}
             else
             {
                 LOG_WARN << "Scene \"" << _name << "\": cannot load rect without name, line "
@@ -178,11 +184,12 @@ bool Scene::readXml(TiXmlElement* e)
         {
             if((objName = Xml::getAttrString(child, "name")) != "")
             {
-                LOG_DEBUG << "Scene \"" << _name << "\": Loading bitmap \"" << objName << "\"" << std::endl;
-
-                Bitmap* b = new Bitmap(objName);
+                Bitmap* b = new Bitmap(objName, getOscRootAddress());
                 b->loadXml(child);
                 addObject(b);
+				
+				LOG_DEBUG << "Scene \"" << _name << "\": Loaded bitmap \"" << objName << "\" \""
+						  << b->getOscRootAddress() << "\"" << std::endl;
             }
             else
             {
@@ -195,11 +202,12 @@ bool Scene::readXml(TiXmlElement* e)
         {
             if((objName = Xml::getAttrString(child, "name")) != "")
             {
-                LOG_DEBUG << "Scene \"" << _name << "\": Loading sprite \"" << objName << "\"" << std::endl;
-
-                Sprite* s = new Sprite(objName);
+                Sprite* s = new Sprite(objName, getOscRootAddress());
                 s->loadXml(child);
                 addObject(s);
+				
+				LOG_DEBUG << "Scene \"" << _name << "\": Loaded sprite \"" << objName << "\" \""
+						  << s->getOscRootAddress() << "\"" << std::endl;
             }
             else
             {
@@ -212,15 +220,34 @@ bool Scene::readXml(TiXmlElement* e)
         {
             if((objName = Xml::getAttrString(child, "name")) != "")
             {
-                LOG_DEBUG << "Scene \"" << _name << "\": Loading image \"" << objName << "\"" << std::endl;
-
-                Image* i = new Image(objName);
+                Image* i = new Image(objName, getOscRootAddress());
                 i->loadXml(child);
                 addObject(i);
+				
+				LOG_DEBUG << "Scene \"" << _name << "\": Loaded image \"" << objName << "\" \""
+						  << i->getOscRootAddress() << "\"" << std::endl;
             }
             else
             {
                 LOG_WARN << "Scene \"" << _name << "\": cannot load image without name, line "
+                         << child->Row() << endl;
+            }
+        }
+		
+		else if(child->ValueStr() == "text")
+        {
+            if((objName = Xml::getAttrString(child, "name")) != "")
+            {
+                Text* t = new Text(objName, getOscRootAddress());
+                t->loadXml(child);
+                addObject(t);
+				
+				LOG_DEBUG << "Scene \"" << _name << "\": Loaded text \"" << objName << "\" \""
+						  << t->getOscRootAddress() << "\"" << std::endl;
+            }
+            else
+            {
+                LOG_WARN << "Scene \"" << _name << "\": cannot load rect without name, line "
                          << child->Row() << endl;
             }
         }

@@ -4,6 +4,7 @@
 	<listening port="9990"/>
 	<sending ip="127.0.0.1" port="8880"/>
 	<osc notificationAddress="/pd/visual" deviceAddress="/pd/devices"/>
+	<!--<font name="font1" size="18" file=""/>-->
 
 	<scene name="scene1">
 		<background R="0" G="0" B="0" A="255"/>
@@ -94,6 +95,17 @@
 			<visible yesno="1"/>
 		</image>
 	</scene>
-	
+
+	<scene name="scene3">
+		<background R="64" G="64" B="64" A="255"/>
+		
+		<text name="text1"> <!--font="font1">-->
+			<position x="320" y="240"/>
+			<center yesno="1"/>
+			<color R="200" G="200" B="200" A="255"/>
+			<visible yesno="1"/>
+			<string>this is a test</string>
+		</text>
+	</scene>
 
 </rc-visual>

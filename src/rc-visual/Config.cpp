@@ -24,8 +24,6 @@
 
 #include <tclap/tclap.h>
 
-#define CONFIG_FONT_SIZE	25
-
 Config& Config::instance()
 {
     static Config * pointerToTheSingletonInstance = new Config;
@@ -97,7 +95,7 @@ void Config::setup()
 void Config::print()
 {        
     LOG << "listening port:	" << listeningPort << endl
-        << "listening address: " << "/" << PACKAGE << endl
+        << "listening address: " << baseAddress << endl
     	<< "sending ip: " << sendingIp << endl
         << "sending port: " << sendingPort << endl
         << "sending address for notifications: " << notificationAddress << endl
@@ -110,8 +108,9 @@ Config::Config() :
 	XmlObject(PACKAGE),
 	listeningPort(9990),
     sendingIp("127.0.0.1"), sendingPort(8880),
-    notificationAddress((string) "/"+PACKAGE+"/notifications"),
-    deviceAddress((string) "/"+PACKAGE+"/devices"),
+	baseAddress((string) "/"+PACKAGE),
+    notificationAddress(baseAddress+"/notifications"),
+    deviceAddress(baseAddress+"/devices"),
     fontFilename(visual::Util::toDataPath("ATARCC__.TTF"))
 {
 	// attach config values to xml attributes

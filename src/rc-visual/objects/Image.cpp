@@ -22,7 +22,8 @@
 ==============================================================================*/
 #include "Image.h"
 
-Image::Image(string name) : DrawableObject("image"), frameTime(0),
+Image::Image(string name, string parentOscAddress) :
+	DrawableObject("image", name, parentOscAddress), frameTime(0),
     pos(0, 0), width(0), height(0), bDrawFromCenter(false)
 {
     // add variables to Xml
@@ -40,8 +41,6 @@ Image::Image(string name) : DrawableObject("image"), frameTime(0),
     removeXmlAttribute("G", "color");
     removeXmlAttribute("B", "color");
     removeXmlAttribute("A", "color");
-
-    setName(name);
 }
 
 Image::~Image()
@@ -88,9 +87,9 @@ void Image::draw(int x, int y)
     if(bVisible)
     {
         if(bDrawFromCenter)
-            visual::Graphics::imageMode(visual::CENTER);
+            visual::Graphics::textureMode(visual::CENTER);
         else
-            visual::Graphics::imageMode(visual::CORNER);
+            visual::Graphics::textureMode(visual::CORNER);
 
         image.draw(x, y);
     }    

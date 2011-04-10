@@ -31,7 +31,7 @@ class Image : public DrawableObject
 {
     public:
 
-        Image(string name);
+        Image(string name, string parentOscAddress);
         ~Image();
 
 		bool loadFile(string filename="");

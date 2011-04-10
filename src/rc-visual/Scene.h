@@ -31,7 +31,7 @@ class Scene : public XmlObject, public OscObject
 {
     public:
 
-        Scene(string name);
+        Scene(string name, string parentOscAddress);
         virtual ~Scene();
 
         /// add an object

@@ -30,7 +30,8 @@
 using namespace visual;
 
 SceneManager::SceneManager(App& app) :
-    XmlObject(Config::instance().getXmlName()), OscObject(""),
+    XmlObject(Config::instance().getXmlName()),
+	OscObject(Config::instance().baseAddress),
     _app(app), _currentScene(-1),
     _bShowSceneName(true)
 {
@@ -188,7 +189,7 @@ void SceneManager::draw()
     	if(_bShowSceneName && !_sceneNameTimer.alarm())
     	{
             Graphics::stroke(0xFF00FF);
-       		_sceneNameFont.draw(s->getName(), 0, Graphics::getHeight()-SCENE_NAME_FONT_SIZE);
+       		_sceneNameFont.draw(0, Graphics::getHeight()-SCENE_NAME_FONT_SIZE, s->getName());
     	}
     }
 }
@@ -236,11 +237,12 @@ bool SceneManager::readXml(TiXmlElement* e)
         {
             if((name = Xml::getAttrString(child, "name")) != "")
             {
-                LOG_DEBUG << "SceneManager: Loading scene \"" << name << "\"" << std::endl;
-
-                Scene* s = new Scene(name);
+                Scene* s = new Scene(name, getOscRootAddress());
                 s->loadXml(child);
                 addObject(s);
+				
+				LOG_DEBUG << "SceneManager: Loaded scene \"" << name << "\" \""
+					<< s->getOscRootAddress() << "\"" << std::endl;
             }
             else
             {

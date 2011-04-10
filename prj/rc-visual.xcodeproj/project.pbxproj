@@ -11,6 +11,7 @@
 		0FFC154D7F68001296293206 /* Config.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E855FCC0939001296293206 /* Config.cpp */; };
 		180459692274001296293206 /* Image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047600CE62D1001296293206 /* Image.cpp */; };
 		20EF332E3917001296293206 /* Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1243713F02DB001296293206 /* Sprite.cpp */; };
+		306CDA19134EF18300BCDF3E /* ResourceManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 306CDA17134EF18300BCDF3E /* ResourceManager.cpp */; };
 		33FE71676140001296293206 /* App.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 529A061A278F001296293206 /* App.cpp */; };
 		383810886880001296293206 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1C1F486A2BD7001296293206 /* main.cpp */; };
 		437C18CE0E6A001296293206 /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F3047F95535001296293206 /* SceneManager.cpp */; };
@@ -29,6 +30,9 @@
 		1E855FCC0939001296293206 /* Config.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Config.cpp; sourceTree = "<group>"; };
 		220A781C2F22001296293206 /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		22780D164A18001296293206 /* rc-visual */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "rc-visual"; sourceTree = BUILT_PRODUCTS_DIR; };
+		306CDA17134EF18300BCDF3E /* ResourceManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ResourceManager.cpp; sourceTree = "<group>"; };
+		306CDA18134EF18300BCDF3E /* ResourceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceManager.h; sourceTree = "<group>"; };
+		306CDA1A134EF19100BCDF3E /* Text.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Text.h; sourceTree = "<group>"; };
 		30F05D356422001296293206 /* Scene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Scene.h; sourceTree = "<group>"; };
 		3B712F701DEC001296293206 /* Objects.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Objects.h; sourceTree = "<group>"; };
 		3CC151D9360B001296293206 /* Rect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Rect.h; sourceTree = "<group>"; };
@@ -74,6 +78,7 @@
 		2BE0180F1084001296293206 /* objects */ = {
 			isa = PBXGroup;
 			children = (
+				306CDA1A134EF19100BCDF3E /* Text.h */,
 				54222D8048EC001296293206 /* Bitmap.cpp */,
 				116F1C2C4CC3001296293206 /* Bitmap.h */,
 				4B2C40121D3E001296293206 /* DrawableObject.h */,
@@ -109,6 +114,8 @@
 				30F05D356422001296293206 /* Scene.h */,
 				0F3047F95535001296293206 /* SceneManager.cpp */,
 				12C4162C4F32001296293206 /* SceneManager.h */,
+				306CDA17134EF18300BCDF3E /* ResourceManager.cpp */,
+				306CDA18134EF18300BCDF3E /* ResourceManager.h */,
 				1C1F486A2BD7001296293206 /* main.cpp */,
 				2BE0180F1084001296293206 /* objects */,
 			);
@@ -183,6 +190,7 @@
 				030E3F727EB6001296293206 /* Bitmap.cpp in Sources */,
 				180459692274001296293206 /* Image.cpp in Sources */,
 				20EF332E3917001296293206 /* Sprite.cpp in Sources */,
+				306CDA19134EF18300BCDF3E /* ResourceManager.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

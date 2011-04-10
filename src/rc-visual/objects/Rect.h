@@ -31,7 +31,8 @@ class Rect : public DrawableObject
 {
     public:
 
-        Rect(string name) : DrawableObject("rect"), pos(0, 0),
+        Rect(string name, string parentOscAddress) :
+			DrawableObject("rect", name, parentOscAddress), pos(0, 0),
             width(1), height(1), bFilled(true), bDrawFromCenter(0)
         {
             // add variables to Xml
@@ -41,8 +42,6 @@ class Rect : public DrawableObject
             addXmlAttribute("height", "size", XML_TYPE_UINT, &height);
             addXmlAttribute("yesno", "filled", XML_TYPE_BOOL, &bFilled);
             addXmlAttribute("yesno", "center", XML_TYPE_BOOL, &bDrawFromCenter);
-
-            setName(name);
         }
 
         void draw()

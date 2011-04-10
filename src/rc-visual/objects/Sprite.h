@@ -32,7 +32,7 @@ class Sprite : public DrawableObject
 {
     public:
 
-        Sprite(string name);
+        Sprite(string name, string parentOscAddress);
         ~Sprite();
 
         void addBitmap(Bitmap* bitmap);

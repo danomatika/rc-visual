@@ -31,15 +31,14 @@ class Line : public DrawableObject
 {
     public:
 
-        Line(string name) : DrawableObject("line"), pos1(0, 0), pos2(0, 0)
+        Line(string name, string parentOscAddress) :
+			DrawableObject("line", name, parentOscAddress), pos1(0, 0), pos2(0, 0)
         {
             // add variables to Xml
             addXmlAttribute("x", "position1", XML_TYPE_FLOAT, &pos1.x);
             addXmlAttribute("y", "position1", XML_TYPE_FLOAT, &pos1.y);
             addXmlAttribute("x", "position2", XML_TYPE_FLOAT, &pos2.x);
             addXmlAttribute("y", "position2", XML_TYPE_FLOAT, &pos2.y);
-
-            setName(name);
         }
 
         void draw()

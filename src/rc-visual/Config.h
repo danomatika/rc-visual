@@ -25,6 +25,10 @@
 
 #include "Common.h"
 
+#include "ResourceManager.h"
+
+#define CONFIG_FONT_SIZE	25
+
 /**
     \class  Config
     \brief  global, per-application instance state variable container class
@@ -47,6 +51,11 @@ class Config : public xml::XmlObject
         **/
         static Config& instance();
         
+		/**
+        	\brief	parse the commandline options
+        */
+        bool parseCommandLine(int argc, char **argv);
+		
         /// load resources
         void setup();
         
@@ -61,7 +70,7 @@ class Config : public xml::XmlObject
         string sendingIp;				///< ip to send to
         unsigned int sendingPort;		///< port to send to
         
-        //string baseAddress;			///< base osc sending address
+        string baseAddress;			///< base osc sending address
         string notificationAddress;		///< base osc sending address for notifications
         string deviceAddress;			///< base osc sending addess for devices
         
@@ -75,18 +84,18 @@ class Config : public xml::XmlObject
         
         /// get the global font
         inline visual::Font& getFont() {return _font;}
-        
-        /**
-        	\brief	parse the commandline options
-        */
-        bool parseCommandLine(int argc, char **argv);
+		
+		// get the global resources
+		inline ResourceManager& getResourceManager()	{return _resourceManager;}
 
     private:
 
         OscSender 	_oscSender;       	///< global osc sender
         OscReceiver _oscReceiver;		///< global osc receiver
         
-        visual::Font _font;			///< global font
+        visual::Font _font;				///< global font
+		
+		ResourceManager _resourceManager;	///< global resources
         
         // hide all the constructors, copy functions here
         Config();                       // cannot create
