@@ -1,0 +1,6 @@
+bin
+lib
+obj
+autom4te.cache
+.deps
+Makefile
