@@ -29,6 +29,13 @@ using namespace visual;
 
 int main(int argc, char *argv[])
 {
+	#ifdef RESOURCE_DIR // defined in configure.ac
+		Util::setDataPath(Util::makeAbsolutePath((string) RESOURCE_DIR));
+	#else // for debugging without autotools
+		Util::setDataPath(Util::makeAbsolutePath(Util::getDirPath(Util::getExecutablePath())+"/../../data"));
+	#endif
+	LOG << "Resource dir is " << Util::getDataPath() << endl;
+
 	// create an App before parsing, so xml is loaded into SceneManager
 	App application;
 

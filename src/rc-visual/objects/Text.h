@@ -42,7 +42,7 @@ class Text : public DrawableObject
 
         void draw()
         {
-            if(bVisible)
+            if(bVisible && !text.empty())
             {
                 visual::Graphics::stroke(color);
                     
@@ -70,23 +70,20 @@ class Text : public DrawableObject
             }
 
 
-            if(message.path() == getOscRootAddress() + "/position" &&
-                message.types() == "ii")
+            if(message.path() == getOscRootAddress() + "/position")
             {
-                pos.x = message.asInt32(0);
-                pos.y = message.asInt32(1);
+                message.tryNumber(&pos.x, 0);
+				message.tryNumber(&pos.y, 1);
                 return true;
             }
-            else if(message.path() == getOscRootAddress() + "/position/x" &&
-                	message.types() == "i")
+            else if(message.path() == getOscRootAddress() + "/position/x")
             {
-                pos.x = message.asInt32(0);
+                message.tryNumber(&pos.x, 0);
                 return true;
             }
-            else if(message.path() == getOscRootAddress() + "/position/y" &&
-                	message.types() == "i")
+            else if(message.path() == getOscRootAddress() + "/position/y")
             {
-                pos.y = message.asInt32(0);
+				message.tryNumber(&pos.y, 0);
                 return true;
             }
 
@@ -98,10 +95,9 @@ class Text : public DrawableObject
                 return true;
             }
             
-            else if(message.path() == getOscRootAddress() + "/center" &&
-    				message.types() == "i")
+            else if(message.path() == getOscRootAddress() + "/center")
             {
-                bDrawFromCenter = (bool) message.asInt32(0);
+				message.tryBool(&bDrawFromCenter, 0);
                 return true;
             }
 
@@ -117,7 +113,17 @@ class Text : public DrawableObject
 				text = Xml::getText(child);
 				return true;
 			}
+			else {
+				LOG_WARN << "Text " << name << ": string element empty" << endl;
+			}
 			return false;
+		}
+		
+		bool writeXml(TiXmlElement* e)
+		{
+			TiXmlElement* child = Xml::obtainElement(e, "string");
+			Xml::setText(child, text);
+			return true;
 		}
 
         visual::Point pos;

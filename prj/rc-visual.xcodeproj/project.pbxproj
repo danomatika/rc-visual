@@ -220,6 +220,10 @@
 				);
 				OBJROOT = "../obj/Release/rc-visual";
 				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-DDEBUG",
+				);
 				OTHER_LDFLAGS = (
 					"-loscframework",
 					"-lxmlframework",
@@ -254,6 +258,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_MODEL_TUNING = G5;
 				INSTALL_PATH = /usr/local/bin;
+				OTHER_CFLAGS = "";
 				PRODUCT_NAME = "rc-visual";
 			};
 			name = Release;
@@ -266,6 +271,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_MODEL_TUNING = G5;
 				INSTALL_PATH = /usr/local/bin;
+				OTHER_CFLAGS = "";
 				PRODUCT_NAME = "rc-visual";
 			};
 			name = Debug;
@@ -295,6 +301,10 @@
 				);
 				OBJROOT = "../obj/Debug/rc-visual";
 				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-DDEBUG",
+				);
 				OTHER_LDFLAGS = (
 					"-loscframework",
 					"-lxmlframework",

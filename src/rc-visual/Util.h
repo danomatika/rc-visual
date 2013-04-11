@@ -1,6 +1,6 @@
 /*==============================================================================
 
-	App.h
+	Util.h
 
 	rc-visual: a simple, osc-controlled 2d graphics engine
   
@@ -20,57 +20,33 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ==============================================================================*/
-#ifndef APP_H
-#define APP_H
+#ifndef UTIL_H
+#define UTIL_H
 
 #include "Common.h"
 
-#include "Config.h"
-#include "SceneManager.h"
-
-class App : public visual::Application, public OscObject
+/**
+    \class  Util
+    \brief  static class of useful utility functions
+**/
+class Util
 {
     public:
 
-        App();
-        virtual ~App();
+		/* ***** PATH ***** */
 
-        bool init();
+		// returns the path to the executable
+		static string executablePath();
 
-        void setup();
+		/* ***** OSC ***** */
 
-        void update();
-
-        void draw();
-
-        void cleanup();
-
-        void keyPressed(SDLKey key, SDLMod mod);
+		// get a message argument as a number and store it in dest
+        static void asNumber(int *dest, const ReceivedMessage& message, int argIndex);
+        static void asNumber(unsigned int *dest, const ReceivedMessage& message, int argIndex);
+        static void asNumber(float *dest, const ReceivedMessage& message, int argIndex);
         
-        inline void stop() {bRunning = false;}
-        
-    protected:
-
-		/// received osc message callback
-        bool processOscMessage(const osc::ReceivedMessage& message,
-                               const osc::MessageSource& source);
-                                  
-        /// signal callback
-		static void signalExit(int signal);
-
-    private:
-
-        bool bRunning;  // running or paused?
-
-        Config& config;	/// config reference
-        
-        OscReceiver receiver;
-        OscSender sender;
-        
-        SceneManager sceneManager;
-
-        unsigned int reloadTimestamp;
-		unsigned int saveTimestamp;
+        // get a message argument as a bool and store it in dest
+        static void asBool(bool *dest, const ReceivedMessage& message, int argIndex);
 };
 
-#endif // APP_H
+#endif // UTIL_H

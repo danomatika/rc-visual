@@ -28,6 +28,19 @@
 #include "DrawableObject.h"
 #include "Bitmap.h"
 
+/// a bitmap with frametime
+class SpriteBitmap : public Bitmap
+{
+	public:
+		SpriteBitmap(string name, string parentOscAddress);
+	
+		unsigned int getFrameTime() {return frameTime;}
+	
+	protected:
+	
+		unsigned int frameTime;     /// how long to display in ms
+};
+
 class Sprite : public DrawableObject
 {
     public:
@@ -35,8 +48,8 @@ class Sprite : public DrawableObject
         Sprite(string name, string parentOscAddress);
         ~Sprite();
 
-        void addBitmap(Bitmap* bitmap);
-        void removeBitmap(Bitmap* bitmap);
+        void addBitmap(SpriteBitmap* bitmap);
+        void removeBitmap(SpriteBitmap* bitmap);
         void clear();
 
         void nextFrame();
@@ -60,7 +73,7 @@ class Sprite : public DrawableObject
         bool processOscMessage(const osc::ReceivedMessage& message,
         					   const osc::MessageSource& source);
 
-        std::vector<Bitmap*> bitmapList;
+        std::vector<SpriteBitmap*> bitmapList;
 
         visual::Point pos;
         bool bAnimate;

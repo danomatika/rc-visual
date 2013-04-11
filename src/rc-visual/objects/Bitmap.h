@@ -40,8 +40,6 @@ class Bitmap : public DrawableObject
 
         void setDrawFromCenter(bool yesno) {bDrawFromCenter = yesno;}
 
-        unsigned int getFrameTime() {return frameTime;}
-
     protected:
     
     	// compute the pixel size based on the width/height and size of bitmap
@@ -60,7 +58,6 @@ class Bitmap : public DrawableObject
         vector<bool> bitmap;   /// actual bitmap
 		unsigned int bitmapWidth, bitmapHeight;	/// dimen of the bitmap
 
-        unsigned int frameTime;     /// how long to display in ms
         visual::Point pos;			/// screen position
         unsigned int width, height; /// screen height
         unsigned int pixelWidth, pixelHeight; /// dimen of one pixel in the bitmap

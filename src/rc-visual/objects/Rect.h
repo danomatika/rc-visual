@@ -76,59 +76,51 @@ class Rect : public DrawableObject
             }
 
 
-            if(message.path() == getOscRootAddress() + "/position" &&
-                message.types() == "ii")
+            if(message.path() == getOscRootAddress() + "/position")
             {
-                pos.x = message.asInt32(0);
-                pos.y = message.asInt32(1);
+                message.tryNumber(&pos.x, 0);
+				message.tryNumber(&pos.y, 1);
                 return true;
             }
-            else if(message.path() == getOscRootAddress() + "/position/x" &&
-                	message.types() == "i")
+            else if(message.path() == getOscRootAddress() + "/position/x")
             {
-                pos.x = message.asInt32(0);
+                message.tryNumber(&pos.x, 0);
                 return true;
             }
-            else if(message.path() == getOscRootAddress() + "/position/y" &&
-                	message.types() == "i")
+            else if(message.path() == getOscRootAddress() + "/position/y")
             {
-                pos.y = message.asInt32(0);
+                message.tryNumber(&pos.y, 0);
                 return true;
             }
 
 
-            else if(message.path() == getOscRootAddress() + "/size" &&
-                	message.types() == "ii")
+            else if(message.path() == getOscRootAddress() + "/size")
             {
-                width = message.asInt32(0);
-                height = message.asInt32(1);
+				message.tryNumber(&width, 0);
+				message.tryNumber(&height, 1);
                 return true;
             }
-            else if(message.path() == getOscRootAddress() + "/size/width" &&
-                	message.types() == "i")
+            else if(message.path() == getOscRootAddress() + "/size/width")
             {
-                width = message.asInt32(0);
+				message.tryNumber(&width, 0);
                 return true;
             }
-            else if(message.path() == getOscRootAddress() + "/size/height" &&
-                	message.types() == "i")
+            else if(message.path() == getOscRootAddress() + "/size/height")
             {
-                height = message.asInt32(0);
+                message.tryNumber(&height, 0);
                 return true;
             }
 
 
-            else if(message.path() == getOscRootAddress() + "/filled" &&
-            		message.types() == "i")
+            else if(message.path() == getOscRootAddress() + "/filled")
             {
-                bFilled = (bool) message.asInt32(0);
+				message.tryBool(&bFilled, 0);
                 return true;
             }
             
-            else if(message.path() == getOscRootAddress() + "/center" &&
-    				message.types() == "i")
+            else if(message.path() == getOscRootAddress() + "/center")
             {
-                bDrawFromCenter = (bool) message.asInt32(0);
+				message.tryBool(&bDrawFromCenter, 0);
                 return true;
             }
 

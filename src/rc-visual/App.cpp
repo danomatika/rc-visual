@@ -28,12 +28,14 @@ using namespace visual;
 
 App* appPtr;
 
+// TODO: save config file so config settings are saved to XML
+
 App::App() : OscObject(""), bRunning(true),
 	config(Config::instance()),
     receiver(Config::instance().getOscReceiver()),
     sender(Config::instance().getOscSender()),
     sceneManager(*this),
-    reloadTimestamp(0)
+    reloadTimestamp(0), saveTimestamp(0)
 {
 	appPtr = this;
 
@@ -51,6 +53,7 @@ App::App() : OscObject(""), bRunning(true),
     config.addXmlObject(&sceneManager);
     
     reloadTimestamp = Graphics::getMillis();
+	saveTimestamp = Graphics::getMillis();
 }
 
 App::~App()
@@ -92,6 +95,10 @@ void App::setup()
 	
     // try to load first scene
     sceneManager.setup();
+    
+    // notify of connection
+   	sender << BeginMessage(config.notificationAddress) << "connect" << 0 << EndMessage();
+   	sender.send();
 }
 
 void App::update()
@@ -115,6 +122,11 @@ void App::draw()
 
 void App::cleanup()
 {
+
+	// notify of disconnection
+   	sender << BeginMessage(config.notificationAddress) << "disconnect" << 0 << EndMessage();
+   	sender.send();
+
     receiver.stop();
 }
 
@@ -155,10 +167,32 @@ void App::keyPressed(SDLKey key, SDLMod mod)
             {
                 if(Graphics::getMillis() - reloadTimestamp > 5000)
                 {
-                    LOG << "Reloading xml file" << endl;
+                    LOG << "Reloading xml file: " << Util::getFileName(sceneManager.getXmlFilename()) << endl;
                     sceneManager.reload();
+					reloadTimestamp = Graphics::getMillis();
                     return;
                 }
+            }
+            break;
+			
+		case 's':
+        	if(mod & KMOD_SHIFT)
+            {
+                if(Graphics::getMillis() - saveTimestamp > 5000)
+                {
+                    LOG << "Saving xml file: " << Util::getFileName(sceneManager.getXmlFilename()) << endl;
+                    sceneManager.saveXmlFile();
+					saveTimestamp = Graphics::getMillis();
+                    return;
+                }
+            }
+            break;
+            
+        case 'f':
+        	if(mod & KMOD_SHIFT)
+            {
+                Graphics::toggleFullscreen();
+                return;
             }
             break;
 
@@ -219,9 +253,16 @@ bool App::processOscMessage(const osc::ReceivedMessage& message,
         return true;
     }
     
-    else if(message.path() == getOscRootAddress() + "/framerate" && message.types() == "f")
+    else if(message.path() == getOscRootAddress() + "/framerate")
     {
-        setFrameRate(message.asFloat(0));
+    	if(message.isInt32(0))
+    	{
+    		setFrameRate(message.asInt32(0));
+    	}
+    	else if (message.isFloat(0))
+    	{
+        	setFrameRate(message.asFloat(0));
+        }
         return true;
     }
 

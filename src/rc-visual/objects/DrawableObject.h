@@ -33,19 +33,19 @@ class DrawableObject : public XmlObject, public OscObject
 
         DrawableObject(string objectType, string objectName, string parentOscAddress) :
             XmlObject(objectType), OscObject(parentOscAddress+"/"+objectName),
-			name(objectName), bVisible(true)
+			bVisible(true), name(objectName)
         {
             // attach variables to Xml
-            addXmlAttribute("R", "color", XML_TYPE_BYTE, &color.R);
+            addXmlAttribute("name", objectType, XML_TYPE_STRING, &name);
+			
+			addXmlAttribute("R", "color", XML_TYPE_BYTE, &color.R);
             addXmlAttribute("G", "color", XML_TYPE_BYTE, &color.G);
             addXmlAttribute("B", "color", XML_TYPE_BYTE, &color.B);
             addXmlAttribute("A", "color", XML_TYPE_BYTE, &color.A);
 
             addXmlAttribute("yesno", "visible", XML_TYPE_BOOL, &bVisible);
-
-            addXmlAttribute("name", objectName, XML_TYPE_STRING, &name);
 			
-			LOG << "OBJECT " << parentOscAddress+"/"+objectName << endl;
+			LOG << "	OBJECT " << parentOscAddress+"/"+objectName << endl;
         }
 
 		virtual void setup() {};
@@ -60,46 +60,39 @@ class DrawableObject : public XmlObject, public OscObject
         virtual bool processOscMessage(const ReceivedMessage& message,
                             		   const MessageSource& source)
         {
-            if(message.path() == getOscRootAddress() + "/color" &&
-            	message.types() == "iiii")
+            if(message.path() == getOscRootAddress() + "/color")
             {
-                color.R  = message.asInt32(0);
-                color.G  = message.asInt32(1);
-                color.B  = message.asInt32(2);
-                color.A  = message.asInt32(3);
-                
+                message.tryNumber((unsigned int*) &color.R, 0);
+				message.tryNumber((unsigned int*) &color.G, 1);
+				message.tryNumber((unsigned int*) &color.B, 2);
+				message.tryNumber((unsigned int*) &color.A, 3);
                 return true;
             }
-            else if(message.path() == getOscRootAddress() + "/color/R" &&
-            		message.types() == "i")
+            else if(message.path() == getOscRootAddress() + "/color/R")
             {
-                color.R  = message.asInt32(0);
+                message.tryNumber((unsigned int*) &color.R, 0);
                 return true;
             }
-            else if(message.path() == getOscRootAddress() + "/color/G" &&
-            		message.types() == "i")
+            else if(message.path() == getOscRootAddress() + "/color/G")
             {
-                color.G  = message.asInt32(0);
+                message.tryNumber((unsigned int*) &color.G, 0);
                 return true;
             }
-            else if(message.path() == getOscRootAddress() + "/color/B" &&
-            		message.types() == "i")
+            else if(message.path() == getOscRootAddress() + "/color/B")
             {
-                color.B  = message.asInt32(0);
+                message.tryNumber((unsigned int*) &color.B, 0);
                 return true;
             }
-            else if(message.path() == getOscRootAddress() + "/color/A" &&
-            		message.types() == "i")
+            else if(message.path() == getOscRootAddress() + "/color/A")
             {
-                color.A  = message.asInt32(0);
+                message.tryNumber((unsigned int*) &color.A, 0);
                 return true;
             }
 
 
-            else if(message.path() == getOscRootAddress() + "/visible" &&
-            		message.types() == "i")
+            else if(message.path() == getOscRootAddress() + "/visible")
             {
-                bVisible = (bool) message.asInt32(0);
+				message.tryBool(&bVisible, 0);
                 return true;
             }
 

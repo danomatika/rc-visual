@@ -23,28 +23,20 @@
 #include "Image.h"
 
 Image::Image(string name, string parentOscAddress) :
-	DrawableObject("image", name, parentOscAddress), frameTime(0),
+	DrawableObject("image", name, parentOscAddress),
     pos(0, 0), width(0), height(0), bDrawFromCenter(false)
 {
     // add variables to Xml
-    addXmlAttribute("name", "image", XML_TYPE_STRING, &name);
     addXmlAttribute("file", "image", XML_TYPE_STRING, &filename);
-    addXmlAttribute("frametime", "image", XML_TYPE_UINT, &frameTime);
-    addXmlAttribute("x", "position", XML_TYPE_INT, &pos.x);
-    addXmlAttribute("y", "position", XML_TYPE_INT, &pos.y);
+    addXmlAttribute("x", "position", XML_TYPE_FLOAT, &pos.x);
+    addXmlAttribute("y", "position", XML_TYPE_FLOAT, &pos.y);
     addXmlAttribute("width", "size", XML_TYPE_UINT, &width);
     addXmlAttribute("height", "size", XML_TYPE_UINT, &height);
     addXmlAttribute("yesno", "center", XML_TYPE_BOOL, &bDrawFromCenter);
 
-    // detach variables from Xml
-    removeXmlAttribute("R", "color");
-    removeXmlAttribute("G", "color");
-    removeXmlAttribute("B", "color");
-    removeXmlAttribute("A", "color");
+    // detach unneeded variables from Xml
+	removeXmlElement("color");
 }
-
-Image::~Image()
-{}
 
 bool Image::loadFile(string filename)
 {
@@ -52,14 +44,17 @@ bool Image::loadFile(string filename)
     	filename = this->filename;
        
 	image.load(visual::Util::toDataPath(filename));
-    if(!image.isLoaded())
+    if(!image.isLoaded()) {
+		LOG_WARN << "Image: \"" << name << "\" couldn't load \""
+				 << filename << "\"" << std::endl;
     	return false;
-        
+	}
+
     if(width == 0)	width = image.width();
     if(height == 0) height = image.height();
-        
+		  
     // resize if needed
-    if(image.width() != (int) width || image.height() != (int) height)
+    if(image.width() != width || image.height() != height)
     {
     	LOG_DEBUG << "Image: \"" << name << "\" resized to "
         		  << width << "x" << height << std::endl;
@@ -115,23 +110,20 @@ bool Image::processOscMessage(const osc::ReceivedMessage& message,
     }
 
 
-    if(message.path() == getOscRootAddress() + "/position" &&
-    	message.types() == "ii")
+    if(message.path() == getOscRootAddress() + "/position")
     {
-        pos.x = message.asInt32(0);
-        pos.y = message.asInt32(1);
+		message.tryNumber(&pos.x, 0);
+		message.tryNumber(&pos.y, 1);
         return true;
     }
-    else if(message.path() == getOscRootAddress() + "/position/x" &&
-    		message.types() == "i")
+    else if(message.path() == getOscRootAddress() + "/position/x")
     {
-        pos.x = message.asInt32(0);
+        message.tryNumber(&pos.x, 0);
         return true;
     }
-    else if(message.path() == getOscRootAddress() + "/position/y" &&
-    		message.types() == "i")
+    else if(message.path() == getOscRootAddress() + "/position/y")
     {
-        pos.y = message.asInt32(0);
+        message.tryNumber(&pos.y, 0);
         return true;
     }
 
@@ -139,7 +131,7 @@ bool Image::processOscMessage(const osc::ReceivedMessage& message,
     else if(message.path() == getOscRootAddress() + "/center" &&
     		message.types() == "i")
     {
-        bDrawFromCenter = message.asBool(0);
+		message.tryBool(&bDrawFromCenter, 0);
         return true;
     }
 

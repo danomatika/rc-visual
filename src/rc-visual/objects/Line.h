@@ -62,44 +62,38 @@ class Line : public DrawableObject
             }
 
 
-            if(message.path() == getOscRootAddress() + "/position1" &&
-            	message.types() == "ii")
+            if(message.path() == getOscRootAddress() + "/position1")
             {
-                pos1.x = message.asInt32(0);
-                pos1.y = message.asInt32(1);
+                message.tryNumber(&pos1.x, 0);
+				message.tryNumber(&pos1.y, 1);
                 return true;
             }
-            else if(message.path() == getOscRootAddress() + "/position1/x" &&
-                	message.types() == "i")
+            else if(message.path() == getOscRootAddress() + "/position1/x")
             {
-                pos1.x = message.asInt32(0);
+                message.tryNumber(&pos1.x, 0);
                 return true;
             }
-            else if(message.path() == getOscRootAddress() + "/position1/y" &&
-                	message.types() == "i")
+            else if(message.path() == getOscRootAddress() + "/position1/y")
             {
-                pos1.y = message.asInt32(0);
+                message.tryNumber(&pos1.y, 0);
                 return true;
             }
 
 
-            else if(message.path() == getOscRootAddress() + "/position2" &&
-                	message.types() == "ii")
+            else if(message.path() == getOscRootAddress() + "/position2")
             {
-                pos2.x = message.asInt32(0);
-                pos2.y = message.asInt32(1);
+                message.tryNumber(&pos2.x, 0);
+				message.tryNumber(&pos2.y, 1);
                 return true;
             }
-            else if(message.path() == getOscRootAddress() + "/position2/x" &&
-                	message.types() == "i")
+            else if(message.path() == getOscRootAddress() + "/position2/x")
             {
-                pos2.x = message.asInt32(0);
+                message.tryNumber(&pos2.x, 0);
                 return true;
             }
-            else if(message.path() == getOscRootAddress() + "/position2/y" &&
-            		message.types() == "i")
+            else if(message.path() == getOscRootAddress() + "/position2/y")
             {
-                pos2.y = message.asInt32(0);
+                message.tryNumber(&pos2.y, 0);
                 return true;
             }
 

@@ -13,6 +13,8 @@ rc_visual_SOURCES = \
         main.cpp \
         Scene.h Scene.cpp \
         SceneManager.h SceneManager.cpp \
+		ResourceManager.h ResourceManager.cpp \
+		Util.h Util.cpp \
         objects/Bitmap.h \
         objects/Bitmap.cpp \
         objects/DrawableObject.h \
@@ -23,16 +25,17 @@ rc_visual_SOURCES = \
         objects/Sprite.h \
         objects/Sprite.cpp \
         objects/Image.h \
-        objects/Image.cpp 
+        objects/Image.cpp \
+        objects/Text.h
 
-# include paths
-rc_visual_CPPFLAGS = $(CXXFLAGS) $(SDL_CFLAGS) $(EXTERNALS_CFLAGS) \
-					-I$(top_srcdir)/src
+# include c++ flags
+rc_visual_CXXFLAGS = $(CXXFLAGS) $(SDL_CFLAGS) $(EXTERNALS_CFLAGS) \
+			-I$(top_srcdir)/src
 
 # local libs to link
 rc_visual_LDADD = $(EXTERNALS_LIBS)
 
 # libs to link
-rc_visual_LDFLAGS = $(SDL_LIBS) $(LO_LIBS) $(SDL_GFX_LIBS) $(SDL_NET_LIBS) $(SDL_TTF_LIBS) \
-					$(SDL_image_LIBS)
+rc_visual_LDFLAGS = $(SDL_LIBS) $(LO_LIBS) $(SDL_GFX_LIBS) $(SDL_NET_LIBS) \
+                        $(SDL_TTF_LIBS) $(SDL_image_LIBS)
 

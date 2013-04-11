@@ -22,7 +22,15 @@
 ==============================================================================*/
 #include "Sprite.h"
 
-using namespace visual;
+SpriteBitmap::SpriteBitmap(string name, string parentOscAddress) :
+	Bitmap(name, parentOscAddress), frameTime(0)
+{
+	// add variables to Xml
+	addXmlAttribute("frametime", "bitmap", XML_TYPE_UINT, &frameTime);
+	
+	// detach unneeded variables from Xml
+	removeXmlAttribute("name", "bitmap");
+}
 
 Sprite::Sprite(string name, string parentOscAddress) :
 	DrawableObject("sprite", name, parentOscAddress),
@@ -34,20 +42,15 @@ Sprite::Sprite(string name, string parentOscAddress) :
     addXmlAttribute("x", "position", XML_TYPE_FLOAT, &pos.x);
     addXmlAttribute("y", "position", XML_TYPE_FLOAT, &pos.y);
     addXmlAttribute("animate", "animation", XML_TYPE_BOOL, &bAnimate);
-    addXmlAttribute("loop", "animation",XML_TYPE_BOOL, &bLoop);
-    addXmlAttribute("pingpong", "animation",XML_TYPE_BOOL, &bPingPong);
-    addXmlAttribute("yesno", "center",XML_TYPE_BOOL, &bDrawFromCenter);
+    addXmlAttribute("loop", "animation", XML_TYPE_BOOL, &bLoop);
+    addXmlAttribute("pingpong", "animation", XML_TYPE_BOOL, &bPingPong);
+    addXmlAttribute("yesno", "center", XML_TYPE_BOOL, &bDrawFromCenter);
     addXmlAttribute("yesno", "overlay", XML_TYPE_BOOL, &bDrawAllLayers);
 
-    // detach variables from Xml
-    removeXmlAttribute("R", "color");
-    removeXmlAttribute("G", "color");
-    removeXmlAttribute("B", "color");
-    removeXmlAttribute("A", "color");
-    removeXmlAttribute("width", "size");
-    removeXmlAttribute("height", "size");
+    // detach unneeded variables from Xml
+	removeXmlElement("color");
 
-    timestamp = Graphics::getMillis();
+    timestamp = visual::Graphics::getMillis();
 }
 
 Sprite::~Sprite()
@@ -55,7 +58,7 @@ Sprite::~Sprite()
     clear();
 }
 
-void Sprite::addBitmap(Bitmap* bitmap)
+void Sprite::addBitmap(SpriteBitmap* bitmap)
 {
     if(bitmap == NULL)
     {
@@ -68,7 +71,7 @@ void Sprite::addBitmap(Bitmap* bitmap)
     bitmapList.push_back(bitmap);
 }
 
-void Sprite::removeBitmap(Bitmap* bitmap)
+void Sprite::removeBitmap(SpriteBitmap* bitmap)
 {
     if(bitmap == NULL)
     {
@@ -76,7 +79,7 @@ void Sprite::removeBitmap(Bitmap* bitmap)
         return;
     }
 
-    vector<Bitmap*>::iterator iter;
+    vector<SpriteBitmap*>::iterator iter;
     iter = find(bitmapList.begin(), bitmapList.end(), bitmap);
     if(iter != bitmapList.end())
     {
@@ -90,7 +93,7 @@ void Sprite::clear()
     /// delete all the bitmaps
     for(unsigned int i = 0; i < bitmapList.size(); ++i)
     {
-        Bitmap* b = bitmapList.at(i);
+        SpriteBitmap* b = bitmapList.at(i);
         delete b;
     }
     bitmapList.clear();
@@ -170,13 +173,13 @@ void Sprite::draw()
     if(bAnimate)
     {
         // go to next frame if time has elapsed
-        if(Graphics::getMillis() - timestamp > bitmapList.at(currentFrame)->getFrameTime())
+        if(visual::Graphics::getMillis() - timestamp > bitmapList.at(currentFrame)->getFrameTime())
         {
             if(bForward)
                 nextFrame();
             else
                 prevFrame();
-            timestamp = Graphics::getMillis();
+            timestamp = visual::Graphics::getMillis();
         }
     }
 
@@ -187,13 +190,13 @@ void Sprite::draw()
         {
             for(unsigned int i = 0; i < bitmapList.size(); ++i)
             {
-                Bitmap* b = bitmapList.at(i);
+                SpriteBitmap* b = bitmapList.at(i);
                 b->draw(pos.x, pos.y);
             }
         }
         else if(currentFrame >= 0 && currentFrame < (int) bitmapList.size())
         {
-            Bitmap* b = bitmapList.at(currentFrame);
+            SpriteBitmap* b = bitmapList.at(currentFrame);
             b->draw(pos.x, pos.y);
         }
     }
@@ -204,7 +207,7 @@ void Sprite::setDrawFromCenter(bool yesno)
 	bDrawFromCenter = yesno;
     for(unsigned int i = 0; i < bitmapList.size(); ++i)
     {
-        Bitmap* b = bitmapList.at(i);
+        SpriteBitmap* b = bitmapList.at(i);
         b->setDrawFromCenter(bDrawFromCenter);
     }
 }
@@ -218,23 +221,14 @@ bool Sprite::readXml(TiXmlElement* e)
     {
         if(child->ValueStr() == "bitmap")
         {
-            //if((name = Xml::getAttrString(child, "name")) != "")
-            //{
-            	name = Xml::getAttrString(child, "bitmap", Util::toString(bitmapList.size()));
-                LOG_DEBUG << "Sprite: Loading bitmap \"" << name << "\"" << std::endl;
+			name = Xml::getAttrString(child, "name", visual::Util::toString(bitmapList.size()));
+			LOG_DEBUG << "Sprite: Loading bitmap \"" << name << "\"" << std::endl;
 
-                Bitmap* b = new Bitmap(name, getOscRootAddress());
-                b->loadXml(child);
-                addBitmap(b);
-            //}
-            /*
-            else
-            {
-
-                LOG_WARN << "Sprite: Cannot load bitmap without name, line "
-                         << child->Row() << endl;
-            }
-            */
+			SpriteBitmap* b = new SpriteBitmap(name, getOscRootAddress());
+			if(b->loadXml(child))
+			{
+				addBitmap(b);
+			}
         }
 
         child = child->NextSiblingElement();
@@ -256,46 +250,44 @@ bool Sprite::processOscMessage(const osc::ReceivedMessage& message,
     }
 
 
-    if(message.path() == getOscRootAddress() + "/position" &&
-    	message.types() == "ii")
+    if(message.path() == getOscRootAddress() + "/position")
     {
-        pos.x = message.asInt32(0);
-        pos.y = message.asInt32(1);
+        message.tryNumber(&pos.x, 0);
+    	message.tryNumber(&pos.y, 1);
         return true;
     }
-    else if(message.path() == getOscRootAddress() + "/position/x" &&
-    		message.types() == "i")
+    else if(message.path() == getOscRootAddress() + "/position/x")
     {
-        pos.x = message.asInt32(0);
+        message.tryNumber(&pos.x, 0);
         return true;
     }
-    else if(message.path() == getOscRootAddress() + "/position/y" &&
-    		message.types() == "i")
+    else if(message.path() == getOscRootAddress() + "/position/y")
     {
-        pos.y = message.asInt32(0);
+        message.tryNumber(&pos.y, 0);
         return true;
     }
 
 
-    else if(message.path() == getOscRootAddress() + "/center" &&
-    		message.types() == "i")
+    else if(message.path() == getOscRootAddress() + "/center")
     {
-        setDrawFromCenter((bool) message.asInt32(0));
-        return true;
+		bool b = bDrawFromCenter;
+		if(message.tryBool(&b, 0))
+		{
+			setDrawFromCenter(b);
+        }
+		return true;
     }
 
 
-    else if(message.path() == getOscRootAddress() + "/animate" &&
-    		message.types() == "i")
+    else if(message.path() == getOscRootAddress() + "/animate")
     {
-        bAnimate = (bool) message.asInt32(0);
+		message.tryBool(&bAnimate, 0);
         return true;
     }
     
-    else if(message.path() == getOscRootAddress() + "/overlay" &&
-    		message.types() == "i")
+    else if(message.path() == getOscRootAddress() + "/overlay")
     {
-        bDrawAllLayers = (bool) message.asInt32(0);
+		message.tryBool(&bDrawFromCenter, 0);
         return true;
     }
 

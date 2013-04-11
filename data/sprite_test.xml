@@ -1,6 +1,7 @@
 <?xml version="1.0" standalone=no>
-<visual>
-	<group name="phatnphunky1">
+<rc-visual>
+	<scene name="phatnphunky1">
+		
 		<sprite name="bar1" width="12" height="4" frames="2">
 			<frame>
 			------------
@@ -32,10 +33,10 @@
 		    <position x="0" y="0"/>
 		    <animate yesno="0"/>
 			<visible yesno="1"/>
-		</sprite>
-	</group>
-	<group name="sfsdf">
-		<sprite name="bfdf" width="12" height="4" frames="1">
+		</bitmap>
+	</scene>
+	<scene name="sfsdf">
+		<bitmap name="bfdf" width="12" height="4" frames="1">
 			<frame>
 			-----------*
 			------------
@@ -47,6 +48,6 @@
 		    <position x="0" y="0"/>
 		    <animate yesno="0"/>
 			<visible yesno="1"/>
-		</sprite>
-	</group>
-</visual>
+		</bitmap>
+	</scene>
+</rc-visual>

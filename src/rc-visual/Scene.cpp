@@ -247,7 +247,7 @@ bool Scene::readXml(TiXmlElement* e)
             }
             else
             {
-                LOG_WARN << "Scene \"" << _name << "\": cannot load rect without name, line "
+                LOG_WARN << "Scene \"" << _name << "\": cannot load text without name, line "
                          << child->Row() << endl;
             }
         }

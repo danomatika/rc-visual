@@ -24,16 +24,13 @@
 
 #include <sstream>
 
-using namespace visual;
-
 Bitmap::Bitmap(string name, string parentOscAddress) :
 	DrawableObject("bitmap", name, parentOscAddress), 
-	bitmapWidth(1), bitmapHeight(1), frameTime(0),
+	bitmapWidth(1), bitmapHeight(1),
     pos(0, 0), width(1), height(1), pixelWidth(1), pixelHeight(1),
     bFilled(true), bDrawFromCenter(false)
 {
     // add variables to Xml
-    addXmlAttribute("frametime", "bitmap", XML_TYPE_UINT, &frameTime);
     addXmlAttribute("width", "bitmap", XML_TYPE_UINT, &bitmapWidth);
     addXmlAttribute("height", "bitmap", XML_TYPE_UINT, &bitmapHeight);
     addXmlAttribute("x", "position", XML_TYPE_FLOAT, &pos.x);
@@ -64,21 +61,21 @@ void Bitmap::draw(int x, int y)
             yPos = yPos - height/2;
         }
 
-        Graphics::stroke(color);
+        visual::Graphics::stroke(color);
         
         if(bFilled)
-        	Graphics::fill(color);
+        	visual::Graphics::fill(color);
         else
-        	Graphics::noFill();
+        	visual::Graphics::noFill();
 
-		Graphics::rectMode(CORNER);
+		visual::Graphics::rectMode(visual::CORNER);
         
         for(unsigned int _y = 0; _y < bitmapHeight; ++_y)
         {
             for(unsigned int _x = 0; _x < bitmapWidth; ++_x)
             {
                 if(bitmap.at(_y*bitmapWidth + _x))
-                	Graphics::rectangle(xPos, yPos, pixelWidth, pixelHeight);
+                	visual::Graphics::rectangle(xPos, yPos, pixelWidth, pixelHeight);
                     
                 xPos += pixelWidth;
             }
@@ -114,7 +111,7 @@ bool Bitmap::readXml(TiXmlElement* e)
         while(!frame.eof())
         {
             frame >> line;
-            cout << "       " << line << endl;
+            LOG << "       " << line << endl;
 
             stringstream chars(line);
 
@@ -132,7 +129,7 @@ bool Bitmap::readXml(TiXmlElement* e)
                         bitmap.push_back(false);
                         numPix++;
                         break;
-                    default:
+                    default: // ignore
                         break;
                 }
                 chars >> c;
@@ -140,7 +137,7 @@ bool Bitmap::readXml(TiXmlElement* e)
         }
 
         // correct size?
-        if(numPix != bitmapWidth*bitmapHeight)
+        if(numPix < bitmapWidth*bitmapHeight)
         {
             LOG_WARN << "Bitmap: Not enough pixels in frame: " << numPix
                      << ", need " << bitmapWidth*bitmapHeight << std::endl;
@@ -156,21 +153,28 @@ bool Bitmap::readXml(TiXmlElement* e)
 
 bool Bitmap::writeXml(TiXmlElement* e)
 {
+	if(bitmap.empty())
+		return true;
+		
     stringstream frame;
-    frame << std::endl;  // endl
+    frame << std::endl;
 
     // read through all the chars
-    for(unsigned int y = 0; y < height; ++y)
+    for(unsigned int y = 0; y < bitmapHeight; ++y)
     {
-        for(unsigned int x = 0; x < width; ++x)
+        for(unsigned int x = 0; x < bitmapWidth; ++x)
         {
-            if(bitmap[y*width + x])
-                frame << '*';   // filled
+            if(bitmap.at(y*bitmapWidth + x))
+                frame << '*';	// filled
             else
-                frame << '-';      // empty
+                frame << '-';	// empty
         }
-        frame << std::endl;  // endl
+        frame << std::endl;
     }
+	
+	// find element, add if it dosen't exit
+	TiXmlElement* child = Xml::obtainElement(e, "frame");
+	Xml::setText(child, frame.str());
 
     return true;
 }
@@ -185,46 +189,40 @@ bool Bitmap::processOscMessage(const osc::ReceivedMessage& message,
     }
 
 
-    if(message.path() == getOscRootAddress() + "/position" &&
-    	message.types() == "ii")
+    if(message.path() == getOscRootAddress() + "/position")
     {
-        pos.x = message.asInt32(0);
-        pos.y = message.asInt32(1);
+    	message.tryNumber(&pos.x, 0);
+    	message.tryNumber(&pos.y, 1);
         return true;
     }
-    else if(message.path() == getOscRootAddress() + "/position/x" &&
-    		message.types() == "i")
+    else if(message.path() == getOscRootAddress() + "/position/x")
     {
-        pos.x = message.asInt32(0);
+    	message.tryNumber(&pos.x, 0);
         return true;
     }
-    else if(message.path() == getOscRootAddress() + "/position/y" &&
-    		message.types() == "i")
+    else if(message.path() == getOscRootAddress() + "/position/y")
     {
-        pos.y = message.asInt32(0);
+    	message.tryNumber(&pos.y, 0);
         return true;
     }
     
 
-    else if(message.path() == getOscRootAddress() + "/size" &&
-    		message.types() == "ii")
+    else if(message.path() == getOscRootAddress() + "/size")
     {
-        width = message.asInt32(0);
-        height = message.asInt32(1);
+    	message.tryNumber(&width, 0);
+    	message.tryNumber(&height, 1);
         computePixelSize();
         return true;
     }
-    else if(message.path() == getOscRootAddress() + "/size/width" &&
-    		message.types() == "i")
+    else if(message.path() == getOscRootAddress() + "/size/width")
     {
-        width = message.asInt32(0);
+    	message.tryNumber(&width, 0);
         computePixelSize();
         return true;
     }
-    else if(message.path() == getOscRootAddress() + "/size/height" &&
-    		message.types() == "i")
+    else if(message.path() == getOscRootAddress() + "/size/height")
     {
-        height = message.asInt32(0);
+    	message.tryNumber(&height, 0);
         computePixelSize();
         return true;
     }
@@ -233,7 +231,7 @@ bool Bitmap::processOscMessage(const osc::ReceivedMessage& message,
     else if(message.path() == getOscRootAddress() + "/center" &&
     		message.types() == "i")
     {
-        bDrawFromCenter = (bool) message.asInt32(0);
+		message.tryBool(&bDrawFromCenter, 0);
         return true;
     }
 

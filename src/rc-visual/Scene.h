@@ -53,7 +53,7 @@ class Scene : public XmlObject, public OscObject
 
         string getName() {return _name;}
         visual::Color& getBackground() {return _background;}
-        int getFPS() {return _fps;}
+        int getFPS() {return _fps;} // returns -1 if not set
 
     protected:
 

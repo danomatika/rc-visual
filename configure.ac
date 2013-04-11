@@ -1,7 +1,8 @@
 #########################################
 ##### Prelude #####
 
-AC_INIT([rc-visual], [0.5.0], [danomatika@gmail.com])
+AC_PREREQ(2)
+AC_INIT([rc-visual], [0.5.1], [danomatika@gmail.com], [rc-visual], [https://github.com/danomatika/rc-visual])
 AC_CONFIG_SRCDIR([src/rc-visual/main.cpp])
 AC_CONFIG_AUX_DIR([config])
 AM_INIT_AUTOMAKE([-Wall -Werror foreign])
@@ -9,8 +10,11 @@ AM_INIT_AUTOMAKE([-Wall -Werror foreign])
 #########################################
 ##### Build Options #####
 
-DEBUG_CXXFLAGS="-g -Wall -Werror -Wno-uninitialized -O0"
-RELEASE_CXXFLAGS="-g -O2"
+# how to define path in cflags
+# http://stackoverflow.com/questions/7848333/setting-and-using-path-to-data-directory-with-gnu-autotools
+
+DEBUG_CXXFLAGS="-g -Wall -Werror -Wno-uninitialized -Wno-return-type -O0"
+RELEASE_CXXFLAGS="-g -O2 -DRESOURCE_DIR='\"$datadir/$PACKAGE\"'"
 
 #########################################
 ##### Check for programs/libs #####
@@ -22,6 +26,9 @@ AC_PROG_CC # needed for visualframework
 
 # using c++ compiler and linker
 AC_LANG_CPLUSPLUS
+
+# allow loading non-POSIX libs
+AM_PROG_AR
 
 # check for headers
 AC_HEADER_STDC
@@ -78,10 +85,16 @@ AC_ARG_ENABLE([debug],
 AC_MSG_RESULT([$enable_debug])
 
 if test x"$enable_debug" = x"yes"; then
-    AC_DEFINE([DEBUG],[],[Debug Mode])
+    AC_DEFINE([DEBUG], [], [Debug Mode])
     CXXFLAGS="$DEBUG_CXXFLAGS"
 else
-    AC_DEFINE([NDEBUG],[],[Release Mode])
+
+	# define data path to resources
+	AC_SUBST(datadir)
+	#dir=$datadir
+	#AC_DEFINE_UNQUOTED([DATA_PATH], \"$datadir/$PACKAGE\", [Data path to resources])
+
+    AC_DEFINE([NDEBUG], [], [Release Mode])
     CXXFLAGS="$RELEASE_CXXFLAGS"
 fi
 
@@ -106,6 +119,7 @@ AC_CONFIG_FILES([
 	src/Makefile
 	src/rc-visual/Makefile
 	src/rc-visual-send/Makefile
+	data/Makefile
 ])
 AC_OUTPUT
 
@@ -117,6 +131,6 @@ AC_MSG_RESULT([
 
 	Source directory:     $srcdir
 	Installation prefix:  $prefix
-	C++ compiler:         $CXX $CXXFLAGS
 	Debug build:          $enable_debug
+	C++ compiler:         $CXX $CXXFLAGS
 ])

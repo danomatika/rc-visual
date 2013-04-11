@@ -24,6 +24,10 @@
 
 #include <tclap/tclap.h>
 
+#if defined( __WIN32__ ) || defined( _WIN32 )
+	#include <windows.h>
+#endif
+
 Config& Config::instance()
 {
     static Config * pointerToTheSingletonInstance = new Config;
@@ -60,20 +64,25 @@ bool Config::parseCommandLine(int argc, char **argv)
         
         // add commands
         cmd.add(fileCmd);
-
+        
         // parse the commandline
         cmd.parse(argc, argv);
 
         // load the config file (if one exists)
         if(fileCmd.getValue() != "")
         {
-            setXmlFilename(fileCmd.getValue());
-            LOG << "Config: loading \"" << getXmlFilename() << "\"" << endl;
-    		loadXmlFile();
-    		closeXmlFile();
-        }
+			string filePath = visual::Util::makeAbsolutePath(fileCmd.getValue());
+            LOG << "Config: loading \"" << filePath << "\"" << endl;
+    		if(loadXmlFile(filePath))
+			{
+				// set data path to config file folder
+				visual::Util::setDataPath(visual::Util::getDirPath(filePath));
+		
+				closeXmlFile();
+			}
+		}
         
-        // set the variables
+        // set the variables, may override xml settings
         if(ipOpt.isSet())		 sendingIp = ipOpt.getValue();
         if(portOpt.isSet()) 	 sendingPort = portOpt.getValue();
         if(inputPortOpt.isSet()) listeningPort = inputPortOpt.getValue();

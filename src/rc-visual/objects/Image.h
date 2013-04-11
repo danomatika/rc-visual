@@ -32,7 +32,6 @@ class Image : public DrawableObject
     public:
 
         Image(string name, string parentOscAddress);
-        ~Image();
 
 		bool loadFile(string filename="");
 
@@ -42,8 +41,6 @@ class Image : public DrawableObject
         void draw(int x, int y);
 
         void setDrawFromCenter(bool yesno) {bDrawFromCenter = yesno;}
-
-        unsigned int getFrameTime() {return frameTime;}
 
     protected:
 
@@ -60,7 +57,6 @@ class Image : public DrawableObject
         visual::Image image;
 
 		string filename;
-        unsigned int frameTime;     /// how long to display in ms
         visual::Point pos;
         unsigned int width, height;
         bool bDrawFromCenter;       /// draw from the center using pos
