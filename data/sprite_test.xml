@@ -2,7 +2,7 @@
 <rc-visual>
 	<scene name="phatnphunky1">
 		
-		<sprite name="bar1" width="12" height="4" frames="2">
+		<bitmap name="bar1" width="12" height="4" frames="2">
 			<frame>
 			------------
 			------------
@@ -20,8 +20,8 @@
 		    <position x="0" y="0"/>
 		    <animate yesno="1"/>
 			<visible yesno="1"/>
-		</sprite>
-		<sprite name="bar2" width="12" height="4" frames="1">
+		</bitmap>
+		<bitmap name="bar2" width="12" height="4" frames="1">
 			<frame>
 			*----------*
 			------------
