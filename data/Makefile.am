@@ -3,7 +3,7 @@
 thisdir = $(srcdir)
 
 # include doc files
-dist_docfiles_DATA = example.xml sprite_test.xml
+dist_docfiles_DATA = example.xml
 docfilesdir = $(docdir)
 
 # include static resource files
