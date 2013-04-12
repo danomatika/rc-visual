@@ -48,7 +48,7 @@
 			</frame>
 		</bitmap>
 	
-		<sprite name="sprite">
+		<sprite name="sprite1">
 			<position x="320" y="240"/>
 			<animation animate="1" loop="1" pingpong="1"/>
 			<center yesno="1"/>
@@ -87,17 +87,45 @@
 				</frame>
 			</bitmap>
 		</sprite>
-	</scene>
+	
+        <sprite name="sprite1">
+            <position x="480" y="120"/>
+            <size width="200" height="200"/>
+            <animation animate="1" loop="1" pingpong="1"/>
+            <center yesno="1"/>
+            <overlay yesno="0"/>
+            <image frametime="100" file="animation/frame1.gif"/>
+            <image frametime="100" file="animation/frame2.gif"/>
+            <image frametime="100" file="animation/frame3.gif"/>
+            <image frametime="100" file="animation/frame4.gif"/>
+            <image frametime="100" file="animation/frame5.gif"/>
+            <image frametime="100" file="animation/frame6.gif"/>
+            <image frametime="200" file="animation/frame7.gif"/>
+        </sprite>
+
+    </scene>
 
 	<scene name="scene3">
 		<background R="64" G="64" B="64" A="255"/>
 		
-		<image name="image" file="icon.png">
+		<image name="image1" file="icon.png">
 			<position x="100" y="100"/>
 			<size width="50" height="50"/>
 			<center yesno="0"/>
 			<visible yesno="1"/>
 		</image>
+        <image name="image2" file="icon.png">
+            <position x="150" y="150"/>
+            <size width="50" height="50"/>
+            <center yesno="0"/>
+            <visible yesno="1"/>
+        </image>
+        <image name="image3" file="icon.png">
+            <position x="200" y="200"/>
+            <size width="50" height="50"/>
+            <center yesno="0"/>
+            <visible yesno="1"/>
+        </image>
 
 		<text name="text">
 			<position x="320" y="240"/>

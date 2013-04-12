@@ -38,6 +38,7 @@ class Text : public DrawableObject
             addXmlAttribute("x", "position", XML_TYPE_FLOAT, &pos.x);
             addXmlAttribute("y", "position", XML_TYPE_FLOAT, &pos.y);
             addXmlAttribute("yesno", "center", XML_TYPE_BOOL, &bDrawFromCenter);
+			addXmlElement("string", &text);
         }
 
         void draw()
@@ -57,6 +58,8 @@ class Text : public DrawableObject
 				}
             }
         }
+		
+		string getType() {return "text";}
 
     protected:
 
@@ -104,27 +107,6 @@ class Text : public DrawableObject
 
             return false;
         }
-
-		bool readXml(TiXmlElement* e)
-		{
-			TiXmlElement* child = Xml::getElement(e, "string");
-			if(child != NULL)
-			{    
-				text = Xml::getText(child);
-				return true;
-			}
-			else {
-				LOG_WARN << "Text " << name << ": string element empty" << endl;
-			}
-			return false;
-		}
-		
-		bool writeXml(TiXmlElement* e)
-		{
-			TiXmlElement* child = Xml::obtainElement(e, "string");
-			Xml::setText(child, text);
-			return true;
-		}
 
         visual::Point pos;
         string text;

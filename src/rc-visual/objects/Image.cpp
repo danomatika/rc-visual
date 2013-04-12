@@ -23,7 +23,7 @@
 #include "Image.h"
 
 Image::Image(string name, string parentOscAddress) :
-	DrawableObject("image", name, parentOscAddress),
+	DrawableObject("image", name, parentOscAddress), image(NULL),
     pos(0, 0), width(0), height(0), bDrawFromCenter(false)
 {
     // add variables to Xml
@@ -42,31 +42,35 @@ bool Image::loadFile(string filename)
 {
 	if(filename == "")
     	filename = this->filename;
-       
-	image.load(visual::Util::toDataPath(filename));
-    if(!image.isLoaded()) {
+	
+	if(!Config::instance().getResourceManager().addImage(filename, visual::Util::toDataPath(filename)))
+	{
 		LOG_WARN << "Image: \"" << name << "\" couldn't load \""
 				 << filename << "\"" << std::endl;
     	return false;
 	}
+	image = Config::instance().getResourceManager().getImage(filename);
 
-    if(width == 0)	width = image.width();
-    if(height == 0) height = image.height();
+    if(width == 0)	width = image->width();
+    if(height == 0) height = image->height();
+	
+	LOG << "Image: loaded \"" << filename << "\" "
+			  << width << "x" << height << endl;
 		  
-    // resize if needed
-    if(image.width() != width || image.height() != height)
-    {
-    	LOG_DEBUG << "Image: \"" << name << "\" resized to "
-        		  << width << "x" << height << std::endl;
-        image.resize(width, height);
-    }
+   resizeIfNecessary();
 
     return true;
 }
 
 void Image::setup()
 {
-	loadFile();
+	if(Config::instance().getResourceManager().imageExists(filename))
+	{
+		image = Config::instance().getResourceManager().getImage(filename);
+	}
+	else {
+		loadFile();
+	}
 }
 
 void Image::draw()
@@ -76,7 +80,7 @@ void Image::draw()
 
 void Image::draw(int x, int y)
 {
-    if(!image.isLoaded())
+    if(!image || !image->isLoaded())
         return;
 
     if(bVisible)
@@ -86,8 +90,28 @@ void Image::draw(int x, int y)
         else
             visual::Graphics::textureMode(visual::CORNER);
 
-        image.draw(x, y);
+        image->draw(x, y);
     }    
+}
+
+void Image::setSize(unsigned int w, unsigned int h)
+{
+	width = w;
+	height = h;
+	resizeIfNecessary();
+}
+
+/* ***** PROTECTED ***** */
+
+void Image::resizeIfNecessary()
+{
+	 // resize if needed
+    if(image->width() != width || image->height() != height)
+    {
+    	LOG_DEBUG << "Image: \"" << name << "\" resized to "
+        		  << width << "x" << height << std::endl;
+        image->resize(width, height);
+    }
 }
 
 bool Image::readXml(TiXmlElement* e)
@@ -124,6 +148,27 @@ bool Image::processOscMessage(const osc::ReceivedMessage& message,
     else if(message.path() == getOscRootAddress() + "/position/y")
     {
         message.tryNumber(&pos.y, 0);
+        return true;
+    }
+	
+	
+	else if(message.path() == getOscRootAddress() + "/size")
+    {
+    	message.tryNumber(&width, 0);
+    	message.tryNumber(&height, 1);
+        resizeIfNecessary();
+        return true;
+    }
+    else if(message.path() == getOscRootAddress() + "/size/width")
+    {
+    	message.tryNumber(&width, 0);
+        resizeIfNecessary();
+        return true;
+    }
+    else if(message.path() == getOscRootAddress() + "/size/height")
+    {
+    	message.tryNumber(&height, 0);
+        resizeIfNecessary();
         return true;
     }
 

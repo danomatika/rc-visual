@@ -22,6 +22,7 @@
 ==============================================================================*/
 #include "Config.h"
 
+#include "App.h"
 #include <tclap/tclap.h>
 
 #if defined( __WIN32__ ) || defined( _WIN32 )
@@ -73,7 +74,9 @@ bool Config::parseCommandLine(int argc, char **argv)
         {
 			string filePath = visual::Util::makeAbsolutePath(fileCmd.getValue());
             LOG << "Config: loading \"" << filePath << "\"" << endl;
-    		if(loadXmlFile(filePath))
+			
+			App *app = (App*) _app;
+    		if(app->getSceneManager().loadXmlFile(filePath))
 			{
 				// set data path to config file folder
 				visual::Util::setDataPath(visual::Util::getDirPath(filePath));
@@ -114,7 +117,7 @@ void Config::print()
 /* ***** PRIVATE ***** */
 
 Config::Config() :
-	XmlObject(PACKAGE),
+	XmlObject(""),
 	listeningPort(9990),
     sendingIp("127.0.0.1"), sendingPort(8880),
 	baseAddress((string) "/"+PACKAGE),

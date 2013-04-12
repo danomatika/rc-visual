@@ -90,6 +90,13 @@ void Bitmap::draw(int x, int y)
     }
 }
 
+void Bitmap::setSize(unsigned int w, unsigned int h)
+{
+	width = w;
+	height = h;
+	computePixelSize();
+}
+
 /* ***** PROTECTED ***** */
 
 void Bitmap::computePixelSize()

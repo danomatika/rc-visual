@@ -49,6 +49,8 @@ class Line : public DrawableObject
                 visual::Graphics::line(pos1.x, pos1.y, pos2.x, pos2.y);
             }
         }
+		
+		string getType() {return "line";}
 
     protected:
 

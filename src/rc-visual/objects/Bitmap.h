@@ -37,8 +37,10 @@ class Bitmap : public DrawableObject
         void draw(int x, int y);
 
         void setBitmap(vector<bool> bitmap) {this->bitmap = bitmap;}
-
+		void setSize(unsigned int w, unsigned int h);
         void setDrawFromCenter(bool yesno) {bDrawFromCenter = yesno;}
+		
+		string getType() {return "bitmap";}
 
     protected:
     

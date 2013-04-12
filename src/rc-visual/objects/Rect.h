@@ -63,6 +63,8 @@ class Rect : public DrawableObject
 				visual::Graphics::rectangle(pos.x, pos.y, width, height);
             }
         }
+		
+		string getType() {return "rect";}
 
     protected:
 

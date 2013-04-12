@@ -2,7 +2,7 @@
 ##### Prelude #####
 
 AC_PREREQ(2)
-AC_INIT([rc-visual], [0.5.1], [danomatika@gmail.com], [rc-visual], [https://github.com/danomatika/rc-visual])
+AC_INIT([rc-visual], [0.5.2], [danomatika@gmail.com], [rc-visual], [https://github.com/danomatika/rc-visual])
 AC_CONFIG_SRCDIR([src/rc-visual/main.cpp])
 AC_CONFIG_AUX_DIR([config])
 AM_INIT_AUTOMAKE([-Wall -Werror foreign])

@@ -28,13 +28,11 @@
 #include "Config.h"
 #include "Scene.h"
 
-class App;
-
 class SceneManager : public XmlObject, public OscObject
 {
     public:
 
-        SceneManager(App& app);
+        SceneManager();
         virtual ~SceneManager();
 
         /// add an object
@@ -83,8 +81,6 @@ class SceneManager : public XmlObject, public OscObject
                                const osc::MessageSource& source);
 
     private:
-
-		App& _app;
 
         int _currentScene;
         vector<Scene*> _objectList;

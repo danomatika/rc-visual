@@ -87,6 +87,10 @@ class Config : public xml::XmlObject
 		
 		// get the global resources
 		inline ResourceManager& getResourceManager()	{return _resourceManager;}
+		
+		// get the app instance
+		inline void setApp(visual::Application *app)	{_app = app;}
+		inline visual::Application* getApp()			{return _app;}
 
     private:
 
@@ -96,6 +100,8 @@ class Config : public xml::XmlObject
         visual::Font _font;				///< global font
 		
 		ResourceManager _resourceManager;	///< global resources
+				
+		visual::Application* _app; ///< global app instance
         
         // hide all the constructors, copy functions here
         Config();                       // cannot create

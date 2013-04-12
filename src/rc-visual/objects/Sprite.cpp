@@ -22,25 +22,31 @@
 ==============================================================================*/
 #include "Sprite.h"
 
-SpriteBitmap::SpriteBitmap(string name, string parentOscAddress) :
-	Bitmap(name, parentOscAddress), frameTime(0)
+SpriteFrame::SpriteFrame(DrawableObject *object): frameTime(100), o(object)
 {
 	// add variables to Xml
-	addXmlAttribute("frametime", "bitmap", XML_TYPE_UINT, &frameTime);
+	o->addXmlAttribute("frametime", o->getType(), XML_TYPE_UINT, &frameTime);
 	
 	// detach unneeded variables from Xml
-	removeXmlAttribute("name", "bitmap");
+	o->removeXmlAttribute("name", o->getType());
+}
+
+SpriteFrame::~SpriteFrame()
+{
+	if(o) delete o;
 }
 
 Sprite::Sprite(string name, string parentOscAddress) :
 	DrawableObject("sprite", name, parentOscAddress),
-    pos(0, 0), bAnimate(true), bLoop(true), bPingPong(true),
+    pos(0, 0), width(0), height(0), bAnimate(true), bLoop(true), bPingPong(true),
     bDrawFromCenter(false), bDrawAllLayers(false),
     currentFrame(0), timestamp(0), bForward(true)
 {
     // add variables to Xml
     addXmlAttribute("x", "position", XML_TYPE_FLOAT, &pos.x);
     addXmlAttribute("y", "position", XML_TYPE_FLOAT, &pos.y);
+	addXmlAttribute("width", "size", XML_TYPE_UINT, &width);
+    addXmlAttribute("height", "size", XML_TYPE_UINT, &height);
     addXmlAttribute("animate", "animation", XML_TYPE_BOOL, &bAnimate);
     addXmlAttribute("loop", "animation", XML_TYPE_BOOL, &bLoop);
     addXmlAttribute("pingpong", "animation", XML_TYPE_BOOL, &bPingPong);
@@ -58,60 +64,60 @@ Sprite::~Sprite()
     clear();
 }
 
-void Sprite::addBitmap(SpriteBitmap* bitmap)
+void Sprite::addFrame(SpriteFrame* frame)
 {
-    if(bitmap == NULL)
+    if(frame == NULL)
     {
-        LOG_ERROR << "Sprite: Cannot add NULL bitmap" << endl;
+        LOG_ERROR << "Sprite: Cannot add NULL frame" << endl;
         return;
     }
 
-    addXmlObject(bitmap);
-
-    bitmapList.push_back(bitmap);
+    addXmlObject(frame->getObject());
+    frames.push_back(frame);
 }
 
-void Sprite::removeBitmap(SpriteBitmap* bitmap)
+void Sprite::removeFrame(SpriteFrame* frame)
 {
-    if(bitmap == NULL)
+    if(frame == NULL)
     {
-        LOG_ERROR << "Sprite: Cannot remove NULL bitmap" << endl;
+        LOG_ERROR << "Sprite: Cannot remove NULL frame" << endl;
         return;
     }
 
-    vector<SpriteBitmap*>::iterator iter;
-    iter = find(bitmapList.begin(), bitmapList.end(), bitmap);
-    if(iter != bitmapList.end())
+    vector<SpriteFrame*>::iterator iter;
+    iter = find(frames.begin(), frames.end(), frame);
+    if(iter != frames.end())
     {
-        removeXmlObject((*iter));
-        bitmapList.erase(iter);
+        removeXmlObject((*iter)->getObject());
+		delete (*iter);
+        frames.erase(iter);
     }
 }
 
 void Sprite::clear()
 {
-    /// delete all the bitmaps
-    for(unsigned int i = 0; i < bitmapList.size(); ++i)
+    /// delete all frames
+    for(unsigned int i = 0; i < frames.size(); ++i)
     {
-        SpriteBitmap* b = bitmapList.at(i);
-        delete b;
+        SpriteFrame* f = frames.at(i);
+        delete f;
     }
-    bitmapList.clear();
+    frames.clear();
 }
 
 void Sprite::nextFrame()
 {
-    if(bitmapList.size() < 2)
+    if(frames.size() < 2)
         return;
 
     currentFrame++;
 
-    if(currentFrame >= (int) bitmapList.size())
+    if(currentFrame >= (int) frames.size())
     {
         if(bPingPong)
         {
             bForward = false;
-            currentFrame = bitmapList.size()-2;
+            currentFrame = frames.size()-2;
         }
         else
          currentFrame = 0;
@@ -120,7 +126,7 @@ void Sprite::nextFrame()
 
 void Sprite::prevFrame()
 {
-    if(bitmapList.size() < 2)
+    if(frames.size() < 2)
         return;
 
     currentFrame--;
@@ -134,14 +140,14 @@ void Sprite::prevFrame()
         }
         else
         {
-            currentFrame = bitmapList.size()-1;
+            currentFrame = frames.size()-1;
         }
     }
 }
 
 void Sprite::gotoFrame(unsigned int num)
 {
-    if(currentFrame >= (int) bitmapList.size())
+    if(currentFrame >= (int) frames.size())
     {
         LOG_WARN << "Sprite: Cannot goto frame num " << num
                  << ", index out of range" << endl;
@@ -153,9 +159,9 @@ void Sprite::gotoFrame(unsigned int num)
 
 void Sprite::gotoFrame(string name)
 {
-    for(unsigned int i = 0; i < bitmapList.size(); ++i)
+    for(unsigned int i = 0; i < frames.size(); ++i)
     {
-        if(name == bitmapList.at(i)->getName())
+        if(name == frames.at(i)->getName())
         {
             currentFrame = i;
 
@@ -164,16 +170,29 @@ void Sprite::gotoFrame(string name)
     }
 }
 
+void Sprite::setup()
+{
+	for(unsigned int i = 0; i < frames.size(); ++i)
+	{
+		frames[i]->setup();
+		
+		if(width != 0 && height != 0)
+		{
+			frames[i]->getObject()->setSize(width, height);
+		}
+	}
+}
+
 void Sprite::draw()
 {
-    if(bitmapList.empty())
+    if(frames.empty())
         return;
 
     // animate frames?
     if(bAnimate)
     {
         // go to next frame if time has elapsed
-        if(visual::Graphics::getMillis() - timestamp > bitmapList.at(currentFrame)->getFrameTime())
+        if(visual::Graphics::getMillis() - timestamp > frames.at(currentFrame)->getFrameTime())
         {
             if(bForward)
                 nextFrame();
@@ -188,27 +207,39 @@ void Sprite::draw()
     {
         if(bDrawAllLayers)
         {
-            for(unsigned int i = 0; i < bitmapList.size(); ++i)
+            for(unsigned int i = 0; i < frames.size(); ++i)
             {
-                SpriteBitmap* b = bitmapList.at(i);
-                b->draw(pos.x, pos.y);
+                SpriteFrame* f = frames.at(i);
+                f->draw(pos.x, pos.y);
             }
         }
-        else if(currentFrame >= 0 && currentFrame < (int) bitmapList.size())
+        else if(currentFrame >= 0 && currentFrame < (int) frames.size())
         {
-            SpriteBitmap* b = bitmapList.at(currentFrame);
-            b->draw(pos.x, pos.y);
+			SpriteFrame* f = frames.at(currentFrame);
+            f->draw(pos.x, pos.y);
         }
     }
+}
+
+void Sprite::resizeIfNecessary()
+{
+	if(width != 0 && height != 0)
+	{
+		for(unsigned int i = 0; i < frames.size(); ++i)
+		{
+			SpriteFrame* f = frames.at(i);
+			f->getObject()->setSize(width, height);
+		}
+	}
 }
 
 void Sprite::setDrawFromCenter(bool yesno)
 {
 	bDrawFromCenter = yesno;
-    for(unsigned int i = 0; i < bitmapList.size(); ++i)
+    for(unsigned int i = 0; i < frames.size(); ++i)
     {
-        SpriteBitmap* b = bitmapList.at(i);
-        b->setDrawFromCenter(bDrawFromCenter);
+        SpriteFrame* f = frames.at(i);
+        f->getObject()->setDrawFromCenter(bDrawFromCenter);
     }
 }
 
@@ -221,13 +252,24 @@ bool Sprite::readXml(TiXmlElement* e)
     {
         if(child->ValueStr() == "bitmap")
         {
-			name = Xml::getAttrString(child, "name", visual::Util::toString(bitmapList.size()));
+			name = Xml::getAttrString(child, "name", visual::Util::toString(frames.size()));
 			LOG_DEBUG << "Sprite: Loading bitmap \"" << name << "\"" << std::endl;
 
-			SpriteBitmap* b = new SpriteBitmap(name, getOscRootAddress());
-			if(b->loadXml(child))
+			SpriteFrame* f = new SpriteFrame(new Bitmap(name, getOscRootAddress()));
+			if(f->getObject()->loadXml(child))
 			{
-				addBitmap(b);
+				addFrame(f);
+			}
+        }
+		else if(child->ValueStr() == "image")
+        {
+			name = Xml::getAttrString(child, "name", visual::Util::toString(frames.size()));
+			LOG_DEBUG << "Sprite: Loading image \"" << name << "\"" << std::endl;
+
+			SpriteFrame* f = new SpriteFrame(new Image(name, getOscRootAddress()));
+			if(f->getObject()->loadXml(child))
+			{
+				addFrame(f);
 			}
         }
 
@@ -264,6 +306,27 @@ bool Sprite::processOscMessage(const osc::ReceivedMessage& message,
     else if(message.path() == getOscRootAddress() + "/position/y")
     {
         message.tryNumber(&pos.y, 0);
+        return true;
+    }
+	
+	
+	else if(message.path() == getOscRootAddress() + "/size")
+    {
+    	message.tryNumber(&width, 0);
+    	message.tryNumber(&height, 1);
+        resizeIfNecessary();
+        return true;
+    }
+    else if(message.path() == getOscRootAddress() + "/size/width")
+    {
+    	message.tryNumber(&width, 0);
+        resizeIfNecessary();
+        return true;
+    }
+    else if(message.path() == getOscRootAddress() + "/size/height")
+    {
+    	message.tryNumber(&height, 0);
+        resizeIfNecessary();
         return true;
     }
 

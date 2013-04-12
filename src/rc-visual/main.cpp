@@ -23,6 +23,7 @@
 
 #include "Common.h"
 
+#include "Config.h"
 #include "App.h"
 
 using namespace visual;

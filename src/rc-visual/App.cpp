@@ -26,18 +26,16 @@
 
 using namespace visual;
 
-App* appPtr;
-
 // TODO: save config file so config settings are saved to XML
 
 App::App() : OscObject(""), bRunning(true),
-	config(Config::instance()),
+	config(Config::instance()), bSceneFileIsConfigFile(false),
     receiver(Config::instance().getOscReceiver()),
     sender(Config::instance().getOscSender()),
-    sceneManager(*this),
     reloadTimestamp(0), saveTimestamp(0)
 {
-	appPtr = this;
+	// set global app pointer
+	config.setApp(this);
 
     // set osc addresses
     setOscRootAddress(Config::instance().baseAddress);
@@ -50,14 +48,12 @@ App::App() : OscObject(""), bRunning(true),
     receiver.addOscObject(&sceneManager);
     
     // add xml objects
-    config.addXmlObject(&sceneManager);
+    sceneManager.addXmlObject(&config);
+	bSceneFileIsConfigFile = true;
     
     reloadTimestamp = Graphics::getMillis();
 	saveTimestamp = Graphics::getMillis();
 }
-
-App::~App()
-{}
 
 bool App::init()
 {
@@ -181,7 +177,8 @@ void App::keyPressed(SDLKey key, SDLMod mod)
                 if(Graphics::getMillis() - saveTimestamp > 5000)
                 {
                     LOG << "Saving xml file: " << Util::getFileName(sceneManager.getXmlFilename()) << endl;
-                    sceneManager.saveXmlFile();
+					sceneManager.saveXmlFile();
+					
 					saveTimestamp = Graphics::getMillis();
                     return;
                 }
@@ -243,6 +240,12 @@ bool App::processOscMessage(const osc::ReceivedMessage& message,
 
 	else if(message.path() == getOscRootAddress() + "/file" && message.types() == "s")
     {
+		if(bSceneFileIsConfigFile)
+		{
+			// don't save config data to new file
+			sceneManager.removeXmlObject(&config);
+			bSceneFileIsConfigFile = false;
+		}
         sceneManager.loadXmlFile(message.asString(0));
         return true;
     }
@@ -277,6 +280,6 @@ bool App::processOscMessage(const osc::ReceivedMessage& message,
 
 void App::signalExit(int signal)
 {
-	appPtr->exitMainLoop();
+	Config::instance().getApp()->exitMainLoop();
     LOG << endl << "    " << PACKAGE << ": Signal caught.  Exiting ..." << endl;
 }

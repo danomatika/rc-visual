@@ -88,8 +88,8 @@
 				3B712F701DEC001296293206 /* Objects.h */,
 				03075227352B001296293206 /* Pixel.h */,
 				3CC151D9360B001296293206 /* Rect.h */,
-				1243713F02DB001296293206 /* Sprite.cpp */,
 				1BB733CE2B79001296293206 /* Sprite.h */,
+				1243713F02DB001296293206 /* Sprite.cpp */,
 			);
 			path = objects;
 			sourceTree = "<group>";

@@ -47,6 +47,8 @@ class Pixel : public DrawableObject
                 visual::Graphics::point(pos.x, pos.y);
             }
         }
+		
+		string getType() {return "pixel";}
 
     protected:
 

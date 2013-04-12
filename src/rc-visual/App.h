@@ -33,7 +33,6 @@ class App : public visual::Application, public OscObject
     public:
 
         App();
-        virtual ~App();
 
         bool init();
 
@@ -48,6 +47,8 @@ class App : public visual::Application, public OscObject
         void keyPressed(SDLKey key, SDLMod mod);
         
         inline void stop() {bRunning = false;}
+		
+		SceneManager& getSceneManager() {return sceneManager;}
         
     protected:
 
@@ -60,12 +61,13 @@ class App : public visual::Application, public OscObject
 
     private:
 
-        bool bRunning;  // running or paused?
+        bool bRunning;  //< running or paused?
 
-        Config& config;	/// config reference
-        
-        OscReceiver receiver;
-        OscSender sender;
+        Config& config;	//< config reference
+		bool bSceneFileIsConfigFile; //< was the current scene file loaded with the config?
+									 //< this will change to false once a scene is loaded separately
+        OscReceiver& receiver;
+        OscSender& sender;
         
         SceneManager sceneManager;
 

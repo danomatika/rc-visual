@@ -27,19 +27,57 @@
 
 #include "DrawableObject.h"
 #include "Bitmap.h"
+#include "Image.h"
 
-/// a bitmap with frametime
-class SpriteBitmap : public Bitmap
-{
+// one frame in the sprite
+struct SpriteFrame  {
+
 	public:
-		SpriteBitmap(string name, string parentOscAddress);
 	
-		unsigned int getFrameTime() {return frameTime;}
+		SpriteFrame(DrawableObject *object);
+		~SpriteFrame();
+	
+		virtual void setup()			{o->setup();}
+		virtual void draw(int x, int y)	{o->draw(x, y);}
+		virtual string getName()		{return o->getName();}
+		
+		void resize(unsigned int width, unsigned int height);
+	
+		unsigned int getFrameTime()	{return frameTime;}
+		
+		DrawableObject* getObject()	{return o;}
 	
 	protected:
 	
-		unsigned int frameTime;     /// how long to display in ms
+		unsigned int frameTime;
+		DrawableObject *o;
 };
+
+//// base class for an object with frametime
+//class SpriteObject {
+//	
+//	public:
+//	
+//		unsigned int getFrameTime()	{return frameTime;}
+//	
+//	protected:
+//	
+//		unsigned int frameTime;
+//};
+//
+//// frame object types
+//class SpriteBitmap : public SpriteObject, public Bitmap {
+//	
+//	public:
+//	
+//		SpriteBitmap(string name, string parentOscAddress);
+//};
+//class SpriteImage : public SpriteObject, public Image {
+//	
+//	public:
+//	
+//		SpriteImage(string name, string parentOscAddress);
+//};
 
 class Sprite : public DrawableObject
 {
@@ -48,8 +86,8 @@ class Sprite : public DrawableObject
         Sprite(string name, string parentOscAddress);
         ~Sprite();
 
-        void addBitmap(SpriteBitmap* bitmap);
-        void removeBitmap(SpriteBitmap* bitmap);
+        void addFrame(SpriteFrame* frame);
+        void removeFrame(SpriteFrame* frame);
         void clear();
 
         void nextFrame();
@@ -57,12 +95,17 @@ class Sprite : public DrawableObject
         void gotoFrame(unsigned int num);
         void gotoFrame(string name);
 
+		void setup();
         void draw();
+		
+		string getType() {return "sprite";}
 
         void setDrawFromCenter(bool yesno);
         void setDrawAllLayers(bool yesno) {bDrawAllLayers = yesno;}
 
     protected:
+
+		void resizeIfNecessary();
 
         /* ***** XML CALLBACKS ***** */
 
@@ -73,9 +116,15 @@ class Sprite : public DrawableObject
         bool processOscMessage(const osc::ReceivedMessage& message,
         					   const osc::MessageSource& source);
 
-        std::vector<SpriteBitmap*> bitmapList;
+		struct SpriteObject
+		{
+			DrawableObject *object;		/// object to draw
+			unsigned int frameTime;     /// how long to display in ms
+		};
+        std::vector<SpriteFrame*> frames;
 
         visual::Point pos;
+		unsigned int width, height;
         bool bAnimate;
         bool bLoop;
         bool bPingPong;

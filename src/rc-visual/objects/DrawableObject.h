@@ -50,8 +50,13 @@ class DrawableObject : public XmlObject, public OscObject
 
 		virtual void setup() {};
         virtual void draw() = 0;
+		virtual void draw(int x, int y) {}
+		
+		virtual void setSize(unsigned int width, unsigned int height) {}
+		virtual void setDrawFromCenter(bool yesno) {}
 
         string getName() {return name;}
+		virtual string getType() = 0;
 
     protected:
 

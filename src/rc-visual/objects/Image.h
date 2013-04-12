@@ -40,9 +40,15 @@ class Image : public DrawableObject
         void draw();
         void draw(int x, int y);
 
+		void setSize(unsigned int w, unsigned int h);
         void setDrawFromCenter(bool yesno) {bDrawFromCenter = yesno;}
+		
+		string getType() {return "image";}
 
     protected:
+
+		// resize the image if needed
+    	void resizeIfNecessary();
 
         /* ***** XML CALLBACKS ***** */
 
@@ -54,7 +60,7 @@ class Image : public DrawableObject
         bool processOscMessage(const osc::ReceivedMessage& message,
         					   const osc::MessageSource& source);
         
-        visual::Image image;
+        visual::Image* image;
 
 		string filename;
         visual::Point pos;

@@ -46,7 +46,7 @@ class XmlObject
     public:
 
 		/// set the xml element name, if the element is empty the element name of the parent is used
-        XmlObject(std::string elementName);
+        XmlObject(std::string elementName="");
         virtual ~XmlObject();
 
         /* ***** LOAD ***** */

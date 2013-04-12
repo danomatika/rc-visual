@@ -78,9 +78,8 @@ bool XmlObject::loadXml(TiXmlElement* e)
         {
             child = e;
         }
-        else    // try to find a child with the same element name
+        else // try to find a child with the same element name
         {
-
             child = Xml::getElement(e, elem->name);
         }
 
@@ -219,7 +218,7 @@ bool XmlObject::saveXml(TiXmlElement* e)
     }
 
     // check if the element is correct
-    if(e->ValueStr() != m_elementName)
+    if(!m_elementName.empty() && e->ValueStr() != m_elementName)
     {
         LOG_WARN << "Xml \"" << m_elementName << "\": xml element value is not \""
                  << m_elementName << "\"" << std::endl;
@@ -255,8 +254,7 @@ bool XmlObject::saveXml(TiXmlElement* e)
         // set the element's text if any
         if(elem->text != NULL)
         {
-            TiXmlText* text = new TiXmlText(*elem->text);
-            child->LinkEndChild(text);
+            Xml::setText(child, *elem->text);
         }
 
         // save the element's attached attributes
@@ -290,23 +288,31 @@ bool XmlObject::saveXml(TiXmlElement* e)
         }
         else // exists
         {
-            // try to find element name in map
-            std::map<std::string, int>::iterator iter = elementMap.find((*objectIter)->getXmlName());
-            if(iter == elementMap.end())
+            // if the object has an element name, find that element
+            if(!(*objectIter)->getXmlName().empty())
             {
-                // not found, so add element name to map
-                elementMap.insert(make_pair((*objectIter)->getXmlName(), 0));
-                iter = elementMap.find((*objectIter)->getXmlName());
+                // try to find element name in map
+                std::map<std::string, int>::iterator iter = elementMap.find((*objectIter)->getXmlName());
+                if(iter == elementMap.end())
+                {
+                    // not found, so add element name to map
+                    elementMap.insert(make_pair((*objectIter)->getXmlName(), 0));
+                    iter = elementMap.find((*objectIter)->getXmlName());
+                }
+                else
+                    iter->second++; // found another
+
+                #ifdef DEBUG_XML_OBJECT
+                LOG_DEBUG << "object: " << (*objectIter)->getXmlName() << " " << iter->second << std::endl;
+                #endif
+
+                // find an element with same name at a specific index, add if it dosen't exist
+                child = Xml::obtainElement(e, (*objectIter)->getXmlName(), iter->second);
             }
-            else
-                iter->second++; // found another
-
-            #ifdef DEBUG_XML_OBJECT
-            LOG_DEBUG << "object: " << (*objectIter)->getXmlName() << " " << iter->second << std::endl;
-            #endif
-
-            // find an element with same name at a specific index, add if it dosen't exist
-            child = Xml::obtainElement(e, (*objectIter)->getXmlName(), iter->second);
+            else {
+                // stay on same element
+                child = e;
+            }
 
             // save object
             (*objectIter)->saveXml(child);

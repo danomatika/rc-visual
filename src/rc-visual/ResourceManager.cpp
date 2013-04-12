@@ -24,9 +24,6 @@
 
 using namespace visual;
 
-ResourceManager::ResourceManager()
-{}
-
 ResourceManager::~ResourceManager()
 {
     clear();
@@ -35,11 +32,14 @@ ResourceManager::~ResourceManager()
 void ResourceManager::clear()
 {
 	clearFonts();
+	clearImages();
 }
 
-bool ResourceManager::addFont(const string& name, const string& filename, unsigned int size)
+// FONT
+
+bool ResourceManager::addFont(const string& name, const string& file, unsigned int size)
 {
-	Font *f = new Font(filename, size);
+	Font *f = new Font(file, size);
 	if(!f->isLoaded())
 		return false;
 	fonts.insert(pair<string,Font*>(name, f));
@@ -54,6 +54,16 @@ void ResourceManager::removeFont(const string& name)
 		delete iter->second;
 		fonts.erase(iter);
 	}
+}
+
+bool ResourceManager::fontExists(const string& name)
+{
+	map<string,Font*>::iterator iter = fonts.find(name);
+	if(iter != fonts.end())
+	{
+		return true;
+	}
+	return false;
 }
 
 Font* ResourceManager::getFont(const string& name)
@@ -71,4 +81,52 @@ void ResourceManager::clearFonts()
 	for(iter = fonts.begin(); iter != fonts.end(); iter++)
     	delete iter->second;
 	fonts.clear();
+}
+
+// IMAGE
+
+bool ResourceManager::addImage(const string& name, const string& file)
+{
+	Image *i = new Image(file);
+	if(!i->isLoaded())
+		return false;
+	images.insert(pair<string,Image*>(name, i));
+	return true;
+}
+
+void ResourceManager::removeImage(const string& name)
+{
+	map<string,Image*>::iterator iter = images.find(name);
+	if(iter != images.end())
+	{
+		delete iter->second;
+		images.erase(iter);
+	}
+}
+
+bool ResourceManager::imageExists(const string& name)
+{
+	map<string,Image*>::iterator iter = images.find(name);
+	if(iter != images.end())
+	{
+		return true;
+	}
+	return false;
+}
+
+visual::Image* ResourceManager::getImage(const string& name)
+{
+	map<string,Image*>::iterator iter = images.find(name);
+	if(iter != images.end())
+		return iter->second;
+	else
+		return NULL;
+}
+
+void ResourceManager::clearImages()
+{
+	map<string,Image*>::iterator iter;
+	for(iter = images.begin(); iter != images.end(); iter++)
+    	delete iter->second;
+	images.clear();
 }

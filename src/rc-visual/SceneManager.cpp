@@ -22,18 +22,15 @@
 ==============================================================================*/
 #include "SceneManager.h"
 
-#include "App.h"
-
 #define SCENE_NAME_MS			1250
 #define SCENE_NAME_FONT_SIZE	50
 
 using namespace visual;
 
-SceneManager::SceneManager(App& app) :
-    XmlObject(Config::instance().getXmlName()),
+SceneManager::SceneManager() :
+    XmlObject(PACKAGE),
 	OscObject(Config::instance().baseAddress),
-    _app(app), _currentScene(-1),
-    _bShowSceneName(true)
+    _currentScene(-1), _bShowSceneName(true)
 {
 	_sceneNameFont.load(Config::instance().fontFilename, SCENE_NAME_FONT_SIZE);
 }
@@ -198,27 +195,34 @@ void SceneManager::load(const string& file)
 {
 	closeXmlFile();
 	clear();
-	loadXmlFile(file);
-	setup();
+	if(loadXmlFile(file))
+	{
+		// set data path to config file folder
+		visual::Util::setDataPath(visual::Util::getDirPath(getXmlFilename()));
+	
+		setup();
+	}
 }
 
 void SceneManager::reload()
 {
 	closeXmlFile();
     clear(true);
-    loadXmlFile();
-    setup();
+    if(loadXmlFile())
+	{
+		setup();
+	}
 }
 
 /* ***** PROTECTED ***** */
 
 void SceneManager::setupScene(Scene* s)
 {
-	_app.setBackground(s->getBackground());
+	Config::instance().getApp()->setBackground(s->getBackground());
     
     if(s->getFPS() > 0)
     {
-    	_app.setFrameRate(s->getFPS());
+    	Config::instance().getApp()->setFrameRate(s->getFPS());
     }
     
     _sceneNameTimer.setAlarm(SCENE_NAME_MS);

@@ -30,7 +30,6 @@ class ResourceManager
 {
     public:
 
-        ResourceManager();
         ~ResourceManager();
 
 		void clear();
@@ -38,12 +37,21 @@ class ResourceManager
 		/// fonts
         bool addFont(const string& name, const string& file, unsigned int size);
         void removeFont(const string& name);
+		bool fontExists(const string& name);
 		visual::Font* getFont(const string& name);
 		void clearFonts();
+		
+		/// fonts
+        bool addImage(const string& name, const string& file);
+        void removeImage(const string& name);
+		bool imageExists(const string& name);
+		visual::Image* getImage(const string& name);
+		void clearImages();
 
     protected:
 
         std::map<string,visual::Font*> fonts;
+		std::map<string,visual::Image*> images;
 };
 
 #endif // RESOURCE_MANAGER_H
