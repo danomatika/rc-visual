@@ -36,6 +36,7 @@ int main(int argc, char *argv[])
 		Util::setDataPath(Util::makeAbsolutePath(Util::getDirPath(Util::getExecutablePath())+"/../../data"));
 	#endif
 	LOG << "Resource dir is " << Util::getDataPath() << endl;
+    string iconPath = Util::toDataPath("icon.bmp");
 
 	// create an App before parsing, so xml is loaded into SceneManager
 	App application;
@@ -51,7 +52,7 @@ int main(int argc, char *argv[])
     application.init();
 
     // set icon and open window
-    Graphics::setWindowIcon(Util::toDataPath("icon.bmp"));
+    Graphics::setWindowIcon(iconPath);
     Graphics::createWindow(PACKAGE);
 
     // setup sdl resources
