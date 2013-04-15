@@ -144,6 +144,8 @@ bool Bitmap::readXml(TiXmlElement* e)
         }
 
         // correct size?
+		if(bitmapWidth == 0)	bitmapWidth = 1;
+		if(bitmapHeight == 0)	bitmapHeight = 1;
         if(numPix < bitmapWidth*bitmapHeight)
         {
             LOG_WARN << "Bitmap: Not enough pixels in frame: " << numPix

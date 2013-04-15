@@ -50,7 +50,7 @@ bool XmlObject::loadXml(TiXmlElement* e)
     }
 
     // check if the element is correct
-    if(e->ValueStr() != m_elementName)
+    if(!m_elementName.empty() && e->ValueStr() != m_elementName)
     {
         LOG_WARN << "Xml \"" << m_elementName << "\": wrong xml element name \""
         		 << e->ValueStr() << "\" for object with element name \""
@@ -124,9 +124,11 @@ bool XmlObject::loadXml(TiXmlElement* e)
         	TiXmlElement* elementToLoad = NULL;
         
         	// check the parent element
-            if((*objectIter)->getXmlName() == e->ValueStr())
+            if((*objectIter)->getXmlName() == "" ||
+                (*objectIter)->getXmlName() == e->ValueStr())
             {
-            	elementToLoad = e;
+                // same element as parent
+                elementToLoad = e;
             }
             else // find element in list using xml name
             {

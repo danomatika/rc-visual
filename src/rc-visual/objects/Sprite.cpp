@@ -330,6 +330,13 @@ bool Sprite::processOscMessage(const osc::ReceivedMessage& message,
         return true;
     }
 
+	else if(message.path() == getOscRootAddress() + "/frame")
+    {
+    	unsigned int frame = 0;
+		message.tryNumber(&frame, 0);
+        gotoFrame(frame);
+        return true;
+    }
 
     else if(message.path() == getOscRootAddress() + "/center")
     {
