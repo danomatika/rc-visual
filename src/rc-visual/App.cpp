@@ -93,7 +93,8 @@ void App::setup()
     sceneManager.setup();
     
     // notify of connection
-   	sender << BeginMessage(config.notificationAddress) << "connect" << 0 << EndMessage();
+   	sender << BeginMessage(config.notificationAddress) << "connect"
+		   << (int) config.connectionId << EndMessage();
    	sender.send();
 }
 
@@ -120,7 +121,8 @@ void App::cleanup()
 {
 
 	// notify of disconnection
-   	sender << BeginMessage(config.notificationAddress) << "disconnect" << 0 << EndMessage();
+   	sender << BeginMessage(config.notificationAddress) << "disconnect"
+		   << (int) config.connectionId << EndMessage();
    	sender.send();
 
     receiver.stop();

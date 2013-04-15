@@ -48,18 +48,23 @@ bool Config::parseCommandLine(int argc, char **argv)
         // options to parse
         // short id, long id, description, required?, default value, short usage type description
         TCLAP::ValueArg<string> ipOpt("i", "ip", (string) "IP address to send to; default is '"+sendingIp+"'", false, sendingIp, "string");
-        TCLAP::ValueArg<int> 	portOpt("p","port", (string) "Port to send to; default is '"+itoa.str()+"'", false, sendingPort, "int");
+        TCLAP::ValueArg<int> portOpt("p","port", (string) "Port to send to; default is '"+itoa.str()+"'", false, sendingPort, "int");
      
         itoa.str("");
         itoa << listeningPort;
-        TCLAP::ValueArg<int>	inputPortOpt("", "listening_port", "Listening port; default is '"+itoa.str()+"'", false, listeningPort, "int");
+        TCLAP::ValueArg<int> inputPortOpt("", "listeningPort", "Listening port; default is '"+itoa.str()+"'", false, listeningPort, "int");
         
+		itoa.str("");
+        itoa << connectionId;
+        TCLAP::ValueArg<int> connectionIdOpt("", "connectionId", "Connection id for notfications; default is '"+itoa.str()+"'", false, connectionId, "int");
+		
         // commands to parse
         // name, description, required?, default value, short usage type description
         TCLAP::UnlabeledValueArg<string> fileCmd("xml", "visual xml file to load", false, "", "file");
 
         // add args to parser (in reverse order)
-        cmd.add(inputPortOpt);
+        cmd.add(connectionIdOpt);
+		cmd.add(inputPortOpt);
         cmd.add(portOpt);
         cmd.add(ipOpt);
         
@@ -86,9 +91,10 @@ bool Config::parseCommandLine(int argc, char **argv)
 		}
         
         // set the variables, may override xml settings
-        if(ipOpt.isSet())		 sendingIp = ipOpt.getValue();
-        if(portOpt.isSet()) 	 sendingPort = portOpt.getValue();
-        if(inputPortOpt.isSet()) listeningPort = inputPortOpt.getValue();
+        if(ipOpt.isSet())			sendingIp = ipOpt.getValue();
+        if(portOpt.isSet())			sendingPort = portOpt.getValue();
+        if(inputPortOpt.isSet())	listeningPort = inputPortOpt.getValue();
+		if(connectionIdOpt.isSet())	connectionId = connectionIdOpt.getValue();
     }
     catch(TCLAP::ArgException &e)  // catch any exceptions
 	{
@@ -111,7 +117,8 @@ void Config::print()
     	<< "sending ip: " << sendingIp << endl
         << "sending port: " << sendingPort << endl
         << "sending address for notifications: " << notificationAddress << endl
-        << "sending address for devices:       " << deviceAddress << endl;
+        << "sending address for devices:       " << deviceAddress << endl
+		<< "connection id for notifications: " << connectionId << endl;
 }
 
 /* ***** PRIVATE ***** */
@@ -123,6 +130,7 @@ Config::Config() :
 	baseAddress((string) "/"+PACKAGE),
     notificationAddress(baseAddress+"/notifications"),
     deviceAddress(baseAddress+"/devices"),
+	connectionId(0),
     fontFilename(visual::Util::toDataPath("ATARCC__.TTF"))
 {
 	// attach config values to xml attributes
@@ -133,4 +141,5 @@ Config::Config() :
     
     addXmlAttribute("notificationAddress", "osc", XML_TYPE_STRING, &notificationAddress);
     addXmlAttribute("deviceAddress", "osc", XML_TYPE_STRING, &deviceAddress);
+	addXmlAttribute("connectionId", "osc", XML_TYPE_UINT, &connectionId);
 }

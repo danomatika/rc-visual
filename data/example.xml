@@ -3,7 +3,7 @@
 
 	<listening port="9990"/>
 	<sending ip="127.0.0.1" port="8880"/>
-	<osc notificationAddress="/pd/visual" deviceAddress="/pd/devices"/>
+	<osc notificationAddress="/pd/visual" deviceAddress="/pd/devices" connectionId="0"/>
 
 	<scene name="scene1">
 		<background R="0" G="0" B="0" A="255"/>

@@ -70,10 +70,12 @@ class Config : public xml::XmlObject
         string sendingIp;				///< ip to send to
         unsigned int sendingPort;		///< port to send to
         
-        string baseAddress;			///< base osc sending address
+        string baseAddress;				///< base osc sending address
         string notificationAddress;		///< base osc sending address for notifications
         string deviceAddress;			///< base osc sending addess for devices
-        
+    
+		unsigned int connectionId;		///< our connection id when sending notifications
+		
         string fontFilename;			///< font filename
 
 		/* **** OBJECTS ***** */
