@@ -56,7 +56,7 @@ bool Config::parseCommandLine(int argc, char **argv)
         
 		itoa.str("");
         itoa << connectionId;
-        TCLAP::ValueArg<int> connectionIdOpt("", "connectionId", "Connection id for notfications; default is '"+itoa.str()+"'", false, connectionId, "int");
+        TCLAP::ValueArg<int> connectionIdOpt("", "connectionId", "Connection id for notifications; default is '"+itoa.str()+"'", false, connectionId, "int");
 		
         // commands to parse
         // name, description, required?, default value, short usage type description

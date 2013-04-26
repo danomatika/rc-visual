@@ -23,6 +23,7 @@
 #include "App.h"
 
 #include <sstream>
+#include <sys/signal.h>
 
 using namespace visual;
 
