@@ -1,19 +1,36 @@
 <?xml version="1.0"?>
 <rc-visual>
 
+	<!-- OSC receive settings -->
 	<listening port="9990"/>
+
+	<!-- OSC send settings -->
 	<sending ip="127.0.0.1" port="8880"/>
+
+	<!-- specify the OSC addresses when sending notifications and device (keyboard)
+		 events
+
+		 connectionId is sent withnotifications to differentiate between
+		 multiple rc-visual instances
+	-->
 	<osc notificationAddress="/pd/visual" deviceAddress="/pd/devices" connectionId="0"/>
 
+	<!-- this file is divided up into multiple scenes which can be switched between -->
+
+	<!-- graphics primitives -->
 	<scene name="scene1">
+
+		<!-- set the background -->
 		<background R="0" G="0" B="0" A="255"/>
 		
+		<!-- a single pixel -->
 		<pixel name="pixel">
 			<position x="10" y="10"/>
 			<color R="255" G="255" B="255" A="255"/>
 			<visible yesno="1"/>
 		</pixel>
 		
+		<!-- a line -->
 		<line name="line">
 			<position1 x="200" y="400"/>
 			<position2 x="580" y="400"/>
@@ -21,6 +38,7 @@
 			<visible yesno="1"/>
 		</line>
 		
+		<!-- a rectangle -->
 		<rect name="rect">
 			<position x="100" y="100"/>
 			<size width="200" height="260"/>
@@ -30,15 +48,23 @@
 		
 	</scene>
 	
+	<!-- bitmaps and sprites -->
 	<scene name="scene2">
 		<background R="64" G="64" B="64" A="255"/>
 		
+		<!-- a simple, single color bitmap, stretched to fit a given size -->
 		<bitmap name="bitmap" width="5" height="5">
 			<position x="250" y="500"/>
 			<size width="500" height="500"/>
 			<center yesno="1"/>
 			<color R="200" G="200" B="200" A="255"/>
 			<visible yesno="1"/>
+			<!-- draw the bitmap in the <frame>
+				 - '*': a filled pixel
+				 - '_': an empty pixel
+
+				 total number of pixels must match width/height in <bitmap>
+			-->
 			<frame>
 			--*--
 			--*--
@@ -48,11 +74,13 @@
 			</frame>
 		</bitmap>
 	
+		<!-- a sprite is a sequence of bitmaps and/or images -->
 		<sprite name="sprite1">
 			<position x="320" y="240"/>
 			<animation animate="1" loop="1" pingpong="1"/>
 			<center yesno="1"/>
 			<overlay yesno="0"/>
+			<!-- notes addition of frametime (milliseconds) for animation -->
 			<bitmap frametime="1000" width="5" height="5">
 				<size width="50" height="50" />
 				<color R="0" G="200" B="0" A="255"/>
@@ -88,12 +116,14 @@
 			</bitmap>
 		</sprite>
 	
+		<!-- this is a sprite using images -->
         <sprite name="sprite1">
             <position x="480" y="120"/>
             <size width="200" height="200"/>
             <animation animate="1" loop="1" pingpong="1"/>
             <center yesno="1"/>
             <overlay yesno="0"/>
+            <!-- notes addition of frametime (milliseconds) for animation -->
             <image frametime="100" file="animation/frame1.gif"/>
             <image frametime="100" file="animation/frame2.gif"/>
             <image frametime="100" file="animation/frame3.gif"/>
@@ -105,21 +135,28 @@
 
     </scene>
 
+    <!-- images and text -->
 	<scene name="scene3">
 		<background R="64" G="64" B="64" A="255"/>
 		
+		<!-- an image, rescaled when loaded to fit given size -->
 		<image name="image1" file="icon.png">
 			<position x="100" y="100"/>
 			<size width="50" height="50"/>
 			<center yesno="0"/>
 			<visible yesno="1"/>
 		</image>
+
+		<!-- image files can be reused as the filename is used as a unique id
+		     for reusing currently loaded images
+		-->
         <image name="image2" file="icon.png">
             <position x="150" y="150"/>
             <size width="50" height="50"/>
             <center yesno="0"/>
             <visible yesno="1"/>
         </image>
+        
         <image name="image3" file="icon.png">
             <position x="200" y="200"/>
             <size width="50" height="50"/>
@@ -127,6 +164,7 @@
             <visible yesno="1"/>
         </image>
 
+        <!-- draw some text -->
 		<text name="text">
 			<position x="320" y="240"/>
 			<center yesno="1"/>
