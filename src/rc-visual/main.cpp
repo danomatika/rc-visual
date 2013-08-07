@@ -46,14 +46,16 @@ int main(int argc, char *argv[])
     	return EXIT_FAILURE;
 	
     // initialize SDL context
-    Graphics::init(640, 480, 24, HARDWARE);
+    if(!Graphics::init(640, 480, 24, HARDWARE))
+		return EXIT_FAILURE;
 
     // initialize app
     application.init();
 
     // set icon and open window
     Graphics::setWindowIcon(iconPath);
-    Graphics::createWindow(PACKAGE);
+    if(!Graphics::createWindow(PACKAGE))
+		return EXIT_FAILURE;
 
     // setup sdl resources
     application.setup();

@@ -208,6 +208,16 @@ Example, tell rc-visual running on machine at 10.0.0.100 using port 10100 to shu
 % rc-visual-send -i 10.0.0.100 -p 10100 quit
 </pre>
 
+----
+### Console Error
+
+As rc-visual uses SDL, it will not work over a SSH connection and you'll get the following error:
+<pre>
+Error: Graphics: Unable to open a console terminal
+</pre>
+
+Run it from a real terminal on the machine.
+
 DEVELOPING
 ----------
 
