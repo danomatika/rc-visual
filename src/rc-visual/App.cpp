@@ -133,13 +133,40 @@ void App::keyPressed(SDLKey key, SDLMod mod)
 {            
     switch(key)
     {
+	
+		case SDLK_UP:
+			sender << BeginMessage(config.deviceAddress + "/keyboard")
+				   << "up" << EndMessage();
+			sender.send();
+			return;
+			
+		case SDLK_DOWN:
+			sender << BeginMessage(config.deviceAddress + "/keyboard")
+				   << "down" << EndMessage();
+			sender.send();
+			return;
+			
     	case SDLK_LEFT:
-            sceneManager.prevScene();
-            return;
+			if(mod & KMOD_SHIFT)
+            {
+				sceneManager.prevScene();
+				return;
+            }
+			sender << BeginMessage(config.deviceAddress + "/keyboard")
+				   << "left" << EndMessage();
+			sender.send();
+			return;
 
         case SDLK_RIGHT:
-            sceneManager.nextScene();
-            return;
+			if(mod & KMOD_SHIFT)
+            {
+				sceneManager.nextScene();
+				return;
+            }
+			sender << BeginMessage(config.deviceAddress + "/keyboard")
+				   << "right" << EndMessage();
+			sender.send();
+			return;
             
         case 'p':
         	if(mod & KMOD_SHIFT)
@@ -200,9 +227,9 @@ void App::keyPressed(SDLKey key, SDLMod mod)
             break;
     }
     
-    // forward key events
-    sender << BeginMessage(config.deviceAddress + "/keyboard")
-           << (unsigned char) key << EndMessage();
+	// forward key events
+	sender << BeginMessage(config.deviceAddress + "/keyboard")
+		   << (unsigned char) key << EndMessage();
     sender.send();
 }
 
