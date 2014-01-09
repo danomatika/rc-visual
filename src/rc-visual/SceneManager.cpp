@@ -6,18 +6,18 @@
   
 	Copyright (C) 2007, 2010  Dan Wilcox <danomatika@gmail.com>
 
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
+	This program is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
 
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+	You should have received a copy of the GNU General Public License
+	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ==============================================================================*/
 #include "SceneManager.h"
@@ -28,135 +28,135 @@
 using namespace visual;
 
 SceneManager::SceneManager() :
-    XmlObject(PACKAGE),
+	XmlObject(PACKAGE),
 	OscObject(Config::instance().baseAddress),
-    _currentScene(-1), _bShowSceneName(true)
+	_currentScene(-1), _bShowSceneName(true)
 {
 	_sceneNameFont.load(Config::instance().fontFilename, SCENE_NAME_FONT_SIZE);
 }
 
 SceneManager::~SceneManager()
 {
-    clear();
+	clear();
 }
 
 void SceneManager::addObject(Scene* object)
 {
-    if(object == NULL)
-    {
-        LOG_ERROR << "SceneManager: Cannot add NULL object" << endl;
-        return;
-    }
+	if(object == NULL)
+	{
+		LOG_ERROR << "SceneManager: Cannot add NULL object" << endl;
+		return;
+	}
 
-    addXmlObject(object);
+	addXmlObject(object);
 
-    _objectList.push_back(object);
+	_objectList.push_back(object);
 }
 
 void SceneManager::removeObject(Scene* object)
 {
-    if(object == NULL)
-    {
-        LOG_ERROR << "SceneManager: Cannot remove NULL object" << endl;
-        return;
-    }
+	if(object == NULL)
+	{
+		LOG_ERROR << "SceneManager: Cannot remove NULL object" << endl;
+		return;
+	}
 
-    vector<Scene*>::iterator iter;
-    iter = find(_objectList.begin(), _objectList.end(), object);
-    if(iter != _objectList.end())
-    {
-        removeXmlObject((*iter));
-        _objectList.erase(iter);
-    }
+	vector<Scene*>::iterator iter;
+	iter = find(_objectList.begin(), _objectList.end(), object);
+	if(iter != _objectList.end())
+	{
+		removeXmlObject((*iter));
+		_objectList.erase(iter);
+	}
 }
 
 void SceneManager::clear(bool keepCurScene)
 {
-    /// delete all the objects
-    for(unsigned int i = 0; i < _objectList.size(); ++i)
-    {
-        Scene* o = _objectList.at(i);
-        removeXmlObject(o);
-        delete o;
-    }
-    _objectList.clear();
-    
-    if(!keepCurScene)
-    {
-    	_currentScene = 0;
+	/// delete all the objects
+	for(unsigned int i = 0; i < _objectList.size(); ++i)
+	{
+		Scene* o = _objectList.at(i);
+		removeXmlObject(o);
+		delete o;
+	}
+	_objectList.clear();
+	
+	if(!keepCurScene)
+	{
+		_currentScene = 0;
 	}
 }
 
 void SceneManager::nextScene()
 {
-    if(_objectList.empty())
-        return;
+	if(_objectList.empty())
+		return;
 
-    _currentScene++;
+	_currentScene++;
 
-    if(_currentScene >= (int) _objectList.size())
-    {
-        _currentScene = 0;
-    }
+	if(_currentScene >= (int) _objectList.size())
+	{
+		_currentScene = 0;
+	}
 
-    LOG_DEBUG << "SceneManager: Changed to scene \"" << _objectList.at(_currentScene)->getName() << "\"" << std::endl;
+	LOG_DEBUG << "SceneManager: Changed to scene \"" << _objectList.at(_currentScene)->getName() << "\"" << std::endl;
 
-    setupScene(_objectList.at(_currentScene));
+	setupScene(_objectList.at(_currentScene));
 }
 
 void SceneManager::prevScene()
 {
-    if(_objectList.empty())
-        return;
+	if(_objectList.empty())
+		return;
 
-    _currentScene--;
+	_currentScene--;
 
-    if(_currentScene < 0)
-    {
-        _currentScene = _objectList.size()-1;
-    }
+	if(_currentScene < 0)
+	{
+		_currentScene = _objectList.size()-1;
+	}
 
-    LOG_DEBUG << "SceneManager: Changed to scene \"" << _objectList.at(_currentScene)->getName() << "\"" << std::endl;
+	LOG_DEBUG << "SceneManager: Changed to scene \"" << _objectList.at(_currentScene)->getName() << "\"" << std::endl;
 
-    setupScene(_objectList.at(_currentScene));
+	setupScene(_objectList.at(_currentScene));
 }
 
 void SceneManager::gotoScene(unsigned int num)
 {
-    if(_objectList.empty())
-        return;
+	if(_objectList.empty())
+		return;
 
-    if(_currentScene >= (int) _objectList.size())
-    {
-        LOG_WARN << "SceneManager: Cannot goto scene num " << num
-                 << ", index out of range" << endl;
-        return;
-    }
+	if(_currentScene >= (int) _objectList.size())
+	{
+		LOG_WARN << "SceneManager: Cannot goto scene num " << num
+				 << ", index out of range" << endl;
+		return;
+	}
 
-    _currentScene = num;
+	_currentScene = num;
 
-    LOG_DEBUG << "SceneManager: Changed scene to \""
-              << _objectList.at(_currentScene)->getName() << "\""<< endl;
+	LOG_DEBUG << "SceneManager: Changed scene to \""
+			  << _objectList.at(_currentScene)->getName() << "\""<< endl;
 
 	setupScene(_objectList.at(_currentScene));
 }
 
 void SceneManager::gotoScene(string name)
 {
-    for(unsigned int i = 0; i < _objectList.size(); ++i)
-    {
-        if(name == _objectList.at(i)->getName())
-        {
-            _currentScene = i;
+	for(unsigned int i = 0; i < _objectList.size(); ++i)
+	{
+		if(name == _objectList.at(i)->getName())
+		{
+			_currentScene = i;
 
-            LOG_DEBUG << "SceneManager: Changed scene to \""
-                      << _objectList.at(_currentScene)->getName() << "\"" << endl;
-                      
-            setupScene(_objectList.at(_currentScene));
+			LOG_DEBUG << "SceneManager: Changed scene to \""
+					  << _objectList.at(_currentScene)->getName() << "\"" << endl;
+					  
+			setupScene(_objectList.at(_currentScene));
 
-            return;
-        }
-    }
+			return;
+		}
+	}
 }
 
 void SceneManager::setup()
@@ -166,29 +166,29 @@ void SceneManager::setup()
 		visual::Util::setDataPath(visual::Util::getDirPath(getXmlFilename()));
 
 	// setup all scenes
-    for(unsigned int i = 0; i < _objectList.size(); ++i)
-    {
-    	_objectList.at(i)->setup();
-    }
+	for(unsigned int i = 0; i < _objectList.size(); ++i)
+	{
+		_objectList.at(i)->setup();
+	}
 
 	// try to load the first scene
-    if(_currentScene < 0)
-    	gotoScene(0);
+	if(_currentScene < 0)
+		gotoScene(0);
 }
 
 void SceneManager::draw()
 {
-    if(_currentScene >= 0 && _currentScene < (int) _objectList.size())
-    {
-    	Scene* s = _objectList.at(_currentScene);
-    	s->draw();
-       
-    	if(_bShowSceneName && !_sceneNameTimer.alarm())
-    	{
-            Graphics::stroke(0xFF00FF);
-       		_sceneNameFont.draw(0, Graphics::getHeight()-SCENE_NAME_FONT_SIZE, s->getName());
-    	}
-    }
+	if(_currentScene >= 0 && _currentScene < (int) _objectList.size())
+	{
+		Scene* s = _objectList.at(_currentScene);
+		s->draw();
+	   
+		if(_bShowSceneName && !_sceneNameTimer.alarm())
+		{
+			Graphics::stroke(0xFF00FF);
+			_sceneNameFont.draw(0, Graphics::getHeight()-SCENE_NAME_FONT_SIZE, s->getName());
+		}
+	}
 }
 
 void SceneManager::load(const string& file)
@@ -207,8 +207,8 @@ void SceneManager::load(const string& file)
 void SceneManager::reload()
 {
 	closeXmlFile();
-    clear(true);
-    if(loadXmlFile())
+	clear(true);
+	if(loadXmlFile())
 	{
 		setup();
 	}
@@ -219,47 +219,47 @@ void SceneManager::reload()
 void SceneManager::setupScene(Scene* s)
 {
 	Config::instance().getApp()->setBackground(s->getBackground());
-    
-    if(s->getFPS() > 0)
-    {
-    	Config::instance().getApp()->setFrameRate(s->getFPS());
-    }
-    
-    _sceneNameTimer.setAlarm(SCENE_NAME_MS);
+	
+	if(s->getFPS() > 0)
+	{
+		Config::instance().getApp()->setFrameRate(s->getFPS());
+	}
+	
+	_sceneNameTimer.setAlarm(SCENE_NAME_MS);
 }
 
 /* ***** XML CALLBACKS ***** */
 
 bool SceneManager::readXml(TiXmlElement* e)
 {
-    string name;
+	string name;
 
-    TiXmlElement* child = e->FirstChildElement();
-    while(child != NULL)
-    {
-        if(child->ValueStr() == "scene")
-        {
-            if((name = Xml::getAttrString(child, "name")) != "")
-            {
-                Scene* s = new Scene(name, getOscRootAddress());
-                s->loadXml(child);
-                addObject(s);
+	TiXmlElement* child = e->FirstChildElement();
+	while(child != NULL)
+	{
+		if(child->ValueStr() == "scene")
+		{
+			if((name = Xml::getAttrString(child, "name")) != "")
+			{
+				Scene* s = new Scene(name, getOscRootAddress());
+				s->loadXml(child);
+				addObject(s);
 				
 				LOG_DEBUG << "SceneManager: Loaded scene \"" << name << "\" \""
 					<< s->getOscRootAddress() << "\"" << std::endl;
-            }
-            else
-            {
+			}
+			else
+			{
 
-                LOG_WARN << "SceneManager: Cannot load scene without name, line "
-                         << child->Row() << endl;
-            }
-        }
+				LOG_WARN << "SceneManager: Cannot load scene without name, line "
+						 << child->Row() << endl;
+			}
+		}
 
-        child = child->NextSiblingElement();
-    }
+		child = child->NextSiblingElement();
+	}
 
-    return true;
+	return true;
 }
 
 /* ***** OSC CALLBACKS ***** */
@@ -267,10 +267,10 @@ bool SceneManager::readXml(TiXmlElement* e)
 bool SceneManager::processOscMessage(const osc::ReceivedMessage& message,
 									 const osc::MessageSource& source)
 {
-    if(_currentScene >= 0 && _currentScene < (int) _objectList.size())
-    {
-        return _objectList.at(_currentScene)->processOsc(message, source);
-    }
+	if(_currentScene >= 0 && _currentScene < (int) _objectList.size())
+	{
+		return _objectList.at(_currentScene)->processOsc(message, source);
+	}
 
-    return false;
+	return false;
 }

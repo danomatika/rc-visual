@@ -27,6 +27,7 @@
 #elif defined( __APPLE_CC__)
 	#include <mach-o/dyld.h>
 #endif
+#include <unistd.h>
 
 namespace visual {
 
