@@ -10,7 +10,7 @@
 	<!-- specify the OSC addresses when sending notifications and device (keyboard)
 		 events
 
-		 connectionId is sent withnotifications to differentiate between
+		 connectionId is sent with notifications to differentiate between
 		 multiple rc-visual instances
 	-->
 	<osc notificationAddress="/pd/visual" deviceAddress="/pd/devices" connectionId="0"/>

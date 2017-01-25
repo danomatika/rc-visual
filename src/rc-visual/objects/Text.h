@@ -91,10 +91,9 @@ class Text : public DrawableObject
 			}
 
 
-			else if(message.path() == getOscRootAddress() + "/string" &&
-					message.types() == "s")
+			else if(message.path() == getOscRootAddress() + "/string")
 			{
-				text = message.asString(0);
+				message.tryString(&text, 0);
 				return true;
 			}
 			

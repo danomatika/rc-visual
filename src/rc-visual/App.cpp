@@ -173,7 +173,7 @@ void App::keyPressed(SDLKey key, SDLMod mod)
 			{
 				bRunning = !bRunning;
 				receiver.ignoreMessages(!bRunning);
-				LOG_DEBUG << "Running: " << bDebug << endl;
+				LOG_DEBUG << "Running: " << bRunning << endl;
 				return;
 			}
 			break;
